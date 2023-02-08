@@ -1,5 +1,9 @@
+@import 'libs/bootstrap-reboot.min';
+@import 'libs/bootstrap-grid.min';
+@import 'libs/font';
+
 * {
-    font-family: 'Aboreto', cursive;
+    font-family: 'Philosopher', sans-serif;
 }
 
 html {
@@ -30,6 +34,14 @@ html {
     .main-display {
         &__header {
             font-size: 75px;
+        }
+    }
+}
+
+@media (max-width: 577px) {
+    .main-display {
+        &__header {
+            font-size: 45px;
         }
     }
 }
