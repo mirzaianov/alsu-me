@@ -1,0 +1,14 @@
+@import './styles/lamkov.css';
+@import './styles/vars.css';
+@import './styles/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
