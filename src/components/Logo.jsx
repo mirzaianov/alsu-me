@@ -1,14 +1,17 @@
 import propTypes from 'prop-types';
 
 const style = {
-  title: `text-center bg-gradient-to-br from-[var(--primary-30)] via-[var(--primary-20)] to-[var(--primary-10)] text-transparent bg-clip-text text-red`,
+  title: `text-center bg-gradient-to-br from-[var(--primary-30)] from-25% via-[var(--primary-20)] to-[var(--primary-10)] to-90% text-transparent bg-clip-text text-red`,
 };
 
 const Logo = ({ size }) => {
   return (
     <div
       className={style.title}
-      style={{ fontSize: `var(${size})`, fontFamily: `Dela Gothic One` }}
+      style={{
+        fontSize: `var(${size})`,
+        fontFamily: `'Dela Gothic One', sans-serif`,
+      }}
     >
       alsu.
     </div>
