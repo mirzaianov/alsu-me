@@ -1,18 +1,14 @@
-import { useState } from 'react';
+import Logo from './components/Logo';
 
-import './App.css';
-
-export default function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
     <>
       <h1>New App Template</h1>
-      <div className="card">
-        <button onClick={() => setCount((prev) => prev + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Logo size="--logo-desktop" />
+      <Logo size="--logo-tablet" />
+      <Logo size="--logo-mobile" />
     </>
   );
-}
+};
+
+export default App;

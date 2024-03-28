@@ -1,4 +1,3 @@
-@import './styles/lamkov.css';
 @import './styles/vars.css';
 @import './styles/fonts.css';
 
@@ -6,9 +5,19 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  max-width: 1320px;
+  text-align: center;
+}
+
 body {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  background-color: var(--neutral-00);
+  font-family: 'Inter';
+  color: var(--text-90);
+  font-size: var(--p);
+  line-height: 1.2;
 }
