@@ -1,6 +1,6 @@
 @font-face {
   font-display: swap;
-  font-family: 'Inter';
+  font-family: 'Inter', system-ui, sans-serif;
   font-style: normal;
   font-weight: 400;
   src: local('Inter');
@@ -10,10 +10,10 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Inter Bold';
+  font-family: 'Inter', system-ui, sans-serif;
   font-style: normal;
   font-weight: 700;
-  src: local('Inter');
+  src: local('Inter Bold');
   src: url('../assets/fonts/inter-v13-cyrillic_cyrillic-ext_latin_latin-ext-700.woff2')
     format('woff2');
 }

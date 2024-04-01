@@ -47,6 +47,8 @@
   --container-desctop: 1062px;
   --container-tablet: 560px;
   --container-mobile: 400px;
+  --button: 16px;
+  --button-large: 24px;
   --body: 16px;
   --body-large: 20px;
   --heading-s: 24px;

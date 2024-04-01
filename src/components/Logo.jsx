@@ -1,26 +1,18 @@
 import propTypes from 'prop-types';
+import logo from '../assets/icons/logo.svg';
 
-const style = {
-  title: `text-center bg-gradient-to-br from-[var(--primary-30)] from-25% via-[var(--primary-20)] to-[var(--primary-10)] to-90% text-transparent bg-clip-text text-red`,
-};
-
-const Logo = ({ size }) => {
+const Logo2 = ({ height = 'var(--body)' }) => {
   return (
-    <div
-      className={style.title}
-      style={{
-        fontSize: `var(${size})`,
-        fontFamily: `'Dela Gothic One', sans-serif`,
-      }}
-    >
-      alsu.
-    </div>
+    <img
+      style={{ height: `var(${height})` }}
+      src={logo}
+      alt="Logo"
+    />
   );
 };
 
-Logo.propTypes = {
-  text: propTypes.string.isRequired,
-  size: propTypes.number.isRequired,
+Logo2.propTypes = {
+  height: propTypes.string,
 };
 
-export default Logo;
+export default Logo2;
