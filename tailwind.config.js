@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {},
     screens: {
-      sm: '576px',
+      mobile: '576px',
       // => @media (min-width: 576px) { ... }
 
-      md: '992px',
+      tablet: '992px',
       // => @media (min-width: 992px) { ... }
     },
   },
