@@ -16,6 +16,7 @@ const Logo = ({ size = 'mobile' }) => {
 
   return (
     <img
+      className="w-fit"
       style={{ height: style.height }}
       src={logo}
       alt="Logo"
