@@ -23,8 +23,9 @@ const Menu = ({ type = '' }) => {
         'hero about services prices testimonials contacts'
       `,
       paddingInline: 'var(--l)',
-      minWidth: '550px',
+      minWidth: '460px',
       maxWidth: '640px',
+      flex: '1 1 auto',
     };
 
     LIstyle = {

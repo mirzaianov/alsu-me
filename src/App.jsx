@@ -1,15 +1,18 @@
-import Logo from './components/Logo';
-import Hamburger from './components/Hamburger';
-import Button from './components/Button';
-import Badge from './components/Badge';
-import Note from './components/Note';
-import Menu from './components/Menu';
-import NavBar from './components/NavBar';
+// import Logo from './components/Logo';
+// import Hamburger from './components/Hamburger';
+// import Button from './components/Button';
+// import Badge from './components/Badge';
+// import Note from './components/Note';
+// import Menu from './components/Menu';
+import Hero from './components/Hero';
 
 const App = () => {
   return (
-    <div className="container mx-auto flex flex-col gap-2 p-5">
-      <h1>Karimova</h1>
+    <div
+      className={`py-[var(--s)] tablet:py-[var(--xl)] desktop:py-[var(--3xl)]`}
+    >
+      <Hero />
+      {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />
       <Logo />
@@ -102,7 +105,7 @@ const App = () => {
       <Menu type="inline" />
       <Menu type="block-2" />
       <Menu type="block-3" />
-      <NavBar />
+      <NavBar /> */}
     </div>
   );
 };

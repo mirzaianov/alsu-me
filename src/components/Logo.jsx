@@ -14,8 +14,6 @@ const Logo = ({ size = '' }) => {
     style.height = 'var(--xl)';
   }
 
-  console.log(style.height);
-
   return (
     <img
       className="w-fit"
