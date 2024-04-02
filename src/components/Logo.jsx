@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import logo from '../assets/icons/logo.svg';
 
-const Logo = ({ size = 'mobile' }) => {
+const Logo = ({ size = '' }) => {
   const style = {
     height: 'var(--m)',
   };
@@ -13,6 +13,8 @@ const Logo = ({ size = 'mobile' }) => {
   if (size === 'tablet') {
     style.height = 'var(--xl)';
   }
+
+  console.log(style.height);
 
   return (
     <img

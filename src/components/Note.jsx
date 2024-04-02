@@ -16,14 +16,14 @@ const Note = ({ type, children }) => {
   return (
     <div
       className="
-        desktop:p-[var(--s)]
-        desktop:max-w-[365px]
-        desktop:text-body-large
         block
         max-w-[288px]
         rounded-[var(--s)]
         p-[var(--xs)]
         text-center
+        desktop:max-w-[365px]
+        desktop:p-[var(--s)]
+        desktop:text-body-large
         "
       style={{ backgroundColor: style.backgroundColor }}
     >

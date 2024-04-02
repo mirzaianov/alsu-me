@@ -1,25 +1,41 @@
 import propTypes from 'prop-types';
 
-const items = ['Главная', 'Обо мне', 'Услуги', 'Цены', 'Отзывы', 'Контакты'];
+const items = [
+  ['hero', 'Главная'],
+  ['about', 'Обо мне'],
+  ['services', 'Услуги'],
+  ['prices', 'Цены'],
+  ['testimonials', 'Отзывы'],
+  ['contacts', 'Контакты'],
+];
 
-const Menu = ({ type = 'inline' }) => {
-  let ULstyle = {
-    gridTemplateAreas: `
-      'main about services prices testimonials contacts'
-    `,
-    paddingInline: 'var(--l)',
-    minWidth: '550px',
-    maxWidth: '640px',
-  };
+const Menu = ({ type = '' }) => {
+  let ULstyle = {};
+  let LIstyle = {};
 
-  let LIstyle = {
-    textAlign: 'center',
-  };
+  if (type === '') {
+    return null;
+  }
+
+  if (type === 'inline') {
+    ULstyle = {
+      gridTemplateAreas: `
+        'hero about services prices testimonials contacts'
+      `,
+      paddingInline: 'var(--l)',
+      minWidth: '550px',
+      maxWidth: '640px',
+    };
+
+    LIstyle = {
+      textAlign: 'center',
+    };
+  }
 
   if (type === 'block-2') {
     ULstyle = {
       gridTemplateAreas: `
-      'main services testimonials'
+      'hero services testimonials'
       'about prices contacts'
     `,
       gap: 'var(--l)',
@@ -34,7 +50,7 @@ const Menu = ({ type = 'inline' }) => {
   if (type === 'block-3') {
     ULstyle = {
       gridTemplateAreas: `
-      'main prices'
+      'hero prices'
       'about testimonials'
       'services contacts'
     `,
@@ -55,48 +71,15 @@ const Menu = ({ type = 'inline' }) => {
       "
       style={{ ...ULstyle }}
     >
-      <li
-        style={{ ...LIstyle, gridArea: 'main' }}
-        id="hero"
-        key="hero"
-      >
-        <a href="#">Главная</a>
-      </li>
-      <li
-        style={{ ...LIstyle, gridArea: 'about' }}
-        id="about"
-        key="about"
-      >
-        <a href="#">Обо мне</a>
-      </li>
-      <li
-        style={{ ...LIstyle, gridArea: 'services' }}
-        id="services"
-        key="services"
-      >
-        <a href="#">Услуги</a>
-      </li>
-      <li
-        style={{ ...LIstyle, gridArea: 'prices' }}
-        id="prices"
-        key="prices"
-      >
-        <a href="#">Цены</a>
-      </li>
-      <li
-        style={{ ...LIstyle, gridArea: 'testimonials' }}
-        id="testimonials"
-        key="testimonials"
-      >
-        <a href="#">Отзывы</a>
-      </li>
-      <li
-        style={{ ...LIstyle, gridArea: 'contacts' }}
-        id="contacts"
-        key="contacts"
-      >
-        <a href="#">Контакты</a>
-      </li>
+      {items.map((item) => (
+        <li
+          style={{ ...LIstyle, gridArea: item[0] }}
+          id={item[0]}
+          key={item[0]}
+        >
+          <a href="#">{item[1]}</a>
+        </li>
+      ))}
     </ul>
   );
 };

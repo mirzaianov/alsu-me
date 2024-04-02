@@ -1,19 +1,11 @@
 import propTypes from 'prop-types';
 import hamburger from '../assets/icons/hamburger.svg';
 
-const Hamburger = ({ size = 'mobile' }) => {
-  const style = {
-    height: 'var(--m)',
-  };
-
-  if (size === 'tablet') {
-    style.height = 'var(--xl)';
-  }
-
+const Hamburger = () => {
   return (
     <button>
       <img
-        style={{ height: style.height }}
+        className="h-[var(--xl)]"
         src={hamburger}
         alt="close"
       />

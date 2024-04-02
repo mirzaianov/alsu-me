@@ -4,6 +4,7 @@ import Button from './components/Button';
 import Badge from './components/Badge';
 import Note from './components/Note';
 import Menu from './components/Menu';
+import NavBar from './components/NavBar';
 
 const App = () => {
   return (
@@ -12,7 +13,6 @@ const App = () => {
       <Logo size="desktop" />
       <Logo size="tablet" />
       <Logo />
-      <Hamburger size="tablet" />
       <Hamburger />
       <Button text="Button" />
       <Button
@@ -99,8 +99,10 @@ const App = () => {
         сотрудников
       </Note>
       <Menu />
+      <Menu type="inline" />
       <Menu type="block-2" />
       <Menu type="block-3" />
+      <NavBar />
     </div>
   );
 };
