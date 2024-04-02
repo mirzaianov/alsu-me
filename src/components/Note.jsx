@@ -1,10 +1,8 @@
 import propTypes from 'prop-types';
 
-const Note = ({ type, size = '--body', children }) => {
+const Note = ({ type, children }) => {
   const style = {
-    fontSize: `var(${size})`,
     backgroundColor: '',
-    maxWidth: '288px',
   };
 
   if (type === 'tutor') {
@@ -15,15 +13,19 @@ const Note = ({ type, size = '--body', children }) => {
     style.backgroundColor = 'var(--primary-50)';
   }
 
-  if (size === 'large') {
-    style.fontSize = 'var(--body-large)';
-    style.maxWidth = '360px';
-  }
-
   return (
     <div
-      className="block rounded-[var(--s)] p-[var(--xs)]"
-      style={{ ...style }}
+      className="
+        desktop:p-[var(--s)]
+        desktop:max-w-[365px]
+        desktop:text-body-large
+        block
+        max-w-[288px]
+        rounded-[var(--s)]
+        p-[var(--xs)]
+        text-center
+        "
+      style={{ backgroundColor: style.backgroundColor }}
     >
       {children}
     </div>
@@ -32,7 +34,6 @@ const Note = ({ type, size = '--body', children }) => {
 
 Note.propTypes = {
   type: propTypes.string.isRequired,
-  size: propTypes.string,
   children: propTypes.node.isRequired,
 };
 

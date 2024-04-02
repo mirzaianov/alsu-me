@@ -56,8 +56,6 @@ const Button = ({
     style.outlineColor = 'var(--primary-30)';
   }
 
-  console.log(style);
-
   return (
     <button
       className="flex justify-center rounded-lg py-[var(--xs)] font-bold leading-normal tracking-[0.05em] outline outline-[3px] outline-offset-[-3px]"

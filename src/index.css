@@ -5,10 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
+/* #root {
   max-width: 1320px;
   text-align: center;
-}
+} */
 
 body {
   min-height: 100vh;

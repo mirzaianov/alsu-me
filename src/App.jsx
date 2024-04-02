@@ -3,16 +3,17 @@ import Hamburger from './components/Hamburger';
 import Button from './components/Button';
 import Badge from './components/Badge';
 import Note from './components/Note';
+import Menu from './components/Menu';
 
 const App = () => {
   return (
-    <div className="flex flex-col gap-2 p-5">
+    <div className="container mx-auto flex flex-col gap-2 p-5">
       <h1>Karimova</h1>
-      <Logo height="--2xl" />
-      <Logo height="--xl" />
-      <Logo height="--m" />
+      <Logo size="desktop" />
+      <Logo size="tablet" />
+      <Logo />
+      <Hamburger size="tablet" />
       <Hamburger />
-      <Hamburger size="--xl" />
       <Button text="Button" />
       <Button
         text="Button"
@@ -97,20 +98,9 @@ const App = () => {
         Помогу твоему бизнесу с устным и письменным переводом, тренингом
         сотрудников
       </Note>
-      <Note
-        type="tutor"
-        size="large"
-      >
-        Научу тебя понимать и говорить на английском языке, подобрав
-        индивидуальную программу
-      </Note>
-      <Note
-        type="translator"
-        size="large"
-      >
-        Помогу твоему бизнесу с устным и письменным переводом, тренингом
-        сотрудников
-      </Note>
+      <Menu />
+      <Menu type="block-2" />
+      <Menu type="block-3" />
     </div>
   );
 };
