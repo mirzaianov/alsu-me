@@ -1,12 +1,17 @@
-import NavBar from './NavBar';
+import Header from './Header';
 
 const Hero = () => {
   return (
-    <div
-      className={`mx-auto flex flex-col px-[var(--s)] tablet:px-[var(--xl)] desktop:px-[var(--3xl)]`}
+    <section
+      className={`
+        mx-auto
+        flex flex-col
+        px-[var(--s)]
+        tablet:px-[var(--xl)]
+        desktop:px-[var(--3xl)]`}
     >
-      <NavBar />
-    </div>
+      <Header />
+    </section>
   );
 };
 

@@ -8,9 +8,7 @@ import Hero from './components/Hero';
 
 const App = () => {
   return (
-    <div
-      className={`py-[var(--s)] tablet:py-[var(--xl)] desktop:py-[var(--3xl)]`}
-    >
+    <div className={`py-[var(--s)] tablet:py-[var(--xl)]`}>
       <Hero />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />

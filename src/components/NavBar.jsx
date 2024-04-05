@@ -1,69 +1,95 @@
-import { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
-import Logo from './Logo';
-import Menu from './Menu';
-import Hamburger from './Hamburger';
-import Button from './Button';
 
-const NavBar = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+const items = [
+  ['hero', 'Главная'],
+  ['about', 'Обо мне'],
+  ['services', 'Услуги'],
+  ['prices', 'Цены'],
+  ['testimonials', 'Отзывы'],
+  ['contacts', 'Контакты'],
+];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+const Navbar = ({ type = '' }) => {
+  let ULstyle = {};
+  let LIstyle = {};
+
+  if (type === '') {
+    return null;
+  }
+
+  if (type === 'inline') {
+    ULstyle = {
+      gridTemplateAreas: `
+        'hero about services prices testimonials contacts'
+      `,
+      paddingInline: 'var(--l)',
+      minWidth: '460px',
+      maxWidth: '640px',
+      // flex: '1 1 auto',
+      margin: '0 auto',
     };
 
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
+    LIstyle = {
+      textAlign: 'center',
     };
-  }, []);
+  }
 
-  const LogoView = () => {
-    if (windowWidth > 576 && windowWidth <= 992) {
-      return <Logo size="tablet" />;
-    }
+  if (type === 'block-2') {
+    ULstyle = {
+      gridTemplateAreas: `
+      'hero services testimonials'
+      'about prices contacts'
+    `,
+      gap: 'var(--l)',
+      justifyContent: 'start',
+    };
 
-    if (windowWidth > 992) {
-      return <Logo size="desktop" />;
-    }
+    LIstyle = {
+      width: 'fit-content',
+    };
+  }
 
-    return <Logo />;
-  };
+  if (type === 'block-3') {
+    ULstyle = {
+      gridTemplateAreas: `
+      'hero prices'
+      'about testimonials'
+      'services contacts'
+    `,
+      gap: 'var(--l)',
+      justifyContent: 'start',
+    };
 
-  const MenuView = () => {
-    if (windowWidth > 992) {
-      return <Menu type="inline" />;
-    }
-
-    return <Menu />;
-  };
-
-  const HamburgerView = () => {
-    if (windowWidth > 992) {
-      return (
-        <Button
-          text="Записаться"
-          type="secondary"
-        />
-      );
-    }
-
-    return <Hamburger />;
-  };
+    LIstyle = {
+      width: 'fit-content',
+    };
+  }
 
   return (
-    <nav className={`flex items-center justify-between`}>
-      <LogoView />
-      <MenuView />
-      <HamburgerView />
+    <nav className="w-full">
+      <ul
+        className="
+          grid
+          text-body-bold
+        "
+        style={{ ...ULstyle }}
+      >
+        {items.map((item) => (
+          <li
+            style={{ ...LIstyle, gridArea: item[0] }}
+            id={item[0]}
+            key={item[0]}
+          >
+            <a href="#">{item[1]}</a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
 
-NavBar.propTypes = {
+Navbar.propTypes = {
   type: propTypes.string,
 };
 
-export default NavBar;
+export default Navbar;
