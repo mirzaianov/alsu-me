@@ -1,5 +1,3 @@
-import Header from './Header';
-
 const Hero = () => {
   return (
     <section
@@ -9,9 +7,7 @@ const Hero = () => {
         px-[var(--s)]
         tablet:px-[var(--xl)]
         desktop:px-[var(--3xl)]`}
-    >
-      <Header />
-    </section>
+    ></section>
   );
 };
 

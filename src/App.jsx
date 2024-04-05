@@ -4,11 +4,15 @@
 // import Badge from './components/Badge';
 // import Note from './components/Note';
 // import Menu from './components/Menu';
+import Header from './components/Header';
 import Hero from './components/Hero';
 
 const App = () => {
   return (
-    <div className={`py-[var(--s)] tablet:py-[var(--xl)]`}>
+    <div
+      className={`p-[var(--s)] tablet:p-[var(--xl)] desktop:px-[var(--3xl)]`}
+    >
+      <Header />
       <Hero />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
