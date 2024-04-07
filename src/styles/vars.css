@@ -47,7 +47,7 @@
   --container-desctop: 1062px;
   --container-tablet: 560px;
   --container-mobile: 400px;
-  --button: 16px;
+  /* --button: 16px;
   --button-large: 24px;
   --body: 16px;
   --body-large: 20px;
@@ -57,5 +57,5 @@
   --heading-xl: 56px;
   --logo-mobile: 33px;
   --logo-tablet: 55px;
-  --logo-desktop: 77px;
+  --logo-desktop: 77px; */
 }

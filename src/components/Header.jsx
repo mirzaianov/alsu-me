@@ -58,7 +58,9 @@ const Header = () => {
   };
 
   return (
-    <header className={`flex items-center justify-between`}>
+    <header
+      className={`absolute left-0 right-0 z-[100] flex items-center justify-between bg-[inherit] pl-[inherit] pr-[inherit]`}
+    >
       <LogoView />
       <MenuView />
       <HamburgerView />

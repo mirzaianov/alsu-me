@@ -5,15 +5,15 @@
 // import Note from './components/Note';
 // import Menu from './components/Menu';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import Main from './components/Main';
 
 const App = () => {
   return (
     <div
-      className={`p-[var(--s)] tablet:p-[var(--xl)] desktop:px-[var(--3xl)]`}
+      className={`relative p-[var(--s)] tablet:p-[var(--xl)] desktop:px-[var(--3xl)]`}
     >
       <Header />
-      <Hero />
+      <Main />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />

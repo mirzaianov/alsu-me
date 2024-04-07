@@ -8,14 +8,14 @@ const Badge = ({
   icon,
   backgroundColor,
   direction = 'row',
-  size = '--button',
+  size = '16px',
 }) => {
   const style = {
     flow: direction,
     iconPath: icon,
     backgroundColor: `var(${backgroundColor})`,
     color: `var(--text-90)`,
-    fontSize: `var(${size})`,
+    fontSize: `${size}`,
   };
 
   if (icon === 'uk') {
@@ -37,7 +37,7 @@ const Badge = ({
 
   return (
     <div
-      className="flex w-fit content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-md"
+      className={`flex w-fit content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-md`}
       style={{
         backgroundColor: `${style.backgroundColor}`,
         color: `${style.color}`,
