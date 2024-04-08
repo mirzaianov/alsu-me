@@ -11,7 +11,7 @@ export default {
       'body-tight': [
         '16px',
         {
-          lineHeight: '1.25rem',
+          lineHeight: '1.25em',
         },
       ],
       'body-upper': [
@@ -51,7 +51,7 @@ export default {
       'body-large-tight': [
         '20px',
         {
-          lineHeight: '1.25rem',
+          lineHeight: '1.25em',
         },
       ],
       'body-large-bold': [
@@ -70,28 +70,28 @@ export default {
       button: [
         '16px',
         {
-          lineHeight: '1.5rem',
+          lineHeight: '1.5em',
           fontWeight: '700',
         },
       ],
       'button-large': [
         '24px',
         {
-          lineHeight: '1.5rem',
+          lineHeight: '1.5em',
           fontWeight: '700',
         },
       ],
       'heading-s': [
         '24px',
         {
-          lineHeight: '1.5rem',
+          lineHeight: '1.5m',
           fontWeight: '700',
         },
       ],
       'heading-s-upper': [
         '24px',
         {
-          lineHeight: '1.5rem',
+          lineHeight: '1.5em',
           fontWeight: '700',
           textTransform: 'uppercase',
         },
@@ -99,21 +99,21 @@ export default {
       'heading-m': [
         '32px',
         {
-          lineHeight: '1.5rem',
+          lineHeight: '1.5em',
           fontWeight: '700',
         },
       ],
       'heading-l': [
         '40px',
         {
-          lineHeight: '1.25rem',
+          lineHeight: '1.25em',
           fontWeight: '700',
         },
       ],
       'heading-xl': [
         '56px',
         {
-          lineHeight: '1.25rem',
+          lineHeight: '1.25em',
           fontWeight: '700',
         },
       ],

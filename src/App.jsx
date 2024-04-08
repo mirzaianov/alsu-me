@@ -12,7 +12,6 @@ const App = () => {
     <div
       className={`
         app
-        align-center
         relative
         flex
         flex-col
