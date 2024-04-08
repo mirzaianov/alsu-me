@@ -5,15 +5,26 @@
 // import Note from './components/Note';
 // import Menu from './components/Menu';
 import Header from './components/Header';
-import Main from './components/Main';
+import Hero from './components/Hero';
 
 const App = () => {
   return (
     <div
-      className={`relative p-[var(--s)] tablet:p-[var(--xl)] desktop:px-[var(--3xl)]`}
+      className={`
+        app
+        align-center
+        relative
+        flex
+        flex-col
+        justify-start
+        gap-[var(--m)]
+        p-[var(--s)]
+        tablet:p-[var(--xl)]
+        desktop:px-[var(--3xl)]
+      `}
     >
       <Header />
-      <Main />
+      <Hero />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />

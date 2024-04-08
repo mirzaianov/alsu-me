@@ -5,6 +5,7 @@ const Hero = () => {
   return (
     <section
       className={`
+        hero
         align-center
         mx-auto
         flex
@@ -12,6 +13,7 @@ const Hero = () => {
         justify-start
         gap-[var(--m)]
         px-[var(--s)]
+        pt-[64px]
         tablet:px-[var(--xl)]
         desktop:px-[var(--3xl)]`}
     >

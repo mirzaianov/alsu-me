@@ -11,49 +11,44 @@ const PhotoCardHero = () => {
       className={`
         group
         relative
-        w-[178px]
+        w-[185px]
       `}
     >
       {/* Person Container / Inner Container */}
       <div
         className={`
           clip-path
-          duration-350
+          duration-250
           relative
           flex
-          aspect-[1/1.4]
+          h-[210px]
           items-end
           overflow-hidden
-          bg-red-500
           transition-transform
           ease-in-out
           hover:scale-[1.1]
         `}
       >
-        {/* <div
+        <div
           className={`
             absolute
-            bottom-0
-            left-0
-            right-0
-            top-auto
+            bottom-[10px]
+            left-[3px]
             aspect-square
-            w-full
+            w-[170px]
             -rotate-[2.5deg]
             rounded-[var(--s)]
             border-2
             border-[var(--neutral-90)]
           `}
-        /> */}
+        />
 
         {/* Circle / Image 1 */}
         <div
           className={`
             absolute
-            bottom-[4px]
-            left-[4px]
-            right-0
-            top-auto
+            bottom-[3px]
+            right-[3px]
             aspect-square
             w-[170px]
             rotate-[2.5deg]
@@ -64,16 +59,16 @@ const PhotoCardHero = () => {
         {/* Img / Image 2 */}
         <img
           className={`
-            duration-350
+            duration-250
             group-hover:scale-140
             absolute
-            bottom-[10px]
+            bottom-[25px]
             left-[-20px]
             z-10
-            scale-[2]
+            scale-[1.7]
             transition-transform
             ease-in-out
-            group-hover:-translate-y-4
+            group-hover:-translate-y-2.5
           `}
           src={Photo}
           alt="Photo"
