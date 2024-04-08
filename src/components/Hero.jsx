@@ -89,6 +89,7 @@ const Hero = () => {
           items-center
           justify-start
           gap-[var(--l)]
+          text-center
         `}
       >
         <div
@@ -96,11 +97,21 @@ const Hero = () => {
             hero__text-title
             flex
             flex-col
+            items-center
             justify-start
+            text-heading-s
           `}
         >
           <p>В поисках идеального</p>
-          <p>преподавателя</p>
+          <p
+            className={`
+              bg-[var(--primary-30)]
+              px-[var(--xs)]
+              text-[var(--text-00)]
+            `}
+          >
+            преподавателя
+          </p>
           <p>английского?</p>
         </div>
         <div
@@ -118,7 +129,16 @@ const Hero = () => {
             индивидуальную программу
           </Note>
         </div>
-        <div>
+        <div
+          className={`
+            hero__button
+            flex
+            flex-col
+            items-center
+            justify-start
+            gap-[var(--xs)]
+          `}
+        >
           <p>Запишись на бесплатное занятие</p>
           <Button text="Записаться" />
         </div>
