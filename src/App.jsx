@@ -6,6 +6,7 @@
 // import Menu from './components/Menu';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Carousel from './components/Carousel';
 
 const App = () => {
   return (
@@ -15,15 +16,14 @@ const App = () => {
         relative
         flex
         flex-col
+        items-center
         justify-start
         gap-[var(--m)]
-        p-[var(--s)]
-        tablet:p-[var(--xl)]
-        desktop:px-[var(--3xl)]
       `}
     >
       <Header />
       <Hero />
+      <Carousel />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />

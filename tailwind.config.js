@@ -2,7 +2,18 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        scroll: {
+          '100%': {
+            transform: 'translateX(calc(-50% - 8px))',
+          },
+        },
+      },
+      animation: {
+        scrolling: 'scroll 5s linear infinite',
+      },
+    },
     screens: {
       tablet: '576px',
       desktop: '992px',

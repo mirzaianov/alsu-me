@@ -59,7 +59,20 @@ const Header = () => {
 
   return (
     <header
-      className={`header absolute left-0 right-0 z-[100] flex items-center justify-between bg-[inherit] pl-[inherit] pr-[inherit]`}
+      className={`
+        header
+        absolute
+        left-0
+        right-0
+        z-[100]
+        mx-auto
+        flex
+        items-center
+        justify-between
+        p-[var(--s)]
+        tablet:p-[var(--xl)]
+        desktop:px-[var(--3xl)]
+      `}
     >
       <LogoView />
       <MenuView />
