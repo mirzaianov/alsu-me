@@ -5,16 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #root {
-  max-width: 1320px;
-  text-align: center;
-} */
-
 body {
-  min-height: 100vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  min-height: 100dvh;
   background-color: var(--neutral-00);
   font-family: 'Inter', sans-serif;
   color: var(--text-90);
