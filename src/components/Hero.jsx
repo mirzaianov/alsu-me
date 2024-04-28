@@ -15,9 +15,7 @@ const Hero = () => {
         flex-col
         justify-start
         gap-[var(--m)]
-        pt-[72px]
         tablet:max-w-[var(--container-tablet)]
-        tablet:pt-[120px]
         desktop:max-w-[var(--container-desktop)]
       `}
     >

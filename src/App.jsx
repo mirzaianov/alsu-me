@@ -6,7 +6,7 @@
 // import Menu from './components/Menu';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Carousel from './components/Carousel';
+import Logos from './components/Logos';
 
 const App = () => {
   return (
@@ -17,13 +17,13 @@ const App = () => {
         flex
         flex-col
         items-center
-        justify-start
-        gap-[var(--m)]
+        justify-between
+        py-[var(--s)]
       `}
     >
       <Header />
       <Hero />
-      <Carousel />
+      <Logos />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />

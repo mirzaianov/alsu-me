@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import Logo from './Logo';
-import Navbar from './Navbar';
+import NavBar from './NavBar';
 import Hamburger from './Hamburger';
 import Button from './Button';
 
@@ -38,10 +38,10 @@ const Header = () => {
 
   const MenuView = () => {
     if (windowWidth > 992) {
-      return <Navbar type="inline" />;
+      return <NavBar type="inline" />;
     }
 
-    return <Navbar />;
+    return <NavBar />;
   };
 
   const HamburgerView = () => {
@@ -61,16 +61,13 @@ const Header = () => {
     <header
       className={`
         header
-        absolute
-        left-0
-        right-0
-        z-[100]
         mx-auto
         flex
+        w-full
         items-center
         justify-between
-        p-[var(--s)]
-        tablet:p-[var(--xl)]
+        px-[var(--s)]
+        tablet:px-[var(--xl)]
         desktop:px-[var(--3xl)]
       `}
     >
