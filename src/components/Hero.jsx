@@ -9,12 +9,15 @@ const Hero = () => {
       className={`
         hero
         mx-auto
+        mt-[var(--m)]
         flex
         w-full
         max-w-[var(--container-mobile)]
         flex-col
         justify-start
         gap-[var(--m)]
+        px-[var(--s)]
+        tablet:mt-[120px]
         tablet:max-w-[var(--container-tablet)]
         desktop:max-w-[var(--container-desktop)]
       `}
@@ -24,7 +27,8 @@ const Hero = () => {
           hero__photo
           flex
           items-center
-          justify-start`}
+          justify-start
+        `}
       >
         <div
           className={`

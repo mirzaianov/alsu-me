@@ -95,7 +95,7 @@ export default {
       'heading-s': [
         '24px',
         {
-          lineHeight: '1.5m',
+          lineHeight: '1.5em',
           fontWeight: '700',
         },
       ],

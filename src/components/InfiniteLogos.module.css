@@ -1,5 +1,6 @@
 .logos {
   overflow: hidden;
+  margin-top: var(--l);
   padding: 16px 0;
   background-color: var(--secondary-05);
   white-space: nowrap;
@@ -36,7 +37,7 @@
 .logos__slide {
   display: inline-block;
   width: max-content;
-  animation: slide 5s linear infinite;
+  animation: slide 20s linear infinite;
 }
 
 .logos__slide img {

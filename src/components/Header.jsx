@@ -61,7 +61,7 @@ const Header = () => {
     <header
       className={`
         header
-        mx-auto
+        mt-[var(--s)]
         flex
         w-full
         items-center

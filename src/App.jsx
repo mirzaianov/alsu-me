@@ -6,7 +6,7 @@
 // import Menu from './components/Menu';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Logos from './components/Logos';
+import InfiniteLogos from './components/InfiniteLogos';
 
 const App = () => {
   return (
@@ -15,15 +15,15 @@ const App = () => {
         app
         relative
         flex
+        h-dvh
         flex-col
         items-center
-        justify-between
-        py-[var(--s)]
+        justify-start
       `}
     >
       <Header />
       <Hero />
-      <Logos />
+      <InfiniteLogos />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />
