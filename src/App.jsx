@@ -11,15 +11,7 @@ import InfiniteLogos from './components/InfiniteLogos';
 const App = () => {
   return (
     <div
-      className={`
-        app
-        relative
-        flex
-        h-dvh
-        flex-col
-        items-center
-        justify-start
-      `}
+      className={`app relative flex flex-col items-center justify-start overflow-hidden`}
     >
       <Header />
       <Hero />
