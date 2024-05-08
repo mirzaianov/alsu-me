@@ -34,13 +34,13 @@ const Hero = () => {
         >
           {/* add bg */}
           <div
-            className={`circle animate-blob absolute -right-1 -top-1 h-40 w-40 rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-500 absolute -right-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
-            className={`circle animate-blob animation-delay-2000 absolute -left-1 -top-1 h-40 w-40 rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-2000 absolute -left-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
-            className={`circle animate-blob animation-delay-4000 absolute -bottom-6 h-40 w-40 rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-4000 absolute -bottom-6 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
             className={`hero__photo-wrapper flex items-center justify-start`}
@@ -55,13 +55,19 @@ const Hero = () => {
         <div
           className={`hero__text-title flex flex-col items-center justify-start text-heading-s`}
         >
-          <p>В поисках идеального</p>
-          <p
-            className={`bg-[var(--primary-30)] px-[var(--xs)] text-[var(--text-00)]`}
-          >
-            преподавателя
-          </p>
-          <p>английского?</p>
+          <span>В поисках идеального</span>
+          <div className={`h-[36px] w-max overflow-hidden`}>
+            <div className={`animate-spin bg-[var(--primary-30)] px-5`}>
+              преподавателя
+            </div>
+            <div className={`animate-spin bg-[var(--primary-30)] px-5`}>
+              переводчика
+            </div>
+            <div className={`animate-spin bg-[var(--primary-30)] px-5`}>
+              преподавателя
+            </div>
+          </div>
+          <span>английского?</span>
         </div>
         <div
           className={`hero__text-subtitle flex flex-col justify-start gap-[var(--s)]`}

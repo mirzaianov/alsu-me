@@ -18,9 +18,33 @@ export default {
             transform: 'translate(0px, 0px) scale(1)',
           },
         },
+        slides: {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(-100%)',
+          },
+        },
+        spin: {
+          '0%': {
+            transform: 'translateY(-112%)',
+          },
+          '5%': {
+            transform: 'translateY(-112%)',
+          },
+          '50%': {
+            transform: 'translateY(-100%)',
+          },
+          '100%': {
+            transform: 'translateY(-212%)',
+          },
+        },
       },
       animation: {
         blob: 'blob 7s infinite',
+        slides: 'slides 20s linear infinite',
+        spin: 'spin 6s infinite',
       },
     },
     screens: {

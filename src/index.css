@@ -21,6 +21,10 @@ body {
     );
   }
 
+  .animation-delay-500 {
+    animation-delay-2000: 0.5s;
+  }
+
   .animation-delay-2000 {
     animation-delay-2000: 2s;
   }
