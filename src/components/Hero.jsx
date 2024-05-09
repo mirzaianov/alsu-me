@@ -56,14 +56,22 @@ const Hero = () => {
           className={`hero__text-title flex flex-col items-center justify-start text-heading-s`}
         >
           <span>В поисках идеального</span>
-          <div className={`h-[36px] w-max overflow-hidden`}>
-            <div className={`animate-spin bg-[var(--primary-30)] px-5`}>
+          <div
+            className={`flex h-[36px] flex-col items-center overflow-hidden`}
+          >
+            <div
+              className={`animate-slidewords mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3`}
+            >
               преподавателя
             </div>
-            <div className={`animate-spin bg-[var(--primary-30)] px-5`}>
+            <div
+              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3`}
+            >
               переводчика
             </div>
-            <div className={`animate-spin bg-[var(--primary-30)] px-5`}>
+            <div
+              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3`}
+            >
               преподавателя
             </div>
           </div>
@@ -73,10 +81,26 @@ const Hero = () => {
           className={`hero__text-subtitle flex flex-col justify-start gap-[var(--s)]`}
         >
           <p>Привет! Меня зовут Алсу</p>
-          <Note type="tutor">
-            Научу тебя понимать и говорить на английском языке, подобрав
-            индивидуальную программу
-          </Note>
+          <div className={`flex h-[100px] flex-col overflow-hidden`}>
+            <div className={`animate-slidenotes mb-[36px]`}>
+              <Note type="tutor">
+                Научу тебя понимать и говорить на английском языке, подобрав
+                индивидуальную программу
+              </Note>
+            </div>
+            <div className={`mb-[36px]`}>
+              <Note type="translator">
+                Помогу твоему бизнесу с устным и письменным переводом, тренингом
+                сотрудников
+              </Note>
+            </div>
+            <div className={`mb-[36px]`}>
+              <Note type="tutor">
+                Научу тебя понимать и говорить на английском языке, подобрав
+                индивидуальную программу
+              </Note>
+            </div>
+          </div>
         </div>
         <div
           className={`hero__button flex flex-col items-center justify-start gap-[var(--xs)]`}

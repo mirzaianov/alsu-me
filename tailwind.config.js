@@ -26,25 +26,46 @@ export default {
             transform: 'translateX(-100%)',
           },
         },
-        spin: {
+        slidewords: {
           '0%': {
-            transform: 'translateY(-112%)',
+            'margin-top': '-144px',
           },
-          '5%': {
-            transform: 'translateY(-112%)',
+          '45%': {
+            'margin-top': '-144px',
           },
           '50%': {
-            transform: 'translateY(-100%)',
+            'margin-top': '-72px',
+          },
+          '95%': {
+            'margin-top': '-72px',
           },
           '100%': {
-            transform: 'translateY(-212%)',
+            'margin-top': '0px',
+          },
+        },
+        slidenotes: {
+          '0%': {
+            'margin-top': '-272px',
+          },
+          '45%': {
+            'margin-top': '-272px',
+          },
+          '50%': {
+            'margin-top': '-136px',
+          },
+          '95%': {
+            'margin-top': '-136px',
+          },
+          '100%': {
+            'margin-top': '0px',
           },
         },
       },
       animation: {
         blob: 'blob 7s infinite',
         slides: 'slides 20s linear infinite',
-        spin: 'spin 6s infinite',
+        slidewords: 'slidewords 20s linear infinite',
+        slidenotes: 'slidenotes 20s linear infinite',
       },
     },
     screens: {
