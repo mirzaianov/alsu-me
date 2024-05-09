@@ -47,37 +47,31 @@ export default {
           '0%': {
             transform: 'perspective(1000px) rotateX(0deg)',
           },
-          '5%': {
+          '45%': {
             transform: 'perspective(1000px) rotateX(0deg)',
           },
-          '10%': {
-            transform: 'perspective(1000px) rotateX(180deg)',
-          },
-          '90%': {
-            transform: 'perspective(1000px) rotateX(180deg)',
+          '50%': {
+            transform: 'perspective(1000px) rotateX(-180deg)',
           },
           '95%': {
-            transform: 'perspective(1000px) rotateX(0deg)',
+            transform: 'perspective(1000px) rotateX(-180deg)',
           },
           '100%': {
-            transform: 'perspective(1000px) rotateX(0deg)',
+            transform: 'perspective(1000px) rotateX(-360deg)',
           },
         },
         rotatesecondnote: {
           '0%': {
-            transform: 'perspective(1000px) rotateX(-180deg)',
+            transform: 'perspective(1000px) rotateX(180deg)',
           },
-          '5%': {
-            transform: 'perspective(1000px) rotateX(-180deg)',
+          '45%': {
+            transform: 'perspective(1000px) rotateX(180deg)',
           },
-          '10%': {
-            transform: 'perspective(1000px) rotateX(0deg)',
-          },
-          '90%': {
+          '50%': {
             transform: 'perspective(1000px) rotateX(0deg)',
           },
           '95%': {
-            transform: 'perspective(1000px) rotateX(-180deg)',
+            transform: 'perspective(1000px) rotateX(0deg)',
           },
           '100%': {
             transform: 'perspective(1000px) rotateX(-180deg)',
@@ -88,8 +82,8 @@ export default {
         blob: 'blob 7s infinite',
         slides: 'slides 20s linear infinite',
         slidewords: 'slidewords 20s linear infinite',
-        rotatefirstnote: 'rotatefirstnote 20s infinite ease-in-out',
-        rotatesecondnote: 'rotatesecondnote 20s infinite ease-in-out',
+        rotatefirstnote: 'rotatefirstnote 20s infinite',
+        rotatesecondnote: 'rotatesecondnote 20s infinite',
       },
     },
     screens: {
