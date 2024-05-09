@@ -71,17 +71,17 @@ const Hero = () => {
             className={`flex h-[36px] flex-col items-center overflow-hidden`}
           >
             <div
-              className={`mb-[36px] w-fit animate-slide-words rounded-md bg-[var(--primary-30)] px-3`}
+              className={`mb-[36px] w-fit animate-slide-words rounded-md bg-[var(--primary-30)] px-3 text-[var(--neutral-00)]`}
             >
               преподавателя
             </div>
             <div
-              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3`}
+              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3 text-[var(--neutral-00)]`}
             >
               переводчика
             </div>
             <div
-              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3`}
+              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3 text-[var(--neutral-00)]`}
             >
               преподавателя
             </div>
