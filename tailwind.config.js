@@ -26,7 +26,7 @@ export default {
             transform: 'translateX(-100%)',
           },
         },
-        slidewords: {
+        'slide-words': {
           '0%': {
             'margin-top': '-144px',
           },
@@ -43,7 +43,7 @@ export default {
             'margin-top': '0px',
           },
         },
-        rotatefirstnote: {
+        'rotate-first-note': {
           '0%': {
             transform: 'perspective(1000px) rotateX(0deg)',
           },
@@ -60,7 +60,7 @@ export default {
             transform: 'perspective(1000px) rotateX(-360deg)',
           },
         },
-        rotatesecondnote: {
+        'rotate-second-note': {
           '0%': {
             transform: 'perspective(1000px) rotateX(180deg)',
           },
@@ -77,13 +77,31 @@ export default {
             transform: 'perspective(1000px) rotateX(-180deg)',
           },
         },
+        'waving-hand': {
+          '0%': { transform: 'scale(1) rotate(0deg)' },
+          '10%': { transform: 'rotate(14.0deg)' },
+          '20%': { transform: 'rotate(-8.0deg)' },
+          '30%': { transform: 'rotate(14.0deg)' },
+          '40%': { transform: 'scale(1.2) rotate(-4.0deg)' },
+          '50%': { transform: 'scale(1.2) rotate(10.0deg)' },
+          '60%': { transform: 'scale(1) rotate(0.0deg)' },
+          '100%': { transform: 'scale(1) rotate( 0.0deg)' },
+        },
+        'wavind-badge': {
+          '0%': { transform: 'translateY(0)' },
+          '25%': { transform: 'translateY(3px)' },
+          '75%': { transform: 'translateY(-3px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
       },
       animation: {
         blob: 'blob 7s infinite',
         slides: 'slides 20s linear infinite',
-        slidewords: 'slidewords 20s linear infinite',
-        rotatefirstnote: 'rotatefirstnote 20s infinite',
-        rotatesecondnote: 'rotatesecondnote 20s infinite',
+        'slide-words': 'slide-words 20s linear infinite',
+        'rotate-first-note': 'rotate-first-note 20s infinite',
+        'rotate-second-note': 'rotate-second-note 20s infinite',
+        'waving-hand': 'waving-hand 4s linear infinite',
+        'wavind-badge': 'wavind-badge 3s linear infinite',
       },
     },
     screens: {

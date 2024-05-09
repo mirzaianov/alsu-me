@@ -2,6 +2,7 @@ import Stat from './Stat';
 import PhotoCard from './PhotoCardHero';
 import Note from './Note';
 import Button from './Button';
+import Badge from './Badge';
 
 const Hero = () => {
   return (
@@ -34,18 +35,28 @@ const Hero = () => {
         >
           {/* add bg */}
           <div
-            className={`circle animation-delay-500 absolute -right-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-500 absolute -right-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
-            className={`circle animation-delay-2000 absolute -left-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-2000 absolute -left-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
-            className={`circle animation-delay-4000 absolute -bottom-6 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-4000 absolute -bottom-6 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
             className={`hero__photo-wrapper flex items-center justify-start`}
           >
             <PhotoCard />
+            <div
+              className={`animate-wavind-badge absolute left-[-20px] top-[139px]`}
+            >
+              <Badge
+                text="Hi"
+                icon="hi"
+                backgroundColor={'--primary-10'}
+                isAnimated
+              />
+            </div>
           </div>
         </div>
       </article>
@@ -60,7 +71,7 @@ const Hero = () => {
             className={`flex h-[36px] flex-col items-center overflow-hidden`}
           >
             <div
-              className={`animate-slidewords mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3`}
+              className={`mb-[36px] w-fit animate-slide-words rounded-md bg-[var(--primary-30)] px-3`}
             >
               преподавателя
             </div>
@@ -83,7 +94,7 @@ const Hero = () => {
           <p>Привет! Меня зовут Алсу</p>
           <div className={`flip-card relative h-[100px] w-[288px]`}>
             <div
-              className={`flip-card__front animate-rotatefirstnote absolute [backface-visibility:hidden]`}
+              className={`flip-card__front absolute animate-rotate-first-note [backface-visibility:hidden]`}
             >
               <Note type="tutor">
                 Научу тебя понимать и говорить на английском языке, подобрав
@@ -91,7 +102,7 @@ const Hero = () => {
               </Note>
             </div>
             <div
-              className={`flip-card__back animate-rotatesecondnote absolute [backface-visibility:hidden]`}
+              className={`flip-card__back absolute animate-rotate-second-note [backface-visibility:hidden]`}
             >
               <Note type="translator">
                 Помогу твоему бизнесу с устным и письменным переводом, тренингом

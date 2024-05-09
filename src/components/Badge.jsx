@@ -9,6 +9,7 @@ const Badge = ({
   backgroundColor,
   direction = 'row',
   size = '16px',
+  isAnimated = false,
 }) => {
   const style = {
     flow: direction,
@@ -46,6 +47,7 @@ const Badge = ({
       }}
     >
       <img
+        className={`${isAnimated ? 'animate-waving-hand' : ''}`}
         style={{ height: style.fontSize, alignSelf: 'center' }}
         src={style.iconPath}
         alt={style.iconPath && `${text}`}
@@ -61,6 +63,7 @@ Badge.propTypes = {
   backgroundColor: propTypes.string.isRequired,
   direction: propTypes.string,
   size: propTypes.string,
+  isAnimated: propTypes.bool,
 };
 
 export default Badge;
