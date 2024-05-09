@@ -43,21 +43,44 @@ export default {
             'margin-top': '0px',
           },
         },
-        slidenotes: {
+        rotatefirstnote: {
           '0%': {
-            'margin-top': '-272px',
+            transform: 'perspective(1000px) rotateX(0deg)',
           },
-          '45%': {
-            'margin-top': '-272px',
+          '5%': {
+            transform: 'perspective(1000px) rotateX(0deg)',
           },
-          '50%': {
-            'margin-top': '-136px',
+          '10%': {
+            transform: 'perspective(1000px) rotateX(180deg)',
+          },
+          '90%': {
+            transform: 'perspective(1000px) rotateX(180deg)',
           },
           '95%': {
-            'margin-top': '-136px',
+            transform: 'perspective(1000px) rotateX(0deg)',
           },
           '100%': {
-            'margin-top': '0px',
+            transform: 'perspective(1000px) rotateX(0deg)',
+          },
+        },
+        rotatesecondnote: {
+          '0%': {
+            transform: 'perspective(1000px) rotateX(-180deg)',
+          },
+          '5%': {
+            transform: 'perspective(1000px) rotateX(-180deg)',
+          },
+          '10%': {
+            transform: 'perspective(1000px) rotateX(0deg)',
+          },
+          '90%': {
+            transform: 'perspective(1000px) rotateX(0deg)',
+          },
+          '95%': {
+            transform: 'perspective(1000px) rotateX(-180deg)',
+          },
+          '100%': {
+            transform: 'perspective(1000px) rotateX(-180deg)',
           },
         },
       },
@@ -65,7 +88,8 @@ export default {
         blob: 'blob 7s infinite',
         slides: 'slides 20s linear infinite',
         slidewords: 'slidewords 20s linear infinite',
-        slidenotes: 'slidenotes 20s linear infinite',
+        rotatefirstnote: 'rotatefirstnote 20s infinite ease-in-out',
+        rotatesecondnote: 'rotatesecondnote 20s infinite ease-in-out',
       },
     },
     screens: {

@@ -81,23 +81,21 @@ const Hero = () => {
           className={`hero__text-subtitle flex flex-col justify-start gap-[var(--s)]`}
         >
           <p>Привет! Меня зовут Алсу</p>
-          <div className={`flex h-[100px] flex-col overflow-hidden`}>
-            <div className={`animate-slidenotes mb-[36px]`}>
+          <div className={`flip-card relative h-[100px] w-[288px]`}>
+            <div
+              className={`flip-card__front animate-rotatefirstnote absolute [backface-visibility:hidden]`}
+            >
               <Note type="tutor">
                 Научу тебя понимать и говорить на английском языке, подобрав
                 индивидуальную программу
               </Note>
             </div>
-            <div className={`mb-[36px]`}>
+            <div
+              className={`flip-card__back animate-rotatesecondnote absolute [backface-visibility:hidden]`}
+            >
               <Note type="translator">
                 Помогу твоему бизнесу с устным и письменным переводом, тренингом
                 сотрудников
-              </Note>
-            </div>
-            <div className={`mb-[36px]`}>
-              <Note type="tutor">
-                Научу тебя понимать и говорить на английском языке, подобрав
-                индивидуальную программу
               </Note>
             </div>
           </div>
