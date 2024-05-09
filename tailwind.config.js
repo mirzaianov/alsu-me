@@ -33,11 +33,14 @@ export default {
           '45%': {
             'margin-top': '-144px',
           },
-          '50%': {
+          '48%': {
             'margin-top': '-72px',
           },
           '95%': {
             'margin-top': '-72px',
+          },
+          '98%': {
+            'margin-top': '0px',
           },
           '100%': {
             'margin-top': '0px',
