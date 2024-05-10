@@ -2,7 +2,9 @@ import Photo from '../assets/img/photo-hero.png';
 
 const PhotoCardHero = () => {
   const style = {
-    width: '170px',
+    containerWidth: '185px',
+    innerContainerHeight: '210px',
+    imageWidth: '170px',
   };
 
   // Person / Container
@@ -11,7 +13,7 @@ const PhotoCardHero = () => {
       className={`
         group
         relative
-        w-[185px]
+        w-[${style.containerWidth}]
       `}
     >
       {/* Person Container / Inner Container */}
@@ -21,7 +23,7 @@ const PhotoCardHero = () => {
           duration-250
           relative
           flex
-          h-[210px]
+          h-[${style.innerContainerHeight}]
           items-end
           overflow-hidden
           transition-transform
@@ -35,14 +37,13 @@ const PhotoCardHero = () => {
             bottom-[10px]
             left-[3px]
             aspect-square
-            w-[170px]
+            w-[${style.imageWidth}]
             -rotate-[2.5deg]
             rounded-[var(--s)]
             border-2
             border-[var(--neutral-90)]
           `}
         />
-
         {/* Circle / Image 1 */}
         <div
           className={`
@@ -50,7 +51,7 @@ const PhotoCardHero = () => {
             bottom-[3px]
             right-[3px]
             aspect-square
-            w-[170px]
+            w-[${style.imageWidth}]
             rotate-[2.5deg]
             rounded-[var(--s)]
             bg-[var(--primary-40)]
