@@ -1,5 +1,5 @@
 import Stat from './Stat';
-import PhotoCard from './PhotoCardHero';
+import PhotoCardHero from './PhotoCardHero';
 import Note from './Note';
 import Button from './Button';
 import Badge from './Badge';
@@ -46,9 +46,9 @@ const Hero = () => {
           <div
             className={`hero__photo-wrapper flex items-center justify-start`}
           >
-            <PhotoCard />
+            <PhotoCardHero />
             <div
-              className={`animate-wavind-badge absolute left-[-20px] top-[139px]`}
+              className={`absolute left-[-20px] top-[139px] animate-wavind-badge`}
             >
               <Badge
                 text="Hi"
