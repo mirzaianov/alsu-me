@@ -35,13 +35,13 @@ const Hero = () => {
         >
           {/* add bg */}
           <div
-            className={`circle animation-delay-500 absolute -right-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-500 absolute -right-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
-            className={`circle animation-delay-2000 absolute -left-1 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-2000 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
-            className={`circle animation-delay-4000 absolute -bottom-6 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle animation-delay-4000 absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
           ></div>
           <div
             className={`hero__photo-wrapper flex items-center justify-start`}
@@ -63,7 +63,7 @@ const Hero = () => {
       <article
         className={`hero__text flex flex-col items-center justify-start gap-[var(--l)] text-center`}
       >
-        <div
+        <h1
           className={`hero__text-title flex flex-col items-center justify-start text-heading-s`}
         >
           <span>В поисках идеального</span>
@@ -87,7 +87,7 @@ const Hero = () => {
             </div>
           </div>
           <span>английского?</span>
-        </div>
+        </h1>
         <div
           className={`hero__text-subtitle flex flex-col justify-start gap-[var(--s)]`}
         >

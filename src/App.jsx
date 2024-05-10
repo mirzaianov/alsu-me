@@ -4,6 +4,7 @@
 // import Badge from './components/Badge';
 // import Note from './components/Note';
 // import Menu from './components/Menu';
+import About from './components/About';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import InfiniteLogos from './components/InfiniteLogos';
@@ -16,6 +17,7 @@ const App = () => {
       <Header />
       <Hero />
       <InfiniteLogos />
+      <About />
       {/* <h1>Karimova</h1>
       <Logo size="desktop" />
       <Logo size="tablet" />
