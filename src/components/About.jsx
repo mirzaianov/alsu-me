@@ -2,6 +2,8 @@ import Button from './Button';
 import PhotoCardAbout from './PhotoCardAbout';
 import Badge from './Badge';
 
+//
+
 const About = () => {
   return (
     <section
