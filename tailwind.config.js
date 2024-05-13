@@ -119,12 +119,7 @@ export default {
           lineHeight: '1.25em',
         },
       ],
-      'body-upper': [
-        '16px',
-        {
-          textTransform: 'uppercase',
-        },
-      ],
+      'body-upper': ['16px'],
       'body-bold': [
         '16px',
         {
@@ -135,14 +130,12 @@ export default {
         '16px',
         {
           fontWeight: '700',
-          textTransform: 'uppercase',
         },
       ],
       'body-bold-striked': [
         '16px',
         {
           fontWeight: '700',
-          textTransform: 'strikedthrough',
         },
       ],
       // 'body-bold-under': [
@@ -198,7 +191,6 @@ export default {
         {
           lineHeight: '1.5em',
           fontWeight: '700',
-          textTransform: 'uppercase',
         },
       ],
       'heading-m': [
