@@ -11,26 +11,52 @@ const About = () => {
     >
       <h2 className={`about__title text-heading-s`}>Обо мне</h2>
       <article
-        className={`about__photo relative -mt-4 flex items-center justify-start`}
+        className={`about__photo relative -mt-4 mb-[82px] flex items-center justify-start`}
       >
         <div
-          className={`circle animation-delay-500 absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-40)] mix-blend-multiply blur-xl filter`}
+          className={`circle absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
         ></div>
         <div
-          className={`circle animation-delay-2000 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
+          className={`circle absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
         ></div>
         <div
-          className={`circle animation-delay-4000 absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
+          className={`circle absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-[var(--primary-40)] mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
         ></div>
         <PhotoCardAbout />
         <div
-          className={`absolute left-[-20px] top-[139px] animate-wavind-badge`}
+          className={`animate-wavind-badge-3 absolute -right-[70px] top-[150px]`}
+        >
+          <Badge
+            text="Speaking"
+            icon="usa"
+            backgroundColor={'--secondary-45'}
+          />
+        </div>
+        <div
+          className={`animate-wavind-badge-4 absolute -right-[70px] top-[225px] [animation-delay:_0.1s]`}
+        >
+          <Badge
+            text="Writing"
+            icon="uk"
+            backgroundColor={'--secondary-05'}
+          />
+        </div>
+        <div
+          className={`animate-wavind-badge-4 absolute -left-[60px] top-[190px] [animation-delay:_0.4s]`}
         >
           <Badge
             text="Listening"
             icon="uk"
             backgroundColor={'--secondary-25'}
-            isAnimated
+          />
+        </div>
+        <div
+          className={`animate-wavind-badge-3 absolute -left-[50px] top-[250px] [animation-delay:_0.7s]`}
+        >
+          <Badge
+            text="Reading"
+            icon="usa"
+            backgroundColor={'--secondary-05'}
           />
         </div>
       </article>

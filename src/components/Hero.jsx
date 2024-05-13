@@ -35,20 +35,20 @@ const Hero = () => {
         >
           {/* add bg */}
           <div
-            className={`circle animation-delay-500 absolute -right-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle absolute -right-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
           ></div>
           <div
-            className={`circle animation-delay-2000 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
           ></div>
           <div
-            className={`circle animation-delay-4000 absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter`}
+            className={`circle absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
           ></div>
           <div
             className={`hero__photo-wrapper flex items-center justify-start`}
           >
             <PhotoCardHero />
             <div
-              className={`absolute left-[-20px] top-[139px] animate-wavind-badge`}
+              className={`animate-wavind-badge-3 absolute left-[-20px] top-[139px]`}
             >
               <Badge
                 text="Hi"

@@ -104,7 +104,8 @@ export default {
         'rotate-first-note': 'rotate-first-note 20s infinite',
         'rotate-second-note': 'rotate-second-note 20s infinite',
         'waving-hand': 'waving-hand 4s linear infinite',
-        'wavind-badge': 'wavind-badge 3s linear infinite',
+        'wavind-badge-3': 'wavind-badge 3s linear infinite',
+        'wavind-badge-4': 'wavind-badge 4s linear infinite',
       },
     },
     screens: {
