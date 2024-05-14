@@ -58,7 +58,7 @@ const Button = ({
 
   return (
     <button
-      className="flex justify-center rounded-lg py-[var(--xs)] font-bold leading-normal tracking-[0.05em] outline outline-[3px] outline-offset-[-3px]"
+      className="flex justify-center rounded-lg py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] outline outline-[3px] outline-offset-[-3px]"
       style={{
         width: style.width,
         gap: style.gap,

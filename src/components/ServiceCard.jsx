@@ -27,7 +27,7 @@ const ServiceCard = ({ type }) => {
 
   return (
     <div
-      className={`flex w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] py-[var(--m)] shadow-lg`}
+      className={`flex h-[336px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--s)] py-[var(--m)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
     >
       <div
         className={`flex flex-col items-center justify-center gap-[var(--m)]`}
@@ -40,7 +40,7 @@ const ServiceCard = ({ type }) => {
           {style.subheading}
         </h4>
       </div>
-      <ul className={`flex flex-col justify-start`}>
+      <ul className={`mt-auto flex flex-col justify-start`}>
         {style.description.map((item) => (
           <li
             key={item}
