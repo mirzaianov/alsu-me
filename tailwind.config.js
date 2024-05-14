@@ -96,6 +96,14 @@ export default {
           '75%': { transform: 'translateY(-3px)' },
           '100%': { transform: 'translateY(0)' },
         },
+        tada: {
+          '0%, 40%': { transform: 'scale(1) rotate(0deg)' },
+          '45%': { transform: 'scale(1.05) rotate(-5deg)' },
+          '47.5%': { transform: 'scale(1.1) rotate(5deg)' },
+          '52.5%': { transform: 'scale(1.1) rotate(-3deg)' },
+          '55%': { transform: 'scale(1.05) rotate(3deg)' },
+          '60%, 100%': { transform: 'scale(1) rotate(0deg)' },
+        },
       },
       animation: {
         blob: 'blob 7s infinite',
@@ -106,6 +114,7 @@ export default {
         'waving-hand': 'waving-hand 4s linear infinite',
         'wavind-badge-3': 'wavind-badge 3s linear infinite',
         'wavind-badge-4': 'wavind-badge 4s linear infinite',
+        tada: 'tada 5s ease-in-out infinite',
       },
     },
     screens: {

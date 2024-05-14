@@ -28,7 +28,7 @@ const PriceTutorCard = ({ quantity = 0, price = 0, discount = false }) => {
 
   return (
     <div
-      className={`price-tutor-card flex h-[380px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-[var(--primary-10)] text-[var(--text-00)]' : ''}`}
+      className={`price-tutor-card relative flex h-[380px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-[var(--primary-10)] text-[var(--text-00)]' : ''}`}
     >
       <div
         className={`flex flex-col items-center justify-center gap-[var(--xs)]`}
@@ -37,16 +37,18 @@ const PriceTutorCard = ({ quantity = 0, price = 0, discount = false }) => {
         <p className={`uppercase`}>{data.subheading}</p>
       </div>
       <p>{data.duration}</p>
-      <div className={`flex h-full flex-col items-center justify-start`}>
+      <div
+        className={`flex h-full flex-col items-center justify-start ${discount ? '' : 'text-[var(--text-20)]'}`}
+      >
         {discount ? (
-          <h5 className={`uppercase] text-heading-s-upper`}>
+          <h5 className={`text-heading-s-upper uppercase`}>
             {data.price - discount}
             {` `}₽
           </h5>
         ) : (
           <p className={`text-heading-s-upper uppercase`}>
             {data.price}
-            {` `}₽
+            {quantity ? ` ₽` : ''}
           </p>
         )}
         {discount ? (
@@ -78,12 +80,16 @@ const PriceTutorCard = ({ quantity = 0, price = 0, discount = false }) => {
           </li>
         ))}
       </ul>
-      {/* <div>
-        <Button
-          text="Популярно"
-          type="accent"
-        />
-      </div> */}
+      {discount && (
+        <div className={`absolute -top-[20px] left-2/4 -translate-x-1/2`}>
+          <div className={`animate-tada`}>
+            <Button
+              text="Популярно"
+              type="accent"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
