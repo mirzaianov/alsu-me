@@ -5,7 +5,7 @@ const Services = () => {
     <section
       className={`services flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] py-[var(--xl)]`}
     >
-      <h2 className={`about__title text-heading-s`}>Что я предлагаю</h2>
+      <h2 className={`services__title text-heading-s`}>Что я предлагаю</h2>
 
       <article
         className={`services__text flex flex-col items-center justify-start gap-[var(--m)]`}

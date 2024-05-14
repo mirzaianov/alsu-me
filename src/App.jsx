@@ -1,13 +1,8 @@
-// import Logo from './components/Logo';
-// import Hamburger from './components/Hamburger';
-// import Button from './components/Button';
-// import Badge from './components/Badge';
-// import Note from './components/Note';
-// import Menu from './components/Menu';
 import About from './components/About';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import InfiniteLogos from './components/InfiniteLogos';
+import Prices from './components/Prices';
 import Services from './components/Services';
 
 const App = () => {
@@ -20,6 +15,7 @@ const App = () => {
       <InfiniteLogos />
       <About />
       <Services />
+      <Prices />
       {/*
       <Button
         icon="telegram"
