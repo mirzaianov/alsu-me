@@ -8,6 +8,7 @@ import About from './components/About';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import InfiniteLogos from './components/InfiniteLogos';
+import Services from './components/Services';
 
 const App = () => {
   return (
@@ -18,24 +19,8 @@ const App = () => {
       <Hero />
       <InfiniteLogos />
       <About />
-      {/* <h1>Karimova</h1>
-      <Logo size="desktop" />
-      <Logo size="tablet" />
-      <Logo />
-      <Hamburger />
-      <Button text="Button" />
-      <Button
-        text="Button"
-        type="secondary"
-      />
-      <Button
-        text="Button"
-        type="neutral"
-      />
-      <Button
-        text="Button"
-        type="accent"
-      />
+      <Services />
+      {/*
       <Button
         icon="telegram"
         text="Button"
@@ -53,11 +38,6 @@ const App = () => {
         text="Button"
         type="secondary"
         size="large"
-      />
-      <Badge
-        text="Hi"
-        icon="hi"
-        backgroundColor={'--primary-10'}
       />
       <Badge
         text="Travel"
@@ -79,34 +59,6 @@ const App = () => {
         icon="usa"
         backgroundColor={'--secondary-25'}
       />
-      <Badge
-        text="Listening"
-        icon="uk"
-        backgroundColor={'--secondary-25'}
-      />
-      <Badge
-        text="Reading"
-        icon="usa"
-        backgroundColor={'--secondary-05'}
-      />
-      <Badge
-        text="Speaking"
-        icon="usa"
-        backgroundColor={'--secondary-45'}
-      />
-      <Badge
-        text="Writing"
-        icon="uk"
-        backgroundColor={'--secondary-05'}
-      />
-      <Note type="tutor">
-        Научу тебя понимать и говорить на английском языке, подобрав
-        индивидуальную программу
-      </Note>
-      <Note type="translator">
-        Помогу твоему бизнесу с устным и письменным переводом, тренингом
-        сотрудников
-      </Note>
       <Menu />
       <Menu type="inline" />
       <Menu type="block-2" />

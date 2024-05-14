@@ -38,7 +38,7 @@ const Badge = ({
 
   return (
     <div
-      className={`flex w-fit content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-md`}
+      className={`flex w-fit content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
       style={{
         backgroundColor: `${style.backgroundColor}`,
         color: `${style.color}`,
