@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import InfiniteLogos from './components/InfiniteLogos';
 import Prices from './components/Prices';
 import Services from './components/Services';
+import Testimonials from './components/Testimonials';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <About />
       <Services />
       <Prices />
+      <Testimonials />
       {/*
       <Button
         icon="telegram"
