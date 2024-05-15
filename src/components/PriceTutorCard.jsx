@@ -1,5 +1,6 @@
 import propTypes from 'prop-types';
 import Button from './Button';
+import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
 
 const PriceTutorCard = ({ quantity = 0, price = 0, discount = false }) => {
   const data = {
@@ -40,21 +41,23 @@ const PriceTutorCard = ({ quantity = 0, price = 0, discount = false }) => {
       <div
         className={`flex h-full flex-col items-center justify-start ${discount ? '' : 'text-[var(--text-20)]'}`}
       >
+        {/* main price */}
         {discount ? (
           <h5 className={`text-heading-s-upper uppercase`}>
-            {data.price - discount}
-            {` `}₽
+            {addSpacesToNumber(data.price - discount)}
+            {` ₽`}
           </h5>
         ) : (
           <p className={`text-heading-s-upper uppercase`}>
-            {data.price}
+            {quantity ? addSpacesToNumber(data.price) : data.price}
             {quantity ? ` ₽` : ''}
           </p>
         )}
+        {/* discount price */}
         {discount ? (
           <h5 className={`text-body-bold line-through`}>
-            {data.price}
-            {` `}₽
+            {addSpacesToNumber(data.price)}
+            {` ₽`}
           </h5>
         ) : (
           <p className={`hidden text-body-bold line-through`}>hidden</p>
