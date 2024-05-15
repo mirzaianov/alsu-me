@@ -1,5 +1,5 @@
 import PriceTutorCard from './PriceTutorCard';
-// import PriceTranslatorCard from './PriceCard';
+import PriceTranslatorCard from './PriceTranslatorCard';
 
 const Prices = () => {
   return (
@@ -7,7 +7,6 @@ const Prices = () => {
       className={`prices flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] py-[var(--xl)]`}
     >
       <h2 className={`prices__title text-heading-s`}>Выбери свой план</h2>
-
       <article
         className={`services__text flex flex-col justify-start gap-[var(--m)] text-center`}
       >
@@ -32,15 +31,21 @@ const Prices = () => {
             />
           </div>
         </div>
-        {/* <div className={`flex flex-col gap-[var(--m)]`}>
-        <h3 className={`text-center text-body-bold-upper uppercase`}>
-          Переводы
-        </h3>
-        <div className={`flex flex-col gap-[var(--l)]`}>
-          <PriceTranslatorCard type="oral" />
-          <PriceTranslatorCard type="written" />
+        <div className={`flex flex-col items-center gap-[var(--m)]`}>
+          <h3 className={`text-center text-body-bold-upper uppercase`}>
+            Переводы
+          </h3>
+          <div className={`flex flex-col gap-[var(--l)]`}>
+            <PriceTranslatorCard
+              type="oral"
+              price={2000}
+            />
+            <PriceTranslatorCard
+              type="written"
+              price={2500}
+            />
+          </div>
         </div>
-      </div> */}
       </article>
     </section>
   );
