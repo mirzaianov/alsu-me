@@ -26,4 +26,8 @@ body {
       'M 0 16 Q 0 0 16 0 L 154 0 Q 170 0 170 16 L 170 194 Q 170 210 154 210 L 16 210 Q 0 210 0 194'
     );
   }
+
+  .pause {
+    animation-play-state: paused;
+  }
 }

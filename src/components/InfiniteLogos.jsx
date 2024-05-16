@@ -5,9 +5,9 @@ import Tempo from '../assets/img/logo-tempo.svg';
 const InfiniteLogos = () => {
   return (
     <div
-      className={`relative mt-[var(--l)] w-full overflow-hidden whitespace-nowrap bg-[var(--secondary-05)] px-0 py-[var(--s)] leading-normal`}
+      className={`group relative mt-[var(--l)] w-full overflow-hidden whitespace-nowrap bg-[var(--secondary-05)] px-0 py-[var(--s)] leading-normal`}
     >
-      <div className={`animate-slides inline-block w-max`}>
+      <div className={`group-hover:pause inline-block w-max animate-slides`}>
         <img
           className={`mx-[20px] my-0 inline-block h-[var(--m)]`}
           src={Kamaz}
@@ -24,7 +24,7 @@ const InfiniteLogos = () => {
           alt="Tempo"
         />
       </div>
-      <div className={`animate-slides inline-block w-max`}>
+      <div className={`group-hover:pause inline-block w-max animate-slides`}>
         <img
           className={`mx-[20px] my-0 inline-block h-[var(--m)]`}
           src={Kamaz}
