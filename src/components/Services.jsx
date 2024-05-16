@@ -1,4 +1,30 @@
 import ServiceCard from './ServiceCard';
+import tutorImage from '../assets/icons/tutor.svg';
+import translatorImage from '../assets/icons/translator.svg';
+
+const serviceCardData = [
+  {
+    src: tutorImage,
+    alt: 'Преподаватель',
+    subheading: 'Индивидуальные занятия на платформе Zoom',
+    description: [
+      'Программа под запрос',
+      'Прокачка всех 4 навыков',
+      'Домашнее задание с подробным разбором',
+    ],
+  },
+  {
+    src: translatorImage,
+    alt: 'Переводчик',
+    subheading: 'Переводы',
+    description: [
+      'Письменные',
+      'Устные',
+      'Английский - Русский',
+      'Русский - Английский',
+    ],
+  },
+];
 
 const Services = () => {
   return (
@@ -28,8 +54,12 @@ const Services = () => {
       </article>
 
       <article className={`services__cards flex flex-col gap-[var(--l)]`}>
-        <ServiceCard type="tutor" />
-        <ServiceCard type="translator" />
+        {serviceCardData.map((item) => (
+          <ServiceCard
+            key={item.alt}
+            {...item}
+          />
+        ))}
       </article>
     </section>
   );
