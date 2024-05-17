@@ -37,7 +37,9 @@ const testimonialCardData = [
 
 const TestimonialCardsRow = () => {
   return (
-    <div className={`group-hover:pause inline-block w-max animate-slides`}>
+    <div
+      className={`group-hover:pause animate-testimonials inline-block w-max`}
+    >
       {testimonialCardData.map((item) => (
         <div
           key={item.fullName}

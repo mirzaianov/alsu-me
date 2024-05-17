@@ -110,6 +110,7 @@ export default {
       animation: {
         blob: 'blob 7s infinite',
         slides: 'slides 20s linear infinite',
+        testimonials: 'slides 60s linear infinite',
         'slide-words': 'slide-words 20s linear infinite',
         'rotate-first-note': 'rotate-first-note 20s infinite',
         'rotate-second-note': 'rotate-second-note 20s infinite',
