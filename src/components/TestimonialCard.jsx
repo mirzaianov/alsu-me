@@ -1,6 +1,10 @@
 import propTypes from 'prop-types';
+import { useState } from 'react';
+import TestimonialCardModal from './TestimonialCardModal.jsx';
 
 const TestimonialCard = ({ src, fullName, occupation, comment }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div
       className={`testimonial-card flex h-[380px] w-[288px] min-w-[288px] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
@@ -17,7 +21,18 @@ const TestimonialCard = ({ src, fullName, occupation, comment }) => {
         </div>
       </div>
       <p className={`line-clamp-10 whitespace-normal`}>{comment}</p>
-      <button className={`mt-auto text-left`}>Читать далее</button>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className={`mt-auto text-left`}
+      >
+        Читать далее
+      </button>
+      {isModalOpen && (
+        <TestimonialCardModal onClose={() => setIsModalOpen(false)}>
+          <h2>Modal Title</h2>
+          <p>This is the modal content!</p>
+        </TestimonialCardModal>
+      )}
     </div>
   );
 };
