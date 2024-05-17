@@ -16,7 +16,7 @@ const TestimonialCard = ({ src, fullName, occupation, comment }) => {
           <p>{occupation}</p>
         </div>
       </div>
-      <p className={`line-clamp-10`}>{comment}</p>
+      <p className={`line-clamp-10 whitespace-normal`}>{comment}</p>
       <button className={`mt-auto text-left`}>Читать далее</button>
     </div>
   );

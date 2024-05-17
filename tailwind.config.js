@@ -118,6 +118,12 @@ export default {
         'wavind-badge-4': 'wavind-badge 4s linear infinite',
         tada: 'tada 8s ease-in-out infinite',
       },
+      lineClamp: {
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10',
+      },
     },
     screens: {
       tablet: '576px',
