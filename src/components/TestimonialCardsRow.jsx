@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import TestimonialCard from './TestimonialCard';
 import almaz from '../assets/img/almaz.jpeg';
 import elena from '../assets/img/elena.jpeg';
@@ -35,21 +36,30 @@ const testimonialCardData = [
   },
 ];
 
-const TestimonialCardsRow = () => {
+const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
   return (
     <div
-      className={`group-hover:pause animate-testimonials inline-block w-max`}
+      className={`group-hover:pause inline-block w-max animate-testimonials ${isInfiniteScroll ? '' : 'pause'}`}
     >
       {testimonialCardData.map((item) => (
         <div
           key={item.fullName}
           className={`mx-[12px] my-0 inline-block h-full`}
         >
-          <TestimonialCard {...item} />
+          <TestimonialCard
+            {...item}
+            isInfiniteScroll={isInfiniteScroll}
+            setIsInfiniteScroll={setIsInfiniteScroll}
+          />
         </div>
       ))}
     </div>
   );
+};
+
+TestimonialCardsRow.propTypes = {
+  isInfiniteScroll: propTypes.bool,
+  setIsInfiniteScroll: propTypes.func,
 };
 
 export default TestimonialCardsRow;

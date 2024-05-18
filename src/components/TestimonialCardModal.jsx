@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import Button from './Button';
 
 const modalRoot = document.getElementById('testimonail-card-modal');
 
-const Modal = ({ onClose, children }) => {
+const TestimonialCardModal = ({ onClose, children }) => {
   const elRef = useRef(null);
 
   if (!elRef.current) {
@@ -24,13 +25,23 @@ const Modal = ({ onClose, children }) => {
     <div
       className={`z-1000 fixed inset-0 flex items-center justify-center bg-slate-600/[.9]`}
     >
-      <div className={`radius-[5px] bg-[var(--neutral-00)] p-[20px]`}>
+      <div
+        className={`testimonial-card flex w-[288px] min-w-[288px] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-[var(--neutral-00)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
+      >
         {children}
-        <button onClick={onClose}>Close</button>
+        <div
+          className={`self-center`}
+          onClick={onClose}
+        >
+          <Button
+            text="Закрыть"
+            type="accent"
+          />
+        </div>
       </div>
     </div>,
     elRef.current,
   );
 };
 
-export default Modal;
+export default TestimonialCardModal;

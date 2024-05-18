@@ -2,8 +2,26 @@ import propTypes from 'prop-types';
 import { useState } from 'react';
 import TestimonialCardModal from './TestimonialCardModal.jsx';
 
-const TestimonialCard = ({ src, fullName, occupation, comment }) => {
+const TestimonialCard = ({
+  src,
+  fullName,
+  occupation,
+  comment,
+  isInfiniteScroll,
+  setIsInfiniteScroll,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClamped, setIsClamped] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+    setIsInfiniteScroll(!isInfiniteScroll);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setIsInfiniteScroll(!isInfiniteScroll);
+  };
 
   return (
     <div
@@ -20,17 +38,28 @@ const TestimonialCard = ({ src, fullName, occupation, comment }) => {
           <p>{occupation}</p>
         </div>
       </div>
+      {/* TODO: control the line-clamp */}
       <p className={`line-clamp-10 whitespace-normal`}>{comment}</p>
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={handleModalOpen}
         className={`mt-auto text-left`}
       >
         Читать далее
       </button>
       {isModalOpen && (
-        <TestimonialCardModal onClose={() => setIsModalOpen(false)}>
-          <h2>Modal Title</h2>
-          <p>This is the modal content!</p>
+        <TestimonialCardModal onClose={handleModalClose}>
+          <div className={`flex gap-[var(--s)]`}>
+            <img
+              className={`aspect-square h-[56px] rounded-full object-cover`}
+              src={src}
+              alt="photo"
+            />
+            <div className={`flex flex-col justify-center`}>
+              <p className={`text-body-bold`}>{fullName}</p>
+              <p>{occupation}</p>
+            </div>
+          </div>
+          <p className={`whitespace-normal`}>{comment}</p>
         </TestimonialCardModal>
       )}
     </div>
@@ -42,6 +71,8 @@ TestimonialCard.propTypes = {
   fullName: propTypes.string.isRequired,
   occupation: propTypes.string.isRequired,
   comment: propTypes.string.isRequired,
+  isInfiniteScroll: propTypes.bool.isRequired,
+  setIsInfiniteScroll: propTypes.func.isRequired,
 };
 
 export default TestimonialCard;
