@@ -31,24 +31,23 @@ const Hero = () => {
           </ul>
         </div>
         <div
-          className={`hero__photo-container relative flex min-w-[178px] grow items-center justify-center`}
+          className={`hero__photo-container flex min-w-[178px] grow items-center justify-center`}
         >
-          {/* add bg */}
           <div
-            className={`circle absolute -right-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
-          ></div>
-          <div
-            className={`circle absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
-          ></div>
-          <div
-            className={`circle absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
-          ></div>
-          <div
-            className={`hero__photo-wrapper flex items-center justify-start`}
+            className={`hero__photo-wrapper relative flex items-center justify-start`}
           >
+            <div
+              className={`circle absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
+            ></div>
+            <div
+              className={`circle absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
+            ></div>
+            <div
+              className={`circle absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
+            ></div>
             <PhotoCardHero />
             <div
-              className={`animate-wavind-badge-3 absolute left-[-20px] top-[139px]`}
+              className={`absolute left-[-20px] top-[139px] animate-wavind-badge-3`}
             >
               <Badge
                 text="Hi"
