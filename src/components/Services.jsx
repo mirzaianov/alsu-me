@@ -29,12 +29,12 @@ const serviceCardData = [
 const Services = () => {
   return (
     <section
-      className={`services flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] py-[var(--xl)]`}
+      className={`flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] py-[var(--xl)]`}
     >
-      <h2 className={`services__title text-heading-s`}>Что я предлагаю</h2>
+      <h2 className={`text-heading-s`}>Что я предлагаю</h2>
 
       <article
-        className={`services__text flex flex-col items-center justify-start gap-[var(--m)]`}
+        className={`flex flex-col items-center justify-start gap-[var(--m)]`}
       >
         <p>
           В своих занятиях я акцентирую внимание на развитии разговорных навыков
@@ -53,7 +53,7 @@ const Services = () => {
         </p>
       </article>
 
-      <article className={`services__cards flex flex-col gap-[var(--l)]`}>
+      <article className={`flex flex-col gap-[var(--l)]`}>
         {serviceCardData.map((item) => (
           <ServiceCard
             key={item.alt}

@@ -1,4 +1,5 @@
 import About from './components/About';
+import Contacts from './components/Contacts';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import InfiniteLogos from './components/InfiniteLogos';
@@ -18,6 +19,7 @@ const App = () => {
       <Services />
       <Prices />
       <Testimonials />
+      <Contacts />
       {/*
       <Button
         icon="telegram"

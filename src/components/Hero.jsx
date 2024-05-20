@@ -7,14 +7,12 @@ import Badge from './Badge';
 const Hero = () => {
   return (
     <section
-      className={`hero mx-auto mt-[var(--m)] flex w-full max-w-[var(--container-mobile)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[120px] tablet:max-w-[var(--container-tablet)] desktop:max-w-[var(--container-desktop)]`}
+      className={`mx-auto mt-[var(--m)] flex w-full max-w-[var(--container-mobile)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[120px] tablet:max-w-[var(--container-tablet)] desktop:max-w-[var(--container-desktop)]`}
     >
-      <article className={`hero__photo flex items-center justify-start`}>
-        <div
-          className={`hero__stats-container flex max-w-[160px] grow items-center justify-center`}
-        >
+      <article className={`flex items-center justify-start`}>
+        <div className={`flex max-w-[160px] grow items-center justify-center`}>
           <ul
-            className={`hero__stats-wrapper flex w-[100px] flex-col justify-start gap-[var(--s)]`}
+            className={`flex w-[100px] flex-col justify-start gap-[var(--s)]`}
           >
             <Stat
               quantity="16+"
@@ -30,20 +28,16 @@ const Hero = () => {
             />
           </ul>
         </div>
-        <div
-          className={`hero__photo-container flex min-w-[178px] grow items-center justify-center`}
-        >
-          <div
-            className={`hero__photo-wrapper relative flex items-center justify-start`}
-          >
+        <div className={`flex min-w-[178px] grow items-center justify-center`}>
+          <div className={`relative flex items-center justify-start`}>
             <div
-              className={`circle absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
+              className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
             ></div>
             <div
-              className={`circle absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
+              className={`absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
             ></div>
             <div
-              className={`circle absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
+              className={`absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
             ></div>
             <PhotoCardHero />
             <div
@@ -60,10 +54,10 @@ const Hero = () => {
         </div>
       </article>
       <article
-        className={`hero__text flex flex-col items-center justify-start gap-[var(--l)] text-center`}
+        className={`flex flex-col items-center justify-start gap-[var(--l)] text-center`}
       >
         <h1
-          className={`hero__text-title flex flex-col items-center justify-start text-heading-s`}
+          className={`flex flex-col items-center justify-start text-heading-s`}
         >
           <span>В поисках идеального</span>
           <div
@@ -87,13 +81,11 @@ const Hero = () => {
           </div>
           <span>английского?</span>
         </h1>
-        <div
-          className={`hero__text-subtitle flex flex-col justify-start gap-[var(--s)]`}
-        >
+        <div className={`flex flex-col justify-start gap-[var(--s)]`}>
           <p>Привет! Меня зовут Алсу</p>
-          <div className={`flip-card relative h-[100px] w-[288px]`}>
+          <div className={`relative h-[100px] w-[288px]`}>
             <div
-              className={`flip-card__front absolute animate-rotate-first-note [backface-visibility:hidden]`}
+              className={`absolute animate-rotate-first-note [backface-visibility:hidden]`}
             >
               <Note type="tutor">
                 Научу тебя понимать и говорить на английском языке, подобрав
@@ -101,7 +93,7 @@ const Hero = () => {
               </Note>
             </div>
             <div
-              className={`flip-card__back absolute animate-rotate-second-note [backface-visibility:hidden]`}
+              className={`absolute animate-rotate-second-note [backface-visibility:hidden]`}
             >
               <Note type="translator">
                 Помогу твоему бизнесу с устным и письменным переводом, тренингом
@@ -111,7 +103,7 @@ const Hero = () => {
           </div>
         </div>
         <div
-          className={`hero__button flex flex-col items-center justify-start gap-[var(--xs)]`}
+          className={`flex flex-col items-center justify-start gap-[var(--xs)]`}
         >
           <p>Запишись на бесплатное занятие</p>
           <Button
