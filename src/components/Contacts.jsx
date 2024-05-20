@@ -3,7 +3,7 @@ import Button from './Button';
 const Contacts = () => {
   return (
     <section
-      className={`flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] py-[var(--xl)]`}
+      className={`mb-[var(--l)] mt-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`text-center text-heading-s`}>
         Готов начать сотрудничество?
