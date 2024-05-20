@@ -18,7 +18,6 @@ const TestimonialCard = ({
 
   const paragraphRef = useRef(null);
   const modalRef = useRef(null);
-  console.log(modalRef);
 
   useOnClickOutside(modalRef, () => {
     setIsModalOpen(false);

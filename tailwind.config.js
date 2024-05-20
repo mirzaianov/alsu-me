@@ -113,8 +113,8 @@ export default {
         walter: {
           '0%': { transform: 'translateY(0px)' },
           '25%': { transform: 'translateY(0px)' },
-          '33%': { transform: 'translateY(-40px)' },
-          '66%': { transform: 'translateY(-40px)' },
+          '33%': { transform: 'translateY(-32px)' },
+          '66%': { transform: 'translateY(-32px)' },
           '75%': { transform: 'translateY(0px)' },
           '100%': { transform: 'translateY(0px)' },
         },
@@ -130,7 +130,7 @@ export default {
         'wavind-badge-3': 'wavind-badge 3s linear infinite',
         'wavind-badge-4': 'wavind-badge 4s linear infinite',
         tada: 'tada 8s ease-in-out infinite',
-        walter: 'walter 10s ease-in-out infinite',
+        walter: 'walter 8s ease-in-out infinite',
       },
       lineClamp: {
         7: '7',
