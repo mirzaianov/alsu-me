@@ -1,6 +1,53 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
 
+const tutorCardData = [
+  {
+    quantity: 0,
+    discount: 0,
+    heading: 'Пробное',
+    subheading: 'Индивидуальное занятие',
+    duration: `Продолжительность: 20 мин`,
+    price: 0,
+    description: ['Знакомимся', 'Определяем уровень'],
+  },
+  {
+    quantity: 1,
+    discount: 0,
+    heading: '1',
+    subheading: 'Индивидуальное занятие',
+    duration: `Продолжительность: 60 мин`,
+    price: 2000,
+    description: ['80% занятия - практика', 'Современные материалы'],
+  },
+  {
+    quantity: 5,
+    discount: 500,
+    heading: '5',
+    subheading: 'Индивидуальных занятия',
+    duration: `Продолжительность: 60 мин`,
+    price: 2000,
+    description: ['80% занятия - практика', 'Современные материалы'],
+  },
+];
+
+const translatorCardData = [
+  {
+    heading: 'Устный последовательный перевод',
+    subheading: `Продолжительность: 60 мин`,
+    price: 2000,
+    description: ['Английский - Русский', 'Русский - Английский'],
+    note: 'Минимальная оплата - 2 часа',
+  },
+  {
+    heading: 'Письменный перевод',
+    subheading: '1800 знаков, включая пробелы',
+    price: 2500,
+    description: ['Английский - Русский', 'Русский - Английский'],
+    note: 'Стоимость и сроки - после ознакомления с материалом',
+  },
+];
+
 const Prices = () => {
   return (
     <section
@@ -19,16 +66,12 @@ const Prices = () => {
             Индивидуальные занятия на платформе Zoom
           </h3>
           <div className={`flex flex-col items-center gap-[var(--l)]`}>
-            <PriceTutorCard />
-            <PriceTutorCard
-              quantity={1}
-              price={2000}
-            />
-            <PriceTutorCard
-              quantity={5}
-              price={2000}
-              discount={500}
-            />
+            {tutorCardData.map((item) => (
+              <PriceTutorCard
+                key={item.heading}
+                {...item}
+              />
+            ))}
           </div>
         </div>
         <div className={`flex flex-col items-center gap-[var(--m)]`}>
@@ -36,14 +79,12 @@ const Prices = () => {
             Переводы
           </h3>
           <div className={`flex flex-col gap-[var(--l)]`}>
-            <PriceTranslatorCard
-              type="written"
-              price={2500}
-            />
-            <PriceTranslatorCard
-              type="oral"
-              price={2000}
-            />
+            {translatorCardData.map((item) => (
+              <PriceTranslatorCard
+                key={item.heading}
+                {...item}
+              />
+            ))}
           </div>
         </div>
       </article>
