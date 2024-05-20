@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
 import TestimonialCardModal from './TestimonialCardModal.jsx';
+import useOnClickOutside from '../hooks/useOnClickOutside.jsx';
 
 const maxLines = 10;
 
@@ -16,6 +17,13 @@ const TestimonialCard = ({
   const [isClamped, setIsClamped] = useState(false);
 
   const paragraphRef = useRef(null);
+  const modalRef = useRef(null);
+  console.log(modalRef);
+
+  useOnClickOutside(modalRef, () => {
+    setIsModalOpen(false);
+    setIsInfiniteScroll(!isInfiniteScroll);
+  });
 
   useEffect(() => {
     const isOverflowing = () => {
@@ -72,7 +80,10 @@ const TestimonialCard = ({
       )}
       {isModalOpen && (
         <TestimonialCardModal onClose={handleModalClose}>
-          <div className={`flex gap-[var(--s)]`}>
+          <div
+            className={`flex gap-[var(--s)]`}
+            ref={modalRef}
+          >
             <img
               className={`aspect-square h-[56px] rounded-full object-cover`}
               src={src}

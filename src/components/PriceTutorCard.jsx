@@ -49,9 +49,13 @@ const PriceTutorCard = ({
           <Button
             text="Записаться"
             type="neutral"
+            onClick={() => {}}
           />
         ) : (
-          <Button text="Записаться" />
+          <Button
+            text="Записаться"
+            onClick={() => {}}
+          />
         )}
       </div>
       <ul className={`mt-auto flex flex-col justify-start`}>
@@ -70,6 +74,7 @@ const PriceTutorCard = ({
             <Button
               text="Популярно"
               type="accent"
+              onClick={() => {}}
             />
           </div>
         </div>
