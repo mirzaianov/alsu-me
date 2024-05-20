@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import InfiniteTestimonialCards from './InfiniteTestimonialCards';
 
 const Testimonials = () => {

@@ -1,6 +1,8 @@
 import propTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import TestimonialCardModal from './TestimonialCardModal.jsx';
+
+const maxLines = 10;
 
 const TestimonialCard = ({
   src,
@@ -12,6 +14,22 @@ const TestimonialCard = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClamped, setIsClamped] = useState(false);
+
+  const paragraphRef = useRef(null);
+
+  useEffect(() => {
+    const isOverflowing = () => {
+      const { current } = paragraphRef;
+      const maxHeight =
+        parseFloat(getComputedStyle(current).lineHeight) * maxLines;
+
+      return current.scrollHeight >= maxHeight;
+    };
+
+    if (isOverflowing()) {
+      setIsClamped(true);
+    }
+  }, []);
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -25,7 +43,7 @@ const TestimonialCard = ({
 
   return (
     <div
-      className={`testimonial-card flex h-[380px] w-[288px] min-w-[288px] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
+      className={`testimonial-card relative flex h-[380px] w-[288px] min-w-[288px] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-[var(--neutral-00)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
     >
       <div className={`flex gap-[var(--s)]`}>
         <img
@@ -38,14 +56,20 @@ const TestimonialCard = ({
           <p>{occupation}</p>
         </div>
       </div>
-      {/* TODO: control the line-clamp */}
-      <p className={`line-clamp-10 whitespace-normal`}>{comment}</p>
-      <button
-        onClick={handleModalOpen}
-        className={`mt-auto text-left`}
+      <p
+        ref={paragraphRef}
+        className={`line-clamp-10 whitespace-normal`}
       >
-        Читать далее
-      </button>
+        {comment}
+      </p>
+      {isClamped && (
+        <button
+          onClick={handleModalOpen}
+          className={`mt-auto text-left`}
+        >
+          Читать далее
+        </button>
+      )}
       {isModalOpen && (
         <TestimonialCardModal onClose={handleModalClose}>
           <div className={`flex gap-[var(--s)]`}>

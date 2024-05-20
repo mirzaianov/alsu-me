@@ -4,6 +4,7 @@ import almaz from '../assets/img/almaz.jpeg';
 import elena from '../assets/img/elena.jpeg';
 import dilara from '../assets/img/dilara.jpeg';
 import ruslan from '../assets/img/ruslan.jpeg';
+import walter from '../assets/icons/walter.svg';
 
 const testimonialCardData = [
   {
@@ -41,11 +42,21 @@ const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
     <div
       className={`group-hover:pause inline-block w-max animate-testimonials ${isInfiniteScroll ? '' : 'pause'}`}
     >
-      {testimonialCardData.map((item) => (
+      {testimonialCardData.map((item, index) => (
         <div
           key={item.fullName}
-          className={`mx-[12px] my-0 inline-block h-full`}
+          className={`relative mx-[12px] my-0 inline-block h-full`}
         >
+          {index === 0 && (
+            <div
+              className={`animate-walter absolute -top-[32px] right-0 aspect-square w-[80px]`}
+            >
+              <img
+                src={walter}
+                alt="walter white"
+              />
+            </div>
+          )}
           <TestimonialCard
             {...item}
             isInfiniteScroll={isInfiniteScroll}

@@ -22,7 +22,7 @@ const About = () => {
         ></div>
         <PhotoCardAbout />
         <div
-          className={`animate-wavind-badge-3 absolute -right-[70px] top-[150px]`}
+          className={`absolute -right-[70px] top-[150px] animate-wavind-badge-3`}
         >
           <Badge
             text="Speaking"
@@ -31,7 +31,7 @@ const About = () => {
           />
         </div>
         <div
-          className={`animate-wavind-badge-4 absolute -right-[70px] top-[225px] [animation-delay:_0.1s]`}
+          className={`absolute -right-[70px] top-[225px] animate-wavind-badge-4 [animation-delay:_0.1s]`}
         >
           <Badge
             text="Writing"
@@ -40,7 +40,7 @@ const About = () => {
           />
         </div>
         <div
-          className={`animate-wavind-badge-4 absolute -left-[60px] top-[190px] [animation-delay:_0.4s]`}
+          className={`absolute -left-[60px] top-[190px] animate-wavind-badge-4 [animation-delay:_0.4s]`}
         >
           <Badge
             text="Listening"
@@ -49,7 +49,7 @@ const About = () => {
           />
         </div>
         <div
-          className={`animate-wavind-badge-3 absolute -left-[50px] top-[250px] [animation-delay:_0.7s]`}
+          className={`absolute -left-[50px] top-[250px] animate-wavind-badge-3 [animation-delay:_0.7s]`}
         >
           <Badge
             text="Reading"
