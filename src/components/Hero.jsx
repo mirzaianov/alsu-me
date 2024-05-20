@@ -114,7 +114,10 @@ const Hero = () => {
           className={`hero__button flex flex-col items-center justify-start gap-[var(--xs)]`}
         >
           <p>Запишись на бесплатное занятие</p>
-          <Button text="Записаться" />
+          <Button
+            text="Записаться"
+            onClick={() => {}}
+          />
         </div>
       </article>
     </section>

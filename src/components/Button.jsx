@@ -7,6 +7,7 @@ const Button = ({
   icon = '',
   size = '--button',
   type = '--primary-10',
+  onClick,
 }) => {
   const style = {
     width: 'fit-content',
@@ -68,6 +69,8 @@ const Button = ({
         backgroundColor: style.backgroundColor,
         outlineColor: style.outlineColor,
       }}
+      type="button"
+      onClick={onClick}
     >
       <img
         style={{ height: `${style.size}` }}
@@ -80,6 +83,7 @@ const Button = ({
 };
 
 Button.propTypes = {
+  onClick: propTypes.func.isRequired,
   text: propTypes.string.isRequired,
   icon: propTypes.string,
   size: propTypes.string,
