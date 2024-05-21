@@ -50,6 +50,7 @@ const Header = () => {
         <Button
           text="Записаться"
           type="secondary"
+          onClick={() => {}}
         />
       );
     }

@@ -3,7 +3,7 @@ import InfiniteTestimonialCards from './InfiniteTestimonialCards';
 const Testimonials = () => {
   return (
     <section
-      className={`flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] py-[var(--xl)]`}
+      className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`text-center text-heading-s`}>
         Что говорят мои ученики и клиенты
