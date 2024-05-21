@@ -3,6 +3,7 @@ import InfiniteTestimonialCards from './InfiniteTestimonialCards';
 const Testimonials = () => {
   return (
     <section
+      id="testimonials"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`text-center text-heading-s`}>

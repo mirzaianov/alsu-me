@@ -80,7 +80,7 @@ const Navbar = ({ type = '' }) => {
             id={item[0]}
             key={item[0]}
           >
-            <a href="#">{item[1]}</a>
+            <a href={`#${item[0]}`}>{item[1]}</a>
           </li>
         ))}
       </ul>

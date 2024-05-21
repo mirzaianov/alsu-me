@@ -51,6 +51,7 @@ const translatorCardData = [
 const Prices = () => {
   return (
     <section
+      id="prices"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`text-heading-s`}>Выбери свой план</h2>
