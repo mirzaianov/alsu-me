@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 const ServiceCard = ({ src, alt, subheading, description }) => {
   return (
     <div
-      className={`service-card flex h-[336px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--s)] py-[var(--m)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
+      className={`service-card flex h-[336px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] bg-[var(--neutral-00)] px-[var(--s)] py-[var(--m)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
     >
       <div
         className={`flex flex-col items-center justify-center gap-[var(--m)]`}

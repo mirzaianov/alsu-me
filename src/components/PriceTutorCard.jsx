@@ -13,7 +13,7 @@ const PriceTutorCard = ({
 }) => {
   return (
     <div
-      className={`price-tutor-card relative flex h-[380px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-[var(--primary-10)] text-[var(--text-00)]' : ''}`}
+      className={`price-tutor-card relative flex h-[380px] w-[288px] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-[var(--primary-10)] text-[var(--text-00)]' : 'bg-[var(--neutral-00)]'}`}
     >
       <div
         className={`flex flex-col items-center justify-center gap-[var(--xs)]`}

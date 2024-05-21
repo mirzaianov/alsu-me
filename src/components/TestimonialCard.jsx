@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
 import TestimonialCardModal from './TestimonialCardModal.jsx';
 import useOnClickOutside from '../hooks/useOnClickOutside.jsx';
+import Button from './Button.jsx';
 
 const maxLines = 10;
 
@@ -50,7 +51,7 @@ const TestimonialCard = ({
 
   return (
     <div
-      className={`testimonial-card relative flex h-[380px] w-[288px] min-w-[288px] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-[var(--neutral-00)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
+      className={`relative flex h-[400px] w-[288px] min-w-[288px] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-[var(--neutral-00)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
     >
       <div className={`flex gap-[var(--s)]`}>
         <img
@@ -70,12 +71,13 @@ const TestimonialCard = ({
         {comment}
       </p>
       {isClamped && (
-        <button
-          onClick={handleModalOpen}
-          className={`mt-auto text-left`}
-        >
-          Читать далее
-        </button>
+        <div className={`mt-auto`}>
+          <Button
+            onClick={handleModalOpen}
+            type="secondary"
+            text="Читать далее"
+          />
+        </div>
       )}
       {isModalOpen && (
         <TestimonialCardModal onClose={handleModalClose}>
