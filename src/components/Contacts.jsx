@@ -1,8 +1,5 @@
 import Button from './Button';
 
-const telegram = import.meta.env.VITE_TELEGRAM;
-const email = import.meta.env.VITE_EMAIL;
-
 const Contacts = () => {
   return (
     <section

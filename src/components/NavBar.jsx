@@ -9,7 +9,7 @@ const items = [
   ['contacts', 'Контакты'],
 ];
 
-const Navbar = ({ type = '' }) => {
+const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
   let ULstyle = {};
   let LIstyle = {};
 
@@ -65,6 +65,12 @@ const Navbar = ({ type = '' }) => {
     };
   }
 
+  const handleClick = () => {
+    if (setIsDropdownOpen) {
+      setIsDropdownOpen(!isDropdownOpen);
+    }
+  };
+
   return (
     <nav className="w-full">
       <ul
@@ -79,6 +85,7 @@ const Navbar = ({ type = '' }) => {
             style={{ ...LIstyle, gridArea: item[0] }}
             id={item[0]}
             key={item[0]}
+            onClick={handleClick}
           >
             <a href={`#${item[0]}`}>{item[1]}</a>
           </li>
@@ -90,6 +97,8 @@ const Navbar = ({ type = '' }) => {
 
 Navbar.propTypes = {
   type: propTypes.string,
+  setIsDropdownOpen: propTypes.func,
+  isDropdownOpen: propTypes.bool,
 };
 
 export default Navbar;

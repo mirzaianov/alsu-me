@@ -118,6 +118,10 @@ export default {
           '75%': { transform: 'translateY(0px)' },
           '100%': { transform: 'translateY(0px)' },
         },
+        expandFromCorner: {
+          '0%': { transform: 'scale(0) translate(100%, -100%)', opacity: '0' },
+          '100%': { transform: 'scale(1) translate(0, 0)', opacity: '1' },
+        },
       },
       animation: {
         blob: 'blob 7s infinite',
@@ -131,6 +135,7 @@ export default {
         'wavind-badge-4': 'wavind-badge 4s linear infinite',
         tada: 'tada 8s ease-in-out infinite',
         walter: 'walter 8s ease-in-out infinite',
+        'expand-from-corner': 'expandFromCorner 0.3s ease-out forwards',
       },
       lineClamp: {
         7: '7',
