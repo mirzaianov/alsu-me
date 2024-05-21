@@ -49,13 +49,9 @@ const PriceTutorCard = ({
           <Button
             text="Записаться"
             type="neutral"
-            onClick={() => {}}
           />
         ) : (
-          <Button
-            text="Записаться"
-            onClick={() => {}}
-          />
+          <Button text="Записаться" />
         )}
       </div>
       <ul className={`mt-auto flex flex-col justify-start`}>
@@ -72,6 +68,7 @@ const PriceTutorCard = ({
         <div className={`absolute -top-[20px] left-2/4 -translate-x-1/2`}>
           <div className={`animate-tada`}>
             <Button
+              style={{ cursor: 'default' }}
               text="Популярно"
               type="accent"
               onClick={() => {}}

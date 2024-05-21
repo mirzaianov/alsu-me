@@ -2,12 +2,15 @@ import propTypes from 'prop-types';
 import telegram from '../assets/icons/telegram.svg';
 import email from '../assets/icons/email.svg';
 
+const telegramLink = import.meta.env.VITE_TELEGRAM;
+const emailLink = import.meta.env.VITE_EMAIL;
+
 const Button = ({
   text,
   icon = '',
   size = '--button',
   type = '--primary-10',
-  onClick,
+  onClick = null,
 }) => {
   const style = {
     width: 'fit-content',
@@ -57,6 +60,20 @@ const Button = ({
     style.outlineColor = 'var(--primary-30)';
   }
 
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
+
+    if (text === 'Email') {
+      window.location = `mailto:${emailLink}`;
+      return;
+    }
+
+    window.open(telegramLink, '_blank');
+  };
+
   return (
     <button
       className="flex justify-center rounded-lg py-[var(--xs)] font-bold leading-normal tracking-[0.05em] outline outline-[3px] outline-offset-[-3px]"
@@ -70,7 +87,7 @@ const Button = ({
         outlineColor: style.outlineColor,
       }}
       type="button"
-      onClick={onClick}
+      onClick={handleClick}
     >
       <img
         style={{ height: `${style.size}` }}
@@ -83,7 +100,7 @@ const Button = ({
 };
 
 Button.propTypes = {
-  onClick: propTypes.func.isRequired,
+  onClick: propTypes.func,
   text: propTypes.string.isRequired,
   icon: propTypes.string,
   size: propTypes.string,

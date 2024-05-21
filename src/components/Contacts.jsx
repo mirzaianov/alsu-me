@@ -15,13 +15,11 @@ const Contacts = () => {
           <Button
             text="Telegram"
             icon="telegram"
-            onClick={() => {}}
           />
           <Button
             text="Email"
             icon="email"
             type="secondary"
-            onClick={() => {}}
           />
         </div>
       </article>

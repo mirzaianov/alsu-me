@@ -1,12 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
 import Logo from './Logo';
 import NavBar from './NavBar';
 import Hamburger from './Hamburger';
 import Button from './Button';
+import HamburgerDropdown from './HamburgerDropdown';
+import useOnClickOutside from '../hooks/useOnClickOutside';
 
 const Header = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const dropdownRef = useRef(null);
+
+  useOnClickOutside(dropdownRef, () => {
+    setIsDropdownOpen(false);
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,18 +53,18 @@ const Header = () => {
     return <NavBar />;
   };
 
-  const HamburgerView = () => {
+  const HamburgerView = ({ onClick }) => {
     if (windowWidth > 992) {
       return (
         <Button
           text="Записаться"
           type="secondary"
-          onClick={() => {}}
+          onClick={onClick}
         />
       );
     }
 
-    return <Hamburger />;
+    return <Hamburger onClick={onClick} />;
   };
 
   return (
@@ -65,13 +74,25 @@ const Header = () => {
     >
       <LogoView />
       <MenuView />
-      <HamburgerView />
+      <HamburgerView onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
+      {isDropdownOpen && (
+        <HamburgerDropdown isOpen={isDropdownOpen}>
+          <div ref={dropdownRef}>
+            <NavBar
+              type="block-3"
+              setIsDropdownOpen={setIsDropdownOpen}
+              isDropdownOpen={isDropdownOpen}
+            />
+          </div>
+        </HamburgerDropdown>
+      )}
     </header>
   );
 };
 
 Header.propTypes = {
   type: propTypes.string,
+  onClick: propTypes.func,
 };
 
 export default Header;
