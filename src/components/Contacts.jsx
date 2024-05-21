@@ -1,5 +1,8 @@
 import Button from './Button';
 
+const telegram = import.meta.env.VITE_TELEGRAM;
+const email = import.meta.env.VITE_EMAIL;
+
 const Contacts = () => {
   return (
     <section
@@ -15,13 +18,11 @@ const Contacts = () => {
           <Button
             text="Telegram"
             icon="telegram"
-            onClick={() => {}}
           />
           <Button
             text="Email"
             icon="email"
             type="secondary"
-            onClick={() => {}}
           />
         </div>
       </article>

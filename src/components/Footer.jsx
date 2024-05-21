@@ -35,7 +35,9 @@ const Footer = () => {
           <p>Дизайн и разработка</p>
           <p>|</p>
           <a
-            href="#"
+            href="https://cv.mirzaianov.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`text-[var(--text-20)]`}
           >
             mirzaianov
