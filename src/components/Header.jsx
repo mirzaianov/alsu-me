@@ -60,6 +60,7 @@ const Header = () => {
 
   return (
     <header
+      id="header"
       className={`header mt-[var(--s)] flex w-full items-center justify-between px-[var(--s)] tablet:px-[var(--xl)] desktop:px-[var(--3xl)]`}
     >
       <LogoView />

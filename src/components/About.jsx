@@ -5,6 +5,7 @@ import Badge from './Badge';
 const About = () => {
   return (
     <section
+      id="about"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`text-heading-s`}>Обо мне</h2>

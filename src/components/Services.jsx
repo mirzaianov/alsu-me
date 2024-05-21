@@ -29,6 +29,7 @@ const serviceCardData = [
 const Services = () => {
   return (
     <section
+      id="services"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`text-heading-s`}>Что я предлагаю</h2>

@@ -49,7 +49,7 @@ const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
         >
           {index === 0 && (
             <div
-              className={`group-hover:pause animate-walter absolute -top-[35px] right-0 aspect-square w-[80px] ${isInfiniteScroll ? '' : 'pause'}`}
+              className={`group-hover:pause absolute -top-[35px] right-0 aspect-square w-[80px] animate-walter ${isInfiniteScroll ? '' : 'pause'}`}
             >
               <img
                 src={walter}

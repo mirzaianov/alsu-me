@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100dvh;
   background-color: var(--neutral-00);
@@ -12,6 +16,10 @@ body {
   color: var(--text-90);
   font-size: var(--body);
   line-height: 1.75;
+}
+
+section {
+  scroll-margin-top: var(--xl);
 }
 
 @layer utilities {

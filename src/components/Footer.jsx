@@ -5,6 +5,7 @@ import Navbar from './NavBar';
 const Footer = () => {
   return (
     <footer
+      id="footer"
       className={`mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <article className={`flex flex-col justify-start gap-[var(--l)]`}>
