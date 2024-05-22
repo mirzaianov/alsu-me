@@ -5,19 +5,13 @@ import email from '../assets/icons/email.svg';
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 const emailLink = import.meta.env.VITE_EMAIL;
 
-const Button = ({
-  text,
-  icon = '',
-  size = '--button',
-  type = '--primary-10',
-  onClick = null,
-}) => {
+const Button = ({ text, icon = '', size = '', type = '', onClick = null }) => {
   const style = {
     width: 'fit-content',
     iconPath: icon,
-    fontSize: `var(${size})`,
-    backgroundColor: `var(${type})`,
-    outlineColor: `var(${type})`,
+    fontSize: ``,
+    backgroundColor: `var(--primary-10)`,
+    outlineColor: `var(--primary-10)`,
     color: `var(--text-00)`,
     xPadding: 'var(--s)',
     gap: '',
@@ -39,7 +33,7 @@ const Button = ({
 
   // set size
   if (size === 'large') {
-    style.fontSize = 'var(--button-large)';
+    style.fontSize = 'var(--button-l)';
     style.xPadding = 'var(--m)';
   }
 
@@ -67,7 +61,7 @@ const Button = ({
     }
 
     if (text === 'Email') {
-      window.location = `mailto:${emailLink}`;
+      window.open(`mailto:${emailLink}`, '_blank');
       return;
     }
 
