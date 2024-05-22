@@ -30,7 +30,7 @@ const PriceTranslatorCard = ({
           </li>
         ))}
       </ul>
-      <p className={`min-h-[84px] max-w-[180px] text-center text-body-bold`}>
+      <p className={`min-h-[84px] max-w-[185px] text-center text-body-bold`}>
         {note}
       </p>
     </div>

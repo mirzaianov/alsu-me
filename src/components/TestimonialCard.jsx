@@ -74,7 +74,7 @@ const TestimonialCard = ({
         <div className={`mt-auto`}>
           <Button
             onClick={handleModalOpen}
-            type="secondary"
+            type="neutral"
             text="Читать далее"
           />
         </div>

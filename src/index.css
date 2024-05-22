@@ -9,6 +9,13 @@
   scroll-behavior: smooth;
 }
 
+/* :focus {
+  outline-width: 4px;
+  outline-style: solid;
+  outline-color: var(--primary-10);
+  outline-offset: 4px;
+} */
+
 body {
   min-height: 100dvh;
   background-color: var(--neutral-00);
@@ -21,6 +28,10 @@ body {
 section {
   scroll-margin-top: var(--xl);
 }
+
+/* button {
+  box-sizing: border-box;
+} */
 
 @layer utilities {
   .clip-path-hero {
