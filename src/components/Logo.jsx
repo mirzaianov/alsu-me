@@ -16,7 +16,7 @@ const Logo = ({ size = '' }) => {
 
   return (
     <img
-      className="w-fit"
+      className="w-auto"
       style={{ height: style.height }}
       src={logo}
       alt="Logo"

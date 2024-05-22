@@ -5,22 +5,17 @@ import email from '../assets/icons/email.svg';
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 const emailLink = import.meta.env.VITE_EMAIL;
 
-const Button = ({
-  text,
-  icon = '',
-  size = '--button',
-  type = '--primary-10',
-  onClick = null,
-}) => {
+const Button = ({ text, icon = '', size = '', type = '', onClick = null }) => {
   const style = {
     width: 'fit-content',
+    height: 'var(--xl)',
     iconPath: icon,
-    fontSize: `var(${size})`,
-    backgroundColor: `var(${type})`,
-    outlineColor: `var(${type})`,
+    fontSize: ``,
+    backgroundColor: `var(--primary-10)`,
+    borderColor: `var(--primary-10)`,
     color: `var(--text-00)`,
-    xPadding: 'var(--s)',
-    gap: '',
+    xPadding: `var(--s)`,
+    gap: ``,
   };
 
   // set icon
@@ -39,8 +34,9 @@ const Button = ({
 
   // set size
   if (size === 'large') {
-    style.fontSize = 'var(--button-large)';
+    style.fontSize = 'var(--button-l)';
     style.xPadding = 'var(--m)';
+    style.height = '52px';
   }
 
   // set type
@@ -49,15 +45,20 @@ const Button = ({
     style.color = 'var(--text-20)';
   }
 
-  if (type === 'neutral') {
+  if (type === 'inverse') {
     style.backgroundColor = 'var(--neutral-00)';
-    style.outlineColor = 'var(--neutral-00)';
-    style.color = 'var(--text-90)';
+    style.color = 'var(--text-20)';
   }
 
   if (type === 'accent') {
     style.backgroundColor = 'var(--primary-30)';
-    style.outlineColor = 'var(--primary-30)';
+    style.borderColor = 'var(--primary-30)';
+  }
+
+  if (type === 'neutral') {
+    style.backgroundColor = 'transparent';
+    style.borderColor = 'var(--neutral-90)';
+    style.color = 'var(--text-90)';
   }
 
   const handleClick = () => {
@@ -67,7 +68,7 @@ const Button = ({
     }
 
     if (text === 'Email') {
-      window.location = `mailto:${emailLink}`;
+      window.open(`mailto:${emailLink}`, '_blank');
       return;
     }
 
@@ -76,15 +77,16 @@ const Button = ({
 
   return (
     <button
-      className="flex justify-center rounded-lg py-[var(--xs)] font-bold leading-normal tracking-[0.05em] outline outline-[3px] outline-offset-[-3px]"
+      className={`box-border flex items-center justify-center rounded-lg border-[3px] py-[var(--xs)] font-bold leading-normal tracking-[0.05em]`}
       style={{
         width: style.width,
+        height: style.height,
         gap: style.gap,
         paddingInline: style.xPadding,
         fontSize: style.fontSize,
         color: style.color,
         backgroundColor: style.backgroundColor,
-        outlineColor: style.outlineColor,
+        borderColor: style.borderColor,
       }}
       type="button"
       onClick={handleClick}

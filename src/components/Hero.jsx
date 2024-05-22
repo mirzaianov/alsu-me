@@ -84,7 +84,7 @@ const Hero = () => {
         </h1>
         <div className={`flex flex-col justify-start gap-[var(--s)]`}>
           <p>Привет! Меня зовут Алсу</p>
-          <div className={`relative h-[100px] w-[288px]`}>
+          <div className={`relative h-[100px] w-[var(--card-width)]`}>
             <div
               className={`absolute animate-rotate-first-note [backface-visibility:hidden]`}
             >

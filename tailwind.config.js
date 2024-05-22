@@ -26,7 +26,7 @@ export default {
             transform: 'translateX(-100%)',
           },
         },
-        'slide-words': {
+        slideWords: {
           '0%': {
             'margin-top': '-144px',
           },
@@ -46,7 +46,7 @@ export default {
             'margin-top': '0px',
           },
         },
-        'rotate-first-note': {
+        rotateFirstNote: {
           '0%': {
             transform: 'perspective(1000px) rotateX(0deg)',
           },
@@ -63,7 +63,7 @@ export default {
             transform: 'perspective(1000px) rotateX(-360deg)',
           },
         },
-        'rotate-second-note': {
+        rotateSecondNote: {
           '0%': {
             transform: 'perspective(1000px) rotateX(180deg)',
           },
@@ -80,7 +80,7 @@ export default {
             transform: 'perspective(1000px) rotateX(-180deg)',
           },
         },
-        'waving-hand': {
+        wavingHand: {
           '0%': { transform: 'scale(1) rotate(0deg)' },
           '10%': { transform: 'rotate(14.0deg)' },
           '20%': { transform: 'rotate(-8.0deg)' },
@@ -90,7 +90,7 @@ export default {
           '60%': { transform: 'scale(1) rotate(0.0deg)' },
           '100%': { transform: 'scale(1) rotate( 0.0deg)' },
         },
-        'wavind-badge': {
+        wavindBadge: {
           '0%': { transform: 'translateY(0)' },
           '25%': { transform: 'translateY(3px)' },
           '75%': { transform: 'translateY(-3px)' },
@@ -124,17 +124,17 @@ export default {
         },
       },
       animation: {
+        tada: 'tada 8s ease-in-out infinite',
         blob: 'blob 7s infinite',
         slides: 'slides 20s linear infinite',
-        testimonials: 'slides 60s linear infinite',
-        'slide-words': 'slide-words 20s linear infinite',
-        'rotate-first-note': 'rotate-first-note 20s infinite',
-        'rotate-second-note': 'rotate-second-note 20s infinite',
-        'waving-hand': 'waving-hand 4s linear infinite',
-        'wavind-badge-3': 'wavind-badge 3s linear infinite',
-        'wavind-badge-4': 'wavind-badge 4s linear infinite',
-        tada: 'tada 8s ease-in-out infinite',
         walter: 'walter 8s ease-in-out infinite',
+        testimonials: 'slides 60s linear infinite',
+        'slide-words': 'slideWords 20s linear infinite',
+        'waving-hand': 'wavingHand 4s linear infinite',
+        'wavind-badge-3': 'wavindBadge 3s linear infinite',
+        'wavind-badge-4': 'wavindBadge 4s linear infinite',
+        'rotate-first-note': 'rotateFirstNote 20s infinite',
+        'rotate-second-note': 'rotateSecondNote 20s infinite',
         'expand-from-corner': 'expandFromCorner 0.3s ease-out forwards',
       },
       lineClamp: {
@@ -155,52 +155,25 @@ export default {
           lineHeight: '1.25em',
         },
       ],
-      'body-upper': ['16px'],
       'body-bold': [
         '16px',
         {
           fontWeight: '700',
         },
       ],
-      'body-bold-upper': [
-        '16px',
-        {
-          fontWeight: '700',
-        },
-      ],
-      'body-bold-striked': [
-        '16px',
-        {
-          fontWeight: '700',
-        },
-      ],
-      // 'body-bold-under': [
-      //   '16px',
-      //   {
-      //     fontWeight: '700',
-      //     textTransform: 'underline',
-      //   },
-      // ],
-      'body-large': ['20px', {}],
-      'body-large-tight': [
+      'body-l': ['20px'],
+      'body-l-tight': [
         '20px',
         {
           lineHeight: '1.25em',
         },
       ],
-      'body-large-bold': [
+      'body-l-bold': [
         '20px',
         {
           fontWeight: '700',
         },
       ],
-      // 'body-large-bold-under': [
-      //   '20px',
-      //   {
-      //     fontWeight: '700',
-      //     textTransform: 'underline',
-      //   },
-      // ],
       button: [
         '16px',
         {
@@ -208,7 +181,7 @@ export default {
           fontWeight: '700',
         },
       ],
-      'button-large': [
+      'button-l': [
         '24px',
         {
           lineHeight: '1.5em',
@@ -216,13 +189,6 @@ export default {
         },
       ],
       'heading-s': [
-        '24px',
-        {
-          lineHeight: '1.5em',
-          fontWeight: '700',
-        },
-      ],
-      'heading-s-upper': [
         '24px',
         {
           lineHeight: '1.5em',

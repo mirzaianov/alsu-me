@@ -63,7 +63,7 @@ const Prices = () => {
       </article>
       <article className={`flex flex-col gap-[var(--l)]`}>
         <div className={`flex flex-col gap-[var(--m)]`}>
-          <h3 className={`text-center text-body-bold-upper uppercase`}>
+          <h3 className={`text-center text-body-bold uppercase`}>
             Индивидуальные занятия на платформе Zoom
           </h3>
           <div className={`flex flex-col items-center gap-[var(--l)]`}>
@@ -76,9 +76,7 @@ const Prices = () => {
           </div>
         </div>
         <div className={`flex flex-col items-center gap-[var(--m)]`}>
-          <h3 className={`text-center text-body-bold-upper uppercase`}>
-            Переводы
-          </h3>
+          <h3 className={`text-center text-body-bold uppercase`}>Переводы</h3>
           <div className={`flex flex-col gap-[var(--l)]`}>
             {translatorCardData.map((item) => (
               <PriceTranslatorCard

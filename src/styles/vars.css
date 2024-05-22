@@ -16,9 +16,6 @@
   --text-20: #3448f0;
   --text-70: #595d62;
   --text-90: #111928;
-  --bg-mobile: 200px;
-  --bg-tablet: 400px;
-  --bg-desktop: 600px;
   --2xs: 4px;
   --xs: 8px;
   --s: 16px;
@@ -27,8 +24,6 @@
   --xl: 40px;
   --2xl: 56px;
   --3xl: 80px;
-  --card-min-example: 250px;
-  --card-max-example: 450px;
   --xs-start: 320px;
   --xs-end: 576px;
   --s-start: 577px;
@@ -47,15 +42,5 @@
   --container-desktop: 1062px;
   --container-tablet: 560px;
   --container-mobile: 400px;
-  /* --button: 16px;
-  --button-large: 24px;
-  --body: 16px;
-  --body-large: 20px;
-  --heading-s: 24px;
-  --heading-m: 32px;
-  --heading-l: 40px;
-  --heading-xl: 56px;
-  --logo-mobile: 33px;
-  --logo-tablet: 55px;
-  --logo-desktop: 77px; */
+  --card-width: 288px;
 }
