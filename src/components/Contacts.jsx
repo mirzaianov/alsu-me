@@ -1,4 +1,9 @@
 import Button from './Button';
+import telegram from '../assets/icons/telegram.svg';
+import email from '../assets/icons/email.svg';
+
+const telegramLink = import.meta.env.VITE_TELEGRAM;
+const emailLink = import.meta.env.VITE_EMAIL;
 
 const Contacts = () => {
   return (
@@ -14,11 +19,14 @@ const Contacts = () => {
         <div className={`flex flex-col justify-start gap-[var(--s)]`}>
           <Button
             text="Telegram"
-            icon="telegram"
+            icon={telegram}
+            link={telegramLink}
+            type="primary"
           />
           <Button
             text="Email"
-            icon="email"
+            icon={email}
+            link={emailLink}
             type="secondary"
           />
         </div>

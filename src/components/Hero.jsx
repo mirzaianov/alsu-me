@@ -3,6 +3,7 @@ import PhotoCardHero from './PhotoCardHero';
 import Note from './Note';
 import Button from './Button';
 import Badge from './Badge';
+import hand from '../assets/icons/hand.svg';
 
 const Hero = () => {
   return (
@@ -32,13 +33,13 @@ const Hero = () => {
         <div className={`flex min-w-[178px] grow items-center justify-center`}>
           <div className={`relative flex items-center justify-start`}>
             <div
-              className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-10)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
+              className={`bg-primary-10 absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
             ></div>
             <div
-              className={`absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
+              className={`bg-primary-30 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
             ></div>
             <div
-              className={`absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
+              className={`bg-primary-20 absolute -bottom-8 h-40 w-40 animate-blob rounded-full opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
             ></div>
             <PhotoCardHero />
             <div
@@ -46,8 +47,9 @@ const Hero = () => {
             >
               <Badge
                 text="Hi"
-                icon="hi"
+                icon={hand}
                 backgroundColor={'--primary-10'}
+                isReversed
                 isAnimated
               />
             </div>
@@ -65,17 +67,17 @@ const Hero = () => {
             className={`flex h-[36px] flex-col items-center overflow-hidden`}
           >
             <div
-              className={`mb-[36px] w-fit animate-slide-words rounded-md bg-[var(--primary-30)] px-3 text-[var(--neutral-00)]`}
+              className={`bg-primary-30 mb-[36px] w-fit animate-slide-words rounded-md px-3 text-[var(--neutral-00)]`}
             >
               преподавателя
             </div>
             <div
-              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3 text-[var(--neutral-00)]`}
+              className={`bg-primary-30 mb-[36px] w-fit rounded-md px-3 text-[var(--neutral-00)]`}
             >
               переводчика
             </div>
             <div
-              className={`mb-[36px] w-fit rounded-md bg-[var(--primary-30)] px-3 text-[var(--neutral-00)]`}
+              className={`bg-primary-30 mb-[36px] w-fit rounded-md px-3 text-[var(--neutral-00)]`}
             >
               преподавателя
             </div>
@@ -88,7 +90,7 @@ const Hero = () => {
             <div
               className={`absolute animate-rotate-first-note [backface-visibility:hidden]`}
             >
-              <Note type="tutor">
+              <Note>
                 Научу тебя понимать и говорить на английском языке, подобрав
                 индивидуальную программу
               </Note>

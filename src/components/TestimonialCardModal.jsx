@@ -26,7 +26,7 @@ const TestimonialCardModal = ({ onClose, children }) => {
       className={`z-1000 fixed inset-0 flex items-center justify-center bg-slate-600/[.9]`}
     >
       <div
-        className={`flex w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-[var(--neutral-00)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
+        className={`bg-neutral-0 flex w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
       >
         {children}
         <div className={`self-end`}>

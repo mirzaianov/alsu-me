@@ -1,56 +1,39 @@
 import propTypes from 'prop-types';
-import uk from '../assets/icons/uk.svg';
-import usa from '../assets/icons/usa.svg';
-import hand from '../assets/icons/hand.svg';
 
 const Badge = ({
   text,
   icon,
-  backgroundColor,
-  direction = 'row',
-  size = '16px',
+  type,
+  size = '',
+  isReversed = false,
   isAnimated = false,
 }) => {
-  const style = {
-    flow: direction,
-    iconPath: icon,
-    backgroundColor: `var(${backgroundColor})`,
-    color: `var(--text-90)`,
-    fontSize: `${size}`,
+  const isLarge =
+    size === 'large' ? 'h-[52px] text-body-l' : 'h-[var(--xl)] text-body';
+
+  const isType = () => {
+    switch (type) {
+      case 'secondary-45':
+        return `bg-secondary-45 text-text-90`;
+      case 'secondary-05':
+        return `bg-secondary-05 text-text-90`;
+      case 'secondary-25':
+        return `bg-secondary-25 text-text-90`;
+      default: {
+        return `bg-primary-10 text-text-0`;
+      }
+    }
   };
-
-  if (icon === 'uk') {
-    style.iconPath = uk;
-  }
-
-  if (icon === 'usa') {
-    style.iconPath = usa;
-  }
-
-  if (icon === 'hi') {
-    style.iconPath = hand;
-    style.direction = 'row-reverse';
-  }
-
-  if (backgroundColor === '--primary-10') {
-    style.color = 'var(--neutral-00)';
-  }
 
   return (
     <div
-      className={`flex w-fit cursor-default content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
-      style={{
-        backgroundColor: `${style.backgroundColor}`,
-        color: `${style.color}`,
-        flexDirection: `${style.direction}`,
-        fontSize: `${style.fontSize}`,
-      }}
+      className={`text-body flex w-fit cursor-default content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
+      style={{}}
     >
       <img
-        className={`${isAnimated ? 'animate-waving-hand' : ''}`}
-        style={{ height: style.fontSize, alignSelf: 'center' }}
-        src={style.iconPath}
-        alt={style.iconPath && `${text}`}
+        className={`${isAnimated ? 'animate-waving-hand' : ''} h-[var(--s)] self-center`}
+        src={icon}
+        alt={icon && `${text}`}
       />
       {text}
     </div>
@@ -60,8 +43,8 @@ const Badge = ({
 Badge.propTypes = {
   text: propTypes.string.isRequired,
   icon: propTypes.string.isRequired,
-  backgroundColor: propTypes.string.isRequired,
-  direction: propTypes.string,
+  type: propTypes.string.isRequired,
+  isReversed: propTypes.bool,
   size: propTypes.string,
   isAnimated: propTypes.bool,
 };

@@ -13,7 +13,7 @@ const PriceTutorCard = ({
 }) => {
   return (
     <div
-      className={`price-tutor-card relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-[var(--primary-10)] text-[var(--text-00)]' : 'bg-[var(--neutral-00)]'}`}
+      className={`price-tutor-card relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-primary-10 text-text-0' : 'bg-neutral-0'}`}
     >
       <div
         className={`flex flex-col items-center justify-center gap-[var(--xs)]`}
@@ -67,7 +67,7 @@ const PriceTutorCard = ({
       {discount ? (
         <div className={`absolute -top-[20px] left-2/4 -translate-x-1/2`}>
           <div
-            className={`flex animate-tada cursor-default justify-center rounded-lg bg-[var(--primary-30)] px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] text-[var(--text-00)]`}
+            className={`bg-primary-30 text-text-0 flex animate-tada cursor-default justify-center rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em]`}
           >
             Популярно
           </div>
