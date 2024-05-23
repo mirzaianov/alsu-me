@@ -1,6 +1,8 @@
 import Button from './Button';
 import PhotoCardAbout from './PhotoCardAbout';
 import Badge from './Badge';
+import uk from '../assets/icons/uk.svg';
+import usa from '../assets/icons/usa.svg';
 
 const About = () => {
   return (
@@ -13,13 +15,13 @@ const About = () => {
         className={`relative -mt-4 mb-[82px] flex items-center justify-start`}
       >
         <div
-          className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-[var(--primary-30)] opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
+          className={`bg-primary-30 absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
         ></div>
         <div
-          className={`absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-[var(--primary-20)] opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
+          className={`bg-primary-20 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
         ></div>
         <div
-          className={`absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-[var(--primary-40)] mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
+          className={`bg-primary-40 absolute -bottom-5 h-40 w-40 animate-blob rounded-full mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
         ></div>
         <PhotoCardAbout />
         <div
@@ -27,8 +29,8 @@ const About = () => {
         >
           <Badge
             text="Speaking"
-            icon="usa"
-            backgroundColor={'--secondary-45'}
+            icon={usa}
+            type={'secondary-45'}
           />
         </div>
         <div
@@ -36,8 +38,8 @@ const About = () => {
         >
           <Badge
             text="Writing"
-            icon="uk"
-            backgroundColor={'--secondary-05'}
+            icon={uk}
+            type={'secondary-05'}
           />
         </div>
         <div
@@ -45,8 +47,8 @@ const About = () => {
         >
           <Badge
             text="Listening"
-            icon="uk"
-            backgroundColor={'--secondary-25'}
+            icon={uk}
+            type={'secondary-25'}
           />
         </div>
         <div
@@ -54,8 +56,8 @@ const About = () => {
         >
           <Badge
             text="Reading"
-            icon="usa"
-            backgroundColor={'--secondary-05'}
+            icon={usa}
+            type={'secondary-05'}
           />
         </div>
       </article>

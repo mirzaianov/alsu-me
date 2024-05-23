@@ -1,21 +1,21 @@
 :root {
-  --neutral-00: #ffffff;
-  --neutral-70: #595d62;
-  --neutral-90: #111928;
-  --primary-10: #3448f0;
-  --primary-20: #ffb319;
-  --primary-30: #ff4e64;
-  --primary-40: #95f1d5;
-  --primary-50: #a38de4;
-  --secondary-05: #e7e9fd;
-  --secondary-25: #ffd47e;
-  --secondary-35: #ff9ca8;
-  --secondary-45: #c3f7e7;
-  --secondary-55: #ebe6f9;
-  --text-00: #ffffff;
-  --text-20: #3448f0;
-  --text-70: #595d62;
-  --text-90: #111928;
+  /* --neutral-00: hsla(0, 0%, 100%, 1);
+  --neutral-70: hsla(213, 5%, 37%, 1);
+  --neutral-90: hsla(219, 40%, 11%, 1);
+  --primary-10: hsla(234, 86%, 57%, 1);
+  --primary-20: hsla(40, 100%, 55%, 1);
+  --primary-30: hsla(353, 100%, 65%, 1);
+  --primary-40: hsla(162, 77%, 76%, 1);
+  --primary-50: hsla(255, 62%, 72%, 1);
+  --secondary-15: hsla(235, 85%, 95%, 1);
+  --secondary-25: hsla(40, 100%, 75%, 1);
+  --secondary-35: hsla(353, 100%, 81%, 1);
+  --secondary-45: hsla(162, 76%, 87%, 1);
+  --secondary-55: hsla(256, 61%, 94%, 1);
+  --text-00: hsla(0, 0%, 100%, 1);
+  --text-20: hsla(234, 86%, 57%, 1);
+  --text-70: hsla(213, 5%, 37%, 1);
+  --text-90: hsla(219, 40%, 11%, 1); */
   --2xs: 4px;
   --xs: 8px;
   --s: 16px;

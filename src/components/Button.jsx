@@ -1,65 +1,34 @@
 import propTypes from 'prop-types';
-import telegram from '../assets/icons/telegram.svg';
-import email from '../assets/icons/email.svg';
 
-const telegramLink = import.meta.env.VITE_TELEGRAM;
-const emailLink = import.meta.env.VITE_EMAIL;
+const Button = ({
+  text,
+  icon = '',
+  size = '',
+  type = '',
+  onClick = null,
+  link = '',
+}) => {
+  const isIcon = icon ? 'gap-[var(--xs)] w-[160px]' : 'w-fit';
+  const isLarge =
+    size === 'large'
+      ? 'h-[52px] px-[var(--m)] text-button-l'
+      : 'h-[var(--xl)] px-[var(--s)] text-button';
 
-const Button = ({ text, icon = '', size = '', type = '', onClick = null }) => {
-  const style = {
-    width: 'fit-content',
-    height: 'var(--xl)',
-    iconPath: icon,
-    fontSize: ``,
-    backgroundColor: `var(--primary-10)`,
-    borderColor: `var(--primary-10)`,
-    color: `var(--text-00)`,
-    xPadding: `var(--s)`,
-    gap: ``,
+  const isType = () => {
+    switch (type) {
+      case 'secondary':
+        return `bg-transparent border-[3px] border-primary-10 hover:ring-2 hover:ring-primary-10 text-text-10`;
+      case 'inverse':
+        return `bg-neutral-0 hover:ring-2 hover:ring-neutral-0 text-text-10`;
+      case 'accent':
+        return `bg-primary-30 hover:ring-2 hover:ring-primary-30 text-text-0`;
+      case 'neutral':
+        return `bg-transparent border-[3px] border-neutral-70 hover:ring-2 hover:ring-neutral-70 text-text-70`;
+      default: {
+        return `bg-primary-10 hover:ring-2 hover:ring-primary-10 text-text-0`;
+      }
+    }
   };
-
-  // set icon
-  if (icon) {
-    style.gap = 'var(--xs)';
-    style.width = '160px';
-
-    if (icon === 'telegram') {
-      style.iconPath = telegram;
-    }
-
-    if (icon === 'email') {
-      style.iconPath = email;
-    }
-  }
-
-  // set size
-  if (size === 'large') {
-    style.fontSize = 'var(--button-l)';
-    style.xPadding = 'var(--m)';
-    style.height = '52px';
-  }
-
-  // set type
-  if (type === 'secondary') {
-    style.backgroundColor = 'transparent';
-    style.color = 'var(--text-20)';
-  }
-
-  if (type === 'inverse') {
-    style.backgroundColor = 'var(--neutral-00)';
-    style.color = 'var(--text-20)';
-  }
-
-  if (type === 'accent') {
-    style.backgroundColor = 'var(--primary-30)';
-    style.borderColor = 'var(--primary-30)';
-  }
-
-  if (type === 'neutral') {
-    style.backgroundColor = 'transparent';
-    style.borderColor = 'var(--neutral-90)';
-    style.color = 'var(--text-90)';
-  }
 
   const handleClick = () => {
     if (onClick) {
@@ -68,45 +37,37 @@ const Button = ({ text, icon = '', size = '', type = '', onClick = null }) => {
     }
 
     if (text === 'Email') {
-      window.open(`mailto:${emailLink}`, '_blank');
+      window.open(`mailto:${link}`, '_blank');
       return;
     }
 
-    window.open(telegramLink, '_blank');
+    window.open(link, '_blank');
   };
 
   return (
     <button
-      className={`box-border flex items-center justify-center rounded-lg border-[3px] py-[var(--xs)] font-bold leading-normal tracking-[0.05em]`}
-      style={{
-        width: style.width,
-        height: style.height,
-        gap: style.gap,
-        paddingInline: style.xPadding,
-        fontSize: style.fontSize,
-        color: style.color,
-        backgroundColor: style.backgroundColor,
-        borderColor: style.borderColor,
-      }}
+      className={`flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 ${isIcon} ${isLarge} ${isType()}`}
       type="button"
       onClick={handleClick}
     >
-      <img
-        style={{ height: `${style.size}` }}
-        src={style.iconPath}
-        alt={style.iconPath && `${text}`}
-      />
+      {icon && (
+        <img
+          src={icon}
+          alt={text}
+        />
+      )}
       {text}
     </button>
   );
 };
 
 Button.propTypes = {
-  onClick: propTypes.func,
   text: propTypes.string.isRequired,
   icon: propTypes.string,
   size: propTypes.string,
   type: propTypes.string,
+  link: propTypes.string,
+  onClick: propTypes.func,
 };
 
 export default Button;
