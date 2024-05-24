@@ -5,6 +5,8 @@ import Button from './Button';
 import Badge from './Badge';
 import hand from '../assets/icons/hand.svg';
 
+const telegramLink = import.meta.env.VITE_TELEGRAM;
+
 const Hero = () => {
   return (
     <section
@@ -33,17 +35,17 @@ const Hero = () => {
         <div className={`flex min-w-[178px] grow items-center justify-center`}>
           <div className={`relative flex items-center justify-start`}>
             <div
-              className={`bg-primary-10 absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
+              className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-10 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
             ></div>
             <div
-              className={`bg-primary-30 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
+              className={`absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
             ></div>
             <div
-              className={`bg-primary-20 absolute -bottom-8 h-40 w-40 animate-blob rounded-full opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
+              className={`absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
             ></div>
             <PhotoCardHero />
             <div
-              className={`absolute left-[-20px] top-[139px] animate-wavind-badge-3`}
+              className={`animate-waving-badge-3 absolute left-[-20px] top-[139px]`}
             >
               <Badge
                 text="Hi"
@@ -67,17 +69,17 @@ const Hero = () => {
             className={`flex h-[36px] flex-col items-center overflow-hidden`}
           >
             <div
-              className={`bg-primary-30 mb-[36px] w-fit animate-slide-words rounded-md px-3 text-[var(--neutral-00)]`}
+              className={`mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]`}
             >
               преподавателя
             </div>
             <div
-              className={`bg-primary-30 mb-[36px] w-fit rounded-md px-3 text-[var(--neutral-00)]`}
+              className={`mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]`}
             >
               переводчика
             </div>
             <div
-              className={`bg-primary-30 mb-[36px] w-fit rounded-md px-3 text-[var(--neutral-00)]`}
+              className={`mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]`}
             >
               преподавателя
             </div>
@@ -109,7 +111,10 @@ const Hero = () => {
           className={`flex flex-col items-center justify-start gap-[var(--xs)]`}
         >
           <p>Запишись на бесплатное занятие</p>
-          <Button text="Записаться" />
+          <Button
+            text="Записаться"
+            link={telegramLink}
+          />
         </div>
       </article>
     </section>

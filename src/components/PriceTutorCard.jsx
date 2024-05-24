@@ -2,6 +2,8 @@ import propTypes from 'prop-types';
 import Button from './Button';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
 
+const telegramLink = import.meta.env.VITE_TELEGRAM;
+
 const PriceTutorCard = ({
   quantity,
   discount,
@@ -23,7 +25,7 @@ const PriceTutorCard = ({
       </div>
       <p>{duration}</p>
       <div
-        className={`flex h-full flex-col items-center justify-start ${discount ? '' : 'text-[var(--text-20)]'}`}
+        className={`flex h-full flex-col items-center justify-start ${discount ? '' : 'text-text-10'}`}
       >
         {/* main price */}
         {price ? (
@@ -49,9 +51,13 @@ const PriceTutorCard = ({
           <Button
             text="Записаться"
             type="inverse"
+            link={telegramLink}
           />
         ) : (
-          <Button text="Записаться" />
+          <Button
+            text="Записаться"
+            link={telegramLink}
+          />
         )}
       </div>
       <ul className={`mt-auto flex flex-col justify-start`}>
@@ -65,9 +71,9 @@ const PriceTutorCard = ({
         ))}
       </ul>
       {discount ? (
-        <div className={`absolute -top-[20px] left-2/4 -translate-x-1/2`}>
+        <div className={`absolute -top-[19px] left-2/4 -translate-x-1/2`}>
           <div
-            className={`bg-primary-30 text-text-0 flex animate-tada cursor-default justify-center rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em]`}
+            className={`flex animate-tada cursor-default justify-center rounded-lg bg-primary-30 px-[var(--s)] py-[var(--2xs)] font-bold tracking-[0.05em] text-text-0`}
           >
             Популярно
           </div>
