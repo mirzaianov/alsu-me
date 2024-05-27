@@ -38,7 +38,7 @@ const Footer = () => {
             href="https://cv.mirzaianov.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[var(--text-20)]`}
+            className={`text-[var(--text-20)] text-text-10`}
           >
             mirzaianov
           </a>

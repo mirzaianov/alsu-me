@@ -1,4 +1,5 @@
 import About from './components/About';
+import BackToTopButton from './components/BackToTopButton';
 import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -22,6 +23,7 @@ const App = () => {
       <Testimonials />
       <Contacts />
       <Footer />
+      <BackToTopButton />
     </div>
   );
 };

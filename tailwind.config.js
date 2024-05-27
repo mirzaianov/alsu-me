@@ -122,6 +122,11 @@ export default {
           '0%': { transform: 'scale(0) translate(100%, -100%)', opacity: '0' },
           '100%': { transform: 'scale(1) translate(0, 0)', opacity: '1' },
         },
+        buttonPulse: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { opacity: '0.3' },
+          '100%': { transform: 'scale(1.5)', opacity: '0' },
+        },
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
@@ -136,6 +141,7 @@ export default {
         'rotate-first-note': 'rotateFirstNote 20s infinite',
         'rotate-second-note': 'rotateSecondNote 20s infinite',
         'expand-from-corner': 'expandFromCorner 0.3s ease-out forwards',
+        'button-pulse': 'buttonPulse 1.2s ease infinite',
       },
       lineClamp: {
         7: '7',
