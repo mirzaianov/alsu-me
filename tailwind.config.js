@@ -152,6 +152,7 @@ export default {
     },
     colors: {
       transparent: 'transparent',
+      current: 'currentColor',
       neutral: {
         0: 'hsla(0, 0%, 100%, 1)',
         70: 'hsla(213, 5%, 37%, 1)',

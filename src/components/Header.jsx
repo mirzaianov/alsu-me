@@ -106,7 +106,7 @@ const Header = () => {
           items-center
           justify-between
           transition-all duration-500 ease-in-out
-          ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/50 px-[var(--l)] py-[var(--s)] shadow-lg backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
+          ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/50 px-[var(--l)] py-[var(--s)] shadow-xl backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
       >
         <LogoView />
         <MenuView />
