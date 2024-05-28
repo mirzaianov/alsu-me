@@ -112,7 +112,7 @@ const Header = () => {
         <MenuView />
         <HamburgerView onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
         {isDropdownOpen && (
-          <HamburgerDropdown isOpen={isDropdownOpen}>
+          <HamburgerDropdown isFixed={isFixed}>
             <div ref={dropdownRef}>
               <NavBar
                 type="block-3"
