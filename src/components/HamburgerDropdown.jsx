@@ -1,15 +1,35 @@
-import propTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
+import propTypes from 'prop-types';
 
 const modalRoot = document.getElementById('hamburger-dropdown');
 
 const HamburgerDropdown = ({ children }) => {
+  const [isFixed, setIsFixed] = useState(false);
+
   const elRef = useRef(null);
 
   if (!elRef.current) {
     elRef.current = document.createElement('div');
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById('about');
+
+      if (aboutSection) {
+        const stickyPoint = aboutSection.offsetTop;
+
+        setIsFixed(window.scrollY >= stickyPoint);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const currentEl = elRef.current;
@@ -23,10 +43,10 @@ const HamburgerDropdown = ({ children }) => {
 
   return ReactDOM.createPortal(
     <div
-      className={`z-1000 absolute right-[var(--2xl)] top-[var(--2xl)] animate-expand-from-corner`}
+      className={`z-1000 fixed right-[var(--s)] top-[104px] animate-expand-from-corner rounded-[var(--xl)] bg-neutral-0/90 shadow-xl backdrop-blur-sm`}
     >
       <div
-        className={`flex h-fit w-fit items-center justify-center rounded-[var(--s)] bg-neutral-0 p-[var(--xl)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
+        className={`flex h-fit w-fit items-center justify-center p-[var(--xl)]`}
       >
         {children}
       </div>

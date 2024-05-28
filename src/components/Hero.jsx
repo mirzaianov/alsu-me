@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className={`mx-auto mt-[var(--m)] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[120px] tablet:max-w-[var(--container-tablet)] desktop:max-w-[var(--container-desktop)]`}
+      className={`mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[120px] tablet:max-w-[var(--container-tablet)] desktop:max-w-[var(--container-desktop)]`}
     >
       <article className={`flex items-center justify-start`}>
         <div className={`flex max-w-[160px] grow items-center justify-center`}>
@@ -45,7 +45,7 @@ const Hero = () => {
             ></div>
             <PhotoCardHero />
             <div
-              className={`animate-waving-badge-3 absolute left-[-20px] top-[139px]`}
+              className={`absolute left-[-20px] top-[139px] animate-waving-badge-3`}
             >
               <Badge
                 text="Hi"

@@ -10,6 +10,7 @@ import useOnClickOutside from '../hooks/useOnClickOutside';
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isFixed, setIsFixed] = useState(false);
 
   const dropdownRef = useRef(null);
 
@@ -26,6 +27,24 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById('about');
+
+      if (aboutSection) {
+        const stickyPoint = aboutSection.offsetTop;
+
+        setIsFixed(window.scrollY >= stickyPoint);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -70,22 +89,40 @@ const Header = () => {
   return (
     <header
       id="header"
-      className={`header mt-[var(--s)] flex w-full items-center justify-between px-[var(--s)] tablet:px-[var(--xl)] desktop:px-[var(--3xl)]`}
+      className={`
+        relative
+        z-10
+        mt-[var(--s)]
+        flex
+        w-full
+        justify-center
+        tablet:px-[var(--xl)]
+        desktop:px-[var(--3xl)]
+        ${isFixed ? 'px-[var(--s)]' : ''}`}
     >
-      <LogoView />
-      <MenuView />
-      <HamburgerView onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
-      {isDropdownOpen && (
-        <HamburgerDropdown isOpen={isDropdownOpen}>
-          <div ref={dropdownRef}>
-            <NavBar
-              type="block-3"
-              setIsDropdownOpen={setIsDropdownOpen}
-              isDropdownOpen={isDropdownOpen}
-            />
-          </div>
-        </HamburgerDropdown>
-      )}
+      <div
+        className={`
+          flex
+          items-center
+          justify-between
+          transition-all duration-500 ease-in-out
+          ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/50 px-[var(--l)] py-[var(--s)] shadow-xl backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
+      >
+        <LogoView />
+        <MenuView />
+        <HamburgerView onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
+        {isDropdownOpen && (
+          <HamburgerDropdown isOpen={isDropdownOpen}>
+            <div ref={dropdownRef}>
+              <NavBar
+                type="block-3"
+                setIsDropdownOpen={setIsDropdownOpen}
+                isDropdownOpen={isDropdownOpen}
+              />
+            </div>
+          </HamburgerDropdown>
+        )}
+      </div>
     </header>
   );
 };

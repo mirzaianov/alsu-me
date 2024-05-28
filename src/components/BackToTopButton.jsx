@@ -6,41 +6,31 @@ const BackToTopButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
+      const aboutSection = document.getElementById('about');
 
-      const heroSection = document.querySelector('#hero');
-      const aboutSection = document.querySelector('#about');
+      if (aboutSection) {
+        const stickyPoint = aboutSection.offsetTop;
 
-      const heroHeight = heroSection.offsetHeight;
-      const aboutHeight = aboutSection.offsetHeight;
-
-      if (currentScroll < heroHeight + aboutHeight / 10) {
-        setIsVisible(false);
+        setIsVisible(window.scrollY >= stickyPoint);
       } else {
-        setIsVisible(true);
+        setIsVisible(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  if (!isVisible) {
-    return null;
-  }
-
   return (
-    <div className="z-100 fixed bottom-[var(--m)] right-[var(--m)] flex aspect-square h-[var(--xl)] items-center justify-center rounded-full bg-gradient-to-r from-primary-30 to-primary-20 opacity-60">
-      <a
-        className="no-underline"
-        href="#"
-      >
-        <PiArrowFatUpFill
-          style={{ fontSize: 'var(--l)', color: 'hsla(0, 0%, 100%, 1)' }}
-        />
-      </a>
-    </div>
+    <a
+      className={`z-100 ${isVisible ? '-translate-y-[124px]' : ''} fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/50 p-[var(--xs)] shadow-xl backdrop-blur-sm transition-all duration-500`}
+      href="#"
+    >
+      <PiArrowFatUpFill className="size-[var(--xl)] text-text-10 opacity-60" />
+    </a>
   );
 };
 
