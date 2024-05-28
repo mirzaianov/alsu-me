@@ -17,15 +17,15 @@ const Button = ({
   const isType = () => {
     switch (type) {
       case 'secondary':
-        return `bg-transparent border-[3px] border-primary-10 hover:ring-2 hover:ring-primary-10 text-text-10`;
+        return `bg-transparent border-[3px] border-primary-10 hover:border-primary-10/70 text-text-10 hover:text-text-10/70 active:translate-y-1`;
       case 'inverse':
-        return `bg-neutral-0 hover:ring-2 hover:ring-neutral-0 text-text-10`;
+        return `bg-neutral-0 hover:text-text-10/70 text-text-10`;
       case 'accent':
-        return `bg-primary-30 hover:ring-2 hover:ring-primary-30 text-text-0`;
+        return `bg-primary-30 hover:bg-primary-30/70 text-text-0`;
       case 'neutral':
-        return `bg-transparent border-[3px] border-neutral-70 hover:ring-2 hover:ring-neutral-70 text-text-70`;
+        return `bg-transparent border-[3px] border-neutral-90 hover:border-neutral-90/70 text-text-90/70`;
       default: {
-        return `bg-primary-10 hover:ring-2 hover:ring-primary-10 text-text-0`;
+        return `bg-primary-10 hover:bg-primary-10/70 text-text-0`;
       }
     }
   };
@@ -46,7 +46,7 @@ const Button = ({
 
   return (
     <button
-      className={`flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 ${isIcon} ${isLarge} ${isType()}`}
+      className={`flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:translate-y-1 ${isIcon} ${isLarge} ${isType()}`}
       type="button"
       onClick={handleClick}
     >

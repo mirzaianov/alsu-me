@@ -15,8 +15,8 @@ const Badge = ({
     switch (type) {
       case 'secondary-45':
         return `bg-secondary-45 text-text-90`;
-      case 'secondary-05':
-        return `bg-secondary-05 text-text-90`;
+      case 'secondary-15':
+        return `bg-secondary-15 text-text-90`;
       case 'secondary-25':
         return `bg-secondary-25 text-text-90`;
       default: {
@@ -27,7 +27,7 @@ const Badge = ({
 
   return (
     <div
-      className={`text-body flex w-fit cursor-default content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
+      className={`flex w-fit cursor-default content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] text-body font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
       style={{}}
     >
       <img
@@ -43,9 +43,9 @@ const Badge = ({
 Badge.propTypes = {
   text: propTypes.string.isRequired,
   icon: propTypes.string.isRequired,
-  type: propTypes.string.isRequired,
-  isReversed: propTypes.bool,
+  type: propTypes.string,
   size: propTypes.string,
+  isReversed: propTypes.bool,
   isAnimated: propTypes.bool,
 };
 

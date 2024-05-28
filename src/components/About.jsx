@@ -4,6 +4,8 @@ import Badge from './Badge';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 
+const telegramLink = import.meta.env.VITE_TELEGRAM;
+
 const About = () => {
   return (
     <section
@@ -15,17 +17,17 @@ const About = () => {
         className={`relative -mt-4 mb-[82px] flex items-center justify-start`}
       >
         <div
-          className={`bg-primary-30 absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
+          className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
         ></div>
         <div
-          className={`bg-primary-20 absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
+          className={`absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
         ></div>
         <div
-          className={`bg-primary-40 absolute -bottom-5 h-40 w-40 animate-blob rounded-full mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
+          className={`absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
         ></div>
         <PhotoCardAbout />
         <div
-          className={`absolute -right-[70px] top-[150px] animate-wavind-badge-3`}
+          className={`animate-waving-badge-3 absolute -right-[70px] top-[150px]`}
         >
           <Badge
             text="Speaking"
@@ -34,16 +36,16 @@ const About = () => {
           />
         </div>
         <div
-          className={`absolute -right-[70px] top-[225px] animate-wavind-badge-4 [animation-delay:_0.1s]`}
+          className={`animate-waving-badge-4 absolute -right-[70px] top-[225px] [animation-delay:_0.1s]`}
         >
           <Badge
             text="Writing"
             icon={uk}
-            type={'secondary-05'}
+            type={'secondary-15'}
           />
         </div>
         <div
-          className={`absolute -left-[60px] top-[190px] animate-wavind-badge-4 [animation-delay:_0.4s]`}
+          className={`animate-waving-badge-4 absolute -left-[60px] top-[190px] [animation-delay:_0.4s]`}
         >
           <Badge
             text="Listening"
@@ -52,12 +54,12 @@ const About = () => {
           />
         </div>
         <div
-          className={`absolute -left-[50px] top-[250px] animate-wavind-badge-3 [animation-delay:_0.7s]`}
+          className={`animate-waving-badge-3 absolute -left-[50px] top-[250px] [animation-delay:_0.7s]`}
         >
           <Badge
             text="Reading"
             icon={usa}
-            type={'secondary-05'}
+            type={'secondary-15'}
           />
         </div>
       </article>
@@ -87,7 +89,10 @@ const About = () => {
             нетерпением жду возможности помочь тебе в этом!
           </p>
         </div>
-        <Button text="Записаться бесплатно" />
+        <Button
+          text="Записаться бесплатно"
+          link={telegramLink}
+        />
       </article>
     </section>
   );

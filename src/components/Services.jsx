@@ -1,9 +1,15 @@
 import ServiceCard from './ServiceCard';
+import Badge from './Badge';
 import tutorImage from '../assets/icons/tutor.svg';
 import translatorImage from '../assets/icons/translator.svg';
+import uk from '../assets/icons/uk.svg';
+import usa from '../assets/icons/usa.svg';
 
 const serviceCardData = [
   {
+    delay: 0,
+    badgeOneText: 'General',
+    badgeTwoText: 'Travel',
     src: tutorImage,
     alt: 'Преподаватель',
     subheading: 'Индивидуальные занятия на платформе Zoom',
@@ -14,6 +20,9 @@ const serviceCardData = [
     ],
   },
   {
+    delay: 0,
+    badgeOneText: 'Education',
+    badgeTwoText: 'Business',
     src: translatorImage,
     alt: 'Переводчик',
     subheading: 'Переводы',
@@ -56,10 +65,30 @@ const Services = () => {
 
       <article className={`flex flex-col gap-[var(--l)]`}>
         {serviceCardData.map((item) => (
-          <ServiceCard
+          <div
             key={item.alt}
-            {...item}
-          />
+            className={`flex flex-col gap-[var(--m)]`}
+          >
+            <div className={`flex justify-between`}>
+              <div className={`animate-waving-badge-4 relative -left-[16px]`}>
+                <Badge
+                  text={item.badgeOneText}
+                  icon={uk}
+                  type={'secondary-15'}
+                />
+              </div>
+              <div
+                className={`animate-waving-badge-4 relative -right-[16px] [animation-delay:_1.5s]`}
+              >
+                <Badge
+                  text={item.badgeTwoText}
+                  icon={usa}
+                  type={'secondary-25'}
+                />
+              </div>
+            </div>
+            <ServiceCard {...item} />
+          </div>
         ))}
       </article>
     </section>

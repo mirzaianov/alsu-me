@@ -1,4 +1,5 @@
 import About from './components/About';
+import BackToTopButton from './components/BackToTopButton';
 import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -11,7 +12,8 @@ import Testimonials from './components/Testimonials';
 const App = () => {
   return (
     <div
-      className={`app relative flex flex-col items-center justify-start overflow-hidden`}
+      id="app"
+      className={`relative flex flex-col items-center justify-start overflow-hidden`}
     >
       <Header />
       <Hero />
@@ -22,6 +24,7 @@ const App = () => {
       <Testimonials />
       <Contacts />
       <Footer />
+      <BackToTopButton />
     </div>
   );
 };
