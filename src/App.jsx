@@ -12,7 +12,8 @@ import Testimonials from './components/Testimonials';
 const App = () => {
   return (
     <div
-      className={`app relative flex flex-col items-center justify-start overflow-hidden`}
+      id="app"
+      className={`relative flex flex-col items-center justify-start overflow-hidden`}
     >
       <Header />
       <Hero />
