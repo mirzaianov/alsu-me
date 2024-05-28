@@ -6,32 +6,28 @@ const BackToTopButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
+      const aboutSection = document.getElementById('about');
 
-      const heroSection = document.querySelector('#hero');
-      const aboutSection = document.querySelector('#about');
+      if (aboutSection) {
+        const stickyPoint = aboutSection.offsetTop;
 
-      const heroHeight = heroSection.offsetHeight;
-      const aboutHeight = aboutSection.offsetHeight;
-
-      if (currentScroll < heroHeight + aboutHeight / 10) {
-        setIsVisible(false);
+        setIsVisible(window.scrollY >= stickyPoint);
       } else {
-        setIsVisible(true);
+        setIsVisible(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  if (!isVisible) {
-    return null;
-  }
-
   return (
-    <div className="z-100 fixed bottom-[var(--m)] right-[var(--m)] flex aspect-square h-[var(--xl)] items-center justify-center rounded-full bg-gradient-to-r from-primary-30 to-primary-20 opacity-60">
+    <div
+      className={`z-100 ${isVisible ? '-translate-y-[124px] opacity-60' : 'opacity-0'} fixed -bottom-[108px] right-[var(--s)] flex aspect-square h-[var(--2xl)] items-center justify-center rounded-full bg-gradient-to-br from-primary-30 via-primary-20 to-primary-10 transition-all duration-500`}
+    >
       <a
         className="no-underline"
         href="#"
