@@ -131,7 +131,7 @@ export default {
       animation: {
         tada: 'tada 8s ease-in-out infinite',
         blob: 'blob 7s infinite',
-        slides: 'slides 20s linear infinite',
+        slides: 'slides 40s linear infinite',
         walter: 'walter 8s ease-in-out infinite',
         testimonials: 'slides 60s linear infinite',
         'slide-words': 'slideWords 20s linear infinite',
