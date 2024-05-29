@@ -135,6 +135,14 @@ export default {
           '0%': { transform: 'translateY(100px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
+        heroFotoFadeIn: {
+          '0%': { transform: 'translateX(100px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        heroTextFadeIn: {
+          '0%': { transform: 'translateX(-100px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
@@ -152,6 +160,8 @@ export default {
         'button-pulse': 'buttonPulse 1.2s ease infinite',
         'header-fade-in': 'headerFadeIn 0.7s 0.3s ease-in',
         'logos-fade-in': 'logosFadeIn 0.7s 0.3s ease-in',
+        'hero-foto-fade-in': 'heroFotoFadeIn 0.5s 0.3s ease-in',
+        'hero-text-fade-in': 'heroTextFadeIn 0.5s 0.3s ease-in',
       },
       lineClamp: {
         7: '7',
