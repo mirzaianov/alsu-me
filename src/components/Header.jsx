@@ -90,6 +90,7 @@ const Header = () => {
     <header
       id="header"
       className={`
+        animate-header-fade-in
         relative
         z-10
         mt-[var(--s)]
