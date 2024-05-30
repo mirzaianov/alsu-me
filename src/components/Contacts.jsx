@@ -9,7 +9,7 @@ const Contacts = () => {
   return (
     <section
       id="contacts"
-      className={`mb-[var(--l)] mt-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
+      className={`mb-[var(--l)] mt-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2
         className={`h2-fade-in animate-h2-fade-in text-center text-heading-s`}
