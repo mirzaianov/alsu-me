@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className={`animate-footer-fade-in footer-fade-in mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col justify-start gap-[var(--l)] px-[var(--s)]`}
+      className={`mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <article className={`flex flex-col justify-start gap-[var(--l)]`}>
         <div>

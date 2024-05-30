@@ -46,7 +46,7 @@ const Button = ({
 
   return (
     <button
-      className={`flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:translate-y-1 ${isIcon} ${isLarge} ${isType()}`}
+      className={`flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:-translate-y-1 ${isIcon} ${isLarge} ${isType()}`}
       type="button"
       onClick={handleClick}
     >
