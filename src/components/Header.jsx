@@ -35,7 +35,7 @@ const Header = () => {
       const aboutSection = document.getElementById('about');
 
       if (aboutSection) {
-        const stickyPoint = aboutSection.offsetTop;
+        const stickyPoint = aboutSection.offsetTop - 145;
 
         setIsFixed(window.scrollY >= stickyPoint);
       }
