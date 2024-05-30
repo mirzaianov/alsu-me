@@ -11,10 +11,14 @@ const Contacts = () => {
       id="contacts"
       className={`mb-[var(--l)] mt-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
-      <h2 className={`text-center text-heading-s`}>
+      <h2
+        className={`h2-fade-in animate-h2-fade-in text-center text-heading-s`}
+      >
         Готов начать сотрудничество?
       </h2>
-      <article className={`flex flex-col justify-start gap-[var(--s)]`}>
+      <article
+        className={`pop-up animate-pop-up flex flex-col justify-start gap-[var(--s)]`}
+      >
         <p className={`text-center text-body-bold`}>Свяжись со мной</p>
         <div className={`flex flex-col justify-start gap-[var(--s)]`}>
           <Button

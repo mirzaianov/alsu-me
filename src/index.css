@@ -9,13 +9,6 @@
   scroll-behavior: smooth;
 }
 
-/* :focus {
-  outline-width: 4px;
-  outline-style: solid;
-  outline-color: var(--primary-10);
-  outline-offset: 4px;
-} */
-
 body {
   min-height: 100dvh;
   background-color: hsla(0, 0%, 100%, 1);
@@ -28,10 +21,6 @@ body {
 section {
   scroll-margin-top: var(--xl);
 }
-
-/* button {
-  box-sizing: border-box;
-} */
 
 @layer utilities {
   .clip-path-hero {
@@ -48,5 +37,28 @@ section {
 
   .pause {
     animation-play-state: paused;
+  }
+
+  .p-fade-in {
+    animation-timeline: view();
+    animation-range-start: entry 120px;
+    animation-range-end: cover 240px;
+  }
+
+  .h2-fade-in {
+    animation-timeline: view();
+    animation-range-start: entry 120px;
+    animation-range-end: cover 240px;
+  }
+
+  .pop-up {
+    animation-timeline: view();
+    animation-range-start: -10%;
+    animation-range-end: 25%;
+  }
+
+  .footer-fade-in {
+    animation-timeline: view();
+    animation-range: entry;
   }
 }

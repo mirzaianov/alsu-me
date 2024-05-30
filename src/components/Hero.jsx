@@ -14,7 +14,7 @@ const Hero = () => {
       className={`mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[120px] tablet:max-w-[var(--container-tablet)] desktop:max-w-[var(--container-desktop)]`}
     >
       <article
-        className={`animate-hero-foto-fade-in flex items-center justify-start`}
+        className={`flex animate-hero-foto-fade-in items-center justify-start`}
       >
         <div className={`flex max-w-[160px] grow items-center justify-center`}>
           <ul
@@ -61,7 +61,7 @@ const Hero = () => {
         </div>
       </article>
       <article
-        className={`animate-hero-text-fade-in flex flex-col items-center justify-start gap-[var(--l)] text-center`}
+        className={`flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center`}
       >
         <h1
           className={`flex flex-col items-center justify-start text-heading-s`}
