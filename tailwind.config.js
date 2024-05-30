@@ -143,6 +143,10 @@ export default {
           '0%': { transform: 'translateX(-100px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
+        pFadeIn: {
+          '0%': { transform: 'translatex(80px)', opacity: '0' },
+          '100%': { transform: 'none', opacity: '1' },
+        },
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
@@ -162,6 +166,7 @@ export default {
         'logos-fade-in': 'logosFadeIn 0.7s 0.3s ease-in',
         'hero-foto-fade-in': 'heroFotoFadeIn 0.5s 0.3s ease-in',
         'hero-text-fade-in': 'heroTextFadeIn 0.5s 0.3s ease-in',
+        'p-fade-in': 'pFadeIn linear both',
       },
       lineClamp: {
         7: '7',

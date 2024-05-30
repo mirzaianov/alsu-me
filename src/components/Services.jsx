@@ -46,16 +46,16 @@ const Services = () => {
       <article
         className={`flex flex-col items-center justify-start gap-[var(--m)]`}
       >
-        <p>
+        <p className="p-fade-in animate-p-fade-in">
           В своих занятиях я акцентирую внимание на развитии разговорных навыков
           и понимании аутентичной речи.{' '}
         </p>
-        <p>
+        <p className="p-fade-in animate-p-fade-in">
           Моей целью является помощь ученикам достичь своих языковых целей, будь
           то повышение уровня разговорной речи, подготовка к экзаменам или
           обогащение словарного запаса.
         </p>
-        <p>
+        <p className="p-fade-in animate-p-fade-in">
           Моя методика преподавания основана на индивидуальном подходе к каждому
           ученику. Я стремлюсь создать комфортную и дружелюбную атмосферу на
           занятиях, где ученики могут свободно выражать свои мысли на английском
@@ -70,7 +70,7 @@ const Services = () => {
             className={`flex flex-col gap-[var(--m)]`}
           >
             <div className={`flex justify-between`}>
-              <div className={`animate-waving-badge-4 relative -left-[16px]`}>
+              <div className={`relative -left-[16px] animate-waving-badge-4`}>
                 <Badge
                   text={item.badgeOneText}
                   icon={uk}
@@ -78,7 +78,7 @@ const Services = () => {
                 />
               </div>
               <div
-                className={`animate-waving-badge-4 relative -right-[16px] [animation-delay:_1.5s]`}
+                className={`relative -right-[16px] animate-waving-badge-4 [animation-delay:_1.5s]`}
               >
                 <Badge
                   text={item.badgeTwoText}

@@ -10,7 +10,7 @@ const PhotoCardHero = () => {
       >
         {/* Border */}
         <div
-          className={`absolute bottom-[10px] left-[3px] aspect-square w-[170px] -rotate-[2.5deg] rounded-[var(--s)] border-2 border-[var(--neutral-90)]`}
+          className={`absolute bottom-[14px] left-[3px] aspect-square w-[170px] -rotate-[2.5deg] rounded-[var(--s)] border-2 border-[var(--neutral-90)]`}
         />
         {/* Color */}
         <div

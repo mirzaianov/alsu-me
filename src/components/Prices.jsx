@@ -58,8 +58,12 @@ const Prices = () => {
       <article
         className={`flex flex-col justify-start gap-[var(--m)] text-center`}
       >
-        <p>Подбери план и стоимость, которые наиболее подходят тебе.</p>
-        <p>Или свяжись со мной, и мы вместе определимся с программой.</p>
+        <p className="p-fade-in animate-p-fade-in">
+          Подбери план и стоимость, которые наиболее подходят тебе.
+        </p>
+        <p className="p-fade-in animate-p-fade-in">
+          Или свяжись со мной, и мы вместе определимся с программой.
+        </p>
       </article>
       <article className={`flex flex-col gap-[var(--l)]`}>
         <div className={`flex flex-col gap-[var(--m)]`}>
