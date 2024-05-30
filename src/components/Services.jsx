@@ -41,7 +41,9 @@ const Services = () => {
       id="services"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
-      <h2 className={`text-heading-s`}>Что я предлагаю</h2>
+      <h2 className={`h2-fade-in animate-h2-fade-in text-heading-s`}>
+        Что я предлагаю
+      </h2>
 
       <article
         className={`flex flex-col items-center justify-start gap-[var(--m)]`}
@@ -62,12 +64,11 @@ const Services = () => {
           и развивать навыки общения.
         </p>
       </article>
-
       <article className={`flex flex-col gap-[var(--l)]`}>
         {serviceCardData.map((item) => (
           <div
             key={item.alt}
-            className={`flex flex-col gap-[var(--m)]`}
+            className={`pop-up animate-pop-up flex flex-col gap-[var(--m)]`}
           >
             <div className={`flex justify-between`}>
               <div className={`relative -left-[16px] animate-waving-badge-4`}>

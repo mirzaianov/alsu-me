@@ -54,7 +54,9 @@ const Prices = () => {
       id="prices"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
-      <h2 className={`text-heading-s`}>Выбери свой план</h2>
+      <h2 className={`h2-fade-in animate-h2-fade-in text-heading-s`}>
+        Выбери свой план
+      </h2>
       <article
         className={`flex flex-col justify-start gap-[var(--m)] text-center`}
       >
@@ -67,7 +69,9 @@ const Prices = () => {
       </article>
       <article className={`flex flex-col gap-[var(--l)]`}>
         <div className={`flex flex-col gap-[var(--m)]`}>
-          <h3 className={`text-center text-body-bold uppercase`}>
+          <h3
+            className={`pop-up animate-pop-up text-center text-body-bold uppercase`}
+          >
             Индивидуальные занятия на платформе Zoom
           </h3>
           <div className={`flex flex-col items-center gap-[var(--l)]`}>
@@ -80,7 +84,11 @@ const Prices = () => {
           </div>
         </div>
         <div className={`flex flex-col items-center gap-[var(--m)]`}>
-          <h3 className={`text-center text-body-bold uppercase`}>Переводы</h3>
+          <h3
+            className={`pop-up animate-pop-up text-center text-body-bold uppercase`}
+          >
+            Переводы
+          </h3>
           <div className={`flex flex-col gap-[var(--l)]`}>
             {translatorCardData.map((item) => (
               <PriceTranslatorCard

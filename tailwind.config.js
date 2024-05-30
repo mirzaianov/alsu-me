@@ -147,6 +147,18 @@ export default {
           '0%': { transform: 'translatex(80px)', opacity: '0' },
           '100%': { transform: 'none', opacity: '1' },
         },
+        h2FadeIn: {
+          '0%': { transform: 'translateY(40px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        popUp: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        footerFadeIn: {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
@@ -167,6 +179,9 @@ export default {
         'hero-foto-fade-in': 'heroFotoFadeIn 0.5s 0.3s ease-in',
         'hero-text-fade-in': 'heroTextFadeIn 0.5s 0.3s ease-in',
         'p-fade-in': 'pFadeIn linear both',
+        'pop-up': 'popUp linear both',
+        'h2-fade-in': 'h2FadeIn linear both',
+        'footer-fade-in': 'footerFadeIn linear both',
       },
       lineClamp: {
         7: '7',

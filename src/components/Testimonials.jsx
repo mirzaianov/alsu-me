@@ -6,7 +6,9 @@ const Testimonials = () => {
       id="testimonials"
       className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
-      <h2 className={`text-center text-heading-s`}>
+      <h2
+        className={`h2-fade-in animate-h2-fade-in text-center text-heading-s`}
+      >
         Что говорят мои ученики и клиенты
       </h2>
       <article className={`flex flex-col justify-start gap-[var(--m)]`}>
@@ -19,7 +21,7 @@ const Testimonials = () => {
           устным синхронным переводам.
         </p>
       </article>
-      <article className={`max-w-full`}>
+      <article className={`pop-up animate-pop-up max-w-full`}>
         <InfiniteTestimonialCards />
       </article>
     </section>
