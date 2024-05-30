@@ -9,7 +9,7 @@ const BackToTopButton = () => {
       const aboutSection = document.getElementById('about');
 
       if (aboutSection) {
-        const stickyPoint = aboutSection.offsetTop;
+        const stickyPoint = aboutSection.offsetTop - 145;
 
         setIsVisible(window.scrollY >= stickyPoint);
       } else {
@@ -29,7 +29,7 @@ const BackToTopButton = () => {
       className={`z-100 group ${isVisible ? '-translate-y-[124px]' : ''} fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/50 p-[var(--xs)] shadow-xl backdrop-blur-sm transition-colors duration-500 hover:bg-primary-10 hover:opacity-60`}
       href="#"
     >
-      <PiArrowFatUpFill className="group-hover:animate-arrow-bounce size-[var(--xl)] text-text-10 opacity-60 transition-colors duration-500 group-hover:text-text-0 group-hover:opacity-100" />
+      <PiArrowFatUpFill className="size-[var(--xl)] text-text-10 opacity-60 transition-colors duration-500 group-hover:animate-arrow-bounce group-hover:text-text-0 group-hover:opacity-100" />
     </a>
   );
 };

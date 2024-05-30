@@ -10,13 +10,13 @@ const About = () => {
   return (
     <section
       id="about"
-      className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
+      className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
     >
       <h2 className={`h2-fade-in animate-h2-fade-in text-heading-s`}>
         Обо мне
       </h2>
       <article
-        className={`pop-up animate-pop-up relative -mt-4 mb-[82px] flex items-center justify-start`}
+        className={`pop-up relative -mt-4 mb-[82px] flex animate-pop-up items-center justify-start`}
       >
         <div
           className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
