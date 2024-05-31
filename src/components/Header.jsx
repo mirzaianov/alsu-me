@@ -63,7 +63,10 @@ const Header = () => {
       >
         <LogoView windowWidth={windowWidth} />
         <MenuView windowWidth={windowWidth} />
-        <div ref={buttonRef}>
+        <div
+          className="flex items-center justify-center"
+          ref={buttonRef}
+        >
           <HamburgerView
             setIsDropdownOpen={setIsDropdownOpen}
             isDropdownOpen={isDropdownOpen}
