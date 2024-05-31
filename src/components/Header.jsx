@@ -48,30 +48,6 @@ const Header = () => {
     };
   }, []);
 
-  const LogoView = () => {
-    if (windowWidth > 576) {
-      return <Logo size="tablet" />;
-    }
-
-    // if (windowWidth > 576 && windowWidth <= 992) {
-    //   return <Logo size="tablet" />;
-    // }
-
-    // if (windowWidth > 992) {
-    //   return <Logo size="desktop" />;
-    // }
-
-    return <Logo />;
-  };
-
-  const MenuView = () => {
-    if (windowWidth > 992) {
-      return <NavBar type="inline" />;
-    }
-
-    return <NavBar />;
-  };
-
   return (
     <header
       id="header"
@@ -80,8 +56,8 @@ const Header = () => {
       <div
         className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/50 px-[var(--l)] py-[var(--s)] shadow-xl backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
       >
-        <LogoView />
-        <MenuView />
+        <LogoView windowWidth={windowWidth} />
+        <MenuView windowWidth={windowWidth} />
         <HamburgerView
           setIsDropdownOpen={setIsDropdownOpen}
           isDropdownOpen={isDropdownOpen}
@@ -101,6 +77,30 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+const LogoView = (windowWidth) => {
+  if (windowWidth > 576) {
+    return <Logo size="tablet" />;
+  }
+
+  // if (windowWidth > 576 && windowWidth <= 992) {
+  //   return <Logo size="tablet" />;
+  // }
+
+  // if (windowWidth > 992) {
+  //   return <Logo size="desktop" />;
+  // }
+
+  return <Logo />;
+};
+
+const MenuView = (windowWidth) => {
+  if (windowWidth > 992) {
+    return <NavBar type="inline" />;
+  }
+
+  return <NavBar />;
 };
 
 const HamburgerView = ({ setIsDropdownOpen, isDropdownOpen, windowWidth }) => {
@@ -129,6 +129,14 @@ const HamburgerView = ({ setIsDropdownOpen, isDropdownOpen, windowWidth }) => {
 Header.propTypes = {
   type: propTypes.string,
   onClick: propTypes.func,
+};
+
+LogoView.propTypes = {
+  windowWidth: propTypes.number,
+};
+
+MenuView.propTypes = {
+  windowWidth: propTypes.number,
 };
 
 HamburgerView.propTypes = {
