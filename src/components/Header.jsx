@@ -72,20 +72,6 @@ const Header = () => {
     return <NavBar />;
   };
 
-  const HamburgerView = ({ onClick }) => {
-    if (windowWidth > 992) {
-      return (
-        <Button
-          text="Записаться"
-          type="secondary"
-          onClick={onClick}
-        />
-      );
-    }
-
-    return <Hamburger onClick={onClick} />;
-  };
-
   return (
     <header
       id="header"
@@ -96,7 +82,11 @@ const Header = () => {
       >
         <LogoView />
         <MenuView />
-        <HamburgerView onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
+        <HamburgerView
+          setIsDropdownOpen={setIsDropdownOpen}
+          isDropdownOpen={isDropdownOpen}
+          windowWidth={windowWidth}
+        />
         {isDropdownOpen && (
           <HamburgerDropdown isFixed={isFixed}>
             <div ref={dropdownRef}>
@@ -113,9 +103,38 @@ const Header = () => {
   );
 };
 
+const HamburgerView = ({ setIsDropdownOpen, isDropdownOpen, windowWidth }) => {
+  const handleClick = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  if (windowWidth > 992) {
+    return (
+      <Button
+        text="Записаться"
+        type="secondary"
+        onClick={handleClick}
+      />
+    );
+  }
+
+  return (
+    <Hamburger
+      onClick={handleClick}
+      isDropdownOpen={isDropdownOpen}
+    />
+  );
+};
+
 Header.propTypes = {
   type: propTypes.string,
   onClick: propTypes.func,
+};
+
+HamburgerView.propTypes = {
+  setIsDropdownOpen: propTypes.func,
+  isDropdownOpen: propTypes.bool,
+  windowWidth: propTypes.number,
 };
 
 export default Header;

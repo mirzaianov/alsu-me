@@ -1,19 +1,14 @@
-import { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
-// import hamburger from '../assets/icons/hamburger.svg';
 
-const Hamburger = ({ onClick }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = async () => {
-    setIsClicked(!isClicked);
-    // onClick();
+const Hamburger = ({ onClick, isDropdownOpen }) => {
+  const handleClick = () => {
+    onClick();
   };
 
   return (
     <button onClick={handleClick}>
       <svg
-        className={`ham hamRotate ham4 ${isClicked ? 'active' : ''}`}
+        className={`ham hamRotate ham4 ${isDropdownOpen ? 'active' : ''}`}
         viewBox="17.5 17.5 65 65"
         width="40"
       >
@@ -35,7 +30,8 @@ const Hamburger = ({ onClick }) => {
 };
 
 Hamburger.propTypes = {
-  onClick: propTypes.func,
+  onClick: propTypes.func.isRequired,
+  isDropdownOpen: propTypes.bool.isRequired,
 };
 
 export default Hamburger;
