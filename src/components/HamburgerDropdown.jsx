@@ -23,7 +23,7 @@ const HamburgerDropdown = ({ children, isFixed }) => {
 
   return ReactDOM.createPortal(
     <div
-      className={`z-1000 fixed right-[var(--s)] animate-expand-from-corner rounded-[var(--xl)] bg-neutral-0/90 shadow-xl backdrop-blur-sm ${isFixed ? 'top-[104px]' : 'top-[64px]'}`}
+      className={`z-1000 fixed right-[var(--s)] animate-expand-from-corner rounded-[var(--xl)] bg-neutral-0/70 shadow-xl backdrop-blur-sm ${isFixed ? 'top-[104px]' : 'top-[64px]'}`}
     >
       <div
         className={`flex h-fit w-fit items-center justify-center p-[var(--xl)]`}

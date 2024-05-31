@@ -12,11 +12,16 @@ const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isFixed, setIsFixed] = useState(false);
 
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef();
+  const buttonRef = useRef();
 
-  useOnClickOutside(dropdownRef, () => {
-    setIsDropdownOpen(false);
-  });
+  useOnClickOutside(
+    dropdownRef,
+    () => {
+      setIsDropdownOpen(false);
+    },
+    [buttonRef],
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,55 +53,26 @@ const Header = () => {
     };
   }, []);
 
-  const LogoView = () => {
-    if (windowWidth > 576) {
-      return <Logo size="tablet" />;
-    }
-
-    // if (windowWidth > 576 && windowWidth <= 992) {
-    //   return <Logo size="tablet" />;
-    // }
-
-    // if (windowWidth > 992) {
-    //   return <Logo size="desktop" />;
-    // }
-
-    return <Logo />;
-  };
-
-  const MenuView = () => {
-    if (windowWidth > 992) {
-      return <NavBar type="inline" />;
-    }
-
-    return <NavBar />;
-  };
-
-  const HamburgerView = ({ onClick }) => {
-    if (windowWidth > 992) {
-      return (
-        <Button
-          text="Записаться"
-          type="secondary"
-          onClick={onClick}
-        />
-      );
-    }
-
-    return <Hamburger onClick={onClick} />;
-  };
-
   return (
     <header
       id="header"
       className={`relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:px-[var(--xl)] desktop:px-[var(--3xl)] ${isFixed ? 'px-[var(--s)]' : ''}`}
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/50 px-[var(--l)] py-[var(--s)] shadow-xl backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
+        className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--l)] py-[var(--s)] shadow-xl backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
       >
-        <LogoView />
-        <MenuView />
-        <HamburgerView onClick={() => setIsDropdownOpen(!isDropdownOpen)} />
+        <LogoView windowWidth={windowWidth} />
+        <MenuView windowWidth={windowWidth} />
+        <div
+          className="flex items-center justify-center"
+          ref={buttonRef}
+        >
+          <HamburgerView
+            setIsDropdownOpen={setIsDropdownOpen}
+            isDropdownOpen={isDropdownOpen}
+            windowWidth={windowWidth}
+          />
+        </div>
         {isDropdownOpen && (
           <HamburgerDropdown isFixed={isFixed}>
             <div ref={dropdownRef}>
@@ -113,9 +89,70 @@ const Header = () => {
   );
 };
 
+const LogoView = (windowWidth) => {
+  if (windowWidth > 576) {
+    return <Logo size="tablet" />;
+  }
+
+  // if (windowWidth > 576 && windowWidth <= 992) {
+  //   return <Logo size="tablet" />;
+  // }
+
+  // if (windowWidth > 992) {
+  //   return <Logo size="desktop" />;
+  // }
+
+  return <Logo />;
+};
+
+const MenuView = (windowWidth) => {
+  if (windowWidth > 992) {
+    return <NavBar type="inline" />;
+  }
+
+  return <NavBar />;
+};
+
+const HamburgerView = ({ setIsDropdownOpen, isDropdownOpen, windowWidth }) => {
+  const handleClick = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  if (windowWidth > 992) {
+    return (
+      <Button
+        text="Записаться"
+        type="secondary"
+        onClick={handleClick}
+      />
+    );
+  }
+
+  return (
+    <Hamburger
+      onClick={handleClick}
+      isDropdownOpen={isDropdownOpen}
+    />
+  );
+};
+
 Header.propTypes = {
   type: propTypes.string,
   onClick: propTypes.func,
+};
+
+LogoView.propTypes = {
+  windowWidth: propTypes.number,
+};
+
+MenuView.propTypes = {
+  windowWidth: propTypes.number,
+};
+
+HamburgerView.propTypes = {
+  setIsDropdownOpen: propTypes.func,
+  isDropdownOpen: propTypes.bool,
+  windowWidth: propTypes.number,
 };
 
 export default Header;
