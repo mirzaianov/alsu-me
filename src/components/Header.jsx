@@ -12,11 +12,16 @@ const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isFixed, setIsFixed] = useState(false);
 
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef();
+  const buttonRef = useRef();
 
-  useOnClickOutside(dropdownRef, () => {
-    setIsDropdownOpen(false);
-  });
+  useOnClickOutside(
+    dropdownRef,
+    () => {
+      setIsDropdownOpen(false);
+    },
+    [buttonRef],
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,11 +63,13 @@ const Header = () => {
       >
         <LogoView windowWidth={windowWidth} />
         <MenuView windowWidth={windowWidth} />
-        <HamburgerView
-          setIsDropdownOpen={setIsDropdownOpen}
-          isDropdownOpen={isDropdownOpen}
-          windowWidth={windowWidth}
-        />
+        <div ref={buttonRef}>
+          <HamburgerView
+            setIsDropdownOpen={setIsDropdownOpen}
+            isDropdownOpen={isDropdownOpen}
+            windowWidth={windowWidth}
+          />
+        </div>
         {isDropdownOpen && (
           <HamburgerDropdown isFixed={isFixed}>
             <div ref={dropdownRef}>
