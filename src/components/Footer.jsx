@@ -38,9 +38,18 @@ const Footer = () => {
             href="https://cv.mirzaianov.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-text-10`}
+            className={`group relative inline-block text-text-10`}
           >
             mirzaianov
+            <span
+              className={`absolute bottom-[3px] left-0 right-0 h-[2px] scale-x-0 rounded-sm bg-primary-10 transition-transform duration-300 ease-in-out group-hover:scale-x-100`}
+              style={{
+                transformOrigin: 'left',
+                marginLeft: '-0.15rem',
+                marginRight: '-0.15rem',
+                width: 'calc(100% + 0.3rem)',
+              }}
+            />
           </a>
         </div>
       </article>
