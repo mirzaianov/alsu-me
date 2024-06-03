@@ -24,6 +24,10 @@ const Header = () => {
   );
 
   useEffect(() => {
+    setIsDropdownOpen;
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -53,6 +57,8 @@ const Header = () => {
     };
   }, []);
 
+  console.log('Header', isDropdownOpen);
+
   return (
     <header
       id="header"
@@ -73,17 +79,18 @@ const Header = () => {
             windowWidth={windowWidth}
           />
         </div>
-        {isDropdownOpen && (
-          <HamburgerDropdown isFixed={isFixed}>
-            <div ref={dropdownRef}>
-              <NavBar
-                type="block-3"
-                setIsDropdownOpen={setIsDropdownOpen}
-                isDropdownOpen={isDropdownOpen}
-              />
-            </div>
-          </HamburgerDropdown>
-        )}
+        <HamburgerDropdown
+          isFixed={isFixed}
+          isDropdownOpen={isDropdownOpen}
+        >
+          <div ref={dropdownRef}>
+            <NavBar
+              type="block-1"
+              setIsDropdownOpen={setIsDropdownOpen}
+              isDropdownOpen={isDropdownOpen}
+            />
+          </div>
+        </HamburgerDropdown>
       </div>
     </header>
   );

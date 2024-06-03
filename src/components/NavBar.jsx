@@ -58,6 +58,25 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
     };
   }
 
+  if (type === 'block-1') {
+    ULstyle = {
+      gridTemplateAreas: `
+      'hero'
+      'about'
+      'services'
+      'prices'
+      'testimonials'
+      'contacts'
+    `,
+      gap: 'var(--l)',
+      justifyContent: 'start',
+    };
+
+    LIstyle = {
+      width: '40vw',
+    };
+  }
+
   if (type === 'block-2') {
     ULstyle = {
       gridTemplateAreas: `
