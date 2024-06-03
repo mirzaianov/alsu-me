@@ -10,67 +10,45 @@ const About = () => {
   return (
     <section
       id="about"
-      className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]"
     >
-      <h2 className={`h2-fade-in animate-h2-fade-in text-heading-s`}>
-        Обо мне
-      </h2>
-      <article
-        className={`pop-up relative -mt-4 mb-[82px] flex animate-pop-up items-center justify-start`}
-      >
-        <div
-          className={`absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]`}
-        ></div>
-        <div
-          className={`absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]`}
-        ></div>
-        <div
-          className={`absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_4s]`}
-        ></div>
+      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s">Обо мне</h2>
+      <article className="pop-up relative -mt-4 mb-[82px] flex animate-pop-up items-center justify-start">
+        <div className="absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]"></div>
+        <div className="absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]"></div>
+        <div className="absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_4s]"></div>
         <PhotoCardAbout />
-        <div
-          className={`absolute -right-[70px] top-[150px] animate-waving-badge-3`}
-        >
+        <div className="absolute -right-[70px] top-[150px] animate-waving-badge-3">
           <Badge
             text="Speaking"
             icon={usa}
-            type={'secondary-45'}
+            type="secondary-45"
           />
         </div>
-        <div
-          className={`absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s]`}
-        >
+        <div className="absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s]">
           <Badge
             text="Writing"
             icon={uk}
-            type={'secondary-15'}
+            type="secondary-15"
           />
         </div>
-        <div
-          className={`absolute -left-[60px] top-[190px] animate-waving-badge-4 [animation-delay:_0.4s]`}
-        >
+        <div className="absolute -left-[60px] top-[190px] animate-waving-badge-4 [animation-delay:_0.4s]">
           <Badge
             text="Listening"
             icon={uk}
-            type={'secondary-25'}
+            type="secondary-25"
           />
         </div>
-        <div
-          className={`absolute -left-[50px] top-[250px] animate-waving-badge-3 [animation-delay:_0.7s]`}
-        >
+        <div className="absolute -left-[50px] top-[250px] animate-waving-badge-3 [animation-delay:_0.7s]">
           <Badge
             text="Reading"
             icon={usa}
-            type={'secondary-15'}
+            type="secondary-15"
           />
         </div>
       </article>
-      <article
-        className={`flex flex-col items-center justify-start gap-[var(--l)]`}
-      >
-        <div
-          className={`flex flex-col items-center justify-start gap-[var(--m)]`}
-        >
+      <article className="flex flex-col items-center justify-start gap-[var(--l)]">
+        <div className="flex flex-col items-center justify-start gap-[var(--m)]">
           <p className="p-fade-in animate-p-fade-in">
             Меня зовут Алсу Каримова, и я рада приветствовать тебя на своём
             сайте!

@@ -39,15 +39,13 @@ const Services = () => {
   return (
     <section
       id="services"
-      className={`my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]`}
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]"
     >
-      <h2 className={`h2-fade-in animate-h2-fade-in text-heading-s`}>
+      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s">
         Что я предлагаю
       </h2>
 
-      <article
-        className={`flex flex-col items-center justify-start gap-[var(--m)]`}
-      >
+      <article className="flex flex-col items-center justify-start gap-[var(--m)]">
         <p className="p-fade-in animate-p-fade-in">
           В своих занятиях я акцентирую внимание на развитии разговорных навыков
           и понимании аутентичной речи.{' '}
@@ -64,27 +62,25 @@ const Services = () => {
           и развивать навыки общения.
         </p>
       </article>
-      <article className={`flex flex-col gap-[var(--l)]`}>
+      <article className="flex flex-col gap-[var(--l)]">
         {serviceCardData.map((item) => (
           <div
             key={item.alt}
-            className={`pop-up animate-pop-up flex flex-col gap-[var(--m)]`}
+            className="pop-up flex animate-pop-up flex-col gap-[var(--m)]"
           >
-            <div className={`flex justify-between`}>
-              <div className={`relative -left-[16px] animate-waving-badge-4`}>
+            <div className="flex justify-between">
+              <div className="relative -left-[16px] animate-waving-badge-4">
                 <Badge
                   text={item.badgeOneText}
                   icon={uk}
-                  type={'secondary-15'}
+                  type="secondary-15"
                 />
               </div>
-              <div
-                className={`relative -right-[16px] animate-waving-badge-4 [animation-delay:_1.5s]`}
-              >
+              <div className="relative -right-[16px] animate-waving-badge-4 [animation-delay:_1.5s]">
                 <Badge
                   text={item.badgeTwoText}
                   icon={usa}
-                  type={'secondary-25'}
+                  type="secondary-25"
                 />
               </div>
             </div>

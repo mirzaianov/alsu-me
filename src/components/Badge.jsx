@@ -19,9 +19,8 @@ const Badge = ({
         return `bg-secondary-15 text-text-90`;
       case 'secondary-25':
         return `bg-secondary-25 text-text-90`;
-      default: {
+      default:
         return `bg-primary-10 text-text-0`;
-      }
     }
   };
 

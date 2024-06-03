@@ -22,14 +22,10 @@ const TestimonialCardModal = ({ onClose, children }) => {
   }, []);
 
   return ReactDOM.createPortal(
-    <div
-      className={`z-1000 fixed inset-0 flex items-center justify-center bg-neutral-90/30`}
-    >
-      <div
-        className={`flex w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
-      >
+    <div className="z-1000 fixed inset-0 flex items-center justify-center bg-neutral-90/30">
+      <div className="flex max-h-[75vh] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] overflow-y-scroll rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]">
         {children}
-        <div className={`self-end`}>
+        <div className="self-end">
           <Button
             text="Закрыть"
             type="accent"
