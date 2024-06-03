@@ -50,28 +50,26 @@ const TestimonialCard = ({
   };
 
   return (
-    <div
-      className={`bg-neutral-0 relative flex h-[400px] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]`}
-    >
-      <div className={`flex gap-[var(--s)]`}>
+    <div className="relative flex h-[400px] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]">
+      <div className="flex gap-[var(--s)]">
         <img
-          className={`aspect-square h-[56px] rounded-full object-cover`}
+          className="aspect-square h-[56px] rounded-full object-cover"
           src={src}
           alt="photo"
         />
-        <div className={`flex flex-col justify-center`}>
-          <p className={`text-body-bold`}>{fullName}</p>
+        <div className="flex flex-col justify-center">
+          <p className="text-body-bold">{fullName}</p>
           <p>{occupation}</p>
         </div>
       </div>
       <p
         ref={paragraphRef}
-        className={`line-clamp-10 whitespace-normal`}
+        className="line-clamp-10 whitespace-normal"
       >
         {comment}
       </p>
       {isClamped && (
-        <div className={`mt-auto`}>
+        <div className="mt-auto">
           <Button
             onClick={handleModalOpen}
             type="neutral"
@@ -82,20 +80,20 @@ const TestimonialCard = ({
       {isModalOpen && (
         <TestimonialCardModal onClose={handleModalClose}>
           <div
-            className={`flex gap-[var(--s)]`}
+            className="flex gap-[var(--s)]"
             ref={modalRef}
           >
             <img
-              className={`aspect-square h-[56px] rounded-full object-cover`}
+              className="aspect-square h-[56px] rounded-full object-cover"
               src={src}
               alt="photo"
             />
-            <div className={`flex flex-col justify-center`}>
-              <p className={`text-body-bold`}>{fullName}</p>
+            <div className="flex flex-col justify-center">
+              <p className="text-body-bold">{fullName}</p>
               <p>{occupation}</p>
             </div>
           </div>
-          <p className={`whitespace-normal`}>{comment}</p>
+          <p className="whitespace-normal">{comment}</p>
         </TestimonialCardModal>
       )}
     </div>
