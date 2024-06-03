@@ -26,7 +26,7 @@ const BackToTopButton = () => {
 
   return (
     <a
-      className={`z-100 group ${isVisible ? '-translate-y-[124px]' : ''} fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/70 p-[var(--xs)] shadow-xl backdrop-blur-sm transition-colors duration-500 hover:bg-primary-10 hover:opacity-60`}
+      className={`z-100 group ${isVisible ? '-translate-y-[124px]' : ''} fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/70 p-[var(--xs)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-colors duration-500 hover:bg-primary-10 hover:opacity-60`}
       href="#"
     >
       <PiArrowFatUpFill className="size-[var(--xl)] text-text-10 opacity-60 transition-colors duration-500 group-hover:animate-arrow-bounce group-hover:text-text-0 group-hover:opacity-100" />
