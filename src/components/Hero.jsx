@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[96px] tablet:max-w-[var(--container-tablet)] tablet:px-0 desktop:max-w-[var(--container-desktop)]"
+      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[96px] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-0 desktop:max-w-[var(--container-desktop)]"
     >
       <article className="flex animate-hero-foto-fade-in items-center justify-start">
         <div className="flex max-w-[160px] grow items-center justify-center">
@@ -48,17 +48,17 @@ const Hero = () => {
           </div>
         </div>
       </article>
-      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center">
-        <h1 className="flex flex-col items-center justify-start text-heading-s">
+      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--xl)] text-center">
+        <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l">
           <span>В поисках идеального</span>
-          <div className="flex h-[36px] flex-col items-center overflow-hidden">
-            <div className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]">
+          <div className="flex h-[36px] flex-col items-center overflow-hidden tablet:h-[50px]">
+            <div className="tablet:animate-slide-words-tablet mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 text-[var(--neutral-00)] tablet:mb-[50px]">
               преподавателя
             </div>
-            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]">
+            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]  tablet:mb-[50px]">
               переводчика
             </div>
-            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]">
+            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]  tablet:mb-[50px]">
               преподавателя
             </div>
           </div>
