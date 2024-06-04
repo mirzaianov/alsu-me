@@ -5,7 +5,6 @@ import propTypes from 'prop-types';
 const modalRoot = document.getElementById('hamburger-dropdown');
 
 const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
-  console.log('HamburgerDropdown', isDropdownOpen);
   const elRef = useRef(null);
 
   if (!elRef.current) {

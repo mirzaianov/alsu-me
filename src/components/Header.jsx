@@ -57,8 +57,6 @@ const Header = () => {
     };
   }, []);
 
-  console.log('Header', isDropdownOpen);
-
   return (
     <header
       id="header"
