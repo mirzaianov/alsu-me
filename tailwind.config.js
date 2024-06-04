@@ -166,12 +166,12 @@ export default {
           '100%': { transform: 'translateY(0)' },
         },
         dropdownOpen: {
-          '0%': { transform: 'translateX(100%)', opacity: '0' },
-          '100%': { transform: 'none', opacity: '1' },
+          '0%': { transform: 'translateX(110%)' },
+          '100%': { transform: 'none' },
         },
         dropdownClose: {
-          '0%': { transform: 'none', opacity: '1' },
-          '100%': { transform: 'translateX(100%)', opacity: '0' },
+          '0%': { transform: 'none' },
+          '100%': { transform: 'translateX(110%)' },
         },
       },
       animation: {
@@ -197,8 +197,8 @@ export default {
         'h2-fade-in': 'h2FadeIn linear both',
         'footer-fade-in': 'footerFadeIn linear both',
         'arrow-bounce': 'arrowBounce 1.5s linear infinite',
-        'dropdown-open': 'dropdownOpen 0.3s ease-in forwards',
-        'dropdown-close': 'dropdownClose 0.3s ease-out forwards',
+        'dropdown-open': 'dropdownOpen 0.3s ease-in both',
+        'dropdown-close': 'dropdownClose 0.3s ease-out both',
       },
       lineClamp: {
         7: '7',
