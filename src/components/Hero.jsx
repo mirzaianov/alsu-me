@@ -11,11 +11,11 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[120px] tablet:max-w-[var(--container-tablet)] desktop:max-w-[var(--container-desktop)]"
+      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[96px] tablet:max-w-[var(--container-tablet)] tablet:px-0 desktop:max-w-[var(--container-desktop)]"
     >
       <article className="flex animate-hero-foto-fade-in items-center justify-start">
         <div className="flex max-w-[160px] grow items-center justify-center">
-          <ul className="flex w-[100px] flex-col justify-start gap-[var(--s)]">
+          <ul className="flex w-[100px] flex-col justify-start gap-[var(--s)] tablet:gap-[var(--l)]">
             <Stat
               quantity="16+"
               text="лет опыта"
@@ -36,7 +36,7 @@ const Hero = () => {
             <div className="absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]"></div>
             <div className="absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]"></div>
             <PhotoCardHero />
-            <div className="absolute left-[-20px] top-[139px] animate-waving-badge-3">
+            <div className="absolute -left-[20px] top-[139px] animate-waving-badge-3 tablet:top-[260px]">
               <Badge
                 text="Hi"
                 icon={hand}
