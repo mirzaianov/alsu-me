@@ -51,14 +51,14 @@ const Hero = () => {
       <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--xl)] text-center">
         <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l">
           <span>В поисках идеального</span>
-          <div className="flex h-[36px] flex-col items-center overflow-hidden tablet:h-[50px]">
-            <div className="tablet:animate-slide-words-tablet mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 text-[var(--neutral-00)] tablet:mb-[50px]">
+          <div className="flex h-[36px] flex-col items-center overflow-hidden text-text-0 tablet:h-[50px]">
+            <div className="tablet:animate-slide-words-tablet mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
               преподавателя
             </div>
-            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]  tablet:mb-[50px]">
+            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
               переводчика
             </div>
-            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 text-[var(--neutral-00)]  tablet:mb-[50px]">
+            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
               преподавателя
             </div>
           </div>
@@ -68,13 +68,13 @@ const Hero = () => {
           <p>Привет! Меня зовут Алсу</p>
           <div className="relative h-[100px] w-[var(--card-width)]">
             <div className="absolute animate-rotate-first-note [backface-visibility:hidden]">
-              <Note>
+              <Note type="translator">
                 Научу тебя понимать и говорить на английском языке, подобрав
                 индивидуальную программу
               </Note>
             </div>
             <div className="absolute animate-rotate-second-note [backface-visibility:hidden]">
-              <Note type="translator">
+              <Note>
                 Помогу твоему бизнесу с устным и письменным переводом, тренингом
                 сотрудников
               </Note>
