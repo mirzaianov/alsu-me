@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Stat from './Stat';
 import PhotoCardHero from './PhotoCardHero';
 import Note from './Note';
@@ -8,6 +9,20 @@ import hand from '../assets/icons/hand.svg';
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
 const Hero = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <section
       id="hero"
@@ -64,9 +79,12 @@ const Hero = () => {
           </div>
           <span>английского?</span>
         </h1>
-        <div className="flex flex-col justify-start gap-[var(--s)]">
-          <p>Привет! Меня зовут Алсу</p>
-          <div className="relative h-[100px] w-[var(--card-width)]">
+        <div className="flex w-full flex-col justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row tablet:items-center">
+          <div className="flex justify-center tablet:flex-col tablet:items-start">
+            <span>Привет!&nbsp;</span>
+            <span>Меня зовут Алсу</span>
+          </div>
+          <div className="relative h-[100px] w-[var(--card-width)] self-center">
             <div className="absolute animate-rotate-first-note [backface-visibility:hidden]">
               <Note type="translator">
                 Научу тебя понимать и говорить на английском языке, подобрав
@@ -81,8 +99,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-start gap-[var(--xs)]">
-          <p>Запишись на бесплатное занятие</p>
+        <div className="flex flex-col items-center justify-start gap-[var(--xs)] tablet:gap-[var(--m)]">
+          {windowWidth > 576 ? (
+            <p>Запишись на бесплатное пробное занятие</p>
+          ) : (
+            <p>Запишись на бесплатное занятие</p>
+          )}
           <Button
             text="Записаться"
             link={telegramLink}
