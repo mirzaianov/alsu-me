@@ -1,4 +1,4 @@
-import Photo from '../assets/img/photo-about2.png';
+import Photo from '../assets/img/photo-about.png';
 
 const PhotoCardAbout = () => {
   return (
