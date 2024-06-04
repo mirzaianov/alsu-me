@@ -24,6 +24,10 @@ const Header = () => {
   );
 
   useEffect(() => {
+    setIsDropdownOpen;
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -53,13 +57,15 @@ const Header = () => {
     };
   }, []);
 
+  console.log('Header', isDropdownOpen);
+
   return (
     <header
       id="header"
       className={`relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:px-[var(--xl)] desktop:px-[var(--3xl)] ${isFixed ? 'px-[var(--s)]' : ''}`}
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--l)] py-[var(--s)] shadow-xl backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
+        className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
       >
         <LogoView windowWidth={windowWidth} />
         <MenuView windowWidth={windowWidth} />
@@ -73,17 +79,18 @@ const Header = () => {
             windowWidth={windowWidth}
           />
         </div>
-        {isDropdownOpen && (
-          <HamburgerDropdown isFixed={isFixed}>
-            <div ref={dropdownRef}>
-              <NavBar
-                type="block-3"
-                setIsDropdownOpen={setIsDropdownOpen}
-                isDropdownOpen={isDropdownOpen}
-              />
-            </div>
-          </HamburgerDropdown>
-        )}
+        <HamburgerDropdown
+          isFixed={isFixed}
+          isDropdownOpen={isDropdownOpen}
+        >
+          <div ref={dropdownRef}>
+            <NavBar
+              type="block-1"
+              setIsDropdownOpen={setIsDropdownOpen}
+              isDropdownOpen={isDropdownOpen}
+            />
+          </div>
+        </HamburgerDropdown>
       </div>
     </header>
   );

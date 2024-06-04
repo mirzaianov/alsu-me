@@ -165,6 +165,14 @@ export default {
           '67%': { transform: 'translateY(-2px)' },
           '100%': { transform: 'translateY(0)' },
         },
+        dropdownOpen: {
+          '0%': { transform: 'translateX(110%)' },
+          '100%': { transform: 'none' },
+        },
+        dropdownClose: {
+          '0%': { transform: 'none' },
+          '100%': { transform: 'translateX(110%)' },
+        },
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
@@ -189,6 +197,8 @@ export default {
         'h2-fade-in': 'h2FadeIn linear both',
         'footer-fade-in': 'footerFadeIn linear both',
         'arrow-bounce': 'arrowBounce 1.5s linear infinite',
+        'dropdown-open': 'dropdownOpen 0.3s ease-in both',
+        'dropdown-close': 'dropdownClose 0.3s ease-out both',
       },
       lineClamp: {
         7: '7',
