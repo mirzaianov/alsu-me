@@ -45,7 +45,7 @@ const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
       {testimonialCardData.map((item, index) => (
         <div
           key={item.fullName}
-          className="relative mx-[12px] my-0 inline-block h-full"
+          className="relative my-0 inline-block h-full px-[12px]"
         >
           {index === 0 && (
             <div

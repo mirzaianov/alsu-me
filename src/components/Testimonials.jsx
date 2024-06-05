@@ -4,9 +4,9 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]"
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
     >
-      <h2 className="h2-fade-in animate-h2-fade-in text-center text-heading-s">
+      <h2 className="h2-fade-in animate-h2-fade-in text-center text-heading-s tablet:text-heading-m">
         Что говорят мои ученики и клиенты
       </h2>
       <article className="flex flex-col justify-start gap-[var(--m)]">
@@ -19,7 +19,7 @@ const Testimonials = () => {
           устным синхронным переводам.
         </p>
       </article>
-      <article className="pop-up max-w-full animate-pop-up">
+      <article className="pop-up w-screen animate-pop-up">
         <InfiniteTestimonialCards />
       </article>
     </section>
