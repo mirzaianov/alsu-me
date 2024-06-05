@@ -41,6 +41,12 @@ section {
     );
   }
 
+  .clip-path-about-tablet {
+    clip-path: path(
+      'M 0 16 Q 0 0 16 0 L 284 0 Q 300 0 300 16 L 300 324 Q 300 340 284 340 L 16 340 Q 0 340 0 324'
+    );
+  }
+
   .pause {
     animation-play-state: paused;
   }
