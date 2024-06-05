@@ -11,43 +11,43 @@ const LogosRow = () => {
   return (
     <div className="group-hover:pause tablet:animate-slides-tablet inline-block w-max animate-slides">
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={kamaz}
         alt="Kamaz"
       />
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={knorr}
         alt="Knorr-Bremse AG"
       />
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={bendix}
         alt="Bendix Commercial Vehicle Systems"
       />
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={amis}
         alt="Amis Group"
       />
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={ishi}
         alt="Charles Ischi AG"
       />
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={inn}
         alt="Holiday Inn Hotels"
       />
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={akulchev}
         alt="Akulchev Waffles"
       />
 
       <img
-        className="mx-[20px] my-0 inline-block h-[var(--m)] tablet:mx-[var(--xl)] tablet:h-[var(--xl)]"
+        className="my-0 inline-block h-[var(--m)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)]"
         src={tempo}
         alt="Tempo"
       />

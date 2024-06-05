@@ -207,6 +207,13 @@ export default {
           '0%': { transform: 'none' },
           '100%': { transform: 'translateX(110%)' },
         },
+        iconFadeInRight: {
+          '0%': {
+            transform: 'translateX(200%) rotate(195deg)',
+            opacity: '0',
+          },
+          '100%': { transform: 'translateX(0) rotate(15deg)', opacity: '1' },
+        },
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
@@ -236,6 +243,8 @@ export default {
         'arrow-bounce': 'arrowBounce 1.5s linear infinite',
         'dropdown-open': 'dropdownOpen 0.3s ease-in both',
         'dropdown-close': 'dropdownClose 0.3s ease-out both',
+        'icon-fade-in-right': 'iconFadeInRight linear both',
+        'icon-fade-in-left': 'iconFadeInLeft linear both',
       },
       lineClamp: {
         7: '7',

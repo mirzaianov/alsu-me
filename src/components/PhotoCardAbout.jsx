@@ -3,13 +3,13 @@ import Photo from '../assets/img/photo-about.png';
 const PhotoCardAbout = () => {
   return (
     // Container
-    <div className="group relative w-[170px]">
+    <div className="group relative w-[170px] tablet:w-[300px]">
       {/* Inner Container */}
-      <div className="clip-path-about duration-250 relative flex h-[210px] items-end overflow-hidden transition-transform ease-in-out hover:scale-[1.1]">
+      <div className="clip-path-about duration-250 tablet:clip-path-about-tablet relative flex h-[210px] items-end overflow-hidden transition-transform ease-in-out hover:scale-[1.1] tablet:h-[340px]">
         {/* Color */}
-        <div className="absolute bottom-0 left-0 aspect-square w-[170px] rounded-[var(--s)] bg-primary-50" />
+        <div className="absolute bottom-0 left-0 size-[170px] rounded-[var(--s)] bg-primary-50 tablet:size-[300px]" />
         <img
-          className="duration-250 group-hover:scale-140 absolute bottom-[20px] left-[5px] z-10 scale-[1.4] transition-transform ease-in-out group-hover:-translate-y-2.5"
+          className="duration-250 group-hover:scale-140 absolute bottom-[20px] left-[5px] z-10 scale-[1.4] transition-transform ease-in-out group-hover:-translate-y-2.5 tablet:bottom-[32px] tablet:left-[16px]"
           src={Photo}
           alt="Photo"
         />
