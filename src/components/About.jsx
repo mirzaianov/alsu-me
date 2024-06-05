@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:px-0"
+      className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
     >
       <div className="p-fade-in animate-icon-fade-in-right absolute right-8 top-8 tablet:right-8 tablet:top-20">
         <img

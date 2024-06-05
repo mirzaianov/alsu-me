@@ -39,9 +39,9 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]"
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
     >
-      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s">
+      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s tablet:text-heading-m">
         Что я предлагаю
       </h2>
 
@@ -62,21 +62,21 @@ const Services = () => {
           и развивать навыки общения.
         </p>
       </article>
-      <article className="flex flex-col gap-[var(--l)]">
+      <article className="flex flex-col gap-[var(--l)] tablet:flex-row tablet:gap-[var(--xl)]">
         {serviceCardData.map((item) => (
           <div
             key={item.alt}
             className="pop-up flex animate-pop-up flex-col gap-[var(--m)]"
           >
             <div className="flex justify-between">
-              <div className="relative -left-[16px] animate-waving-badge-4">
+              <div className="relative -left-[8px]">
                 <Badge
                   text={item.badgeOneText}
                   icon={uk}
                   type="secondary-15"
                 />
               </div>
-              <div className="relative -right-[16px] animate-waving-badge-4 [animation-delay:_1.5s]">
+              <div className="relative -right-[8px]">
                 <Badge
                   text={item.badgeTwoText}
                   icon={usa}
