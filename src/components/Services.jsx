@@ -44,7 +44,6 @@ const Services = () => {
       <h2 className="h2-fade-in animate-h2-fade-in text-heading-s tablet:text-heading-m">
         Что я предлагаю
       </h2>
-
       <article className="flex flex-col items-center justify-start gap-[var(--m)]">
         <p className="p-fade-in animate-p-fade-in">
           В своих занятиях я акцентирую внимание на развитии разговорных навыков

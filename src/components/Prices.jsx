@@ -52,12 +52,12 @@ const Prices = () => {
   return (
     <section
       id="prices"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]"
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
     >
-      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s">
+      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s tablet:text-heading-m">
         Выбери свой план
       </h2>
-      <article className="flex flex-col justify-start gap-[var(--m)] text-center">
+      <article className="flex flex-col justify-start gap-[var(--m)] text-center tablet:gap-[var(--xs)]">
         <p className="p-fade-in animate-p-fade-in">
           Подбери план и стоимость, которые наиболее подходят тебе.
         </p>
@@ -66,11 +66,11 @@ const Prices = () => {
         </p>
       </article>
       <article className="flex flex-col gap-[var(--l)]">
-        <div className="flex flex-col gap-[var(--m)]">
-          <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase">
+        <div className="flex flex-col gap-[var(--m)] tablet:gap-[var(--l)]">
+          <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase tablet:text-heading-s">
             Индивидуальные занятия на платформе Zoom
           </h3>
-          <div className="flex flex-col items-center gap-[var(--l)]">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] tablet:min-w-[610px] tablet:flex-row">
             {tutorCardData.map((item) => (
               <PriceTutorCard
                 key={item.heading}
@@ -79,11 +79,11 @@ const Prices = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-[var(--m)]">
-          <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase">
+        <div className="flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)]">
+          <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase tablet:text-heading-s">
             Переводы
           </h3>
-          <div className="flex flex-col gap-[var(--l)]">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] tablet:min-w-[610px] tablet:flex-row">
             {translatorCardData.map((item) => (
               <PriceTranslatorCard
                 key={item.heading}
