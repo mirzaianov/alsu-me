@@ -23,7 +23,7 @@ const Button = ({
       case 'accent':
         return `bg-primary-30 hover:bg-primary-30/70 text-text-0`;
       case 'neutral':
-        return `bg-transparent border-[3px] border-neutral-90 hover:border-neutral-90/70 text-text-90/70`;
+        return `bg-transparent border-[3px] border-neutral-90 hover:border-neutral-90/70 hover:text-text-90/70`;
       default: {
         return `bg-primary-10 hover:bg-primary-10/70 text-text-0`;
       }
