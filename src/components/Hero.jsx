@@ -63,11 +63,11 @@ const Hero = () => {
           </div>
         </div>
       </article>
-      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center tablet:gap-[var(--2xl)]">
+      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center tablet:gap-[var(--xl)]">
         <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l">
           <span>В поисках идеального</span>
           <div className="flex h-[36px] flex-col items-center overflow-hidden text-text-0 tablet:h-[50px]">
-            <div className="tablet:animate-slide-words-tablet mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
+            <div className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet">
               преподавателя
             </div>
             <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
