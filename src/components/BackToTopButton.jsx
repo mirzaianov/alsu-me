@@ -3,10 +3,12 @@ import { PiArrowFatUpFill } from 'react-icons/pi';
 
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSlide, setIsSlide] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const aboutSection = document.getElementById('about');
+      const footerSection = document.getElementById('footer');
 
       if (aboutSection) {
         const stickyPoint = aboutSection.offsetTop - 145;
@@ -14,6 +16,14 @@ const BackToTopButton = () => {
         setIsVisible(window.scrollY >= stickyPoint);
       } else {
         setIsVisible(false);
+      }
+
+      if (footerSection) {
+        const stickyPoint = footerSection.offsetTop - 800;
+
+        setIsSlide(window.scrollY >= stickyPoint);
+      } else {
+        setIsSlide(false);
       }
     };
 
@@ -28,6 +38,7 @@ const BackToTopButton = () => {
     <a
       className={`z-100 group
       ${isVisible ? '-translate-y-[124px] tablet:-translate-y-[196px]' : ''}
+      ${isSlide ? 'tablet:-translate-y-[300px]' : ''}
       fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/70 p-[var(--xs)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-all duration-500 ease-in-out hover:bg-primary-10 hover:opacity-60 tablet:-bottom-[164px] tablet:right-[var(--xl)]`}
       href="#"
     >
