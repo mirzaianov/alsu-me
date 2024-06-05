@@ -28,28 +28,28 @@ const About = () => {
         <div className="absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]"></div>
         <div className="absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_4s]"></div>
         <PhotoCardAbout />
-        <div className="absolute -right-[70px] top-[150px] animate-waving-badge-3">
+        <div className="absolute -right-[70px] top-[260px] animate-waving-badge-3">
           <Badge
             text="Speaking"
             icon={usa}
             type="secondary-45"
           />
         </div>
-        <div className="absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s]">
+        <div className="absolute -right-[55px] top-[360px] animate-waving-badge-4 [animation-delay:_0.1s]">
           <Badge
             text="Writing"
             icon={uk}
             type="secondary-15"
           />
         </div>
-        <div className="absolute -left-[60px] top-[190px] animate-waving-badge-4 [animation-delay:_0.4s]">
+        <div className="absolute -left-[60px] top-[275px] animate-waving-badge-4 [animation-delay:_0.4s]">
           <Badge
             text="Listening"
             icon={uk}
             type="secondary-25"
           />
         </div>
-        <div className="absolute -left-[50px] top-[250px] animate-waving-badge-3 [animation-delay:_0.7s]">
+        <div className="absolute -left-[50px] top-[365px] animate-waving-badge-3 [animation-delay:_0.7s]">
           <Badge
             text="Reading"
             icon={usa}
