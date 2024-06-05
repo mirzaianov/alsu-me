@@ -47,9 +47,9 @@ const Hero = () => {
         </div>
         <div className="flex min-w-[178px] grow items-center justify-center">
           <div className="relative flex items-center justify-start">
-            <div className="absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-10 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]"></div>
-            <div className="absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]"></div>
-            <div className="absolute -bottom-8 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_4s]"></div>
+            <div className="tablet:animate-blob-tablet absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s] tablet:-right-20 tablet:-top-16 tablet:size-80 tablet:[animation-delay:_0.5s]"></div>
+            <div className="tablet:animate-blob-tablet absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s] tablet:-left-16 tablet:-top-8 tablet:size-80 tablet:[animation-delay:_2s]"></div>
+            <div className="tablet:animate-blob-tablet absolute -bottom-8 size-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_5s] tablet:left-16 tablet:size-80 tablet:[animation-delay:_5s]"></div>
             <PhotoCardHero />
             <div className="absolute -left-[20px] top-[139px] animate-waving-badge-3 tablet:top-[260px]">
               <Badge

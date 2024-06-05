@@ -18,6 +18,20 @@ export default {
             transform: 'translate(0px, 0px) scale(1)',
           },
         },
+        blobTablet: {
+          '0%': {
+            transform: 'translate(0px, 0px) scale(1)',
+          },
+          '33%': {
+            transform: 'translate(-60px, 60px) scale(1.1)',
+          },
+          '66%': {
+            transform: 'translate(-40px, 40px) scale(0.9)',
+          },
+          '100%': {
+            transform: 'translate(0px, 0px) scale(1)',
+          },
+        },
         slides: {
           '0%': {
             transform: 'translateX(0)',
@@ -197,6 +211,7 @@ export default {
       animation: {
         tada: 'tada 8s ease-in-out infinite',
         blob: 'blob 7s infinite',
+        'blob-tablet': 'blobTablet 7s infinite',
         slides: 'slides 60s linear infinite',
         'slides-tablet': 'slides 60s linear infinite',
         walter: 'walter 8s ease-in-out infinite',
