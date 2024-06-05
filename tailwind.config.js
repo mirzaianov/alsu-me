@@ -18,6 +18,20 @@ export default {
             transform: 'translate(0px, 0px) scale(1)',
           },
         },
+        blobTablet: {
+          '0%': {
+            transform: 'translate(0px, 0px) scale(1)',
+          },
+          '33%': {
+            transform: 'translate(-60px, 60px) scale(1.1)',
+          },
+          '66%': {
+            transform: 'translate(-40px, 40px) scale(0.9)',
+          },
+          '100%': {
+            transform: 'translate(0px, 0px) scale(1)',
+          },
+        },
         slides: {
           '0%': {
             transform: 'translateX(0)',
@@ -38,6 +52,26 @@ export default {
           },
           '95%': {
             'margin-top': '-72px',
+          },
+          '98%': {
+            'margin-top': '0px',
+          },
+          '100%': {
+            'margin-top': '0px',
+          },
+        },
+        slideWordsTablet: {
+          '0%': {
+            'margin-top': '-200px',
+          },
+          '45%': {
+            'margin-top': '-200px',
+          },
+          '48%': {
+            'margin-top': '-100px',
+          },
+          '95%': {
+            'margin-top': '-100px',
           },
           '98%': {
             'margin-top': '0px',
@@ -177,10 +211,13 @@ export default {
       animation: {
         tada: 'tada 8s ease-in-out infinite',
         blob: 'blob 7s infinite',
-        slides: 'slides 40s linear infinite',
+        'blob-tablet': 'blobTablet 7s infinite',
+        slides: 'slides 60s linear infinite',
+        'slides-tablet': 'slides 60s linear infinite',
         walter: 'walter 8s ease-in-out infinite',
         testimonials: 'slides 60s linear infinite',
         'slide-words': 'slideWords 20s linear infinite',
+        'slide-words-tablet': 'slideWordsTablet 20s linear infinite',
         'waving-hand': 'wavingHand 4s linear infinite',
         'waving-badge-3': 'wavindBadge 3s linear infinite',
         'waving-badge-4': 'wavindBadge 4s linear infinite',

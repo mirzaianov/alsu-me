@@ -9,7 +9,7 @@ const Hamburger = ({ onClick, isDropdownOpen }) => {
     <button onClick={handleClick}>
       <svg
         className={`ham hamRotate ham4 ${isDropdownOpen ? 'active' : ''}`}
-        viewBox="17.5 17.5 65 65"
+        viewBox="17 17 65 65"
         width="40"
       >
         <path

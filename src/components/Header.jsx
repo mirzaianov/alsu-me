@@ -24,10 +24,6 @@ const Header = () => {
   );
 
   useEffect(() => {
-    setIsDropdownOpen;
-  }, []);
-
-  useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -60,12 +56,17 @@ const Header = () => {
   return (
     <header
       id="header"
-      className={`relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:px-[var(--xl)] desktop:px-[var(--3xl)] ${isFixed ? 'px-[var(--s)]' : ''}`}
+      className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:mt-[var(--xl)]"
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isFixed ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm' : 'absolute w-full px-[var(--s)]'}`}
+        className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)]
+        ${
+          isFixed
+            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm tablet:top-[var(--xl)] tablet:py-[var(--m)]'
+            : 'absolute w-full px-[var(--s)]'
+        }`}
       >
-        <LogoView windowWidth={windowWidth} />
+        <Logo />
         <MenuView windowWidth={windowWidth} />
         <div
           className="flex items-center justify-center"
@@ -92,22 +93,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-const LogoView = (windowWidth) => {
-  if (windowWidth > 576) {
-    return <Logo size="tablet" />;
-  }
-
-  // if (windowWidth > 576 && windowWidth <= 992) {
-  //   return <Logo size="tablet" />;
-  // }
-
-  // if (windowWidth > 992) {
-  //   return <Logo size="desktop" />;
-  // }
-
-  return <Logo />;
 };
 
 const MenuView = (windowWidth) => {
@@ -144,10 +129,6 @@ const HamburgerView = ({ setIsDropdownOpen, isDropdownOpen, windowWidth }) => {
 Header.propTypes = {
   type: propTypes.string,
   onClick: propTypes.func,
-};
-
-LogoView.propTypes = {
-  windowWidth: propTypes.number,
 };
 
 MenuView.propTypes = {

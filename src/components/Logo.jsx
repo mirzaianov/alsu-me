@@ -1,22 +1,10 @@
 import propTypes from 'prop-types';
 import logo from '../assets/icons/logo.svg';
 
-const Logo = ({ size = '' }) => {
-  const style = {
-    height: 'var(--m)',
-  };
-
-  if (size === 'desktop') {
-    style.height = 'var(--2xl)';
-  }
-
-  if (size === 'tablet') {
-    style.height = 'var(--xl)';
-  }
-
+const Logo = () => {
   return (
     <img
-      className={`w-auto h-[${style.height}]`}
+      className={`h-[var(--m)] w-auto tablet:h-[var(--xl)] desktop:h-[var(--2xl)]`}
       src={logo}
       alt="Logo"
     />
