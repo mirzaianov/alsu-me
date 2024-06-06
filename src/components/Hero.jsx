@@ -26,11 +26,11 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[96px] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-0 desktop:max-w-[var(--container-desktop)]"
+      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[96px] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-0 desktop:max-w-[var(--container-desktop)] desktop:flex-row-reverse desktop:items-start desktop:justify-between desktop:text-body-l"
     >
-      <article className="flex animate-hero-foto-fade-in items-center justify-start">
-        <div className="flex max-w-[160px] grow items-center justify-center">
-          <ul className="flex w-[100px] flex-col justify-start gap-[var(--s)] tablet:gap-[var(--l)]">
+      <article className="flex animate-hero-foto-fade-in items-center justify-start desktop:flex-col-reverse desktop:gap-[var(--m)]">
+        <div className="flex max-w-[160px] grow items-center justify-center desktop:max-w-full">
+          <ul className="flex w-[100px] flex-col justify-start gap-[var(--s)] tablet:gap-[var(--l)] desktop:w-fit desktop:flex-row desktop:gap-[var(--m)]">
             <Stat
               quantity="16+"
               text="лет опыта"
@@ -45,11 +45,11 @@ const Hero = () => {
             />
           </ul>
         </div>
-        <div className="flex min-w-[178px] grow items-center justify-center">
+        <div className="flex min-w-[178px] grow items-center justify-center tablet:min-w-[400px]">
           <div className="relative flex items-center justify-start">
-            <div className="tablet:animate-blob-tablet absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s] tablet:-right-20 tablet:-top-16 tablet:size-80 tablet:[animation-delay:_0.5s]"></div>
-            <div className="tablet:animate-blob-tablet absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s] tablet:-left-16 tablet:-top-8 tablet:size-80 tablet:[animation-delay:_2s]"></div>
-            <div className="tablet:animate-blob-tablet absolute -bottom-8 size-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_5s] tablet:left-16 tablet:size-80 tablet:[animation-delay:_5s]"></div>
+            <div className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s] tablet:-right-20 tablet:-top-16 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_0.5s]"></div>
+            <div className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s] tablet:-left-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_2s]"></div>
+            <div className="absolute -bottom-8 size-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_5s] tablet:left-16 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_5s]"></div>
             <PhotoCardHero />
             <div className="absolute -left-[20px] top-[139px] animate-waving-badge-3 tablet:top-[260px]">
               <Badge
@@ -63,28 +63,28 @@ const Hero = () => {
           </div>
         </div>
       </article>
-      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center tablet:gap-[var(--xl)]">
-        <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l">
+      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center tablet:gap-[var(--xl)] desktop:items-start desktop:text-start">
+        <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l desktop:items-start desktop:text-heading-xl">
           <span>В поисках идеального</span>
-          <div className="flex h-[36px] flex-col items-center overflow-hidden text-text-0 tablet:h-[50px]">
-            <div className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet">
+          <div className="flex h-[36px] flex-col items-center overflow-hidden text-text-0 tablet:h-[50px] desktop:h-[70px] desktop:items-start">
+            <div className="desktop:animate-slide-words-desktop mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet desktop:mb-[70px] desktop:rounded-xl">
               преподавателя
             </div>
-            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
+            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] desktop:mb-[70px] desktop:rounded-xl">
               переводчика
             </div>
-            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px]">
+            <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] desktop:mb-[70px] desktop:rounded-xl">
               преподавателя
             </div>
           </div>
           <span>английского?</span>
         </h1>
-        <div className="flex w-full flex-col justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row tablet:items-center">
+        <div className="flex w-full flex-col justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row tablet:items-center desktop:max-w-full desktop:justify-start desktop:gap-[var(--xl)]">
           <div className="flex justify-center tablet:flex-col tablet:items-start">
             <span>Привет!&nbsp;</span>
             <span>Меня зовут Алсу</span>
           </div>
-          <div className="relative h-[100px] w-[var(--card-width)] self-center">
+          <div className="relative flex h-[100px] w-[288px] items-center justify-center self-center desktop:h-[137px] desktop:w-[365px]">
             <div className="absolute animate-rotate-first-note [backface-visibility:hidden]">
               <Note type="translator">
                 Научу тебя понимать и говорить на английском языке, подобрав
