@@ -99,16 +99,24 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-start gap-[var(--xs)] tablet:gap-[var(--m)]">
+        <div className="flex flex-col items-center justify-start gap-[var(--xs)] tablet:gap-[var(--m)] desktop:items-start">
           {windowWidth > 576 ? (
             <p>Запишись на бесплатное пробное занятие</p>
           ) : (
             <p>Запишись на бесплатное занятие</p>
           )}
-          <Button
-            text="Записаться"
-            link={telegramLink}
-          />
+          {windowWidth <= 992 ? (
+            <Button
+              text="Записаться"
+              link={telegramLink}
+            />
+          ) : (
+            <Button
+              text="Записаться"
+              size="large"
+              link={telegramLink}
+            />
+          )}
         </div>
       </article>
     </section>
