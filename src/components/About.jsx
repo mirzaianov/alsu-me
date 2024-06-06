@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
+      className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]"
     >
       <div className="p-fade-in absolute right-8 top-8 animate-icon-fade-in-right tablet:right-8 tablet:top-20">
         <img
@@ -58,7 +58,7 @@ const About = () => {
         </div>
       </article>
       <article className="flex flex-col items-center justify-start gap-[var(--l)]">
-        <div className="flex flex-col items-center justify-start gap-[var(--m)]">
+        <div className="flex flex-col items-start justify-start gap-[var(--m)]">
           <p className="p-fade-in animate-p-fade-in">
             Меня зовут Алсу Каримова, и я рада приветствовать тебя на своём
             сайте!

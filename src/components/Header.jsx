@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:mt-[var(--xl)]"
+      className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:mt-[var(--xl)] desktop:max-w-[var(--l-end)]"
     >
       <div
         className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)] desktop:px-[var(--3xl)]
@@ -67,12 +67,12 @@ const Header = () => {
         }`}
       >
         <Logo />
-        {windowWidth <= 992 ? <NavBar /> : <NavBar type="inline" />}
+        {windowWidth < 1060 ? <NavBar /> : <NavBar type="inline" />}
         <div
           className="flex items-center justify-center"
           ref={buttonRef}
         >
-          {windowWidth <= 992 ? (
+          {windowWidth < 1060 ? (
             <Hamburger
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               isDropdownOpen={isDropdownOpen}
@@ -85,7 +85,7 @@ const Header = () => {
             />
           )}
         </div>
-        {windowWidth <= 992 && (
+        {windowWidth < 1060 && (
           <HamburgerDropdown
             isFixed={isFixed}
             isDropdownOpen={isDropdownOpen}

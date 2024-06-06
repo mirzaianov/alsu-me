@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div
       id="app"
-      className="relative flex flex-col items-center justify-start overflow-clip"
+      className="relative flex flex-col items-center justify-start overflow-clip  desktop:text-body-l"
     >
       <Header />
       <Hero />
