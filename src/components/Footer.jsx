@@ -6,12 +6,10 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:max-w-full tablet:flex-row tablet:px-[var(--xl)]"
+      className="mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:max-w-full  tablet:gap-[var(--xl)] tablet:px-[var(--xl)]"
     >
-      <article>
+      <article className="flex flex-col items-start gap-[var(--l)] tablet:flex-row">
         <Logo />
-      </article>
-      <article className="flex flex-col gap-[var(--l)]">
         <div className="flex flex-col justify-start gap-[var(--l)]">
           <div className="flex flex-col justify-start gap-[var(--l)]">
             <div className="flex flex-col justify-start gap-[var(--s)]">
@@ -25,6 +23,8 @@ const Footer = () => {
             <Navbar type="block-2" />
           </div>
         </div>
+      </article>
+      <article className="flex w-full flex-col justify-start gap-[var(--l)]">
         <Divider />
         <div className="flex flex-wrap justify-between gap-[var(--s)]">
           <div className="flex flex-wrap justify-start gap-[var(--2xs)]">
@@ -32,7 +32,7 @@ const Footer = () => {
             <p>|</p>
             <p>Все права защищены</p>
           </div>
-          <di className="flex flex-wrap justify-start gap-[var(--2xs)]">
+          <div className="flex flex-wrap justify-start gap-[var(--2xs)]">
             <p>Дизайн и разработка</p>
             <p>|</p>
             <a
@@ -52,7 +52,7 @@ const Footer = () => {
                 }}
               />
             </a>
-          </di>
+          </div>
         </div>
       </article>
     </footer>
