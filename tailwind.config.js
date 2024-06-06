@@ -80,6 +80,26 @@ export default {
             'margin-top': '0px',
           },
         },
+        slideWordsDesktop: {
+          '0%': {
+            'margin-top': '-280px',
+          },
+          '45%': {
+            'margin-top': '-280px',
+          },
+          '48%': {
+            'margin-top': '-140px',
+          },
+          '95%': {
+            'margin-top': '-140px',
+          },
+          '98%': {
+            'margin-top': '0px',
+          },
+          '100%': {
+            'margin-top': '0px',
+          },
+        },
         rotateFirstNote: {
           '0%': {
             transform: 'perspective(1000px) rotateX(0deg)',
@@ -225,6 +245,7 @@ export default {
         testimonials: 'slides 60s linear infinite',
         'slide-words': 'slideWords 20s linear infinite',
         'slide-words-tablet': 'slideWordsTablet 20s linear infinite',
+        'slide-words-desktop': 'slideWordsDesktop 20s linear infinite',
         'waving-hand': 'wavingHand 4s linear infinite',
         'waving-badge-3': 'wavindBadge 3s linear infinite',
         'waving-badge-4': 'wavindBadge 4s linear infinite',

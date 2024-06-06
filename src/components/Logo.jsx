@@ -4,7 +4,7 @@ import logo from '../assets/icons/logo.svg';
 const Logo = () => {
   return (
     <img
-      className={`h-[var(--m)] w-auto tablet:h-[var(--xl)] desktop:h-[var(--2xl)]`}
+      className="h-[var(--m)] w-auto tablet:h-[var(--xl)]"
       src={logo}
       alt="Logo"
     />

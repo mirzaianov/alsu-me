@@ -59,7 +59,7 @@ const Header = () => {
       className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:mt-[var(--xl)]"
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)]
+        className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)] desktop:px-[var(--3xl)]
         ${
           isFixed
             ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm tablet:top-[var(--xl)] tablet:py-[var(--m)]'
@@ -67,78 +67,46 @@ const Header = () => {
         }`}
       >
         <Logo />
-        <MenuView windowWidth={windowWidth} />
+        {windowWidth <= 992 ? <NavBar /> : <NavBar type="inline" />}
         <div
           className="flex items-center justify-center"
           ref={buttonRef}
         >
-          <HamburgerView
-            setIsDropdownOpen={setIsDropdownOpen}
-            isDropdownOpen={isDropdownOpen}
-            windowWidth={windowWidth}
-          />
-        </div>
-        <HamburgerDropdown
-          isFixed={isFixed}
-          isDropdownOpen={isDropdownOpen}
-        >
-          <div ref={dropdownRef}>
-            <NavBar
-              type="block-1"
-              setIsDropdownOpen={setIsDropdownOpen}
+          {windowWidth <= 992 ? (
+            <Hamburger
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
               isDropdownOpen={isDropdownOpen}
             />
-          </div>
-        </HamburgerDropdown>
+          ) : (
+            <Button
+              text="Записаться"
+              type="secondary"
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+            />
+          )}
+        </div>
+        {windowWidth <= 992 && (
+          <HamburgerDropdown
+            isFixed={isFixed}
+            isDropdownOpen={isDropdownOpen}
+          >
+            <div ref={dropdownRef}>
+              <NavBar
+                type="block-1"
+                setIsDropdownOpen={setIsDropdownOpen}
+                isDropdownOpen={isDropdownOpen}
+              />
+            </div>
+          </HamburgerDropdown>
+        )}
       </div>
     </header>
-  );
-};
-
-const MenuView = (windowWidth) => {
-  if (windowWidth > 992) {
-    return <NavBar type="inline" />;
-  }
-
-  return <NavBar />;
-};
-
-const HamburgerView = ({ setIsDropdownOpen, isDropdownOpen, windowWidth }) => {
-  const handleClick = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
-
-  if (windowWidth > 992) {
-    return (
-      <Button
-        text="Записаться"
-        type="secondary"
-        onClick={handleClick}
-      />
-    );
-  }
-
-  return (
-    <Hamburger
-      onClick={handleClick}
-      isDropdownOpen={isDropdownOpen}
-    />
   );
 };
 
 Header.propTypes = {
   type: propTypes.string,
   onClick: propTypes.func,
-};
-
-MenuView.propTypes = {
-  windowWidth: propTypes.number,
-};
-
-HamburgerView.propTypes = {
-  setIsDropdownOpen: propTypes.func,
-  isDropdownOpen: propTypes.bool,
-  windowWidth: propTypes.number,
 };
 
 export default Header;

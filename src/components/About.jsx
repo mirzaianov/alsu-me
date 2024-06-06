@@ -13,7 +13,7 @@ const About = () => {
       id="about"
       className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
     >
-      <div className="p-fade-in animate-icon-fade-in-right absolute right-8 top-8 tablet:right-8 tablet:top-20">
+      <div className="p-fade-in absolute right-8 top-8 animate-icon-fade-in-right tablet:right-8 tablet:top-20">
         <img
           className="size-20"
           src={superman}
@@ -24,32 +24,32 @@ const About = () => {
         Обо мне
       </h2>
       <article className="pop-up relative -mt-4 mb-[82px] flex animate-pop-up items-center justify-start tablet:mt-0">
-        <div className="tablet:animate-blob-tablet absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s] tablet:-right-20 tablet:-top-16 tablet:size-80 tablet:[animation-delay:_0.5s]"></div>
-        <div className="tablet:animate-blob-tablet absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s] tablet:-left-16 tablet:-top-8 tablet:size-80 tablet:[animation-delay:_2s]"></div>
-        <div className="tablet:animate-blob-tablet absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_4s] tablet:left-16 tablet:size-80 tablet:[animation-delay:_5s]"></div>
+        <div className="absolute -right-10 -top-2 h-40 w-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s] tablet:-right-20 tablet:-top-16 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_0.5s]"></div>
+        <div className="absolute -left-5 -top-1 h-40 w-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s] tablet:-left-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_2s]"></div>
+        <div className="absolute -bottom-5 h-40 w-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_4s] tablet:left-16 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_5s]"></div>
         <PhotoCardAbout />
-        <div className="absolute -right-[70px] top-[260px] animate-waving-badge-3">
+        <div className="absolute -right-[70px] top-[150px]  animate-waving-badge-3 tablet:-right-[70px] tablet:top-[260px]">
           <Badge
             text="Speaking"
             icon={usa}
             type="secondary-45"
           />
         </div>
-        <div className="absolute -right-[55px] top-[360px] animate-waving-badge-4 [animation-delay:_0.1s]">
+        <div className="absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s] tablet:-right-[55px] tablet:top-[360px]">
           <Badge
             text="Writing"
             icon={uk}
             type="secondary-15"
           />
         </div>
-        <div className="absolute -left-[60px] top-[275px] animate-waving-badge-4 [animation-delay:_0.4s]">
+        <div className="absolute -left-[60px] top-[190px] animate-waving-badge-4 [animation-delay:_0.4s] tablet:-left-[60px] tablet:top-[275px]">
           <Badge
             text="Listening"
             icon={uk}
             type="secondary-25"
           />
         </div>
-        <div className="absolute -left-[50px] top-[365px] animate-waving-badge-3 [animation-delay:_0.7s]">
+        <div className="absolute -left-[50px] top-[250px] animate-waving-badge-3 [animation-delay:_0.7s] tablet:-left-[50px] tablet:top-[365px]">
           <Badge
             text="Reading"
             icon={usa}
