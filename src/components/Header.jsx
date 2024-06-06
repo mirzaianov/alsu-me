@@ -56,17 +56,22 @@ const Header = () => {
   return (
     <header
       id="header"
-      className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center tablet:mt-[var(--xl)] desktop:max-w-[var(--l-end)]"
+      className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center
+      px-[var(--s)]
+                  tablet:mt-[var(--xl)]
+                  desktop:max-w-[var(--l-end)]"
     >
       <div
         className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)] desktop:px-[var(--3xl)]
         ${
           isFixed
-            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm tablet:top-[var(--xl)] tablet:py-[var(--m)]'
+            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm'
             : 'absolute w-full px-[var(--s)]'
         }`}
       >
-        <Logo />
+        <div className="-mt-1 flex items-center justify-center">
+          <Logo />
+        </div>
         {windowWidth < 1060 ? <NavBar /> : <NavBar type="inline" />}
         <div
           className="flex items-center justify-center"

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import propTypes from 'prop-types';
 import Stat from './Stat';
 import PhotoCardHero from './PhotoCardHero';
 import Note from './Note';
@@ -8,21 +8,7 @@ import hand from '../assets/icons/hand.svg';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
-const Hero = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+const Hero = ({ windowWidth }) => {
   return (
     <section
       id="hero"
@@ -201,6 +187,10 @@ const Hero = () => {
       </article>
     </section>
   );
+};
+
+Hero.propTypes = {
+  windowWidth: propTypes.number.isRequired,
 };
 
 export default Hero;

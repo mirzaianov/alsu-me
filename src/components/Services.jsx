@@ -39,9 +39,14 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
+                  tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
+                desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
-      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s tablet:text-heading-m">
+      <h2
+        className="h2-fade-in animate-h2-fade-in text-heading-s
+                    tablet:text-heading-m"
+      >
         Что я предлагаю
       </h2>
       <article className="flex flex-col items-center justify-start gap-[var(--m)]">
@@ -61,11 +66,15 @@ const Services = () => {
           и развивать навыки общения.
         </p>
       </article>
-      <article className="flex flex-col gap-[var(--l)] tablet:flex-row tablet:gap-[var(--xl)]">
+      <article
+        className="flex flex-col gap-[var(--l)]
+                          text-body tablet:flex-row tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)]"
+      >
         {serviceCardData.map((item) => (
           <div
             key={item.alt}
-            className="pop-up flex animate-pop-up flex-col gap-[var(--m)]"
+            className="pop-up flex animate-pop-up flex-col gap-[var(--m)]
+                        "
           >
             <div className="flex justify-between">
               <div className="relative -left-[8px]">

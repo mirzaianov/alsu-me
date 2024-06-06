@@ -33,8 +33,8 @@
   --tablet-height: 1194px;
   --desktop-width: 1920px;
   --desktop-height: 1024px;
-  --container-desktop: 1060px;
-  --container-tablet: 600px;
-  --container-mobile: 400px;
+  --container-desktop: 1160px;
+  --container-tablet: 720px;
+  --container-mobile: 432px;
   --card-width: 288px;
 }

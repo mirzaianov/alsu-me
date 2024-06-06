@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import About from './components/About';
 import BackToTopButton from './components/BackToTopButton';
 import Contacts from './components/Contacts';
@@ -10,15 +11,29 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 
 const App = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div
       id="app"
       className="relative flex flex-col items-center justify-start overflow-clip  desktop:text-body-l"
     >
       <Header />
-      <Hero />
+      <Hero windowWidth={windowWidth} />
       <InfiniteLogos />
-      <About />
+      <About windowWidth={windowWidth} />
       <Services />
       <Prices />
       <Testimonials />
