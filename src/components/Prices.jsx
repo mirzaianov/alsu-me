@@ -1,5 +1,6 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
+import pig from '../assets/icons/pig.svg';
 
 const tutorCardData = [
   {
@@ -66,7 +67,14 @@ const Prices = () => {
         </p>
       </article>
       <article className="flex flex-col gap-[var(--l)]">
-        <div className="flex flex-col gap-[var(--m)] tablet:gap-[var(--l)]">
+        <div className="relative flex flex-col gap-[var(--m)] tablet:gap-[var(--l)]">
+          <div className="p-fade-in absolute right-0 top-0 hidden animate-icon-fade-in-right tablet:right-12 tablet:top-[520px] tablet:block">
+            <img
+              className="size-20"
+              src={pig}
+              alt="Gmail"
+            />
+          </div>
           <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase tablet:text-heading-s">
             Индивидуальные занятия на платформе Zoom
           </h3>
