@@ -26,9 +26,9 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--m)] px-[var(--s)] tablet:mt-[96px] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-0 desktop:max-w-[var(--container-desktop)] desktop:items-start desktop:justify-between desktop:text-body-l"
+      className="mx-auto mt-[64px] flex w-full max-w-[var(--container-mobile)] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--l)] px-[var(--s)] tablet:mt-[99px] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0 desktop:mt-[81px] desktop:max-w-[var(--container-desktop)] desktop:items-start desktop:justify-between desktop:text-body-l"
     >
-      <article className="flex w-full flex-col desktop:flex-row-reverse desktop:justify-between desktop:gap-[var(--2xl)]">
+      <div className="flex w-full flex-col gap-[var(--m)] tablet:gap-[var(--2xl)] desktop:flex-row-reverse desktop:items-center desktop:justify-between desktop:gap-[var(--2xl)]">
         <article className="flex animate-hero-foto-fade-in items-center justify-start desktop:flex-col-reverse desktop:gap-[var(--m)]">
           <div className="flex max-w-[160px] grow items-center justify-center desktop:max-w-full">
             <ul className="flex w-[100px] flex-col justify-start gap-[var(--s)] tablet:gap-[var(--l)] desktop:w-fit desktop:flex-row desktop:gap-[var(--m)]">
@@ -68,13 +68,13 @@ const Hero = () => {
           <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l desktop:items-start desktop:text-heading-xl">
             <span>В поисках идеального</span>
             <div className="flex h-[36px] flex-col items-center overflow-hidden text-text-0 tablet:h-[50px] desktop:h-[70px] desktop:items-start">
-              <div className="desktop:animate-slide-words-desktop mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet desktop:mb-[70px] desktop:rounded-xl">
+              <div className="desktop:animate-slide-words-desktop mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
                 преподавателя
               </div>
-              <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] desktop:mb-[70px] desktop:rounded-xl">
+              <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
                 переводчика
               </div>
-              <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] desktop:mb-[70px] desktop:rounded-xl">
+              <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
                 преподавателя
               </div>
             </div>
@@ -101,8 +101,8 @@ const Hero = () => {
             </div>
           </div>
         </article>
-      </article>
-      <article className="flex flex-col items-center justify-start gap-[var(--xs)] tablet:gap-[var(--m)] desktop:items-start">
+      </div>
+      <article className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--xs)] tablet:gap-[var(--m)] desktop:items-start">
         {windowWidth > 576 ? (
           <p>Запишись на бесплатное пробное занятие</p>
         ) : (
