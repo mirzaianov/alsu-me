@@ -124,8 +124,7 @@ const About = ({ windowWidth }) => {
               нетерпением жду возможности помочь тебе в этом!
             </p>
           </div>
-
-          {windowWidth <= 992 ? (
+          {windowWidth < 1060 ? (
             <Button
               text="Записаться бесплатно"
               link={telegramLink}
