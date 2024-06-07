@@ -9,7 +9,7 @@ export default {
             transform: 'translate(0px, 0px) scale(1)',
           },
           '33%': {
-            transform: 'translate(-30px, 30px) scale(1.1)',
+            transform: 'translate(-25px, 25px) scale(1.1)',
           },
           '66%': {
             transform: 'translate(-20px, 20px) scale(0.9)',
@@ -23,10 +23,10 @@ export default {
             transform: 'translate(0px, 0px) scale(1)',
           },
           '33%': {
-            transform: 'translate(-60px, 60px) scale(1.1)',
+            transform: 'translate(-25px, 25px) scale(1.1)',
           },
           '66%': {
-            transform: 'translate(-40px, 40px) scale(0.9)',
+            transform: 'translate(-20px, 20px) scale(0.9)',
           },
           '100%': {
             transform: 'translate(0px, 0px) scale(1)',
@@ -237,8 +237,8 @@ export default {
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
-        blob: 'blob 7s infinite',
-        'blob-tablet': 'blobTablet 7s infinite',
+        blob: 'blob 12s infinite',
+        'blob-tablet': 'blobTablet 12s infinite',
         slides: 'slides 60s linear infinite',
         'slides-tablet': 'slides 60s linear infinite',
         walter: 'walter 8s ease-in-out infinite',

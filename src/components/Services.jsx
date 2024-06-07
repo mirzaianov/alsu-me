@@ -41,15 +41,20 @@ const Services = () => {
       id="services"
       className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                   tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
+                  desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
     >
       <h2
-        className="h2-fade-in animate-h2-fade-in text-heading-s
-                    tablet:text-heading-m"
+        className="text-heading-s
+                    tablet:text-heading-m
+                    desktop:text-heading-l"
       >
         Что я предлагаю
       </h2>
-      <article className="flex flex-col items-center justify-start gap-[var(--m)]">
+      <article
+        className="flex max-w-[var(--mobile-text-wrapper)] flex-col items-center justify-start gap-[var(--m)]
+                      tablet:max-w-[var(--tablet-text-wrapper)]
+                      desktop:max-w-[var(--desktop-text-wrapper)]"
+      >
         <p className="p-fade-in animate-p-fade-in">
           В своих занятиях я акцентирую внимание на развитии разговорных навыков
           и понимании аутентичной речи.{' '}
@@ -73,8 +78,7 @@ const Services = () => {
         {serviceCardData.map((item) => (
           <div
             key={item.alt}
-            className="pop-up flex animate-pop-up flex-col gap-[var(--m)]
-                        "
+            className="flex flex-col gap-[var(--m)]"
           >
             <div className="flex justify-between">
               <div className="relative -left-[8px]">

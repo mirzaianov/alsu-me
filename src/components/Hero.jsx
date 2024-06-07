@@ -59,16 +59,16 @@ const Hero = ({ windowWidth }) => {
           >
             <div className="relative flex items-center justify-start">
               <div
-                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
-                          tablet:-right-20 tablet:-top-16 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_0.5s]"
+                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
+                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_0.5s]"
               ></div>
               <div
-                className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_2s]
-                          tablet:-left-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_2s]"
+                className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]
+                          tablet:-left-10 tablet:-top-4 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_2s]"
               ></div>
               <div
-                className="absolute -bottom-8 size-40 animate-blob rounded-full bg-primary-20 opacity-50 mix-blend-multiply blur-xl filter [animation-delay:_5s]
-                          tablet:left-16 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_5s]"
+                className="absolute -bottom-8 size-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_5s]
+                          tablet:-bottom-10 tablet:left-8 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_5s]"
               ></div>
               <PhotoCardHero />
               <div
@@ -104,9 +104,9 @@ const Hero = ({ windowWidth }) => {
                         desktop:h-[70px] desktop:items-start"
             >
               <div
-                className="desktop:animate-slide-words-desktop mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3
-                          tablet:mb-[50px] tablet:animate-slide-words-tablet tablet:px-5
-                          desktop:mb-[70px] desktop:rounded-xl desktop:px-6"
+                className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px]
+                          tablet:animate-slide-words-tablet tablet:px-5 desktop:mb-[70px]
+                          desktop:animate-slide-words-desktop desktop:rounded-xl desktop:px-6"
               >
                 преподавателя
               </div>
