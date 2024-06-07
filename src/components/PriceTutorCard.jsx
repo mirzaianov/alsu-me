@@ -15,7 +15,7 @@ const PriceTutorCard = ({
 }) => {
   return (
     <div
-      className={`price-tutor-card relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${discount ? 'bg-primary-10 text-text-0' : 'bg-neutral-0'} pop-up animate-pop-up`}
+      className={`relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] last:mt-[var(--m)] desktop:last:mt-0 ${discount ? 'bg-primary-10 text-text-0' : 'bg-neutral-0'}`}
     >
       <div className="flex flex-col items-center justify-center gap-[var(--xs)]">
         <h4 className="text-heading-s uppercase">{heading}</h4>
