@@ -53,12 +53,22 @@ const Prices = () => {
   return (
     <section
       id="prices"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-0"
+      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
+                tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
+                desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
     >
-      <h2 className="h2-fade-in animate-h2-fade-in text-heading-s tablet:text-heading-m">
+      <h2
+        className="text-heading-s
+                    tablet:text-heading-m
+                    desktop:text-heading-l"
+      >
         Выбери свой план
       </h2>
-      <article className="flex flex-col justify-start gap-[var(--m)] text-center tablet:gap-[var(--xs)]">
+      <article
+        className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-center
+                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:gap-[var(--xs)]
+                        desktop:max-w-[var(--desktop-text-wrapper)]"
+      >
         <p className="p-fade-in animate-p-fade-in">
           Подбери план и стоимость, которые наиболее подходят тебе.
         </p>
@@ -66,19 +76,34 @@ const Prices = () => {
           Или свяжись со мной, и мы вместе определимся с программой.
         </p>
       </article>
-      <article className="flex flex-col gap-[var(--l)]">
-        <div className="relative flex flex-col gap-[var(--m)] tablet:gap-[var(--l)]">
-          <div className="p-fade-in absolute right-0 top-0 hidden animate-icon-fade-in-right tablet:right-12 tablet:top-[520px] tablet:block">
-            <img
-              className="size-20"
-              src={pig}
-              alt="Gmail"
-            />
-          </div>
-          <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase tablet:text-heading-s">
+      <article
+        className="flex flex-col items-center gap-[var(--xl)]
+                        desktop:gap-[var(--2xl)]"
+      >
+        <div
+          className="relative flex flex-col items-center gap-[var(--m)]
+                        tablet:gap-[var(--l)]"
+        >
+          <h3
+            className="max-w-[var(--mobile-text-wrapper)] text-center text-body-bold uppercase
+                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:text-heading-s
+                        desktop:max-w-[var(--desktop-text-wrapper)]"
+          >
             Индивидуальные занятия на платформе Zoom
           </h3>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] tablet:min-w-[610px] tablet:flex-row">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] text-body tablet:min-w-[610px] tablet:flex-row">
+            <div
+              className="p-fade-in absolute right-0 top-0 hidden animate-icon-fade-in-right
+                          tablet:right-12 tablet:top-[520px] tablet:block
+                          desktop:-bottom-32 desktop:right-0 desktop:top-auto"
+            >
+              <img
+                className="size-16
+                        tablet:size-24"
+                src={pig}
+                alt="Discount"
+              />
+            </div>
             {tutorCardData.map((item) => (
               <PriceTutorCard
                 key={item.heading}
@@ -88,10 +113,10 @@ const Prices = () => {
           </div>
         </div>
         <div className="flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)]">
-          <h3 className="pop-up animate-pop-up text-center text-body-bold uppercase tablet:text-heading-s">
+          <h3 className="text-center text-body-bold uppercase tablet:text-heading-s">
             Переводы
           </h3>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] tablet:min-w-[610px] tablet:flex-row">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] text-body tablet:min-w-[610px] tablet:flex-row">
             {translatorCardData.map((item) => (
               <PriceTranslatorCard
                 key={item.heading}

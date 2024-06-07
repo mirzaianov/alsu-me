@@ -72,8 +72,8 @@ const Services = () => {
         </p>
       </article>
       <article
-        className="flex flex-col gap-[var(--l)]
-                          text-body tablet:flex-row tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)]"
+        className="flex flex-col gap-[var(--l)] text-body
+                          tablet:flex-row tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)]"
       >
         {serviceCardData.map((item) => (
           <div
