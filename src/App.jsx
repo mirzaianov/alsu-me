@@ -37,7 +37,7 @@ const App = () => {
       <Services />
       <Prices />
       <Testimonials />
-      <Contacts />
+      <Contacts windowWidth={windowWidth} />
       <Footer />
       <BackToTopButton />
     </div>

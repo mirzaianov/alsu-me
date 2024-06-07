@@ -8,11 +8,11 @@ const Button = ({
   onClick = null,
   link = '',
 }) => {
-  const isIcon = icon ? 'gap-[var(--xs)] w-[160px]' : 'w-fit';
+  const isIcon = icon ? 'min-w-[160px]' : 'w-fit';
   const isLarge =
     size === 'large'
-      ? 'h-[52px] px-[var(--m)] text-button-l'
-      : 'h-[var(--xl)] px-[var(--s)] text-button';
+      ? 'h-[52px] px-[var(--m)] text-button-l gap-[var(--s)]'
+      : 'h-[var(--xl)] px-[var(--s)] text-button gap-[var(--xs)]';
 
   const isType = () => {
     switch (type) {

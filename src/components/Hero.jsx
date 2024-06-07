@@ -167,12 +167,12 @@ const Hero = ({ windowWidth }) => {
                   tablet:gap-[var(--m)]
                   desktop:items-start"
       >
-        {windowWidth > 576 ? (
+        {windowWidth >= 577 ? (
           <p>Запишись на бесплатное пробное занятие</p>
         ) : (
           <p>Запишись на бесплатное занятие</p>
         )}
-        {windowWidth <= 992 ? (
+        {windowWidth < 1060 ? (
           <Button
             text="Записаться"
             link={telegramLink}
