@@ -4,6 +4,7 @@ import tutorImage from '../assets/icons/tutor.svg';
 import translatorImage from '../assets/icons/translator.svg';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
+import services from '../assets/img/services.gif';
 
 const serviceCardData = [
   {
@@ -51,25 +52,35 @@ const Services = () => {
         Что я предлагаю
       </h2>
       <article
-        className="flex max-w-[var(--mobile-text-wrapper)] flex-col items-center justify-start gap-[var(--m)]
-                      tablet:max-w-[var(--tablet-text-wrapper)]
-                      desktop:max-w-[var(--desktop-text-wrapper)]"
+        className="tablet: flex flex-col items-center justify-center gap-[var(--xl)]
+                  desktop:w-full desktop:flex-row desktop:justify-between"
       >
-        <p className="p-fade-in animate-p-fade-in">
-          В своих занятиях я акцентирую внимание на развитии разговорных навыков
-          и понимании аутентичной речи.{' '}
-        </p>
-        <p className="p-fade-in animate-p-fade-in">
-          Моей целью является помощь ученикам достичь своих языковых целей, будь
-          то повышение уровня разговорной речи, подготовка к экзаменам или
-          обогащение словарного запаса.
-        </p>
-        <p className="p-fade-in animate-p-fade-in">
-          Моя методика преподавания основана на индивидуальном подходе к каждому
-          ученику. Я стремлюсь создать комфортную и дружелюбную атмосферу на
-          занятиях, где ученики могут свободно выражать свои мысли на английском
-          и развивать навыки общения.
-        </p>
+        <img
+          className="size-60"
+          src={services}
+          alt="Discount"
+        />
+        <div
+          className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-start
+                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)]
+                        desktop:max-w-[var(--desktop-text-wrapper)]"
+        >
+          <p className="p-fade-in animate-p-fade-in">
+            В своих занятиях я акцентирую внимание на развитии разговорных
+            навыков и понимании аутентичной речи.{' '}
+          </p>
+          <p className="p-fade-in animate-p-fade-in">
+            Моей целью является помощь ученикам достичь своих языковых целей,
+            будь то повышение уровня разговорной речи, подготовка к экзаменам
+            или обогащение словарного запаса.
+          </p>
+          <p className="p-fade-in animate-p-fade-in">
+            Моя методика преподавания основана на индивидуальном подходе к
+            каждому ученику. Я стремлюсь создать комфортную и дружелюбную
+            атмосферу на занятиях, где ученики могут свободно выражать свои
+            мысли на английском и развивать навыки общения.
+          </p>
+        </div>
       </article>
       <article
         className="flex flex-col gap-[var(--l)] text-body

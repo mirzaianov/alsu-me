@@ -1,4 +1,5 @@
 import InfiniteTestimonialCards from './InfiniteTestimonialCards';
+import testimonials from '../assets/img/testimonials.gif';
 
 const Testimonials = () => {
   return (
@@ -16,18 +17,28 @@ const Testimonials = () => {
         Что говорят мои ученики и клиенты
       </h2>
       <article
-        className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)]
+        className="tablet: flex flex-col items-center justify-center gap-[var(--xl)]
+                  desktop:w-full desktop:flex-row desktop:justify-between"
+      >
+        <img
+          className="size-60"
+          src={testimonials}
+          alt="Testimonials"
+        />
+        <div
+          className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)]
                       tablet:max-w-[var(--tablet-text-wrapper)]
                       desktop:max-w-[var(--desktop-text-wrapper)]"
-      >
-        <p className="p-fade-in animate-p-fade-in">
-          Мои ученики достигли значительных результатов благодаря нашей
-          совместной работе, и я горжусь их успехами.
-        </p>
-        <p className="p-fade-in animate-p-fade-in">
-          Мои клиенты довольны ростом их бизнеса благодаря как письменным, так и
-          устным синхронным переводам.
-        </p>
+        >
+          <p className="p-fade-in animate-p-fade-in">
+            Мои ученики достигли значительных результатов благодаря нашей
+            совместной работе, и я горжусь их успехами.
+          </p>
+          <p className="p-fade-in animate-p-fade-in">
+            Мои клиенты довольны ростом их бизнеса благодаря как письменным, так
+            и устным синхронным переводам.
+          </p>
+        </div>
       </article>
       <article className="w-screen">
         <InfiniteTestimonialCards />

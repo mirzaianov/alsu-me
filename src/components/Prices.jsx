@@ -1,7 +1,7 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
 import pig from '../assets/icons/pig.svg';
-import discount from '../assets/img/discount.gif';
+import discount from '../assets/img/prices.gif';
 
 const tutorCardData = [
   {
@@ -66,13 +66,17 @@ const Prices = () => {
         Выбери свой план
       </h2>
       <article
-        className="tablet: flex flex-col items-center
-                        justify-center gap-[var(--xl)] tablet:flex-row
-                        "
+        className="tablet: flex flex-col items-center justify-center gap-[var(--xl)]
+                  desktop:w-full desktop:flex-row desktop:justify-between"
       >
+        <img
+          className="size-60"
+          src={discount}
+          alt="Discount"
+        />
         <div
-          className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-center
-                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:text-start
+          className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-start
+                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)]
                         desktop:max-w-[var(--desktop-text-wrapper)]"
         >
           <p className="p-fade-in animate-p-fade-in">
@@ -82,11 +86,6 @@ const Prices = () => {
             Или свяжись со мной, и мы вместе определимся с программой.
           </p>
         </div>
-        <img
-          className="size-60"
-          src={discount}
-          alt="Discount"
-        />
       </article>
       <article
         className="flex flex-col items-center gap-[var(--xl)]
