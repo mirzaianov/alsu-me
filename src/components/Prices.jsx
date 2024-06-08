@@ -1,6 +1,7 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
 import pig from '../assets/icons/pig.svg';
+import discount from '../assets/img/discount.gif';
 
 const tutorCardData = [
   {
@@ -64,18 +65,29 @@ const Prices = () => {
       >
         Выбери свой план
       </h2>
-      <article
-        className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-center
-                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:gap-[var(--xs)]
-                        desktop:max-w-[var(--desktop-text-wrapper)]"
+      <artile
+        className="tablet: flex flex-col items-center
+                        justify-center gap-[var(--xl)] tablet:flex-row
+                        "
       >
-        <p className="p-fade-in animate-p-fade-in">
-          Подбери план и стоимость, которые наиболее подходят тебе.
-        </p>
-        <p className="p-fade-in animate-p-fade-in">
-          Или свяжись со мной, и мы вместе определимся с программой.
-        </p>
-      </article>
+        <div
+          className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-center
+                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:text-start
+                        desktop:max-w-[var(--desktop-text-wrapper)]"
+        >
+          <p className="p-fade-in animate-p-fade-in">
+            Подбери план и стоимость, которые наиболее подходят тебе.
+          </p>
+          <p className="p-fade-in animate-p-fade-in">
+            Или свяжись со мной, и мы вместе определимся с программой.
+          </p>
+        </div>
+        <img
+          className="size-60"
+          src={discount}
+          alt="Discount"
+        />
+      </artile>
       <article
         className="flex flex-col items-center gap-[var(--xl)]
                         desktop:gap-[var(--2xl)]"
