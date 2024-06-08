@@ -49,7 +49,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
       `,
       paddingInline: 'var(--l)',
       minWidth: '460px',
-      maxWidth: '720px',
+      maxWidth: '640px',
       margin: '0 auto',
     };
 
@@ -119,7 +119,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
   return (
     <nav className="w-full">
       <ul
-        className="grid text-body-bold desktop:text-body-l-bold"
+        className="grid text-body-bold"
         style={{ ...ULstyle }}
       >
         {items.map((item) => (

@@ -59,7 +59,8 @@ const About = ({ windowWidth }) => {
           <PhotoCardAbout />
           <div
             className="absolute -right-[70px] top-[150px] animate-waving-badge-3
-                      tablet:-right-[10px] tablet:top-[260px]"
+                      tablet:-right-[40px] tablet:top-[260px]
+                      desktop:-right-[10px] desktop:top-[260px]"
           >
             <Badge
               text="Speaking"
@@ -69,7 +70,8 @@ const About = ({ windowWidth }) => {
           </div>
           <div
             className="absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s]
-                      tablet:right-[5px] tablet:top-[360px]"
+                      tablet:-right-[25px] tablet:top-[360px]
+                      desktop:right-[5px] desktop:top-[360px]"
           >
             <Badge
               text="Writing"
