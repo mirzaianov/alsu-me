@@ -70,7 +70,8 @@ const Prices = () => {
                   desktop:w-full desktop:flex-row desktop:justify-between"
       >
         <img
-          className="size-60"
+          className="size-40
+                     tablet:size-60"
           src={discount}
           alt="Discount"
         />
@@ -102,11 +103,14 @@ const Prices = () => {
           >
             Индивидуальные занятия на платформе Zoom
           </h3>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] text-body tablet:min-w-[610px] tablet:flex-row">
+          <div
+            className="flex flex-col items-center justify-center gap-[var(--l)] text-body
+                       tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)]"
+          >
             <div
               className="p-fade-in absolute right-0 top-0 hidden animate-icon-fade-in-right
-                          tablet:right-12 tablet:top-[520px] tablet:block
-                          desktop:-bottom-32 desktop:right-0 desktop:top-auto"
+                         tablet:right-12 tablet:top-[520px] tablet:block
+                         desktop:-bottom-32 desktop:right-0 desktop:top-auto"
             >
               <img
                 className="size-16
@@ -123,11 +127,20 @@ const Prices = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)]">
-          <h3 className="text-center text-body-bold uppercase tablet:text-heading-s">
+        <div
+          className="flex flex-col items-center gap-[var(--m)]
+                     tablet:gap-[var(--l)]"
+        >
+          <h3
+            className="text-center text-body-bold uppercase
+                       tablet:text-heading-s"
+          >
             Переводы
           </h3>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] text-body tablet:min-w-[610px] tablet:flex-row">
+          <div
+            className="flex flex-col items-center justify-center gap-[var(--l)] text-body
+                       tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)]"
+          >
             {translatorCardData.map((item) => (
               <PriceTranslatorCard
                 key={item.heading}

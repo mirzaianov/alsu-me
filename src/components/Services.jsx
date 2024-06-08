@@ -53,10 +53,11 @@ const Services = () => {
       </h2>
       <article
         className="tablet: flex flex-col items-center justify-center gap-[var(--xl)]
-                  desktop:w-full desktop:flex-row desktop:justify-between"
+                  desktop:w-full desktop:flex-row-reverse desktop:justify-between"
       >
         <img
-          className="size-60"
+          className="size-40
+                     tablet:size-60"
           src={services}
           alt="Discount"
         />

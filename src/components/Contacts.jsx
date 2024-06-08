@@ -24,66 +24,58 @@ const Contacts = ({ windowWidth }) => {
         Готов начать сотрудничество?
       </h2>
       <article
-        className="relative flex flex-col justify-start gap-[var(--s)]
+        className="relative flex flex-col justify-start gap-[var(--l)]
+                  tablet:w-full tablet:flex-row tablet:justify-evenly tablet:gap-[var(--l)]
                   desktop:gap-[var(--m)]"
       >
-        <div
-          className="p-fade-in absolute -right-20 top-72 animate-icon-fade-in-right
-                      tablet:right-0 tablet:top-20
-                      desktop:right-24 desktop:top-20"
-        >
-          <img
-            className="size-16
-                        tablet:size-24"
-            src={gmail}
-            alt="Gmail"
-          />
-        </div>
         <img
-          className="size-60"
+          className="size-40
+                     tablet:size-60"
           src={contacts}
           alt="Contacts"
         />
-        <p
-          className="text-center text-body-bold
-                      tablet:text-heading-s
-                      desktop:text-heading-m"
-        >
-          Свяжись со мной
-        </p>
-        <div className="flex flex-col items-center gap-[var(--s)] tablet:flex-row tablet:gap-[var(--l)]">
-          {windowWidth < 1060 ? (
-            <Button
-              text="Telegram"
-              icon={telegram}
-              link={telegramLink}
-              type="primary"
-            />
-          ) : (
-            <Button
-              text="Telegram"
-              icon={telegram}
-              link={telegramLink}
-              type="primary"
-              size="large"
-            />
-          )}
-          {windowWidth < 1060 ? (
-            <Button
-              text="Email"
-              icon={email}
-              link={emailLink}
-              type="secondary"
-            />
-          ) : (
-            <Button
-              text="Email"
-              icon={email}
-              link={emailLink}
-              type="secondary"
-              size="large"
-            />
-          )}
+        <div className="flex flex-col items-center justify-center gap-[var(--s)]">
+          <p
+            className="text-center text-body-bold
+                        tablet:text-heading-s
+                        desktop:text-heading-m"
+          >
+            Свяжись со мной
+          </p>
+          <div className="flex flex-col items-center gap-[var(--s)] tablet:gap-[var(--l)]">
+            {windowWidth < 1060 ? (
+              <Button
+                text="Telegram"
+                icon={telegram}
+                link={telegramLink}
+                type="primary"
+              />
+            ) : (
+              <Button
+                text="Telegram"
+                icon={telegram}
+                link={telegramLink}
+                type="primary"
+                size="large"
+              />
+            )}
+            {windowWidth < 1060 ? (
+              <Button
+                text="Email"
+                icon={email}
+                link={emailLink}
+                type="secondary"
+              />
+            ) : (
+              <Button
+                text="Email"
+                icon={email}
+                link={emailLink}
+                type="secondary"
+                size="large"
+              />
+            )}
+          </div>
         </div>
       </article>
     </section>

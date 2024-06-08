@@ -19,7 +19,7 @@ const BackToTopButton = () => {
       }
 
       if (footerSection) {
-        const stickyPoint = footerSection.offsetTop - 1000;
+        const stickyPoint = footerSection.offsetTop - 500;
 
         setIsSlide(window.scrollY >= stickyPoint);
       } else {
@@ -38,7 +38,7 @@ const BackToTopButton = () => {
     <a
       className={`z-100 group
       ${isVisible ? '-translate-y-[124px] tablet:-translate-y-[196px]' : ''}
-      ${isSlide ? 'tablet:-translate-y-[300px]' : ''}
+      ${isSlide ? '-translate-y-[200px] tablet:-translate-y-[300px]' : ''}
       fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/70 p-[var(--xs)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-all duration-500 ease-in-out hover:bg-primary-10 hover:opacity-60 tablet:-bottom-[164px] tablet:right-[var(--xl)]`}
       href="#"
     >
