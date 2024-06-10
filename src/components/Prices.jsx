@@ -1,6 +1,5 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
-import pig from '../assets/icons/pig.svg';
 import discount from '../assets/img/prices.gif';
 
 const tutorCardData = [
@@ -107,18 +106,6 @@ const Prices = () => {
             className="flex flex-col items-center justify-center gap-[var(--l)] text-body
                        tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)]"
           >
-            <div
-              className="p-fade-in absolute right-0 top-0 hidden animate-icon-fade-in-right
-                         tablet:right-12 tablet:top-[520px] tablet:block
-                         desktop:-bottom-32 desktop:right-0 desktop:top-auto"
-            >
-              <img
-                className="size-16
-                        tablet:size-24"
-                src={pig}
-                alt="Discount"
-              />
-            </div>
             {tutorCardData.map((item) => (
               <PriceTutorCard
                 key={item.heading}

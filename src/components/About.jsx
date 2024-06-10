@@ -4,7 +4,7 @@ import PhotoCardAbout from './PhotoCardAbout';
 import Badge from './Badge';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
-import superman from '../assets/icons/superman.svg';
+import wonderwoman from '../assets/icons/wonderwoman.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -33,14 +33,14 @@ const About = ({ windowWidth }) => {
                     desktop:w-4/12"
         >
           <div
-            className="p-fade-in absolute -right-20 -top-4 animate-icon-fade-in-right
+            className="pop-up absolute -right-20 -top-4 animate-pop-up
                       tablet:-right-32 tablet:top-0
                       desktop:right-48 desktop:top-[450px]"
           >
             <img
               className="size-16
-                        tablet:size-24"
-              src={superman}
+                        tablet:size-20"
+              src={wonderwoman}
               alt="Superman"
             />
           </div>

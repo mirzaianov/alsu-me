@@ -72,7 +72,7 @@ const Hero = ({ windowWidth }) => {
               ></div>
               <PhotoCardHero />
               <div
-                className="absolute -left-[20px] top-[139px] animate-waving-badge-3
+                className="absolute -left-[20px] top-[126px] animate-waving-badge-3
                           tablet:top-[260px]"
               >
                 <Badge
@@ -129,8 +129,8 @@ const Hero = ({ windowWidth }) => {
           </h1>
           {/* block */}
           <div
-            className="flex w-full flex-col justify-between gap-[var(--s)]
-                      tablet:max-w-[500px] tablet:flex-row tablet:items-center
+            className="flex w-full flex-col items-center justify-between
+                      gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row
                       desktop:max-w-full desktop:flex-wrap desktop:justify-between desktop:gap-[var(--xl)]"
           >
             {/* greeting */}
