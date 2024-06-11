@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import Button from './Button';
 import telegram from '../assets/icons/telegram.svg';
 import email from '../assets/icons/email.svg';
-import contacts from '../assets/img/contacts.gif';
+import contacts from '../assets/img/contacts.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 const emailLink = import.meta.env.VITE_EMAIL;
