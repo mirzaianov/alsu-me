@@ -7,13 +7,13 @@ import contacts from '../assets/img/contacts.png';
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 const emailLink = import.meta.env.VITE_EMAIL;
 
-const Contacts = ({ windowWidth }) => {
+const Contacts = ({ width }) => {
   return (
     <section
       id="contacts"
       className="mb-[var(--l)] mt-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                  tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                 desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
+                 desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
       <h2
         className="text-center text-heading-s
@@ -25,7 +25,7 @@ const Contacts = ({ windowWidth }) => {
       <article
         className="relative flex flex-col justify-start gap-[var(--l)]
                   tablet:w-full tablet:flex-row tablet:justify-between tablet:gap-[var(--l)]
-                  desktop:gap-[var(--m)]"
+                  desktop:max-w-[800px] desktop:gap-[var(--m)]"
       >
         <img
           className="ml-8 h-[var(--img-size-mobile)]
@@ -33,7 +33,11 @@ const Contacts = ({ windowWidth }) => {
           src={contacts}
           alt="Contacts"
         />
-        <div className="flex flex-col items-center justify-center gap-[var(--s)]">
+        <div
+          className="flex flex-col items-center justify-center gap-[var(--s)]
+                     tablet:gap-[var(--l)]
+                     desktop:gap-[var(--xl)]"
+        >
           <p
             className="text-center text-body-bold
                         tablet:text-heading-s
@@ -41,8 +45,12 @@ const Contacts = ({ windowWidth }) => {
           >
             Свяжись со мной
           </p>
-          <div className="flex flex-col items-center gap-[var(--s)]">
-            {windowWidth < 1060 ? (
+          <div
+            className="flex flex-col items-center gap-[var(--s)]
+                          tablet:gap-[var(--m)]
+                          desktop:gap-[var(--l)]"
+          >
+            {width < 1060 ? (
               <Button
                 text="Telegram"
                 icon={telegram}
@@ -58,7 +66,7 @@ const Contacts = ({ windowWidth }) => {
                 size="large"
               />
             )}
-            {windowWidth < 1060 ? (
+            {width < 1060 ? (
               <Button
                 text="Email"
                 icon={email}
@@ -82,7 +90,7 @@ const Contacts = ({ windowWidth }) => {
 };
 
 Contacts.propTypes = {
-  windowWidth: propTypes.number.isRequired,
+  width: propTypes.number.isRequired,
 };
 
 export default Contacts;

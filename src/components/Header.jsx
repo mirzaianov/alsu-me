@@ -7,9 +7,8 @@ import Button from './Button';
 import HamburgerDropdown from './HamburgerDropdown';
 import useOnClickOutside from '../hooks/useOnClickOutside';
 
-const Header = () => {
+const Header = ({ width }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isFixed, setIsFixed] = useState(false);
 
   const dropdownRef = useRef();
@@ -22,18 +21,6 @@ const Header = () => {
     },
     [buttonRef],
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,12 +59,12 @@ const Header = () => {
         <div className="-mt-1 flex items-center justify-center">
           <Logo />
         </div>
-        {windowWidth < 1060 ? <NavBar /> : <NavBar type="inline" />}
+        {width < 1060 ? <NavBar /> : <NavBar type="inline" />}
         <div
           className="flex items-center justify-center"
           ref={buttonRef}
         >
-          {windowWidth < 1060 ? (
+          {width < 1060 ? (
             <Hamburger
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               isDropdownOpen={isDropdownOpen}
@@ -90,7 +77,7 @@ const Header = () => {
             />
           )}
         </div>
-        {windowWidth < 1060 && (
+        {width < 1060 && (
           <HamburgerDropdown
             isFixed={isFixed}
             isDropdownOpen={isDropdownOpen}
@@ -110,8 +97,7 @@ const Header = () => {
 };
 
 Header.propTypes = {
-  type: propTypes.string,
-  onClick: propTypes.func,
+  width: propTypes.number.isRequired,
 };
 
 export default Header;

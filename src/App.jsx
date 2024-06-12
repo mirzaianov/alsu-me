@@ -30,15 +30,15 @@ const App = () => {
       id="app"
       className="relative flex flex-col items-center justify-start overflow-clip  desktop:text-body-l"
     >
-      <Header />
-      <Hero windowWidth={windowWidth} />
+      <Header width={windowWidth} />
+      <Hero width={windowWidth} />
       <InfiniteLogos />
-      <About windowWidth={windowWidth} />
+      <About width={windowWidth} />
       <Services />
       <Prices />
       <Testimonials />
-      <Contacts windowWidth={windowWidth} />
-      <Footer />
+      <Contacts width={windowWidth} />
+      <Footer width={windowWidth} />
       <BackToTopButton />
     </div>
   );

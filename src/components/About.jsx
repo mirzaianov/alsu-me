@@ -8,13 +8,13 @@ import wonderwoman from '../assets/icons/wonderwoman.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
-const About = ({ windowWidth }) => {
+const About = ({ width }) => {
   return (
     <section
       id="about"
       className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
-                tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
+                tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
+                desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
     >
       <h2
         className="text-heading-s
@@ -25,7 +25,7 @@ const About = ({ windowWidth }) => {
       </h2>
       <div
         className="flex flex-col items-center gap-[var(--l)]
-                  desktop:flex-row desktop:items-start desktop:gap-[var(--2xl)]"
+                  desktop:flex-row desktop:items-start desktop:justify-between"
       >
         <article
           className="relative -mt-4 mb-[82px] flex items-center justify-start
@@ -47,7 +47,7 @@ const About = ({ windowWidth }) => {
           <div
             className="absolute -right-[70px] top-[150px] animate-waving-badge-3
                       tablet:-right-[40px] tablet:top-[285px]
-                      desktop:-right-[10px]"
+                      desktop:right-[10px]"
           >
             <Badge
               text="Speaking"
@@ -58,7 +58,7 @@ const About = ({ windowWidth }) => {
           <div
             className="absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s]
                       tablet:-right-[25px] tablet:top-[385px]
-                      desktop:right-[5px]"
+                      desktop:right-[15px]"
           >
             <Badge
               text="Writing"
@@ -89,8 +89,8 @@ const About = ({ windowWidth }) => {
         </article>
         <article
           className="flex max-w-[var(--mobile-text-wrapper)] flex-col items-center justify-start gap-[var(--l)]
-                    tablet:max-w-[var(--tablet-text-wrapper)]
-                    desktop:w-8/12 desktop:max-w-[var(--desktop-text-wrapper)] desktop:items-start"
+                    tablet:max-w-[var(--tablet-text-wrapper)] tablet:gap-[var(--xl)]
+                    desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)] desktop:items-start desktop:gap-[var(--2xl)]"
         >
           <div className="flex flex-col items-start justify-start gap-[var(--m)]">
             <p className="p-fade-in animate-p-fade-in">
@@ -113,7 +113,7 @@ const About = ({ windowWidth }) => {
               нетерпением жду возможности помочь тебе в этом!
             </p>
           </div>
-          {windowWidth < 1060 ? (
+          {width < 1060 ? (
             <Button
               text="Записаться бесплатно"
               link={telegramLink}
@@ -132,7 +132,7 @@ const About = ({ windowWidth }) => {
 };
 
 About.propTypes = {
-  windowWidth: propTypes.number,
+  width: propTypes.number,
 };
 
 export default About;

@@ -8,7 +8,7 @@ import hand from '../assets/icons/hand.svg';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
-const Hero = ({ windowWidth }) => {
+const Hero = ({ width }) => {
   return (
     <section
       id="hero"
@@ -167,12 +167,12 @@ const Hero = ({ windowWidth }) => {
                   tablet:gap-[var(--m)]
                   desktop:items-start"
       >
-        {windowWidth >= 577 ? (
+        {width >= 577 ? (
           <p>Запишись на бесплатное пробное занятие</p>
         ) : (
           <p>Запишись на бесплатное занятие</p>
         )}
-        {windowWidth < 1060 ? (
+        {width < 1060 ? (
           <Button
             text="Записаться"
             link={telegramLink}
@@ -190,7 +190,7 @@ const Hero = ({ windowWidth }) => {
 };
 
 Hero.propTypes = {
-  windowWidth: propTypes.number.isRequired,
+  width: propTypes.number.isRequired,
 };
 
 export default Hero;

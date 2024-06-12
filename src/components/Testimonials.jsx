@@ -7,7 +7,7 @@ const Testimonials = () => {
       id="testimonials"
       className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                 tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
+                desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
       <h2
         className="text-center text-heading-s
@@ -23,14 +23,15 @@ const Testimonials = () => {
       >
         <img
           className="ml-8 h-[var(--img-size-mobile)]
-                     tablet:ml-16 tablet:h-[var(--img-size-tablet)]"
+                     tablet:ml-16 tablet:h-[var(--img-size-tablet)]
+                     desktop:h-auto desktop:w-4/12"
           src={testimonials}
           alt="Testimonials"
         />
         <div
           className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)]
                       tablet:max-w-[var(--tablet-text-wrapper)]
-                      desktop:max-w-[var(--desktop-text-wrapper)]"
+                      desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)]"
         >
           <p className="p-fade-in animate-p-fade-in">
             Мои ученики достигли значительных результатов благодаря нашей
