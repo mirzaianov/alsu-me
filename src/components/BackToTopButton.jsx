@@ -19,7 +19,7 @@ const BackToTopButton = () => {
       }
 
       if (footerSection) {
-        const stickyPoint = footerSection.offsetTop - 500;
+        const stickyPoint = footerSection.offsetTop - 900;
 
         setIsSlide(window.scrollY >= stickyPoint);
       } else {

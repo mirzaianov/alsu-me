@@ -49,21 +49,11 @@ const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
     <div
       className={`group-hover:pause inline-block w-max animate-testimonials ${isInfiniteScroll ? '' : 'pause'}`}
     >
-      {testimonialCardData.map((item, index) => (
+      {testimonialCardData.map((item) => (
         <div
           key={item.fullName}
           className="relative my-0 inline-block h-full px-[12px]"
         >
-          {index === testimonialCardData.length - 1 && (
-            <div
-              className={`group-hover:pause absolute -top-[35px] right-0 aspect-square w-[80px] animate-walter ${isInfiniteScroll ? '' : 'pause'}`}
-            >
-              <img
-                src={walter}
-                alt="walter white"
-              />
-            </div>
-          )}
           <TestimonialCard
             {...item}
             isInfiniteScroll={isInfiniteScroll}

@@ -17,7 +17,8 @@ const Testimonials = () => {
         Что говорят мои ученики и клиенты
       </h2>
       <article
-        className="tablet: flex flex-col items-center justify-center gap-[var(--xl)]
+        className="flex flex-col items-center justify-center gap-[var(--l)]
+                  tablet:gap-[var(--xl)]
                   desktop:w-full desktop:flex-row-reverse desktop:justify-between"
       >
         <img

@@ -24,7 +24,7 @@ const Contacts = ({ windowWidth }) => {
       </h2>
       <article
         className="relative flex flex-col justify-start gap-[var(--l)]
-                  tablet:w-full tablet:flex-row tablet:justify-evenly tablet:gap-[var(--l)]
+                  tablet:w-full tablet:flex-row tablet:justify-between tablet:gap-[var(--l)]
                   desktop:gap-[var(--m)]"
       >
         <img
@@ -41,7 +41,7 @@ const Contacts = ({ windowWidth }) => {
           >
             Свяжись со мной
           </p>
-          <div className="flex flex-col items-center gap-[var(--s)] tablet:gap-[var(--l)]">
+          <div className="flex flex-col items-center gap-[var(--s)]">
             {windowWidth < 1060 ? (
               <Button
                 text="Telegram"

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:max-w-full  tablet:gap-[var(--xl)] tablet:px-[var(--xl)]"
+      className="m-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:max-w-full  tablet:gap-[var(--xl)] tablet:px-[var(--xl)]"
     >
       <article className="flex flex-col items-start gap-[var(--l)] tablet:flex-row">
         <Logo />

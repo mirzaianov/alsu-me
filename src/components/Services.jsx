@@ -52,7 +52,7 @@ const Services = () => {
         Что я предлагаю
       </h2>
       <article
-        className="tablet: flex flex-col items-center justify-center gap-[var(--m)]
+        className="tablet: flex flex-col items-center justify-center gap-[var(--l)]
                    tablet:gap-[var(--xl)]
                    desktop:w-full desktop:flex-row-reverse desktop:justify-between"
       >

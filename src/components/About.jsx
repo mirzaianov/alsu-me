@@ -1,11 +1,10 @@
 import propTypes from 'prop-types';
 import Button from './Button';
-import ImageCard from './ImageCard';
+import PhotoCardAbout from './PhotoCardAbout';
 import Badge from './Badge';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import wonderwoman from '../assets/icons/wonderwoman.png';
-import aboutImage from '../assets/img/alsu-about-tablet.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -30,7 +29,6 @@ const About = ({ windowWidth }) => {
       >
         <article
           className="relative -mt-4 mb-[82px] flex items-center justify-start
-                    tablet:mt-0
                     desktop:w-4/12"
         >
           <div
@@ -45,14 +43,11 @@ const About = ({ windowWidth }) => {
               alt="Superman"
             />
           </div>
-          <ImageCard
-            photo={aboutImage}
-            bgColor="primary-40"
-          />
+          <PhotoCardAbout />
           <div
             className="absolute -right-[70px] top-[150px] animate-waving-badge-3
-                      tablet:-right-[40px] tablet:top-[260px]
-                      desktop:-right-[10px] desktop:top-[260px]"
+                      tablet:-right-[40px] tablet:top-[285px]
+                      desktop:-right-[10px]"
           >
             <Badge
               text="Speaking"
@@ -62,8 +57,8 @@ const About = ({ windowWidth }) => {
           </div>
           <div
             className="absolute -right-[70px] top-[225px] animate-waving-badge-4 [animation-delay:_0.1s]
-                      tablet:-right-[25px] tablet:top-[360px]
-                      desktop:right-[5px] desktop:top-[360px]"
+                      tablet:-right-[25px] tablet:top-[385px]
+                      desktop:right-[5px]"
           >
             <Badge
               text="Writing"
@@ -73,7 +68,7 @@ const About = ({ windowWidth }) => {
           </div>
           <div
             className="absolute -left-[60px] top-[190px] animate-waving-badge-4 [animation-delay:_0.4s]
-                      tablet:-left-[40px] tablet:top-[275px]"
+                      tablet:-left-[40px] tablet:top-[300px]"
           >
             <Badge
               text="Listening"
@@ -83,7 +78,7 @@ const About = ({ windowWidth }) => {
           </div>
           <div
             className="absolute -left-[50px] top-[250px] animate-waving-badge-3 [animation-delay:_0.7s]
-                      tablet:-left-[30px] tablet:top-[365px]"
+                      tablet:-left-[30px] tablet:top-[390px]"
           >
             <Badge
               text="Reading"

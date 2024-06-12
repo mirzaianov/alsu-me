@@ -65,7 +65,8 @@ const Prices = () => {
         Выбери свой план
       </h2>
       <article
-        className="tablet: flex flex-col items-center justify-center gap-[var(--xl)]
+        className="tablet: flex flex-col items-center justify-center gap-[var(--l)]
+                  tablet:gap-[var(--xl)]
                   desktop:w-full desktop:flex-row desktop:justify-between"
       >
         <img
