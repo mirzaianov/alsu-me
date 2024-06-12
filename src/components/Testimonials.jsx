@@ -1,5 +1,5 @@
 import InfiniteTestimonialCards from './InfiniteTestimonialCards';
-import testimonials from '../assets/img/testimonials.gif';
+import testimonials from '../assets/img/testimonials.png';
 
 const Testimonials = () => {
   return (
@@ -21,8 +21,8 @@ const Testimonials = () => {
                   desktop:w-full desktop:flex-row-reverse desktop:justify-between"
       >
         <img
-          className="size-40
-                     tablet:size-60"
+          className="ml-8 h-[var(--img-size-mobile)]
+                     tablet:ml-16 tablet:h-[var(--img-size-tablet)]"
           src={testimonials}
           alt="Testimonials"
         />

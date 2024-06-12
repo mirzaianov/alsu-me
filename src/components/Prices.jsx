@@ -1,6 +1,6 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
-import discount from '../assets/img/prices.gif';
+import prices from '../assets/img/prices.png';
 
 const tutorCardData = [
   {
@@ -25,7 +25,7 @@ const tutorCardData = [
     quantity: 5,
     discount: 500,
     heading: '5',
-    subheading: 'Индивидуальных занятия',
+    subheading: 'Индивидуальных занятий',
     duration: `Продолжительность: 60 мин`,
     price: 2000,
     description: ['80% занятия - практика', 'Современные материалы'],
@@ -69,9 +69,9 @@ const Prices = () => {
                   desktop:w-full desktop:flex-row desktop:justify-between"
       >
         <img
-          className="size-40
-                     tablet:size-60"
-          src={discount}
+          className="ml-8 h-[var(--img-size-mobile)]
+                     tablet:ml-16 tablet:h-[var(--img-size-tablet)]"
+          src={prices}
           alt="Discount"
         />
         <div

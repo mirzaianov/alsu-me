@@ -1,17 +1,17 @@
 import ServiceCard from './ServiceCard';
 import Badge from './Badge';
-import tutorImage from '../assets/icons/tutor.svg';
-import translatorImage from '../assets/icons/translator.svg';
+import tutor from '../assets/img/tutor.png';
+import translator from '../assets/img/translator.png';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
-import services from '../assets/img/services.gif';
+import services from '../assets/img/services.png';
 
 const serviceCardData = [
   {
     delay: 0,
     badgeOneText: 'General',
     badgeTwoText: 'Travel',
-    src: tutorImage,
+    src: tutor,
     alt: 'Преподаватель',
     subheading: 'Индивидуальные занятия на платформе Zoom',
     description: [
@@ -24,7 +24,7 @@ const serviceCardData = [
     delay: 0,
     badgeOneText: 'Education',
     badgeTwoText: 'Business',
-    src: translatorImage,
+    src: translator,
     alt: 'Переводчик',
     subheading: 'Переводы',
     description: [
@@ -53,10 +53,12 @@ const Services = () => {
       </h2>
       <article
         className="tablet: flex flex-col items-center justify-center gap-[var(--m)]
-                  desktop:w-full desktop:flex-row-reverse desktop:justify-between"
+                   tablet:gap-[var(--xl)]
+                   desktop:w-full desktop:flex-row-reverse desktop:justify-between"
       >
         <img
-          className="-mb-2 -mt-12 size-[var(--img-size-tablet)]"
+          className="ml-8 h-[var(--img-size-mobile)]
+                     tablet:ml-12 tablet:h-[var(--img-size-tablet)]"
           src={services}
           alt="Discount"
         />

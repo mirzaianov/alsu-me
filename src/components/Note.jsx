@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 
 const Note = ({ type, children }) => {
-  const role = type === 'translator' ? 'bg-primary-20' : 'bg-primary-50';
+  const role = type === 'translator' ? 'bg-primary-20' : 'bg-primary-40';
 
   return (
     <div

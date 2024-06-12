@@ -59,8 +59,8 @@ const Hero = ({ windowWidth }) => {
           >
             <div className="relative flex items-center justify-start">
               <div
-                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
-                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_0.5s]"
+                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
+                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet  tablet:[animation-delay:_0.5s]"
               ></div>
               <div
                 className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]

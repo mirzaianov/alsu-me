@@ -28,8 +28,8 @@ const Contacts = ({ windowWidth }) => {
                   desktop:gap-[var(--m)]"
       >
         <img
-          className="size-40
-                     tablet:size-60"
+          className="ml-8 h-[var(--img-size-mobile)]
+                     tablet:h-[var(--img-size-tablet)]"
           src={contacts}
           alt="Contacts"
         />

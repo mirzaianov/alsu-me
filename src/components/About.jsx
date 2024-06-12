@@ -1,10 +1,11 @@
 import propTypes from 'prop-types';
 import Button from './Button';
-import PhotoCardAbout from './PhotoCardAbout';
+import ImageCard from './ImageCard';
 import Badge from './Badge';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import wonderwoman from '../assets/icons/wonderwoman.png';
+import aboutImage from '../assets/img/alsu-about-tablet.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -44,19 +45,10 @@ const About = ({ windowWidth }) => {
               alt="Superman"
             />
           </div>
-          <div
-            className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
-                        tablet:-right-10 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_0.5s]"
-          ></div>
-          <div
-            className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-40  mix-blend-multiply blur-xl filter [animation-delay:_2s]
-                        tablet:-left-20 tablet:-top-6 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_2s]"
-          ></div>
-          <div
-            className="absolute -bottom-5 left-12 size-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_4s]
-                        tablet:-bottom-16 tablet:left-4 tablet:size-80 tablet:animate-blob-tablet tablet:[animation-delay:_5s]"
-          ></div>
-          <PhotoCardAbout />
+          <ImageCard
+            photo={aboutImage}
+            bgColor="primary-40"
+          />
           <div
             className="absolute -right-[70px] top-[150px] animate-waving-badge-3
                       tablet:-right-[40px] tablet:top-[260px]
@@ -65,7 +57,7 @@ const About = ({ windowWidth }) => {
             <Badge
               text="Speaking"
               icon={usa}
-              type="secondary-45"
+              type="secondary-25"
             />
           </div>
           <div
