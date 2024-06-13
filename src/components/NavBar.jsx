@@ -117,9 +117,9 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
   };
 
   return (
-    <nav className="w-full">
+    <nav className="w-fit grow">
       <ul
-        className="grid text-body-bold"
+        className="grid w-full text-body-bold"
         style={{ ...ULstyle }}
       >
         {items.map((item) => (

@@ -28,6 +28,8 @@ const Header = ({ width }) => {
 
       if (aboutSection) {
         const stickyPoint = aboutSection.offsetTop - 145;
+        console.log('aboutSection.offsetTop', aboutSection.offsetTop);
+        console.log('window.scrollY', window.scrollY);
 
         setIsFixed(window.scrollY >= stickyPoint);
       }
@@ -49,19 +51,19 @@ const Header = ({ width }) => {
                   desktop:max-w-[var(--l-end)]"
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)] desktop:px-[var(--3xl)]
+        className={`flex items-center justify-between transition-all duration-500 ease-in-out
         ${
           isFixed
-            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm tablet:top-[var(--m)] tablet:w-11/12'
-            : 'absolute w-full px-[var(--s)]'
+            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm tablet:top-[var(--m)] tablet:w-11/12 desktop:max-w-[var(--l-end)]'
+            : 'absolute w-full px-[var(--s)] tablet:px-[var(--xl)] desktop:px-[var(--3xl)]'
         }`}
       >
-        <div className="-mt-1 flex items-center justify-center">
+        <div className="-mt-1 flex items-center justify-center tablet:ml-2">
           <Logo />
         </div>
         {width < 1060 ? <NavBar /> : <NavBar type="inline" />}
         <div
-          className="flex items-center justify-center"
+          className="flex items-center justify-center desktop:mr-2"
           ref={buttonRef}
         >
           {width < 1060 ? (
