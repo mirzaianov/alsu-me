@@ -59,12 +59,12 @@ const Header = ({ width }) => {
         <div className="-mt-1 flex items-center justify-center tablet:ml-2">
           <Logo />
         </div>
-        {width < 1060 ? <NavBar /> : <NavBar type="inline" />}
+        {width < 1061 ? <NavBar /> : <NavBar type="inline" />}
         <div
           className="flex items-center justify-center tablet:mr-2"
           ref={buttonRef}
         >
-          {width < 1060 ? (
+          {width < 1061 ? (
             <Hamburger
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               isDropdownOpen={isDropdownOpen}
@@ -77,7 +77,7 @@ const Header = ({ width }) => {
             />
           )}
         </div>
-        {width < 1060 && (
+        {width < 1061 && (
           <HamburgerDropdown
             isFixed={isFixed}
             isDropdownOpen={isDropdownOpen}

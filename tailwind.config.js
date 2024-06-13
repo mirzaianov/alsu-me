@@ -306,7 +306,7 @@ export default {
     },
     screens: {
       tablet: '577px',
-      desktop: '1060px',
+      desktop: '1061px',
     },
     fontSize: {
       body: ['16px'],

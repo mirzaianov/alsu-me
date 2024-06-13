@@ -51,7 +51,7 @@ const Contacts = ({ width }) => {
                           tablet:gap-[var(--m)]
                           desktop:gap-[var(--l)]"
           >
-            {width < 1060 ? (
+            {width < 1061 ? (
               <Button
                 text="Telegram"
                 icon={telegram}
@@ -67,7 +67,7 @@ const Contacts = ({ width }) => {
                 size="large"
               />
             )}
-            {width < 1060 ? (
+            {width < 1061 ? (
               <Button
                 text="Email"
                 icon={email}

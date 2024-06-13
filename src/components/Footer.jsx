@@ -30,7 +30,7 @@ const Footer = ({ width }) => {
             </p>
           </div>
           <div>
-            {width < 1060 ? (
+            {width < 1061 ? (
               <Navbar type="block-2" />
             ) : (
               <Navbar type="block-3" />

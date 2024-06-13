@@ -172,7 +172,7 @@ const Hero = ({ width }) => {
         ) : (
           <p>Запишись на бесплатное занятие</p>
         )}
-        {width < 1060 ? (
+        {width < 1061 ? (
           <Button
             text="Записаться"
             link={telegramLink}
