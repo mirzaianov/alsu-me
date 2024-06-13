@@ -117,7 +117,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
   };
 
   return (
-    <nav>
+    <nav className="w-full">
       <ul
         className="grid text-body-bold"
         style={{ ...ULstyle }}
