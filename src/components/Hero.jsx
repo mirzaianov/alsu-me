@@ -13,7 +13,7 @@ const Hero = ({ width }) => {
     <section
       id="hero"
       className="mx-auto mt-[64px] flex w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--l)] px-[var(--s)]
-                tablet:mt-[99px] tablet:max-w-[560px] tablet:gap-[var(--xl)] tablet:px-0
+                tablet:mt-[99px] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
                 desktop:max-w-[1300px] desktop:items-start desktop:justify-between desktop:px-[var(--3xl)]"
     >
       <div
