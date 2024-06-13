@@ -40,6 +40,12 @@ const Header = ({ width }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (width >= 1061) {
+      setIsDropdownOpen(false);
+    }
+  }, [width]);
+
   return (
     <header
       id="header"
