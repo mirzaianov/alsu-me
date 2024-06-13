@@ -1,4 +1,5 @@
-import aboutImage from '../assets/img/alsu-about-tablet.png';
+import alsuAbout from '../assets/img/alsu-about.png';
+import alsuAboutTablet from '../assets/img/alsu-about-tablet.png';
 
 const PhotoCardAbout = () => {
   return (
@@ -17,7 +18,11 @@ const PhotoCardAbout = () => {
         <img
           className="group-hover:scale-140 absolute bottom-[0px] left-[5px] z-10 scale-[1.7] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
                      tablet:bottom-[0px] tablet:left-[8px]"
-          src={aboutImage}
+          src={alsuAbout}
+          srcSet={`
+                   ${alsuAbout} 577w,
+                   ${alsuAboutTablet}
+                 `}
           alt="Alsu in a formal office suit smiling"
           loading="lazy"
         />

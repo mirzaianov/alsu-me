@@ -16,8 +16,8 @@ const PhotoCardHero = () => {
                      tablet:-bottom-[64px] tablet:-left-[8px] tablet:scale-[1]"
           src={alsuHero}
           srcSet={`
-                   ${alsuHero},
-                   ${alsuHeroTablet} 2x
+                   ${alsuHero} 577w,
+                   ${alsuHeroTablet}
                  `}
           alt="Alsu in a formal office suit"
           loading="lazy"
