@@ -3,12 +3,14 @@ import logo from '../assets/icons/logo.svg';
 
 const Logo = () => {
   return (
-    <img
-      className="h-[var(--m)] tablet:h-[var(--xl)]"
-      src={logo}
-      alt="Logo"
-      loading="lazy"
-    />
+    <a href="#">
+      <img
+        className="h-[var(--m)] tablet:h-[var(--xl)]"
+        src={logo}
+        alt="Logo"
+        loading="lazy"
+      />
+    </a>
   );
 };
 
