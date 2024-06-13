@@ -7,11 +7,11 @@ const BackToTopButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.getElementById('about');
+      const infiniteLogosSection = document.getElementById('infinite-logos');
       const footerSection = document.getElementById('footer');
 
-      if (aboutSection) {
-        const stickyPoint = aboutSection.offsetTop - 145;
+      if (infiniteLogosSection) {
+        const stickyPoint = infiniteLogosSection.offsetTop;
 
         setIsVisible(window.scrollY >= stickyPoint);
       } else {

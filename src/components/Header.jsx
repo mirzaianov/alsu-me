@@ -24,12 +24,10 @@ const Header = ({ width }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.getElementById('about');
+      const infiniteLogosSection = document.getElementById('infinite-logos');
 
-      if (aboutSection) {
-        const stickyPoint = aboutSection.offsetTop - 145;
-        console.log('aboutSection.offsetTop', aboutSection.offsetTop);
-        console.log('window.scrollY', window.scrollY);
+      if (infiniteLogosSection) {
+        const stickyPoint = infiniteLogosSection.offsetTop;
 
         setIsFixed(window.scrollY >= stickyPoint);
       }
@@ -63,7 +61,7 @@ const Header = ({ width }) => {
         </div>
         {width < 1060 ? <NavBar /> : <NavBar type="inline" />}
         <div
-          className="flex items-center justify-center desktop:mr-2"
+          className="flex items-center justify-center tablet:mr-2"
           ref={buttonRef}
         >
           {width < 1060 ? (
