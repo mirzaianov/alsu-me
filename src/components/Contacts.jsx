@@ -32,6 +32,7 @@ const Contacts = ({ width }) => {
                      tablet:h-[var(--img-size-tablet)]"
           src={contacts}
           alt="Contacts"
+          loading="lazy"
         />
         <div
           className="flex flex-col items-center justify-center gap-[var(--s)]

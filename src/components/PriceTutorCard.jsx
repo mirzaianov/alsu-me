@@ -86,7 +86,8 @@ const PriceTutorCard = ({
             className="size-16
                   tablet:size-20"
             src={sale}
-            alt="Discount"
+            alt="Sale"
+            loading="lazy"
           />
         </div>
       ) : null}

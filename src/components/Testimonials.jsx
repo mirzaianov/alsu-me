@@ -27,6 +27,7 @@ const Testimonials = () => {
                      desktop:h-auto desktop:w-4/12"
           src={testimonials}
           alt="Testimonials"
+          loading="lazy"
         />
         <div
           className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)]

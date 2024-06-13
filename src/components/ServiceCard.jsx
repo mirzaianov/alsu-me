@@ -8,6 +8,7 @@ const ServiceCard = ({ src, alt, subheading, description }) => {
           className="h-20"
           src={src}
           alt={alt}
+          loading="lazy"
         />
         <h4 className="text-center text-body-bold uppercase">{subheading}</h4>
       </div>

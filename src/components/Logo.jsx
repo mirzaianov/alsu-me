@@ -7,6 +7,7 @@ const Logo = () => {
       className="h-[var(--m)] w-auto tablet:h-[var(--xl)]"
       src={logo}
       alt="Logo"
+      loading="lazy"
     />
   );
 };

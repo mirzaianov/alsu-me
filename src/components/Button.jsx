@@ -54,6 +54,7 @@ const Button = ({
         <img
           src={icon}
           alt={text}
+          loading="lazy"
         />
       )}
       {text}

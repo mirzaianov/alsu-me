@@ -40,7 +40,8 @@ const About = ({ width }) => {
               className="size-16
                         tablet:size-20"
               src={wonderwoman}
-              alt="Superman"
+              alt="Wonder Woman Logo"
+              loading="lazy"
             />
           </div>
           <PhotoCardAbout />

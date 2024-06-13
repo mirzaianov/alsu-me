@@ -61,7 +61,8 @@ const Services = () => {
                      tablet:ml-12 tablet:h-[var(--img-size-tablet)]
                      desktop:h-auto desktop:w-4/12"
           src={services}
-          alt="Discount"
+          alt="Services"
+          loading="lazy"
         />
         <div
           className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-start
