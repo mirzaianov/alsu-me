@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import Button from './Button';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
-import sale from '../assets/icons/sale.png';
+import sale from '../assets/img/sale.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -80,11 +80,12 @@ const PriceTutorCard = ({
         <div
           className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
                    tablet:-right-28 tablet:top-0 tablet:block
-                   desktop:-bottom-32 desktop:right-0 desktop:top-auto"
+                   desktop:-bottom-56 desktop:-right-56 desktop:top-auto"
         >
           <img
-            className="size-16
-                  tablet:size-20"
+            className="h-16
+                  tablet:h-20
+                  desktop:h-60"
             src={sale}
             alt="Sale"
             loading="lazy"

@@ -5,6 +5,8 @@ import translator from '../assets/img/translator.png';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import services from '../assets/img/services.png';
+import curvedTransparentLenses from '../assets/img/curved-transparent-lenses.png';
+import glassOvalAndGlassDisc from '../assets/img/glass-oval-and-glass-disc.png';
 
 const serviceCardData = [
   {
@@ -40,10 +42,34 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
+      className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                   tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
                   desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
     >
+      <div
+        className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
+                     tablet:-right-28 tablet:top-0
+                     desktop:-left-[320px] desktop:top-[800px] desktop:block"
+      >
+        <img
+          className="desktop:h-full"
+          src={curvedTransparentLenses}
+          alt="Abstract Line"
+          loading="lazy"
+        />
+      </div>
+      <div
+        className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
+                     tablet:-right-28 tablet:top-0
+                     desktop:-right-[320px] desktop:top-[800px] desktop:block"
+      >
+        <img
+          className="desktop:h-full"
+          src={glassOvalAndGlassDisc}
+          alt="Abstract Line"
+          loading="lazy"
+        />
+      </div>
       <h2
         className="text-heading-s
                     tablet:text-heading-m
