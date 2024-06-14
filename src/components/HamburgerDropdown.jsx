@@ -23,7 +23,7 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
 
   return ReactDOM.createPortal(
     <div
-      className={`z-100
+      className={`z-30
       ${
         isDropdownOpen
           ? 'animate-dropdown-open opacity-100'

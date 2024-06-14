@@ -12,12 +12,12 @@ const PhotoCardAbout = () => {
       >
         {/* Color */}
         <div
-          className={`absolute bottom-0 left-0 size-[var(--img-size-mobile)] rounded-[var(--s)] bg-primary-40
-                      tablet:size-[var(--img-size-tablet)]`}
+          className="absolute bottom-0 left-0 size-[var(--img-size-mobile)] rounded-[var(--s)] bg-primary-40
+                      tablet:size-[var(--img-size-tablet)]"
         />
         <img
-          className="group-hover:scale-140 absolute bottom-[0px] left-[5px] z-10 scale-[1.7] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
-                     tablet:bottom-[0px] tablet:left-[8px]"
+          className="group-hover:scale-140 absolute bottom-[0px] left-[3px] z-10 scale-[1.7] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
+                     tablet:bottom-[0px] tablet:left-[6px]"
           src={alsuAbout}
           srcSet={`
                    ${alsuAbout} 577w,
