@@ -78,7 +78,7 @@ const PriceTutorCard = ({
       ) : null}
       {discount ? (
         <div
-          className="pop-up absolute right-0 top-0 hidden animate-pop-up
+          className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
                    tablet:-right-28 tablet:top-0 tablet:block
                    desktop:-bottom-32 desktop:right-0 desktop:top-auto"
         >

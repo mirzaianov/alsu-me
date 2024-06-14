@@ -13,14 +13,16 @@ const Badge = ({
 
   const isType = () => {
     switch (type) {
-      case 'secondary-45':
-        return `bg-secondary-45 text-text-90`;
       case 'secondary-15':
         return `bg-secondary-15 text-text-90`;
       case 'secondary-25':
         return `bg-secondary-25 text-text-90`;
       case 'secondary-35':
         return `bg-secondary-35 text-text-90`;
+      case 'secondary-45':
+        return `bg-secondary-45 text-text-90`;
+      case 'secondary-55':
+        return `bg-secondary-55 text-text-90`;
       default:
         return `bg-primary-10 text-text-0`;
     }

@@ -206,9 +206,18 @@ export default {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         popUp: {
-          '0%': { transform: 'scale(0) rotate(15deg)', opacity: '0' },
-          '75%': { transform: 'scale(1.5) rotate(290deg)', opacity: '0.75' },
-          '100%': { transform: 'scale(1) rotate(375deg)', opacity: '1' },
+          '0%': {
+            transform: 'scale(3) translateY(-200px)',
+            opacity: '0',
+          },
+          '80%': {
+            transform: 'scale(0.5) translateY(0px)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'scale(1) rotate(15deg) translateY(0px)',
+            opacity: '1',
+          },
         },
         footerFadeIn: {
           '0%': { transform: 'translateX(100%)', opacity: '0' },

@@ -49,7 +49,7 @@ const Header = ({ width }) => {
   return (
     <header
       id="header"
-      className="relative z-10 mt-[var(--s)] flex w-full animate-header-fade-in justify-center
+      className="relative z-30 mt-[var(--s)] flex w-full animate-header-fade-in justify-center
       px-[var(--s)]
                   tablet:mt-[var(--xl)]
                   desktop:max-w-[var(--l-end)]"

@@ -41,8 +41,8 @@ const Services = () => {
     <section
       id="services"
       className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
-                  tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                  desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
+                  tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
+                  desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
     >
       <h2
         className="text-heading-s
@@ -87,34 +87,129 @@ const Services = () => {
         </div>
       </article>
       <article
-        className="flex flex-col gap-[var(--l)] text-body
-                   tablet:flex-row tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)]
-                   desktop:gap-[var(--2xl)]"
+        className="relative flex flex-col items-center gap-[var(--l)]
+                        tablet:gap-[var(--2xl)]
+                        desktop:gap-[var(--3xl)]"
       >
-        {serviceCardData.map((item) => (
-          <div
-            key={item.alt}
-            className="flex flex-col gap-[var(--m)]"
+        <div
+          className="relative flex flex-col items-center gap-[var(--m)]
+                        tablet:gap-[var(--l)]
+                        desktop:gap-[var(--xl)]"
+        >
+          <h3
+            className="max-w-[var(--mobile-text-wrapper)] text-center text-body-bold uppercase
+            tablet:max-w-[var(--tablet-text-wrapper)] tablet:text-heading-s
+            desktop:max-w-[var(--desktop-text-wrapper)]"
           >
-            <div className="flex justify-between">
-              <div className="relative -left-[8px]">
-                <Badge
-                  text={item.badgeOneText}
-                  icon={uk}
-                  type="secondary-15"
-                />
-              </div>
-              <div className="relative -right-[8px]">
-                <Badge
-                  text={item.badgeTwoText}
-                  icon={usa}
-                  type="secondary-25"
-                />
-              </div>
-            </div>
-            <ServiceCard {...item} />
-          </div>
-        ))}
+            Прокачаю все 4 навыка
+          </h3>
+          <ul
+            className="flex flex-wrap justify-center gap-[var(--s)]
+                         tablet:gap-[var(--l)]
+                         desktop:gap-[var(--xl)]"
+          >
+            <li>
+              <Badge
+                text="Speaking"
+                icon={usa}
+                type="secondary-15"
+              />
+            </li>
+            <li>
+              <Badge
+                text="Writing"
+                icon={uk}
+                type="secondary-25"
+              />
+            </li>
+            <li>
+              <Badge
+                text="Listening"
+                icon={uk}
+                type="secondary-45"
+              />
+            </li>
+            <li>
+              <Badge
+                text="Reading"
+                icon={usa}
+                type="secondary-55"
+              />
+            </li>
+          </ul>
+        </div>
+        <div
+          className="relative flex flex-col items-center gap-[var(--s)]
+                        tablet:gap-[var(--l)]
+                        desktop:gap-[var(--xl)]"
+        >
+          <h3
+            className="max-w-[var(--mobile-text-wrapper)] text-center text-body-bold uppercase
+            tablet:max-w-[var(--tablet-text-wrapper)] tablet:text-heading-s
+            desktop:max-w-[var(--desktop-text-wrapper)]"
+          >
+            Подготовлю к любым целям
+          </h3>
+          <ul
+            className="flex flex-wrap justify-center gap-[var(--s)]
+                         tablet:gap-[var(--l)]
+                         desktop:gap-[var(--xl)]"
+          >
+            <li>
+              <Badge
+                text="Travel"
+                icon={usa}
+                type="secondary-15"
+              />
+            </li>
+            <li>
+              <Badge
+                text="General"
+                icon={uk}
+                type="secondary-25"
+              />
+            </li>
+            <li>
+              <Badge
+                text="Business"
+                icon={uk}
+                type="secondary-45"
+              />
+            </li>
+            <li>
+              <Badge
+                text="Education"
+                icon={usa}
+                type="secondary-55"
+              />
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article
+        className="relative flex flex-col items-center gap-[var(--m)]
+                        tablet:gap-[var(--l)]
+                        desktop:gap-[var(--xl)]"
+      >
+        <h3
+          className="max-w-[var(--mobile-text-wrapper)] text-center text-body-bold uppercase
+              tablet:max-w-[var(--tablet-text-wrapper)] tablet:text-heading-s
+              desktop:max-w-[var(--desktop-text-wrapper)]"
+        >
+          Базовые услуги
+        </h3>
+        <div
+          className="flex flex-col gap-[var(--l)] text-body
+                     tablet:flex-row tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)]
+                     desktop:gap-[var(--2xl)]"
+        >
+          {serviceCardData.map((item) => (
+            <ServiceCard
+              key={item.alt}
+              {...item}
+            />
+          ))}
+        </div>
       </article>
     </section>
   );
