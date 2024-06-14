@@ -65,8 +65,8 @@ section {
 
   .pop-up {
     animation-timeline: view();
-    animation-range-start: 25%;
-    animation-range-end: 50%;
+    animation-range-start: 15%;
+    animation-range-end: 45%;
   }
 
   .footer-fade-in {

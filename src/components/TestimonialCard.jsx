@@ -70,13 +70,12 @@ const TestimonialCard = ({
         {comment}
       </p>
       {isClamped && (
-        <div className="mt-auto">
-          <Button
-            onClick={handleModalOpen}
-            type="neutral"
-            text="Читать далее"
-          />
-        </div>
+        <button
+          className="mt-auto text-left text-body-bold"
+          onClick={handleModalOpen}
+        >
+          Читать далее
+        </button>
       )}
       {isModalOpen && (
         <TestimonialCardModal onClose={handleModalClose}>
