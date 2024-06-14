@@ -8,12 +8,12 @@ import hand from '../assets/icons/hand.svg';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
-const Hero = ({ windowWidth }) => {
+const Hero = ({ width }) => {
   return (
     <section
       id="hero"
-      className="mx-auto mt-[64px] flex w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--l)] px-[var(--s)]
-                tablet:mt-[99px] tablet:max-w-[560px] tablet:gap-[var(--xl)] tablet:px-0
+      className="relative mx-auto mt-[64px] flex w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--l)] px-[var(--s)]
+                tablet:mt-[99px] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
                 desktop:max-w-[1300px] desktop:items-start desktop:justify-between desktop:px-[var(--3xl)]"
     >
       <div
@@ -59,8 +59,8 @@ const Hero = ({ windowWidth }) => {
           >
             <div className="relative flex items-center justify-start">
               <div
-                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-10 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
-                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_0.5s]"
+                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
+                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet  tablet:[animation-delay:_0.5s]"
               ></div>
               <div
                 className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]
@@ -72,7 +72,7 @@ const Hero = ({ windowWidth }) => {
               ></div>
               <PhotoCardHero />
               <div
-                className="absolute -left-[20px] top-[139px] animate-waving-badge-3
+                className="absolute -left-[20px] top-[126px] animate-waving-badge-3
                           tablet:top-[260px]"
               >
                 <Badge
@@ -129,8 +129,8 @@ const Hero = ({ windowWidth }) => {
           </h1>
           {/* block */}
           <div
-            className="flex w-full flex-col justify-between gap-[var(--s)]
-                      tablet:max-w-[500px] tablet:flex-row tablet:items-center
+            className="flex w-full flex-col items-center justify-between
+                      gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row
                       desktop:max-w-full desktop:flex-wrap desktop:justify-between desktop:gap-[var(--xl)]"
           >
             {/* greeting */}
@@ -167,12 +167,12 @@ const Hero = ({ windowWidth }) => {
                   tablet:gap-[var(--m)]
                   desktop:items-start"
       >
-        {windowWidth >= 577 ? (
+        {width >= 577 ? (
           <p>Запишись на бесплатное пробное занятие</p>
         ) : (
           <p>Запишись на бесплатное занятие</p>
         )}
-        {windowWidth < 1060 ? (
+        {width < 1061 ? (
           <Button
             text="Записаться"
             link={telegramLink}
@@ -190,7 +190,7 @@ const Hero = ({ windowWidth }) => {
 };
 
 Hero.propTypes = {
-  windowWidth: propTypes.number.isRequired,
+  width: propTypes.number.isRequired,
 };
 
 export default Hero;

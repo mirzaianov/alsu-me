@@ -1,17 +1,30 @@
-import Photo from '../assets/img/photo-about.png';
+import alsuAbout from '../assets/img/alsu-about.png';
+import alsuAboutTablet from '../assets/img/alsu-about-tablet.png';
 
 const PhotoCardAbout = () => {
   return (
     // Container
     <div className="group relative w-[170px] tablet:w-[300px]">
       {/* Inner Container */}
-      <div className="clip-path-about duration-250 tablet:clip-path-about-tablet relative flex h-[210px] items-end overflow-hidden transition-transform ease-in-out hover:scale-[1.1] tablet:h-[340px]">
+      <div
+        className="clip-path-about tablet:clip-path-about-tablet relative flex h-[210px] items-end overflow-hidden transition-transform duration-300 ease-in-out hover:scale-[1.1]
+                      tablet:h-[365px]"
+      >
         {/* Color */}
-        <div className="absolute bottom-0 left-0 size-[170px] rounded-[var(--s)] bg-primary-50 tablet:size-[300px]" />
+        <div
+          className={`absolute bottom-0 left-0 size-[var(--img-size-mobile)] rounded-[var(--s)] bg-primary-40
+                      tablet:size-[var(--img-size-tablet)]`}
+        />
         <img
-          className="duration-250 group-hover:scale-140 absolute bottom-[20px] left-[5px] z-10 scale-[1.4] transition-transform ease-in-out group-hover:-translate-y-2.5 tablet:bottom-[32px] tablet:left-[16px]"
-          src={Photo}
-          alt="Photo"
+          className="group-hover:scale-140 absolute bottom-[0px] left-[5px] z-10 scale-[1.7] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
+                     tablet:bottom-[0px] tablet:left-[8px]"
+          src={alsuAbout}
+          srcSet={`
+                   ${alsuAbout} 577w,
+                   ${alsuAboutTablet}
+                 `}
+          alt="Alsu in a formal office suit smiling"
+          loading="lazy"
         />
       </div>
     </div>

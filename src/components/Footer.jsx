@@ -1,38 +1,52 @@
+import propTypes from 'prop-types';
 import Divider from './Divider';
 import Logo from './Logo';
 import Navbar from './NavBar';
 
-const Footer = () => {
+const Footer = ({ width }) => {
   return (
     <footer
       id="footer"
-      className="mb-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:max-w-full  tablet:gap-[var(--xl)] tablet:px-[var(--xl)]"
+      className="m-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)]
+                 tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
+                 desktop:max-w-[var(--l-end)]"
     >
-      <article className="flex flex-col items-start gap-[var(--l)] tablet:flex-row">
+      <article
+        className="flex flex-col items-start gap-[var(--l)]
+                  tablet:flex-row
+                  desktop:w-full desktop:justify-between desktop:gap-[var(--2xl)]"
+      >
         <Logo />
-        <div className="flex flex-col justify-start gap-[var(--l)]">
-          <div className="flex flex-col justify-start gap-[var(--l)]">
-            <div className="flex flex-col justify-start gap-[var(--s)]">
-              <p className="text-heading-s">Алсу Каримова</p>
-              <p>
-                Дипломированный преподаватель и переводчик английского и
-                немецкого языков с многолетним опытом профессиональной
-                деятельности в международных компаниях России и США
-              </p>
-            </div>
-            <Navbar type="block-2" />
+        <div
+          className="flex flex-col justify-start gap-[var(--l)]
+                          desktop:w-full desktop:flex-row desktop:justify-between"
+        >
+          <div className="flex flex-col justify-start gap-[var(--s)]">
+            <p className="text-heading-s">Алсу Каримова</p>
+            <p className="tablet:max-w-[560px]">
+              Дипломированный преподаватель и переводчик английского и немецкого
+              языков с многолетним опытом профессиональной деятельности в
+              международных компаниях России и США
+            </p>
+          </div>
+          <div>
+            {width < 1061 ? (
+              <Navbar type="block-2" />
+            ) : (
+              <Navbar type="block-3" />
+            )}
           </div>
         </div>
       </article>
       <article className="flex w-full flex-col justify-start gap-[var(--l)]">
         <Divider />
         <div className="flex flex-wrap justify-between gap-[var(--s)]">
-          <div className="flex flex-wrap justify-start gap-[var(--2xs)]">
+          <div className="flex flex-wrap justify-start gap-x-[var(--xs)] gap-y-[var(--2xs)]">
             <p>©️ 2024 Алсу Каримова</p>
             <p>|</p>
             <p>Все права защищены</p>
           </div>
-          <div className="flex flex-wrap justify-start gap-[var(--2xs)]">
+          <div className="flex flex-wrap justify-start gap-[var(--xs)]">
             <p>Дизайн и разработка</p>
             <p>|</p>
             <a
@@ -57,6 +71,10 @@ const Footer = () => {
       </article>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  width: propTypes.number.isRequired,
 };
 
 export default Footer;

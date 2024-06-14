@@ -8,7 +8,7 @@ const Button = ({
   onClick = null,
   link = '',
 }) => {
-  const isIcon = icon ? 'min-w-[160px]' : 'w-fit';
+  const isIcon = icon ? 'min-w-[160px] desktop:min-w-[210px]' : 'w-fit';
   const isLarge =
     size === 'large'
       ? 'h-[52px] px-[var(--m)] text-button-l gap-[var(--s)]'
@@ -54,6 +54,7 @@ const Button = ({
         <img
           src={icon}
           alt={text}
+          loading="lazy"
         />
       )}
       {text}

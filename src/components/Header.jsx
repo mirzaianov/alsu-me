@@ -7,9 +7,8 @@ import Button from './Button';
 import HamburgerDropdown from './HamburgerDropdown';
 import useOnClickOutside from '../hooks/useOnClickOutside';
 
-const Header = () => {
+const Header = ({ width }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isFixed, setIsFixed] = useState(false);
 
   const dropdownRef = useRef();
@@ -24,23 +23,11 @@ const Header = () => {
   );
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => {
-      const aboutSection = document.getElementById('about');
+      const infiniteLogosSection = document.getElementById('infinite-logos');
 
-      if (aboutSection) {
-        const stickyPoint = aboutSection.offsetTop - 145;
+      if (infiniteLogosSection) {
+        const stickyPoint = infiniteLogosSection.offsetTop;
 
         setIsFixed(window.scrollY >= stickyPoint);
       }
@@ -53,6 +40,12 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (width >= 1061) {
+      setIsDropdownOpen(false);
+    }
+  }, [width]);
+
   return (
     <header
       id="header"
@@ -62,22 +55,22 @@ const Header = () => {
                   desktop:max-w-[var(--l-end)]"
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out tablet:px-[var(--xl)] desktop:px-[var(--3xl)]
+        className={`flex items-center justify-between transition-all duration-500 ease-in-out
         ${
           isFixed
-            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm'
-            : 'absolute w-full px-[var(--s)]'
+            ? 'fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--s)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm tablet:top-[var(--m)] tablet:w-11/12 desktop:max-w-[var(--l-end)]'
+            : 'absolute w-full px-[var(--s)] tablet:px-[var(--xl)] desktop:px-[var(--3xl)]'
         }`}
       >
-        <div className="-mt-1 flex items-center justify-center">
+        <div className="-mt-1 flex items-center justify-center tablet:ml-2">
           <Logo />
         </div>
-        {windowWidth < 1060 ? <NavBar /> : <NavBar type="inline" />}
+        {width < 1061 ? <NavBar /> : <NavBar type="inline" />}
         <div
-          className="flex items-center justify-center"
+          className="flex items-center justify-center tablet:mr-2"
           ref={buttonRef}
         >
-          {windowWidth < 1060 ? (
+          {width < 1061 ? (
             <Hamburger
               onClick={() => setIsDropdownOpen((prev) => !prev)}
               isDropdownOpen={isDropdownOpen}
@@ -90,7 +83,7 @@ const Header = () => {
             />
           )}
         </div>
-        {windowWidth < 1060 && (
+        {width < 1061 && (
           <HamburgerDropdown
             isFixed={isFixed}
             isDropdownOpen={isDropdownOpen}
@@ -110,8 +103,7 @@ const Header = () => {
 };
 
 Header.propTypes = {
-  type: propTypes.string,
-  onClick: propTypes.func,
+  width: propTypes.number.isRequired,
 };
 
 export default Header;

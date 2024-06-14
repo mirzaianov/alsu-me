@@ -1,6 +1,6 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
-import pig from '../assets/icons/pig.svg';
+import prices from '../assets/img/prices.png';
 
 const tutorCardData = [
   {
@@ -25,7 +25,7 @@ const tutorCardData = [
     quantity: 5,
     discount: 500,
     heading: '5',
-    subheading: 'Индивидуальных занятия',
+    subheading: 'Индивидуальных занятий',
     duration: `Продолжительность: 60 мин`,
     price: 2000,
     description: ['80% занятия - практика', 'Современные материалы'],
@@ -55,7 +55,7 @@ const Prices = () => {
       id="prices"
       className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                 tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
+                desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
       <h2
         className="text-heading-s
@@ -65,16 +65,30 @@ const Prices = () => {
         Выбери свой план
       </h2>
       <article
-        className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-center
-                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:gap-[var(--xs)]
-                        desktop:max-w-[var(--desktop-text-wrapper)]"
+        className="tablet: flex flex-col items-center justify-center gap-[var(--l)]
+                  tablet:gap-[var(--xl)]
+                  desktop:w-full desktop:flex-row desktop:justify-between"
       >
-        <p className="p-fade-in animate-p-fade-in">
-          Подбери план и стоимость, которые наиболее подходят тебе.
-        </p>
-        <p className="p-fade-in animate-p-fade-in">
-          Или свяжись со мной, и мы вместе определимся с программой.
-        </p>
+        <img
+          className="ml-8 h-[var(--img-size-mobile)]
+                     tablet:ml-16 tablet:h-[var(--img-size-tablet)]
+                     desktop:h-auto desktop:w-4/12"
+          src={prices}
+          alt="Prices"
+          loading="lazy"
+        />
+        <div
+          className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-start
+                        tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)]
+                        desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)]"
+        >
+          <p className="p-fade-in animate-p-fade-in">
+            Подбери план и стоимость, которые наиболее подходят тебе.
+          </p>
+          <p className="p-fade-in animate-p-fade-in">
+            Или свяжись со мной, и мы вместе определимся с программой.
+          </p>
+        </div>
       </article>
       <article
         className="flex flex-col items-center gap-[var(--xl)]
@@ -82,7 +96,8 @@ const Prices = () => {
       >
         <div
           className="relative flex flex-col items-center gap-[var(--m)]
-                        tablet:gap-[var(--l)]"
+                        tablet:gap-[var(--l)]
+                        desktop:gap-[var(--xl)]"
         >
           <h3
             className="max-w-[var(--mobile-text-wrapper)] text-center text-body-bold uppercase
@@ -91,19 +106,11 @@ const Prices = () => {
           >
             Индивидуальные занятия на платформе Zoom
           </h3>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] text-body tablet:min-w-[610px] tablet:flex-row">
-            <div
-              className="p-fade-in absolute right-0 top-0 hidden animate-icon-fade-in-right
-                          tablet:right-12 tablet:top-[520px] tablet:block
-                          desktop:-bottom-32 desktop:right-0 desktop:top-auto"
-            >
-              <img
-                className="size-16
-                        tablet:size-24"
-                src={pig}
-                alt="Discount"
-              />
-            </div>
+          <div
+            className="flex flex-col items-center justify-center gap-[var(--l)] text-body
+                       tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)]
+                       desktop:gap-[var(--2xl)]"
+          >
             {tutorCardData.map((item) => (
               <PriceTutorCard
                 key={item.heading}
@@ -112,11 +119,22 @@ const Prices = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)]">
-          <h3 className="text-center text-body-bold uppercase tablet:text-heading-s">
+        <div
+          className="flex flex-col items-center gap-[var(--m)]
+                     tablet:gap-[var(--l)]
+                     desktop:gap-[var(--xl)]"
+        >
+          <h3
+            className="text-center text-body-bold uppercase
+                       tablet:text-heading-s"
+          >
             Переводы
           </h3>
-          <div className="flex flex-col flex-wrap items-center justify-center gap-[var(--l)] text-body tablet:min-w-[610px] tablet:flex-row">
+          <div
+            className="flex flex-col items-center justify-center gap-[var(--l)] text-body
+                       tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)]
+                       desktop:gap-[var(--2xl)]"
+          >
             {translatorCardData.map((item) => (
               <PriceTranslatorCard
                 key={item.heading}

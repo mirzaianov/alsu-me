@@ -49,7 +49,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
       `,
       paddingInline: 'var(--l)',
       minWidth: '460px',
-      maxWidth: '720px',
+      maxWidth: '640px',
       margin: '0 auto',
     };
 
@@ -117,15 +117,15 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
   };
 
   return (
-    <nav className="w-full">
+    <nav className="w-fit grow">
       <ul
-        className="grid text-body-bold desktop:text-body-l-bold"
+        className="grid w-full text-body-bold"
         style={{ ...ULstyle }}
       >
         {items.map((item) => (
           <li
             style={{ ...LIstyle, gridArea: item[0] }}
-            id={item[0]}
+            id={`${type}-${item[0]}`}
             key={item[0]}
             onClick={() => handleClick(item[0])}
           >

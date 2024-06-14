@@ -55,7 +55,8 @@ const TestimonialCard = ({
         <img
           className="aspect-square h-[56px] rounded-full object-cover"
           src={src}
-          alt="photo"
+          alt={fullName}
+          loading="lazy"
         />
         <div className="flex flex-col justify-center">
           <p className="text-body-bold">{fullName}</p>
@@ -86,7 +87,8 @@ const TestimonialCard = ({
             <img
               className="aspect-square h-[56px] rounded-full object-cover"
               src={src}
-              alt="photo"
+              alt={fullName}
+              loading="lazy"
             />
             <div className="flex flex-col justify-center">
               <p className="text-body-bold">{fullName}</p>

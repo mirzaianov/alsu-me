@@ -206,8 +206,9 @@ export default {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         popUp: {
-          '0%': { transform: 'scale(0)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
+          '0%': { transform: 'scale(0) rotate(15deg)', opacity: '0' },
+          '75%': { transform: 'scale(1.5) rotate(290deg)', opacity: '0.75' },
+          '100%': { transform: 'scale(1) rotate(375deg)', opacity: '1' },
         },
         footerFadeIn: {
           '0%': { transform: 'translateX(100%)', opacity: '0' },
@@ -237,8 +238,8 @@ export default {
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
-        blob: 'blob 12s infinite',
-        'blob-tablet': 'blobTablet 12s infinite',
+        blob: 'blob 8s infinite',
+        'blob-tablet': 'blobTablet 8s infinite',
         slides: 'slides 60s linear infinite',
         'slides-tablet': 'slides 60s linear infinite',
         walter: 'walter 8s ease-in-out infinite',
@@ -305,7 +306,7 @@ export default {
     },
     screens: {
       tablet: '577px',
-      desktop: '1060px',
+      desktop: '1061px',
     },
     fontSize: {
       body: ['16px'],
