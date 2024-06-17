@@ -6,6 +6,7 @@ import Button from './Button';
 import Badge from './Badge';
 import hand from '../assets/icons/hand.svg';
 import InfiniteLogos from './InfiniteLogos';
+import HeroBackground from './HeroBackground';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -17,23 +18,7 @@ const Hero = ({ width }) => {
                 tablet:mt-[64px] tablet:min-h-[calc(100dvh-104px)] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
                 desktop:max-w-[1300px] desktop:justify-between desktop:px-[var(--3xl)]"
     >
-      <div className="absolute inset-0 -z-10">
-        <div
-          className="absolute -right-[16px] -top-[80px] size-[200px] animate-blob rounded-full bg-primary-20 mix-blend-multiply blur-[75px] filter tablet:-right-[140px]
-                           tablet:-top-[104px] tablet:size-[400px] tablet:animate-blob-tablet tablet:blur-[150px]
-                           desktop:-right-[60px] desktop:-top-[104px] desktop:size-[400px] desktop:animate-blob-tablet desktop:blur-[150px]"
-        ></div>
-        <div
-          className="animate-blob2 tablet:animate-blob2-tablet desktop:animate-blob2-tablet absolute left-1/2 top-[calc(50%-40px)] size-[200px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-primary-10 opacity-70 mix-blend-multiply blur-[75px] filter tablet:top-[calc(50%-52px)]
-                           tablet:size-[400px] tablet:blur-[150px]
-                           desktop:top-[calc(50%-52px)] desktop:size-[400px] desktop:blur-[150px]"
-        ></div>
-        <div
-          className="animate-blob3 tablet:animate-blob3-tablet desktop:animate-blob3-tablet absolute -left-[16px] bottom-0 size-[200px] rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-[75px] filter tablet:-left-[140px]
-                           tablet:size-[400px] tablet:blur-[150px]
-                           desktop:-left-[60px] desktop:size-[400px] desktop:blur-[150px]"
-        ></div>
-      </div>
+      <HeroBackground />
       <article
         className="flex w-full grow flex-col justify-evenly gap-[var(--s)]
                       tablet:gap-[var(--2xl)]
