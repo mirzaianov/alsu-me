@@ -10,7 +10,7 @@
 }
 
 body {
-  min-height: 100dvh;
+  /* min-height: 100dvh; */
   background-color: hsla(0, 0%, 100%, 1);
   font-family: 'Inter', sans-serif;
   color: hsla(219, 40%, 11%, 1);
