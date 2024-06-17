@@ -1,8 +1,8 @@
 import propTypes from 'prop-types';
 import Button from './Button';
 import AboutPhotoCard from './AboutPhotoCard';
-import rocket from '../assets/img/rocket.png';
-import firstPlace from '../assets/img/first-place.png';
+import rocket from '../assets/img/about/rocket.png';
+import firstPlace from '../assets/img/about/first-place.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 

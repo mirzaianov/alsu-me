@@ -1,12 +1,12 @@
 import propTypes from 'prop-types';
-import Stat from './Stat';
+import HeroBackground from './HeroBackground';
 import HeroPhotoCard from './HeroPhotoCard';
+import HeroInfiniteLogos from './HeroInfiniteLogos';
+import Stat from './Stat';
 import Note from './Note';
 import Button from './Button';
 import Badge from './Badge';
 import hand from '../assets/icons/hand.svg';
-import InfiniteLogos from './InfiniteLogos';
-import HeroBackground from './HeroBackground';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -176,7 +176,7 @@ const Hero = ({ width }) => {
         )}
       </article>
       <article className="w-screen">
-        <InfiniteLogos />
+        <HeroInfiniteLogos />
       </article>
     </section>
   );

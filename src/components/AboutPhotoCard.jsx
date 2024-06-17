@@ -1,5 +1,5 @@
-import alsuAbout from '../assets/img/alsu-about.png';
-import alsuAboutTablet from '../assets/img/alsu-about-tablet.png';
+import alsuAbout from '../assets/img/about/alsu-about.png';
+import alsuAboutTablet from '../assets/img/about/alsu-about-tablet.png';
 
 const AboutPhotoCard = () => {
   return (

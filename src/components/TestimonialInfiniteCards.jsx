@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TestimonialCardsRow from './TestimonialCardsRow';
 
-const InfiniteTestimonialCards = () => {
+const TestimonialInfiniteCards = () => {
   const [isInfiniteScroll, setIsInfiniteScroll] = useState(true);
 
   return (
@@ -18,4 +18,4 @@ const InfiniteTestimonialCards = () => {
   );
 };
 
-export default InfiniteTestimonialCards;
+export default TestimonialInfiniteCards;

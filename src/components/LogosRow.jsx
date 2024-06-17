@@ -1,11 +1,11 @@
-import kamaz from '../assets/img/logo-kamaz.svg';
-import knorr from '../assets/img/logo-knorr.svg';
-import bendix from '../assets/img/logo-bendix.svg';
-import amis from '../assets/img/logo-amis.svg';
-import ishi from '../assets/img/logo-ishi.svg';
-import inn from '../assets/img/logo-inn.svg';
-import akulchev from '../assets/img/logo-akulchev.svg';
-import tempo from '../assets/img/logo-tempo.svg';
+import kamaz from '../assets/icons/logos/logo-kamaz.svg';
+import knorr from '../assets/icons/logos/logo-knorr.svg';
+import bendix from '../assets/icons/logos/logo-bendix.svg';
+import amis from '../assets/icons/logos/logo-amis.svg';
+import ishi from '../assets/icons/logos/logo-ishi.svg';
+import inn from '../assets/icons/logos/logo-inn.svg';
+import akulchev from '../assets/icons/logos/logo-akulchev.svg';
+import tempo from '../assets/icons/logos/logo-tempo.svg';
 
 const LogosRow = () => {
   return (

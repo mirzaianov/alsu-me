@@ -1,10 +1,10 @@
 import ServiceCard from './ServiceCard';
 import Badge from './Badge';
-import tutor from '../assets/img/tutor.png';
-import translator from '../assets/img/translator.png';
+import tutor from '../assets/img/services/tutor.png';
+import translator from '../assets/img/services/translator.png';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
-import services from '../assets/img/services.png';
+import services from '../assets/img/services/services.png';
 
 const serviceCardData = [
   {

@@ -1,6 +1,6 @@
 import LogosRow from './LogosRow';
 
-const InfiniteLogos = () => {
+const HeroInfiniteLogos = () => {
   return (
     <section
       id="infinite-logos"
@@ -14,4 +14,4 @@ const InfiniteLogos = () => {
   );
 };
 
-export default InfiniteLogos;
+export default HeroInfiniteLogos;

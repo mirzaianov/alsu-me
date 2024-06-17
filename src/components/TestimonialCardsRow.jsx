@@ -1,9 +1,9 @@
 import propTypes from 'prop-types';
 import TestimonialCard from './TestimonialCard';
-import almaz from '../assets/img/almaz.jpeg';
-import elena from '../assets/img/elena.jpeg';
-import dilara from '../assets/img/dilara.jpeg';
-import ruslan from '../assets/img/ruslan.jpeg';
+import almaz from '../assets/img/testimonials/almaz.jpeg';
+import elena from '../assets/img/testimonials/elena.jpeg';
+import dilara from '../assets/img/testimonials/dilara.jpeg';
+import ruslan from '../assets/img/testimonials/ruslan.jpeg';
 
 const testimonialCardData = [
   {

@@ -1,5 +1,5 @@
-import InfiniteTestimonialCards from './InfiniteTestimonialCards';
-import testimonials from '../assets/img/testimonials.png';
+import TestimonialInfiniteCards from './TestimonialInfiniteCards';
+import testimonials from '../assets/img/testimonials/testimonials.png';
 
 const Testimonials = () => {
   return (
@@ -45,7 +45,7 @@ const Testimonials = () => {
         </div>
       </article>
       <article className="w-screen">
-        <InfiniteTestimonialCards />
+        <TestimonialInfiniteCards />
       </article>
     </section>
   );

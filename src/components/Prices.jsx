@@ -1,7 +1,7 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
-import prices from '../assets/img/prices.png';
-import sale from '../assets/img/sale.png';
+import prices from '../assets/img/prices/prices.png';
+import sale from '../assets/img/prices/sale.png';
 
 const tutorCardData = [
   {
@@ -59,7 +59,7 @@ const Prices = () => {
                 desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
       <div
-        className="image-fade-in-right animate-image-fade-in-right absolute right-0 top-0 z-10 hidden
+        className="image-fade-in-right absolute right-0 top-0 z-10 hidden animate-image-fade-in-right
                   desktop:-right-1/4 desktop:top-2/3 desktop:block"
       >
         <img
