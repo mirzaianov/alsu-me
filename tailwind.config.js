@@ -164,31 +164,6 @@ export default {
           '55%': { transform: 'scale(1.1) rotate(1deg)' },
           '60%, 100%': { transform: 'scale(1) rotate(0deg)' },
         },
-        walter: {
-          '0%': { transform: 'translateY(0px)' },
-          '25%': { transform: 'translateY(0px)' },
-          '33%': { transform: 'translateY(-32px)' },
-          '66%': { transform: 'translateY(-32px)' },
-          '75%': { transform: 'translateY(0px)' },
-          '100%': { transform: 'translateY(0px)' },
-        },
-        expandFromCorner: {
-          '0%': { transform: 'scale(0) translate(100%, -100%)', opacity: '0' },
-          '100%': { transform: 'scale(1) translate(0, 0)', opacity: '1' },
-        },
-        buttonPulse: {
-          '0%': { transform: 'scale(1)' },
-          '50%': { opacity: '0.3' },
-          '100%': { transform: 'scale(1.5)', opacity: '0' },
-        },
-        headerFadeIn: {
-          '0%': { transform: 'translateY(-100px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        logosFadeIn: {
-          '0%': { transform: 'translateY(100px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
         heroFotoFadeIn: {
           '0%': { transform: 'translateX(100px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
@@ -198,30 +173,8 @@ export default {
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
         pFadeIn: {
-          '0%': { transform: 'translatex(80px)', opacity: '0' },
+          '0%': { transform: 'translateY(80px)', opacity: '0' },
           '100%': { transform: 'none', opacity: '1' },
-        },
-        h2FadeIn: {
-          '0%': { transform: 'translateY(40px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        popUp: {
-          '0%': {
-            transform: 'scale(3) translateY(-200px)',
-            opacity: '0',
-          },
-          '80%': {
-            transform: 'scale(0.5) translateY(0px)',
-            opacity: '1',
-          },
-          '100%': {
-            transform: 'scale(1) rotate(15deg) translateY(0px)',
-            opacity: '1',
-          },
-        },
-        footerFadeIn: {
-          '0%': { transform: 'translateX(100%)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
         },
         arrowBounce: {
           '0%': { transform: 'translateY(0)' },
@@ -237,12 +190,13 @@ export default {
           '0%': { transform: 'none' },
           '100%': { transform: 'translateX(110%)' },
         },
-        iconFadeInRight: {
-          '0%': {
-            transform: 'translateX(200%) rotate(195deg)',
-            opacity: '0',
-          },
-          '100%': { transform: 'translateX(0) rotate(15deg)', opacity: '1' },
+        imageFadeInRight: {
+          '0%': { transform: 'translateX(50%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '0.7' },
+        },
+        imageFadeInLeft: {
+          '0%': { transform: 'translateX(-50%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '0.7' },
         },
       },
       animation: {
@@ -251,7 +205,6 @@ export default {
         'blob-tablet': 'blobTablet 8s infinite',
         slides: 'slides 60s linear infinite',
         'slides-tablet': 'slides 60s linear infinite',
-        walter: 'walter 8s ease-in-out infinite',
         testimonials: 'slides 60s linear infinite',
         'slide-words': 'slideWords 20s linear infinite',
         'slide-words-tablet': 'slideWordsTablet 20s linear infinite',
@@ -261,21 +214,14 @@ export default {
         'waving-badge-4': 'wavindBadge 4s linear infinite',
         'rotate-first-note': 'rotateFirstNote 20s infinite',
         'rotate-second-note': 'rotateSecondNote 20s infinite',
-        'expand-from-corner': 'expandFromCorner 0.3s ease-out backwards',
-        'button-pulse': 'buttonPulse 1.2s ease infinite',
-        'header-fade-in': 'headerFadeIn 0.7s 0.3s ease-in backwards',
-        'logos-fade-in': 'logosFadeIn 0.7s 0.3s ease-in both',
         'hero-foto-fade-in': 'heroFotoFadeIn 0.5s 0.3s ease-in backwards',
         'hero-text-fade-in': 'heroTextFadeIn 0.5s 0.3s ease-in backwards',
         'p-fade-in': 'pFadeIn linear both',
-        'pop-up': 'popUp linear both',
-        'h2-fade-in': 'h2FadeIn linear both',
-        'footer-fade-in': 'footerFadeIn linear both',
         'arrow-bounce': 'arrowBounce 1.5s linear infinite',
         'dropdown-open': 'dropdownOpen 0.3s ease-in both',
         'dropdown-close': 'dropdownClose 0.3s ease-out both',
-        'icon-fade-in-right': 'iconFadeInRight linear both',
-        'icon-fade-in-left': 'iconFadeInLeft linear both',
+        'image-fade-in-right': 'imageFadeInRight linear both',
+        'image-fade-in-left': 'imageFadeInLeft linear both',
       },
       lineClamp: {
         7: '7',

@@ -78,7 +78,6 @@ const Hero = ({ width }) => {
                 <Badge
                   text="Hi"
                   icon={hand}
-                  backgroundColor="--primary-10"
                   isReversed
                   isAnimated
                 />

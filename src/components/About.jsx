@@ -1,10 +1,9 @@
 import propTypes from 'prop-types';
 import Button from './Button';
 import PhotoCardAbout from './PhotoCardAbout';
-import Badge from './Badge';
-import uk from '../assets/icons/uk.svg';
-import usa from '../assets/icons/usa.svg';
-import wonderwoman from '../assets/icons/wonderwoman.png';
+import rocket from '../assets/img/rocket.png';
+import firstPlace from '../assets/img/first-place.png';
+import line from '../assets/img/floating-cards.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -16,6 +15,17 @@ const About = ({ width }) => {
                 tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
                 desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
     >
+      <div
+        className="image-fade-in-left animate-image-fade-in-left absolute left-0 top-0 z-10 hidden
+                  desktop:-left-1/4 desktop:top-3/4 desktop:block"
+      >
+        <img
+          className="desktop:h-full"
+          src={line}
+          alt="Abstract Line"
+          loading="lazy"
+        />
+      </div>
       <h2
         className="text-heading-s
                       tablet:text-heading-m
@@ -31,25 +41,32 @@ const About = ({ width }) => {
           className="relative -mt-4 flex items-center justify-start
                     desktop:w-4/12"
         >
+          <PhotoCardAbout />
           <div
-            className="pop-up absolute -right-20 -top-4 z-10 animate-pop-up
-                      tablet:-right-32 tablet:top-0
-                      desktop:right-48 desktop:top-[450px]"
+            className="absolute -left-[30px] bottom-[8px] flex size-12 animate-waving-badge-3 items-center justify-center rounded-full bg-secondary-25 p-3 shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]
+                       tablet:-left-[40px] tablet:bottom-[24px] tablet:size-16"
           >
             <img
-              className="size-16
-                        tablet:size-20"
-              src={wonderwoman}
-              alt="Wonder Woman Logo"
-              loading="lazy"
+              className="h-full"
+              src={rocket}
+              alt="Rocket Image"
             />
           </div>
-          <PhotoCardAbout />
+          <div
+            className="absolute left-[150px] top-[60px] flex size-12 animate-waving-badge-4 items-center justify-center rounded-full bg-secondary-15 p-2 shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]
+                       tablet:left-[280px] tablet:top-[120px] tablet:size-16"
+          >
+            <img
+              className="h-full"
+              src={firstPlace}
+              alt="First Place Image"
+            />
+          </div>
         </article>
         <article
           className="flex max-w-[var(--mobile-text-wrapper)] flex-col items-center justify-start gap-[var(--l)]
                     tablet:max-w-[var(--tablet-text-wrapper)] tablet:gap-[var(--xl)]
-                    desktop:w-8/12 desktop:max-w-[var(--desktop-text-wrapper)] desktop:items-start desktop:gap-[var(--2xl)]"
+                    desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)] desktop:items-start desktop:gap-[var(--2xl)]"
         >
           <div className="flex flex-col items-start justify-start gap-[var(--m)]">
             <p className="p-fade-in animate-p-fade-in">

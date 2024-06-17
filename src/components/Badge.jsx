@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 
 const Badge = ({
-  text,
+  text = '',
   icon,
   type,
   size = '',
@@ -45,8 +45,8 @@ const Badge = ({
 };
 
 Badge.propTypes = {
-  text: propTypes.string.isRequired,
   icon: propTypes.string.isRequired,
+  text: propTypes.string,
   type: propTypes.string,
   size: propTypes.string,
   isReversed: propTypes.bool,

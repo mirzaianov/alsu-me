@@ -1,6 +1,7 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
 import prices from '../assets/img/prices.png';
+import sale from '../assets/img/sale.png';
 
 const tutorCardData = [
   {
@@ -53,10 +54,21 @@ const Prices = () => {
   return (
     <section
       id="prices"
-      className="my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
+      className="relative my-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                 tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
                 desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
+      <div
+        className="image-fade-in-right animate-image-fade-in-right absolute right-0 top-0 z-10 hidden
+                  desktop:-right-1/4 desktop:top-2/3 desktop:block"
+      >
+        <img
+          className="desktop:h-full"
+          src={sale}
+          alt="Sale"
+          loading="lazy"
+        />
+      </div>
       <h2
         className="text-heading-s
                     tablet:text-heading-m
