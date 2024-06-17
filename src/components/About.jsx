@@ -16,8 +16,8 @@ const About = ({ width }) => {
                 desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
     >
       <div
-        className="image-fade-in-left animate-image-fade-in-left absolute -left-1/3 top-0 z-10 hidden
-                  desktop:top-3/4 desktop:block"
+        className="image-fade-in-left animate-image-fade-in-left absolute left-0 top-0 z-10 hidden
+                  desktop:-left-1/4 desktop:top-3/4 desktop:block"
       >
         <img
           className="desktop:h-full"

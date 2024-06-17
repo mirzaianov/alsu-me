@@ -176,16 +176,6 @@ export default {
           '0%': { transform: 'translateY(80px)', opacity: '0' },
           '100%': { transform: 'none', opacity: '1' },
         },
-        popUp: {
-          '0%': {
-            transform: 'scale(0.5)',
-            opacity: '0',
-          },
-          '100%': {
-            transform: 'scale(1)',
-            opacity: '0.5',
-          },
-        },
         arrowBounce: {
           '0%': { transform: 'translateY(0)' },
           '33%': { transform: 'translateY(2px)' },
@@ -227,7 +217,6 @@ export default {
         'hero-foto-fade-in': 'heroFotoFadeIn 0.5s 0.3s ease-in backwards',
         'hero-text-fade-in': 'heroTextFadeIn 0.5s 0.3s ease-in backwards',
         'p-fade-in': 'pFadeIn linear both',
-        'pop-up': 'popUp linear both',
         'arrow-bounce': 'arrowBounce 1.5s linear infinite',
         'dropdown-open': 'dropdownOpen 0.3s ease-in both',
         'dropdown-close': 'dropdownClose 0.3s ease-out both',

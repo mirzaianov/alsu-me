@@ -47,8 +47,8 @@ const Services = () => {
                   desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
     >
       <div
-        className="image-fade-in-left animate-image-fade-in-left absolute -left-1/3 top-0 z-10 hidden
-                  desktop:top-2/3 desktop:block"
+        className="image-fade-in-left animate-image-fade-in-left absolute left-0 top-0 z-10 hidden
+                  desktop:-left-1/4 desktop:top-2/3 desktop:block"
       >
         <img
           className="desktop:h-full"
@@ -58,8 +58,8 @@ const Services = () => {
         />
       </div>
       <div
-        className="image-fade-in-right animate-image-fade-in-right absolute -right-1/3 top-0 z-10 hidden
-                  desktop:top-1/2 desktop:block"
+        className="image-fade-in-right animate-image-fade-in-right absolute right-0 top-0 z-10 hidden
+                  desktop:-right-1/4 desktop:top-1/2 desktop:block"
       >
         <img
           className="desktop:h-full"

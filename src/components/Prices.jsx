@@ -60,7 +60,7 @@ const Prices = () => {
     >
       <div
         className="image-fade-in-right animate-image-fade-in-right absolute right-0 top-0 z-10 hidden
-                  desktop:-right-1/3 desktop:top-2/3 desktop:block"
+                  desktop:-right-1/4 desktop:top-2/3 desktop:block"
       >
         <img
           className="desktop:h-full"

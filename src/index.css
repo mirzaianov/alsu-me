@@ -57,12 +57,6 @@ section {
     animation-range-end: cover 240px;
   }
 
-  .pop-up {
-    animation-timeline: view();
-    animation-range-start: 15%;
-    animation-range-end: 45%;
-  }
-
   .image-fade-in-left,
   .image-fade-in-right {
     animation-timeline: view();
