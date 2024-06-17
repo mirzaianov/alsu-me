@@ -57,21 +57,17 @@ section {
     animation-range-end: cover 240px;
   }
 
-  .h2-fade-in {
-    animation-timeline: view();
-    animation-range-start: entry 120px;
-    animation-range-end: cover 240px;
-  }
-
   .pop-up {
     animation-timeline: view();
     animation-range-start: 15%;
     animation-range-end: 45%;
   }
 
-  .footer-fade-in {
+  .image-fade-in-left,
+  .image-fade-in-right {
     animation-timeline: view();
-    animation-range: entry;
+    animation-range-start: 10%;
+    animation-range-end: 50%;
   }
 }
 

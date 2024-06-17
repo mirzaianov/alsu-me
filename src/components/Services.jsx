@@ -6,7 +6,7 @@ import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import services from '../assets/img/services.png';
 import curvedTransparentLenses from '../assets/img/curved-transparent-lenses.png';
-import glassOvalAndGlassDisc from '../assets/img/glass-oval-and-glass-disc.png';
+import longPilledUpRibbon from '../assets/img/long-piled-up-ribbon.png';
 
 const serviceCardData = [
   {
@@ -47,9 +47,8 @@ const Services = () => {
                   desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
     >
       <div
-        className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
-                     tablet:-right-28 tablet:top-0
-                     desktop:-left-[320px] desktop:top-[800px] desktop:block"
+        className="image-fade-in-left animate-image-fade-in-left absolute -left-1/3 top-0 z-10 hidden
+                  desktop:top-2/3 desktop:block"
       >
         <img
           className="desktop:h-full"
@@ -59,13 +58,12 @@ const Services = () => {
         />
       </div>
       <div
-        className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
-                     tablet:-right-28 tablet:top-0
-                     desktop:-right-[320px] desktop:top-[800px] desktop:block"
+        className="image-fade-in-right animate-image-fade-in-right absolute -right-1/3 top-0 z-10 hidden
+                  desktop:top-1/2 desktop:block"
       >
         <img
           className="desktop:h-full"
-          src={glassOvalAndGlassDisc}
+          src={longPilledUpRibbon}
           alt="Abstract Line"
           loading="lazy"
         />

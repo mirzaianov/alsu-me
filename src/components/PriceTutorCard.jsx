@@ -1,7 +1,6 @@
 import propTypes from 'prop-types';
 import Button from './Button';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
-import sale from '../assets/img/sale.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -74,22 +73,6 @@ const PriceTutorCard = ({
           <div className="flex animate-tada cursor-default justify-center rounded-lg bg-primary-30 px-[var(--s)] py-[var(--2xs)] font-bold tracking-[0.05em] text-text-0">
             Популярно
           </div>
-        </div>
-      ) : null}
-      {discount ? (
-        <div
-          className="pop-up absolute right-0 top-0 z-10 hidden animate-pop-up
-                   tablet:-right-28 tablet:top-0 tablet:block
-                   desktop:-bottom-56 desktop:-right-56 desktop:top-auto"
-        >
-          <img
-            className="h-16
-                  tablet:h-20
-                  desktop:h-60"
-            src={sale}
-            alt="Sale"
-            loading="lazy"
-          />
         </div>
       ) : null}
     </div>
