@@ -5,6 +5,7 @@ import Note from './Note';
 import Button from './Button';
 import Badge from './Badge';
 import hand from '../assets/icons/hand.svg';
+import InfiniteLogos from './InfiniteLogos';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -12,9 +13,9 @@ const Hero = ({ width }) => {
   return (
     <section
       id="hero"
-      className="relative mx-auto mt-[64px] flex w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col justify-start gap-[var(--l)] px-[var(--s)]
+      className="relative mt-[64px] flex w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                 tablet:mt-[99px] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
-                desktop:max-w-[1300px] desktop:items-start desktop:justify-between desktop:px-[var(--3xl)]"
+                desktop:max-w-[1300px] desktop:justify-between desktop:px-[var(--3xl)]"
     >
       <div
         className="flex w-full flex-col gap-[var(--m)]
@@ -164,7 +165,7 @@ const Hero = ({ width }) => {
       <article
         className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--xs)]
                   tablet:gap-[var(--m)]
-                  desktop:items-start"
+                  desktop:items-start desktop:self-start"
       >
         {width >= 577 ? (
           <p>Запишись на бесплатное пробное занятие</p>
@@ -183,6 +184,9 @@ const Hero = ({ width }) => {
             link={telegramLink}
           />
         )}
+      </article>
+      <article className="w-screen">
+        <InfiniteLogos />
       </article>
     </section>
   );

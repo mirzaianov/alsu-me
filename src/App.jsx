@@ -5,7 +5,6 @@ import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import InfiniteLogos from './components/InfiniteLogos';
 import Prices from './components/Prices';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
@@ -33,7 +32,6 @@ const App = () => {
     >
       <Header width={windowWidth} />
       <Hero width={windowWidth} />
-      <InfiniteLogos />
       <About width={windowWidth} />
       <Services />
       <Prices />
