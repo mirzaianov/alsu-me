@@ -5,18 +5,21 @@ export default {
     extend: {
       keyframes: {
         blob: {
-          '0%': {
-            transform: 'translate(0px, 0px) scale(1)',
-          },
-          '33%': {
-            transform: 'translate(-25px, 25px) scale(1.1)',
-          },
-          '66%': {
-            transform: 'translate(-20px, 20px) scale(0.9)',
-          },
-          '100%': {
-            transform: 'translate(0px, 0px) scale(1)',
-          },
+          '0%, 100%': { transform: 'translate(0%, 0%) scale(1)' },
+          '25%': { transform: 'translate(-50%, 0%) scale(0.9)' },
+          '50%': { transform: 'translate(-50%, 50%) scale(1.1)' },
+          '75%': { transform: 'translate(0%, 50%) scale(0.9)' },
+        },
+        blob2: {
+          '0%, 100%': { transform: 'translate(-50%, -50%) scale(1)' },
+          '33%': { transform: 'translate(-100%, -100%) scale(1.1)' },
+          '66%': { transform: 'translate(0%, 0%) scale(0.9)' },
+        },
+        blob3: {
+          '0%, 100%': { transform: 'translate(0%, 0%) scale(1)' },
+          '25%': { transform: 'translate(50%, 0%) scale(0.9)' },
+          '50%': { transform: 'translate(50%, -50%) scale(1.1)' },
+          '75%': { transform: 'translate(0%, -50%) scale(0.9)' },
         },
         blobTablet: {
           '0%': {
@@ -209,7 +212,9 @@ export default {
       },
       animation: {
         tada: 'tada 8s ease-in-out infinite',
-        blob: 'blob 8s infinite',
+        blob: 'blob 12s ease-in-out infinite both',
+        blob2: 'blob2 12s ease-in-out infinite both',
+        blob3: 'blob3 12s ease-in-out infinite both',
         'blob-tablet': 'blobTablet 8s infinite',
         slides: 'slides 60s linear infinite',
         'slides-tablet': 'slides 60s linear infinite',

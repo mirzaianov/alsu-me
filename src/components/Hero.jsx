@@ -17,6 +17,20 @@ const Hero = ({ width }) => {
                 tablet:mt-[64px] tablet:min-h-[calc(100dvh-104px)] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
                 desktop:max-w-[1300px] desktop:justify-between desktop:px-[var(--3xl)]"
     >
+      <div className="absolute inset-0 -z-10">
+        <div
+          className="absolute -right-[16px] -top-[80px] size-[200px] animate-blob rounded-full bg-primary-20 mix-blend-multiply blur-[75px] filter [animation-delay:_0.5s]
+                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet  tablet:[animation-delay:_0.5s]"
+        ></div>
+        <div
+          className="animate-blob2 absolute left-1/2 top-1/2 size-[200px] rounded-full bg-primary-10 opacity-70 mix-blend-multiply blur-[75px] filter [animation-delay:_2s]
+                          tablet:-left-10 tablet:-top-4 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_2s]"
+        ></div>
+        <div
+          className="animate-blob3 absolute -left-[16px] bottom-0 size-[200px] rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-[75px] filter [animation-delay:_5s]
+                          tablet:-bottom-10 tablet:left-8 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_5s]"
+        ></div>
+      </div>
       <article
         className="flex w-full grow flex-col justify-evenly gap-[var(--s)]
                       tablet:gap-[var(--2xl)]
@@ -59,18 +73,6 @@ const Hero = ({ width }) => {
                         desktop:min-w-fit"
           >
             <div className="relative flex items-center justify-start">
-              <div
-                className="absolute -right-10 -top-2 size-40 animate-blob rounded-full bg-primary-40 mix-blend-multiply blur-xl filter [animation-delay:_0.5s]
-                          tablet:-right-16 tablet:-top-8 tablet:size-80 tablet:animate-blob-tablet  tablet:[animation-delay:_0.5s]"
-              ></div>
-              <div
-                className="absolute -left-5 -top-1 size-40 animate-blob rounded-full bg-primary-30 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_2s]
-                          tablet:-left-10 tablet:-top-4 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_2s]"
-              ></div>
-              <div
-                className="absolute -bottom-8 size-40 animate-blob rounded-full bg-primary-20 opacity-70 mix-blend-multiply blur-xl filter [animation-delay:_5s]
-                          tablet:-bottom-10 tablet:left-8 tablet:size-80 tablet:animate-blob-tablet tablet:opacity-50 tablet:[animation-delay:_5s]"
-              ></div>
               <PhotoCardHero />
               <div
                 className="absolute -left-[20px] top-[126px] animate-waving-badge-3
