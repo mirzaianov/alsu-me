@@ -18,7 +18,7 @@ const Hero = ({ width }) => {
                 desktop:max-w-[1300px] desktop:justify-between desktop:px-[var(--3xl)]"
     >
       <article
-        className="flex w-full grow flex-col justify-evenly gap-[var(--m)]
+        className="flex w-full grow flex-col justify-evenly gap-[var(--s)]
                       tablet:gap-[var(--2xl)]
                       desktop:flex-row-reverse desktop:items-center desktop:justify-between desktop:gap-[var(--xl)]"
       >
