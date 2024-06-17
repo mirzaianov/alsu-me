@@ -164,6 +164,14 @@ export default {
           '55%': { transform: 'scale(1.1) rotate(1deg)' },
           '60%, 100%': { transform: 'scale(1) rotate(0deg)' },
         },
+        headerFadeIn: {
+          '0%': { transform: 'translateY(-100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        logosFadeIn: {
+          '0%': { transform: 'translateY(100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
         heroFotoFadeIn: {
           '0%': { transform: 'translateX(100px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
@@ -205,10 +213,12 @@ export default {
         'blob-tablet': 'blobTablet 8s infinite',
         slides: 'slides 60s linear infinite',
         'slides-tablet': 'slides 60s linear infinite',
-        testimonials: 'slides 60s linear infinite',
+        testimonials: 'slides 120s linear infinite',
         'slide-words': 'slideWords 20s linear infinite',
         'slide-words-tablet': 'slideWordsTablet 20s linear infinite',
         'slide-words-desktop': 'slideWordsDesktop 20s linear infinite',
+        'header-fade-in': 'headerFadeIn 0.7s 0.3s ease-in backwards',
+        'logos-fade-in': 'logosFadeIn 0.7s 0.3s ease-in both',
         'waving-hand': 'wavingHand 4s linear infinite',
         'waving-badge-3': 'wavindBadge 3s linear infinite',
         'waving-badge-4': 'wavindBadge 4s linear infinite',

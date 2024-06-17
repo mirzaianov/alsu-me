@@ -4,7 +4,6 @@ import almaz from '../assets/img/almaz.jpeg';
 import elena from '../assets/img/elena.jpeg';
 import dilara from '../assets/img/dilara.jpeg';
 import ruslan from '../assets/img/ruslan.jpeg';
-import walter from '../assets/icons/walter.svg';
 
 const testimonialCardData = [
   {
