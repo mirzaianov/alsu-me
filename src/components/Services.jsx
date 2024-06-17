@@ -6,7 +6,6 @@ import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import services from '../assets/img/services.png';
 import curvedTransparentLenses from '../assets/img/curved-transparent-lenses.png';
-import longPilledUpRibbon from '../assets/img/long-piled-up-ribbon.png';
 
 const serviceCardData = [
   {
@@ -53,17 +52,6 @@ const Services = () => {
         <img
           className="desktop:h-full"
           src={curvedTransparentLenses}
-          alt="Abstract Line"
-          loading="lazy"
-        />
-      </div>
-      <div
-        className="image-fade-in-right animate-image-fade-in-right absolute right-0 top-0 z-10 hidden
-                  desktop:-right-1/4 desktop:top-1/2 desktop:block"
-      >
-        <img
-          className="desktop:h-full"
-          src={longPilledUpRibbon}
           alt="Abstract Line"
           loading="lazy"
         />
