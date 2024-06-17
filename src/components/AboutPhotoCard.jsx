@@ -1,7 +1,7 @@
 import alsuAbout from '../assets/img/alsu-about.png';
 import alsuAboutTablet from '../assets/img/alsu-about-tablet.png';
 
-const PhotoCardAbout = () => {
+const AboutPhotoCard = () => {
   return (
     // Container
     <div className="group relative w-[170px] tablet:w-[300px]">
@@ -31,4 +31,4 @@ const PhotoCardAbout = () => {
   );
 };
 
-export default PhotoCardAbout;
+export default AboutPhotoCard;

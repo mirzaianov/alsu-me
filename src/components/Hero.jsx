@@ -1,6 +1,6 @@
 import propTypes from 'prop-types';
 import Stat from './Stat';
-import PhotoCardHero from './PhotoCardHero';
+import HeroPhotoCard from './HeroPhotoCard';
 import Note from './Note';
 import Button from './Button';
 import Badge from './Badge';
@@ -61,7 +61,7 @@ const Hero = ({ width }) => {
                         desktop:min-w-fit"
           >
             <div className="relative flex items-center justify-start">
-              <PhotoCardHero />
+              <HeroPhotoCard />
               <div
                 className="absolute -left-[20px] top-[126px] animate-waving-badge-3
                           tablet:top-[260px]"

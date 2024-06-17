@@ -1,7 +1,7 @@
 import alsuHero from '../assets/img/alsu-hero.png';
 import alsuHeroTablet from '../assets/img/alsu-hero-tablet.png';
 
-const PhotoCardHero = () => {
+const HeroPhotoCard = () => {
   return (
     // Container
     <div className="group relative w-[185px] tablet:w-[330px]">
@@ -27,4 +27,4 @@ const PhotoCardHero = () => {
   );
 };
 
-export default PhotoCardHero;
+export default HeroPhotoCard;

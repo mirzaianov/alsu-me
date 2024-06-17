@@ -1,6 +1,6 @@
 import propTypes from 'prop-types';
 import Button from './Button';
-import PhotoCardAbout from './PhotoCardAbout';
+import AboutPhotoCard from './AboutPhotoCard';
 import rocket from '../assets/img/rocket.png';
 import firstPlace from '../assets/img/first-place.png';
 
@@ -29,7 +29,7 @@ const About = ({ width }) => {
           className="relative -mt-4 flex items-center justify-start
                     desktop:w-4/12"
         >
-          <PhotoCardAbout />
+          <AboutPhotoCard />
           <div
             className="absolute -left-[30px] bottom-[8px] flex size-12 animate-waving-badge-3 items-center justify-center rounded-full bg-secondary-25 p-3 shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]
                        tablet:-left-[40px] tablet:bottom-[24px] tablet:size-16"
