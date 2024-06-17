@@ -38,7 +38,7 @@ const App = () => {
       <Testimonials />
       <Contacts width={windowWidth} />
       <Footer width={windowWidth} />
-      <BackToTopButton />
+      <BackToTopButton width={windowWidth} />
     </div>
   );
 };
