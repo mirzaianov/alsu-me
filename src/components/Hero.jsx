@@ -13,17 +13,17 @@ const Hero = ({ width }) => {
   return (
     <section
       id="hero"
-      className="relative mt-[64px] flex w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
-                tablet:mt-[99px] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
+      className="relative mt-[64px] flex min-h-[calc(100dvh-80px)] w-full max-w-[360px] scroll-mt-[var(--3xl)] flex-col items-center justify-between gap-[var(--l)] px-[var(--s)]
+                tablet:mt-[64px] tablet:min-h-[calc(100dvh-104px)] tablet:max-w-[560px] tablet:scroll-mt-[200px] tablet:gap-[var(--xl)] tablet:px-0
                 desktop:max-w-[1300px] desktop:justify-between desktop:px-[var(--3xl)]"
     >
-      <div
-        className="flex w-full flex-col gap-[var(--m)]
+      <article
+        className="flex w-full grow flex-col justify-evenly gap-[var(--m)]
                       tablet:gap-[var(--2xl)]
                       desktop:flex-row-reverse desktop:items-center desktop:justify-between desktop:gap-[var(--xl)]"
       >
         {/* photocard article */}
-        <article
+        <div
           className="flex animate-hero-foto-fade-in items-center justify-between
                     desktop:flex-col-reverse desktop:gap-[var(--m)]"
         >
@@ -85,10 +85,10 @@ const Hero = ({ width }) => {
               </div>
             </div>
           </div>
-        </article>
+        </div>
         {/* text article */}
-        <article
-          className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--l)] text-center
+        <div
+          className="flex animate-hero-text-fade-in flex-col items-center justify-between gap-[var(--m)] text-center
                      tablet:gap-[var(--2xl)]
                      desktop:items-start desktop:text-start"
         >
@@ -160,8 +160,8 @@ const Hero = ({ width }) => {
               </div>
             </div>
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
       <article
         className="flex animate-hero-text-fade-in flex-col items-center justify-start gap-[var(--xs)]
                   tablet:gap-[var(--m)]
