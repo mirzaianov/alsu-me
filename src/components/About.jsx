@@ -3,7 +3,6 @@ import Button from './Button';
 import PhotoCardAbout from './PhotoCardAbout';
 import rocket from '../assets/img/rocket.png';
 import firstPlace from '../assets/img/first-place.png';
-import line from '../assets/img/floating-cards.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -15,17 +14,6 @@ const About = ({ width }) => {
                 tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
                 desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:px-[var(--2xl)]"
     >
-      <div
-        className="image-fade-in-left animate-image-fade-in-left absolute left-0 top-0 z-10 hidden
-                  desktop:-left-1/4 desktop:top-3/4 desktop:block"
-      >
-        <img
-          className="desktop:h-full"
-          src={line}
-          alt="Abstract Line"
-          loading="lazy"
-        />
-      </div>
       <h2
         className="text-heading-s
                       tablet:text-heading-m

@@ -3,7 +3,6 @@ import Button from './Button';
 import telegram from '../assets/icons/telegram.svg';
 import email from '../assets/icons/email.svg';
 import contacts from '../assets/img/contacts.png';
-import ropeKnotShape from '../assets/img/rope-knot-shape.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 const emailLink = import.meta.env.VITE_EMAIL;
@@ -16,17 +15,6 @@ const Contacts = ({ width }) => {
                  tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
                  desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
-      <div
-        className="image-fade-in-left animate-image-fade-in-left absolute left-0 top-0 z-10 hidden
-                  desktop:-left-1/4 desktop:block"
-      >
-        <img
-          className="desktop:h-full"
-          src={ropeKnotShape}
-          alt="Abstract Line"
-          loading="lazy"
-        />
-      </div>
       <h2
         className="text-center text-heading-s
                      tablet:text-heading-m

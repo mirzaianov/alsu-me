@@ -5,7 +5,6 @@ import translator from '../assets/img/translator.png';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import services from '../assets/img/services.png';
-import curvedTransparentLenses from '../assets/img/curved-transparent-lenses.png';
 
 const serviceCardData = [
   {
@@ -45,17 +44,6 @@ const Services = () => {
                   tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
                   desktop:my-[var(--2xl)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
     >
-      <div
-        className="image-fade-in-left animate-image-fade-in-left absolute left-0 top-0 z-10 hidden
-                  desktop:-left-1/4 desktop:top-2/3 desktop:block"
-      >
-        <img
-          className="desktop:h-full"
-          src={curvedTransparentLenses}
-          alt="Abstract Line"
-          loading="lazy"
-        />
-      </div>
       <h2
         className="text-heading-s
                     tablet:text-heading-m
