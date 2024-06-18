@@ -136,6 +136,54 @@ export default {
           '0%': { transform: 'translateX(-50%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '0.7' },
         },
+        expand1: {
+          '0%': { transform: 'translate(-25%, 100%) rotate(5deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand2: {
+          '0%': { transform: 'translate(0%, 25%) rotate(10deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand3: {
+          '0%': { transform: 'translate(25%, -50%) rotate(15deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand4: {
+          '0%': { transform: 'translate(50%, -100%) rotate(20deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand1Tablet: {
+          '0%': { transform: 'translate(15%, 75%) rotate(5deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand2Tablet: {
+          '0%': { transform: 'translate(-80%, 75%) rotate(10deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand3Tablet: {
+          '0%': { transform: 'translate(100%, -100%) rotate(15deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand4Tablet: {
+          '0%': { transform: 'translate(20%, -100%) rotate(20deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand1Desktop: {
+          '0%': { transform: 'translateX(120%) rotate(5deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand2Desktop: {
+          '0%': { transform: 'translateX(40%) rotate(10deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand3Desktop: {
+          '0%': { transform: 'translateX(-50%) rotate(15deg)' },
+          '100%': { transform: 'none' },
+        },
+        expand4Desktop: {
+          '0%': { transform: 'translateX(-140%) rotate(20deg)' },
+          '100%': { transform: 'none' },
+        },
       },
       animation: {
         //
@@ -181,6 +229,19 @@ export default {
         //
         'image-fade-in-right': 'imageFadeInRight linear both',
         'image-fade-in-left': 'imageFadeInLeft linear both',
+        //
+        'expand-1': 'expand1 linear both',
+        'expand-2': 'expand2 linear both',
+        'expand-3': 'expand3 linear both',
+        'expand-4': 'expand4 linear both',
+        'expand-1-tablet': 'expand1Tablet linear both',
+        'expand-2-tablet': 'expand2Tablet linear both',
+        'expand-3-tablet': 'expand3Tablet linear both',
+        'expand-4-tablet': 'expand4Tablet linear both',
+        'expand-1-desktop': 'expand1Desktop linear both',
+        'expand-2-desktop': 'expand2Desktop linear both',
+        'expand-3-desktop': 'expand3Desktop linear both',
+        'expand-4-desktop': 'expand4Desktop linear both',
       },
       lineClamp: {
         7: '7',

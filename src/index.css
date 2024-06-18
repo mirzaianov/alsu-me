@@ -72,6 +72,12 @@ button svg path {
     animation-range-start: 10%;
     animation-range-end: 50%;
   }
+
+  .expand {
+    animation-timeline: view();
+    animation-range-start: 20%;
+    animation-range-end: 50%;
+  }
 }
 
 .ham {

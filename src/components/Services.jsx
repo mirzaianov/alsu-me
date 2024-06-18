@@ -104,32 +104,48 @@ const Services = () => {
             Прокачаю все 4 навыка
           </h3>
           <ul
-            className="flex flex-wrap justify-center gap-[var(--s)]
-                         tablet:gap-[var(--l)]
-                         desktop:gap-[var(--xl)]"
+            className="grid grid-flow-row grid-cols-1 justify-items-center gap-[var(--s)]
+                         tablet:grid-cols-2 tablet:gap-[var(--l)]
+                         desktop:grid-cols-4 desktop:gap-[var(--xl)]"
           >
-            <li>
+            <li
+              className="expand animate-expand-1 tablet:expand
+                         tablet:animate-expand-1-tablet desktop:expand desktop:animate-expand-1-desktop
+                         origin-center tablet:justify-self-end desktop:justify-self-center"
+            >
               <Badge
                 text="Speaking"
                 icon={usa}
                 type="secondary-15"
               />
             </li>
-            <li>
+            <li
+              className="expand animate-expand-2 tablet:animate-expand-2-tablet
+                         tablet:expand desktop:expand desktop:animate-expand-2-desktop
+                         origin-center tablet:justify-self-start desktop:justify-self-center"
+            >
               <Badge
                 text="Writing"
                 icon={uk}
                 type="secondary-25"
               />
             </li>
-            <li>
+            <li
+              className="expand animate-expand-3 tablet:expand
+                         tablet:animate-expand-3-tablet desktop:expand desktop:animate-expand-3-desktop
+                         origin-center tablet:justify-self-end desktop:justify-self-center"
+            >
               <Badge
                 text="Listening"
                 icon={uk}
                 type="secondary-45"
               />
             </li>
-            <li>
+            <li
+              className="expand animate-expand-4 tablet:expand
+                         tablet:animate-expand-4-tablet desktop:expand desktop:animate-expand-4-desktop
+                         origin-center tablet:justify-self-start desktop:justify-self-center"
+            >
               <Badge
                 text="Reading"
                 icon={usa}
@@ -151,32 +167,48 @@ const Services = () => {
             Подготовлю к любым целям
           </h3>
           <ul
-            className="flex flex-wrap justify-center gap-[var(--s)]
-                         tablet:gap-[var(--l)]
-                         desktop:gap-[var(--xl)]"
+            className="grid grid-flow-row grid-cols-1 justify-items-center gap-[var(--s)]
+                       tablet:grid-cols-2 tablet:gap-[var(--l)]
+                       desktop:grid-cols-4 desktop:gap-[var(--xl)]"
           >
-            <li>
+            <li
+              className="expand animate-expand-1 tablet:expand
+              tablet:animate-expand-1-tablet desktop:expand desktop:animate-expand-1-desktop
+              origin-center tablet:justify-self-end desktop:justify-self-center"
+            >
               <Badge
                 text="Travel"
                 icon={usa}
                 type="secondary-15"
               />
             </li>
-            <li>
+            <li
+              className="expand animate-expand-2 tablet:animate-expand-2-tablet
+              tablet:expand desktop:expand desktop:animate-expand-2-desktop
+              origin-center tablet:justify-self-start desktop:justify-self-center"
+            >
               <Badge
                 text="General"
                 icon={uk}
                 type="secondary-25"
               />
             </li>
-            <li>
+            <li
+              className="expand animate-expand-3 tablet:expand
+              tablet:animate-expand-3-tablet desktop:expand desktop:animate-expand-3-desktop
+              origin-center tablet:justify-self-end desktop:justify-self-center"
+            >
               <Badge
                 text="Business"
                 icon={uk}
                 type="secondary-45"
               />
             </li>
-            <li>
+            <li
+              className="expand animate-expand-4 tablet:expand
+              tablet:animate-expand-4-tablet desktop:expand desktop:animate-expand-4-desktop
+              origin-center tablet:justify-self-start desktop:justify-self-center"
+            >
               <Badge
                 text="Education"
                 icon={usa}
