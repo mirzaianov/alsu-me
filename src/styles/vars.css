@@ -50,4 +50,8 @@
 
   --img-size-mobile: 170px;
   --img-size-tablet: 300px;
+
+  --mobile-y-margin: 56px;
+  --tablet-y-margin: 80px;
+  --desktop-y-margin: 96px;
 }
