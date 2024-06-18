@@ -52,6 +52,7 @@ const Button = ({
     >
       {icon && (
         <img
+          className={`${size === 'large' ? 'h-[32px]' : 'h-[24px]'}`}
           src={icon}
           alt={text}
           loading="lazy"
