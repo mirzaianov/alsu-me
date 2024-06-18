@@ -42,7 +42,7 @@ const Services = () => {
       id="services"
       className="relative my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
                   tablet:my-[var(--tablet-y-margin)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--2xl)] tablet:px-[var(--xl)]
-                  desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
+                  desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--3xl)] desktop:px-[var(--3xl)]"
     >
       <h2
         className="text-heading-s
@@ -87,7 +87,7 @@ const Services = () => {
         </div>
       </article>
       <article
-        className="relative flex flex-col items-center gap-[var(--l)]
+        className="relative flex flex-col items-center gap-[var(--xl)]
                         tablet:gap-[var(--2xl)]
                         desktop:gap-[var(--3xl)]"
       >
@@ -231,9 +231,9 @@ const Services = () => {
           Базовые услуги
         </h3>
         <div
-          className="flex flex-col gap-[var(--l)] text-body
-                     tablet:flex-row tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)]
-                     desktop:gap-[var(--2xl)]"
+          className="flex
+                     flex-col gap-[var(--l)] text-body tablet:flex-row
+                     tablet:flex-wrap tablet:justify-center tablet:gap-[var(--xl)] desktop:gap-[var(--2xl)]"
         >
           {serviceCardData.map((item) => (
             <ServiceCard

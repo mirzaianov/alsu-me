@@ -184,6 +184,14 @@ export default {
           '0%': { transform: 'translateX(-140%) rotate(20deg)' },
           '100%': { transform: 'none' },
         },
+        cardLeftFadeIn: {
+          '0%': { transform: 'translateY(10%) rotate(5deg)' },
+          '100%': { transform: 'none' },
+        },
+        cardRightFadeIn: {
+          '0%': { transform: 'translateY(10%) rotate(-5deg)' },
+          '100%': { transform: 'none' },
+        },
       },
       animation: {
         //
@@ -242,6 +250,9 @@ export default {
         'expand-2-desktop': 'expand2Desktop linear both',
         'expand-3-desktop': 'expand3Desktop linear both',
         'expand-4-desktop': 'expand4Desktop linear both',
+        //
+        'card-left-fade-in': 'cardLeftFadeIn linear both',
+        'card-right-fade-in': 'cardRightFadeIn linear both',
       },
       lineClamp: {
         7: '7',

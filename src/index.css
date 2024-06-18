@@ -78,6 +78,12 @@ button svg path {
     animation-range-start: 20%;
     animation-range-end: 50%;
   }
+
+  .card-fade-in {
+    animation-timeline: view();
+    animation-range-start: 10%;
+    animation-range-end: 40%;
+  }
 }
 
 .ham {
