@@ -18,38 +18,16 @@ const Button = ({
 
   const isType = () => {
     switch (type) {
-      case 'secondary': {
-        const bgColor = `transparent`;
-        const borderColor = `primary-10`;
-        const textColor = `text-10`;
-
-        return `bg-${bgColor} border-[3px] border-${borderColor} hover:border-${borderColor}/70 text-${textColor} hover:text-${textColor}/70`;
-      }
-      case 'inverse': {
-        const borderColor = `neutral-0`;
-        const textColor = `text-10`;
-
-        return `bg-${borderColor} hover:text-${textColor}/70 text-${textColor}`;
-      }
-      case 'accent': {
-        const bgColor = `primary-30`;
-        const textColor = `text-0`;
-
-        return `bg-${bgColor} hover:bg-${bgColor}/70 text-${textColor}`;
-      }
-      case 'neutral': {
-        const bgColor = `transparent`;
-        const borderColor = `neutral-90`;
-        const textColor = `text-90`;
-
-        return `bg-${bgColor} border-[3px] border-${borderColor} hover:border-${borderColor}/70 hover:text-${textColor}/70`;
-      }
-      default: {
-        const bgColor = `primary-10`;
-        const textColor = `text-0`;
-
-        return `bg-${bgColor} hover:bg-${bgColor}/70 text-${textColor}`;
-      }
+      case 'secondary':
+        return `bg-transparent border-[3px] border-primary-10 hover:border-primary-10/70 text-text-10 hover:text-text-10/70`;
+      case 'inverse':
+        return `bg-neutral-0 hover:text-text-10/70 text-text-10`;
+      case 'accent':
+        return `bg-primary-30 hover:bg-primary-30/70 text-text-0`;
+      case 'neutral':
+        return `bg-transparent border-[3px] border-neutral-90 hover:border-neutral-90/70 hover:text-text-90/70`;
+      default:
+        return `bg-primary-10 hover:bg-primary-10/70 text-text-0`;
     }
   };
 
