@@ -30,10 +30,11 @@ const TestimonialCardModal = ({ onClose, children }) => {
         {children}
         <div className="self-end">
           <Button
-            text="Закрыть"
             type="accent"
             onClick={onClose}
-          />
+          >
+            <span>Закрыть</span>
+          </Button>
         </div>
       </div>
     </div>,

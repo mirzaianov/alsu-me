@@ -78,16 +78,16 @@ const About = ({ width }) => {
             </p>
           </div>
           {width < 1061 ? (
-            <Button
-              text="Записаться бесплатно"
-              link={telegramLink}
-            />
+            <Button link={telegramLink}>
+              <span>Записаться бесплатно</span>
+            </Button>
           ) : (
             <Button
-              text="Записаться бесплатно"
               size="large"
               link={telegramLink}
-            />
+            >
+              <span>Записаться бесплатно</span>
+            </Button>
           )}
         </article>
       </div>

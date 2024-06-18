@@ -1,14 +1,16 @@
 import propTypes from 'prop-types';
 
 const Button = ({
-  text,
+  children,
+  text = '',
   icon = '',
   size = '',
   type = '',
   onClick = null,
   link = '',
 }) => {
-  const isIcon = icon ? 'min-w-[160px] desktop:min-w-[210px]' : 'w-fit';
+  const isIcon =
+    icon === 'true' ? 'min-w-[160px] desktop:min-w-[220px]' : 'w-fit';
   const isLarge =
     size === 'large'
       ? 'h-[52px] px-[var(--m)] text-button-l gap-[var(--s)]'
@@ -16,16 +18,37 @@ const Button = ({
 
   const isType = () => {
     switch (type) {
-      case 'secondary':
-        return `bg-transparent border-[3px] border-primary-10 hover:border-primary-10/70 text-text-10 hover:text-text-10/70 active:translate-y-1`;
-      case 'inverse':
-        return `bg-neutral-0 hover:text-text-10/70 text-text-10`;
-      case 'accent':
-        return `bg-primary-30 hover:bg-primary-30/70 text-text-0`;
-      case 'neutral':
-        return `bg-transparent border-[3px] border-neutral-90 hover:border-neutral-90/70 hover:text-text-90/70`;
+      case 'secondary': {
+        const bgColor = `transparent`;
+        const borderColor = `primary-10`;
+        const textColor = `text-10`;
+
+        return `bg-${bgColor} border-[3px] border-${borderColor} hover:border-${borderColor}/70 text-${textColor} hover:text-${textColor}/70`;
+      }
+      case 'inverse': {
+        const borderColor = `neutral-0`;
+        const textColor = `text-10`;
+
+        return `bg-${borderColor} hover:text-${textColor}/70 text-${textColor}`;
+      }
+      case 'accent': {
+        const bgColor = `primary-30`;
+        const textColor = `text-0`;
+
+        return `bg-${bgColor} hover:bg-${bgColor}/70 text-${textColor}`;
+      }
+      case 'neutral': {
+        const bgColor = `transparent`;
+        const borderColor = `neutral-90`;
+        const textColor = `text-90`;
+
+        return `bg-${bgColor} border-[3px] border-${borderColor} hover:border-${borderColor}/70 hover:text-${textColor}/70`;
+      }
       default: {
-        return `bg-primary-10 hover:bg-primary-10/70 text-text-0`;
+        const bgColor = `primary-10`;
+        const textColor = `text-0`;
+
+        return `bg-${bgColor} hover:bg-${bgColor}/70 text-${textColor}`;
       }
     }
   };
@@ -46,25 +69,18 @@ const Button = ({
 
   return (
     <button
-      className={`flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:-translate-y-1 ${isIcon} ${isLarge} ${isType()}`}
+      className={`group flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:-translate-y-1 ${isLarge} ${isIcon} ${isType()} w-fit`}
       type="button"
       onClick={handleClick}
     >
-      {icon && (
-        <img
-          className={`${size === 'large' ? 'h-[32px]' : 'h-[24px]'}`}
-          src={icon}
-          alt={text}
-          loading="lazy"
-        />
-      )}
-      {text}
+      {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  text: propTypes.string.isRequired,
+  children: propTypes.oneOfType([propTypes.object, propTypes.array]),
+  text: propTypes.string,
   icon: propTypes.string,
   size: propTypes.string,
   type: propTypes.string,

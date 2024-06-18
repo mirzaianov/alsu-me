@@ -19,10 +19,9 @@ const PriceTranslatorCard = ({
         {addSpacesToNumber(price)}
         {` ₽`}
       </h5>
-      <Button
-        text="Записаться"
-        link={telegramLink}
-      />
+      <Button link={telegramLink}>
+        <span>Записаться</span>
+      </Button>
       <ul className="mt-auto flex flex-col justify-start">
         {description.map((item) => (
           <li

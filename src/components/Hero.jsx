@@ -35,16 +35,16 @@ const Hero = ({ width }) => {
           <p>Запишись на бесплатное занятие</p>
         )}
         {width < 1061 ? (
-          <Button
-            text="Записаться"
-            link={telegramLink}
-          />
+          <Button link={telegramLink}>
+            <span>Записаться</span>
+          </Button>
         ) : (
           <Button
-            text="Записаться"
             size="large"
             link={telegramLink}
-          />
+          >
+            <span>Записаться</span>
+          </Button>
         )}
       </article>
       <article className="w-screen">

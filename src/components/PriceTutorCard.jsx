@@ -47,15 +47,15 @@ const PriceTutorCard = ({
       <div className="mt-auto">
         {discount ? (
           <Button
-            text="Записаться"
             type="inverse"
             link={telegramLink}
-          />
+          >
+            <span>Записаться</span>
+          </Button>
         ) : (
-          <Button
-            text="Записаться"
-            link={telegramLink}
-          />
+          <Button link={telegramLink}>
+            <span>Записаться</span>
+          </Button>
         )}
       </div>
       <ul className="mt-auto flex flex-col justify-start">

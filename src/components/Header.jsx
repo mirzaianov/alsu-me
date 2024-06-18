@@ -77,10 +77,11 @@ const Header = ({ width }) => {
             />
           ) : (
             <Button
-              text="Записаться"
               type="secondary"
               onClick={() => setIsDropdownOpen((prev) => !prev)}
-            />
+            >
+              <span>Записаться</span>
+            </Button>
           )}
         </div>
         {width < 1061 && (
