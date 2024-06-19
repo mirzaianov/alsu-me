@@ -25,7 +25,7 @@ const HeroPhotoCardBlock = () => {
           />
           <Stat
             quantity="4+"
-            text="года жизни в США"
+            text="года работы в США"
           />
           <Stat
             quantity="200+"
