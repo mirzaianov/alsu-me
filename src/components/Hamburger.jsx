@@ -9,6 +9,7 @@ const Hamburger = ({ onClick, isDropdownOpen }) => {
     <button
       aria-label={`${isDropdownOpen ? 'Close hamburger menu' : 'Open hamburger menu'}`}
       onClick={handleClick}
+      type="button"
     >
       <svg
         className={`ham hamRotate ham4 ${isDropdownOpen ? 'active' : ''}`}

@@ -73,6 +73,7 @@ const TestimonialCard = ({
           aria-label="Читать далее"
           className="mt-auto text-left text-body-bold"
           onClick={handleModalOpen}
+          type="button"
         >
           Читать далее
         </button>
