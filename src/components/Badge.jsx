@@ -37,7 +37,6 @@ const Badge = ({
         className={`${isAnimated ? 'animate-waving-hand' : ''} h-[var(--s)] self-center`}
         src={icon}
         alt={icon && `${text}`}
-        loading="lazy"
       />
       {text}
     </div>

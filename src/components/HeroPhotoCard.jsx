@@ -20,7 +20,6 @@ const HeroPhotoCard = () => {
                    ${alsuHeroTablet}
                  `}
           alt="Alsu in a formal office suit"
-          loading="lazy"
         />
       </div>
     </div>

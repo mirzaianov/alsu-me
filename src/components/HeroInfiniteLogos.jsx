@@ -1,4 +1,4 @@
-import LogosRow from './LogosRow';
+import HeroInfiniteLogosRow from './HeroInfiniteLogosRow';
 
 const HeroInfiniteLogos = () => {
   return (
@@ -8,8 +8,8 @@ const HeroInfiniteLogos = () => {
                   tablet:my-[var(--xl)] tablet:py-[var(--m)]
                   desktop:py-[var(--xl)]"
     >
-      <LogosRow />
-      <LogosRow />
+      <HeroInfiniteLogosRow />
+      <HeroInfiniteLogosRow />
     </section>
   );
 };

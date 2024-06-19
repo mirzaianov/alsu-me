@@ -1,6 +1,6 @@
 import propTypes from 'prop-types';
 import Divider from './Divider';
-import Logo from './Logo';
+import BrandLogo from './BrandLogo';
 import Navbar from './NavBar';
 
 const Footer = ({ width }) => {
@@ -16,7 +16,7 @@ const Footer = ({ width }) => {
                   tablet:flex-row
                   desktop:w-full desktop:justify-between desktop:gap-[var(--2xl)]"
       >
-        <Logo />
+        <BrandLogo />
         <div
           className="flex flex-col justify-start gap-[var(--l)]
                           desktop:w-full desktop:flex-row desktop:justify-between"

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import propTypes from 'prop-types';
-import Logo from './Logo';
+import BrandLogo from './BrandLogo';
 import NavBar from './NavBar';
 import Hamburger from './Hamburger';
 import Button from './Button';
@@ -63,7 +63,7 @@ const Header = ({ width }) => {
         }`}
       >
         <div className="-mt-1 flex items-center justify-center tablet:ml-2">
-          <Logo />
+          <BrandLogo />
         </div>
         {width < 1061 ? <NavBar /> : <NavBar type="inline" />}
         <div

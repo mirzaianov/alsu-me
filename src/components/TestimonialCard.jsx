@@ -2,7 +2,6 @@ import propTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
 import TestimonialCardModal from './TestimonialCardModal.jsx';
 import useOnClickOutside from '../hooks/useOnClickOutside.jsx';
-import Button from './Button.jsx';
 
 const maxLines = 10;
 

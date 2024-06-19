@@ -24,7 +24,6 @@ const AboutPhotoCard = () => {
                    ${alsuAboutTablet}
                  `}
           alt="Alsu in a formal office suit smiling"
-          loading="lazy"
         />
       </div>
     </div>

@@ -109,9 +109,9 @@ const Services = () => {
                          desktop:grid-cols-4 desktop:gap-[var(--xl)]"
           >
             <li
-              className="expand animate-expand-1 tablet:expand
-                         tablet:animate-expand-1-tablet desktop:expand desktop:animate-expand-1-desktop
-                         origin-center tablet:justify-self-end desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+                         origin-center animate-expand-1 tablet:animate-expand-1-tablet
+                         tablet:justify-self-end desktop:animate-expand-1-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Speaking"
@@ -120,9 +120,9 @@ const Services = () => {
               />
             </li>
             <li
-              className="expand animate-expand-2 tablet:animate-expand-2-tablet
-                         tablet:expand desktop:expand desktop:animate-expand-2-desktop
-                         origin-center tablet:justify-self-start desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+                         origin-center animate-expand-2 tablet:animate-expand-2-tablet
+                         tablet:justify-self-start desktop:animate-expand-2-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Writing"
@@ -131,9 +131,9 @@ const Services = () => {
               />
             </li>
             <li
-              className="expand animate-expand-3 tablet:expand
-                         tablet:animate-expand-3-tablet desktop:expand desktop:animate-expand-3-desktop
-                         origin-center tablet:justify-self-end desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+                         origin-center animate-expand-3 tablet:animate-expand-3-tablet
+                         tablet:justify-self-end desktop:animate-expand-3-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Listening"
@@ -142,9 +142,9 @@ const Services = () => {
               />
             </li>
             <li
-              className="expand animate-expand-4 tablet:expand
-                         tablet:animate-expand-4-tablet desktop:expand desktop:animate-expand-4-desktop
-                         origin-center tablet:justify-self-start desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+                         origin-center animate-expand-4 tablet:animate-expand-4-tablet
+                         tablet:justify-self-start desktop:animate-expand-4-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Reading"
@@ -172,9 +172,9 @@ const Services = () => {
                        desktop:grid-cols-4 desktop:gap-[var(--xl)]"
           >
             <li
-              className="expand animate-expand-1 tablet:expand
-              tablet:animate-expand-1-tablet desktop:expand desktop:animate-expand-1-desktop
-              origin-center tablet:justify-self-end desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+              origin-center animate-expand-1 tablet:animate-expand-1-tablet
+              tablet:justify-self-end desktop:animate-expand-1-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Travel"
@@ -183,9 +183,9 @@ const Services = () => {
               />
             </li>
             <li
-              className="expand animate-expand-2 tablet:animate-expand-2-tablet
-              tablet:expand desktop:expand desktop:animate-expand-2-desktop
-              origin-center tablet:justify-self-start desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+              origin-center animate-expand-2 tablet:animate-expand-2-tablet
+              tablet:justify-self-start desktop:animate-expand-2-desktop desktop:justify-self-center"
             >
               <Badge
                 text="General"
@@ -194,9 +194,9 @@ const Services = () => {
               />
             </li>
             <li
-              className="expand animate-expand-3 tablet:expand
-              tablet:animate-expand-3-tablet desktop:expand desktop:animate-expand-3-desktop
-              origin-center tablet:justify-self-end desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+              origin-center animate-expand-3 tablet:animate-expand-3-tablet
+              tablet:justify-self-end desktop:animate-expand-3-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Business"
@@ -205,9 +205,9 @@ const Services = () => {
               />
             </li>
             <li
-              className="expand animate-expand-4 tablet:expand
-              tablet:animate-expand-4-tablet desktop:expand desktop:animate-expand-4-desktop
-              origin-center tablet:justify-self-start desktop:justify-self-center"
+              className="expand tablet:expand desktop:expand
+              origin-center animate-expand-4 tablet:animate-expand-4-tablet
+              tablet:justify-self-start desktop:animate-expand-4-desktop desktop:justify-self-center"
             >
               <Badge
                 text="Education"

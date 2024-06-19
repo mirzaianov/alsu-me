@@ -1,21 +1,20 @@
 import propTypes from 'prop-types';
-import logo from '../assets/icons/logo.svg';
+import alsuLogo from '../assets/icons/alsu-logo.svg';
 
-const Logo = () => {
+const BrandLogo = () => {
   return (
     <a href="#">
       <img
         className="h-[var(--m)] tablet:h-[var(--xl)]"
-        src={logo}
-        alt="Logo"
-        loading="lazy"
+        src={alsuLogo}
+        alt="BrandLogo"
       />
     </a>
   );
 };
 
-Logo.propTypes = {
+BrandLogo.propTypes = {
   size: propTypes.string,
 };
 
-export default Logo;
+export default BrandLogo;
