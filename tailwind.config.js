@@ -207,8 +207,8 @@ export default {
         'blob2-desktop': 'blob2 26s ease-in-out infinite both',
         'blob3-desktop': 'blob3 26s 3s ease-in-out infinite both',
         //
-        slides: 'slides 30s linear infinite',
-        'slides-tablet': 'slides 45s linear infinite',
+        slides: 'slides 40s linear infinite',
+        'slides-tablet': 'slides 60s linear infinite',
         //
         testimonials: 'slides 120s linear infinite',
         //
