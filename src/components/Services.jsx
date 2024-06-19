@@ -114,6 +114,7 @@ const Services = () => {
                          tablet:justify-self-end desktop:animate-expand-1-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United States of America"
                 text="Speaking"
                 icon={usa}
                 type="secondary-15"
@@ -125,6 +126,7 @@ const Services = () => {
                          tablet:justify-self-start desktop:animate-expand-2-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United Kingdom"
                 text="Writing"
                 icon={uk}
                 type="secondary-25"
@@ -136,6 +138,7 @@ const Services = () => {
                          tablet:justify-self-end desktop:animate-expand-3-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United Kingdom"
                 text="Listening"
                 icon={uk}
                 type="secondary-45"
@@ -147,6 +150,7 @@ const Services = () => {
                          tablet:justify-self-start desktop:animate-expand-4-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United States of America"
                 text="Reading"
                 icon={usa}
                 type="secondary-55"
@@ -177,6 +181,7 @@ const Services = () => {
               tablet:justify-self-end desktop:animate-expand-1-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United States of America"
                 text="Travel"
                 icon={usa}
                 type="secondary-15"
@@ -188,6 +193,7 @@ const Services = () => {
               tablet:justify-self-start desktop:animate-expand-2-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United Kingdom"
                 text="General"
                 icon={uk}
                 type="secondary-25"
@@ -199,6 +205,7 @@ const Services = () => {
               tablet:justify-self-end desktop:animate-expand-3-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United Kingdom"
                 text="Business"
                 icon={uk}
                 type="secondary-45"
@@ -210,6 +217,7 @@ const Services = () => {
               tablet:justify-self-start desktop:animate-expand-4-desktop desktop:justify-self-center"
             >
               <Badge
+                alt="The flag of the United States of America"
                 text="Education"
                 icon={usa}
                 type="secondary-55"

@@ -45,6 +45,7 @@ const HeroPhotoCardBlock = () => {
                           tablet:top-[260px]"
           >
             <Badge
+              alt="The hand icon with wavy animation"
               text="Hi"
               icon={hand}
               isReversed

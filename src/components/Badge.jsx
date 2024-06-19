@@ -1,9 +1,10 @@
 import propTypes from 'prop-types';
 
 const Badge = ({
-  text = '',
   icon,
   type,
+  alt,
+  text = '',
   size = '',
   isReversed = false,
   isAnimated = false,
@@ -36,7 +37,7 @@ const Badge = ({
       <img
         className={`${isAnimated ? 'animate-waving-hand' : ''} h-[var(--s)] self-center`}
         src={icon}
-        alt={icon && `${text}`}
+        alt={alt}
       />
       {text}
     </div>
@@ -45,6 +46,7 @@ const Badge = ({
 
 Badge.propTypes = {
   icon: propTypes.string.isRequired,
+  alt: propTypes.string.isRequired,
   text: propTypes.string,
   type: propTypes.string,
   size: propTypes.string,
