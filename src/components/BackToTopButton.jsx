@@ -30,6 +30,7 @@ const BackToTopButton = ({ width }) => {
 
   return (
     <a
+      aria-label="Go to the top of the page"
       className={`group z-30
       ${isVisible ? '-translate-y-[124px] tablet:-translate-y-[196px]' : ''}
       fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/70 p-[var(--xs)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-all duration-500 ease-in-out hover:bg-primary-10 hover:opacity-60

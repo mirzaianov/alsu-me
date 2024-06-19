@@ -130,6 +130,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
             onClick={() => handleClick(item[0])}
           >
             <a
+              aria-label={`Go to the ${item[0]} section`}
               className={`relative inline-block hover:text-text-90/50 ${activeLink === item[0] ? 'active' : ''}`}
               href={`#${item[0]}`}
             >

@@ -50,6 +50,7 @@ const Footer = ({ width }) => {
             <p>Дизайн и разработка</p>
             <p>|</p>
             <a
+              aria-label="Visit the CV site of Riaz Mirzaianov"
               href="https://cv.mirzaianov.com/"
               target="_blank"
               rel="noopener noreferrer"
