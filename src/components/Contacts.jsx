@@ -51,6 +51,7 @@ const Contacts = ({ width }) => {
           >
             {width < 1061 ? (
               <Button
+                ariaLabel="Telegram"
                 text="Telegram"
                 icon="true"
                 link={telegramLink}
@@ -73,6 +74,7 @@ const Contacts = ({ width }) => {
               </Button>
             ) : (
               <Button
+                ariaLabel="Telegram"
                 text="Telegram"
                 icon="true"
                 link={telegramLink}
@@ -97,6 +99,7 @@ const Contacts = ({ width }) => {
             )}
             {width < 1061 ? (
               <Button
+                ariaLabel="Email"
                 text="Email"
                 icon="true"
                 link={emailLink}
@@ -117,6 +120,7 @@ const Contacts = ({ width }) => {
               </Button>
             ) : (
               <Button
+                ariaLabel="Email"
                 text="Email"
                 icon="true"
                 link={emailLink}

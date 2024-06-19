@@ -35,11 +35,15 @@ const Hero = ({ width }) => {
           <p>Запишись на бесплатное занятие</p>
         )}
         {width < 1061 ? (
-          <Button link={telegramLink}>
+          <Button
+            ariaLabel="Записаться"
+            link={telegramLink}
+          >
             <span>Записаться</span>
           </Button>
         ) : (
           <Button
+            ariaLabel="Записаться"
             size="large"
             link={telegramLink}
           >

@@ -77,6 +77,7 @@ const Header = ({ width }) => {
             />
           ) : (
             <Button
+              ariaLabel="Записаться"
               type="secondary"
               onClick={() => setIsDropdownOpen((prev) => !prev)}
             >

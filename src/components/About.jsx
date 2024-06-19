@@ -78,11 +78,15 @@ const About = ({ width }) => {
             </p>
           </div>
           {width < 1061 ? (
-            <Button link={telegramLink}>
+            <Button
+              ariaLabel="Записаться бесплатно"
+              link={telegramLink}
+            >
               <span>Записаться бесплатно</span>
             </Button>
           ) : (
             <Button
+              ariaLabel="Записаться бесплатно"
               size="large"
               link={telegramLink}
             >

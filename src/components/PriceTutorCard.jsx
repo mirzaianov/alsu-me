@@ -15,7 +15,7 @@ const PriceTutorCard = ({
 }) => {
   return (
     <div
-      className={`even:card-fade-in odd:card-fade-in even:animate-card-left-fade-in odd:animate-card-right-fade-in relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] last:mt-[var(--m)] desktop:last:mt-0 ${discount ? 'bg-primary-10 text-text-0' : 'bg-neutral-0'}`}
+      className={`even:card-fade-in odd:card-fade-in relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] last:mt-[var(--m)] odd:animate-card-right-fade-in even:animate-card-left-fade-in desktop:last:mt-0 ${discount ? 'bg-primary-10 text-text-0' : 'bg-neutral-0'}`}
     >
       <div className="flex flex-col items-center justify-center gap-[var(--xs)]">
         <h4 className="text-heading-s uppercase">{heading}</h4>
@@ -47,13 +47,17 @@ const PriceTutorCard = ({
       <div className="mt-auto">
         {discount ? (
           <Button
+            ariaLabel="Записаться"
             type="inverse"
             link={telegramLink}
           >
             <span>Записаться</span>
           </Button>
         ) : (
-          <Button link={telegramLink}>
+          <Button
+            ariaLabel="Записаться"
+            link={telegramLink}
+          >
             <span>Записаться</span>
           </Button>
         )}

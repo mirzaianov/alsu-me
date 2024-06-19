@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 
 const Button = ({
   children,
+  ariaLabel,
   text = '',
   icon = '',
   size = '',
@@ -47,6 +48,7 @@ const Button = ({
 
   return (
     <button
+      aria-label={ariaLabel}
       className={`group flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:-translate-y-1 ${isLarge} ${isIcon} ${isType()} w-fit`}
       type="button"
       onClick={handleClick}
@@ -58,6 +60,7 @@ const Button = ({
 
 Button.propTypes = {
   children: propTypes.oneOfType([propTypes.object, propTypes.array]),
+  ariaLabel: propTypes.string.isRequired,
   text: propTypes.string,
   icon: propTypes.string,
   size: propTypes.string,
