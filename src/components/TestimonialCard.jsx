@@ -57,9 +57,9 @@ const TestimonialCard = ({
           alt={fullName}
           loading="lazy"
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex min-h-[64px] flex-col justify-center gap-[var(--2xs)]">
           <p className="text-body-bold">{fullName}</p>
-          <p>{occupation}</p>
+          <p className="text-wrap text-[0.875rem]">{occupation}</p>
         </div>
       </div>
       <p
