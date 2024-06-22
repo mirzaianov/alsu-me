@@ -18,7 +18,7 @@ const useOnClickOutside = (ref, handler, excludedRefs = []) => {
         return;
       }
 
-      handler(event);
+      handler();
     };
 
     document.addEventListener('mousedown', listener);
@@ -28,7 +28,7 @@ const useOnClickOutside = (ref, handler, excludedRefs = []) => {
       document.removeEventListener('mousedown', listener);
       document.removeEventListener('touchstart', listener);
     };
-  }, [ref, handler, ...excludedRefs.map((ref) => ref.current)]);
+  }, [ref, handler, excludedRefs]);
 };
 
 export default useOnClickOutside;
