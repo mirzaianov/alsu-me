@@ -192,6 +192,18 @@ export default {
           '0%': { transform: 'translateY(10%) rotate(-5deg)' },
           '100%': { transform: 'none' },
         },
+        shape1: {
+          '0%, 100%': { transform: 'translate(-50%, 0%) scale(1)' },
+          '50%': { transform: 'translate(-75%, -7.5%) scale(1.1)' },
+        },
+        shape2: {
+          '0%, 100%': { transform: 'translate(10%, 0%) scale(1)' },
+          '50%': { transform: 'translate(0%, -5%) scale(1.1)' },
+        },
+        shape3: {
+          '0%, 100%': { transform: 'translate(70%, 5%) scale(1)' },
+          '50%': { transform: 'translate(90%, 10%) scale(1.1)' },
+        },
       },
       animation: {
         //
@@ -253,6 +265,10 @@ export default {
         //
         'card-left-fade-in': 'cardLeftFadeIn linear both',
         'card-right-fade-in': 'cardRightFadeIn linear both',
+        //
+        'shape-1': 'shape1 6s ease-in-out infinite both',
+        'shape-2': 'shape2 6s ease-in-out infinite both',
+        'shape-3': 'shape3 6s 2s ease-in-out infinite both',
       },
       lineClamp: {
         7: '7',
