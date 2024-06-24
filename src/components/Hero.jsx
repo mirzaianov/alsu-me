@@ -3,7 +3,7 @@ import HeroBackground from './HeroBackground';
 import HeroPhotoCardBlock from './HeroPhotoCardBlock';
 import HeroTextBlock from './HeroTextBlock';
 import HeroInfiniteLogos from './HeroInfiniteLogos';
-import Button from './Button';
+import HeroCTA from './HeroCTA';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -35,20 +35,18 @@ const Hero = ({ width }) => {
           <p>Запишись на бесплатное занятие</p>
         )}
         {width < 1061 ? (
-          <Button
+          <HeroCTA
+            text="Записаться"
             ariaLabel="Записаться"
             link={telegramLink}
-          >
-            <span>Записаться</span>
-          </Button>
+          />
         ) : (
-          <Button
+          <HeroCTA
+            text="Записаться"
             ariaLabel="Записаться"
             size="large"
             link={telegramLink}
-          >
-            <span>Записаться</span>
-          </Button>
+          />
         )}
       </article>
       <article className="w-screen">
