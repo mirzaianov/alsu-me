@@ -193,7 +193,7 @@ export default {
           '100%': { transform: 'none' },
         },
         shape1: {
-          '0%, 100%': { transform: 'translate(-50%, 0%) scale(1)' },
+          '0%, 100%': { transform: 'translate(-60%, 0%) scale(1)' },
           '50%': { transform: 'translate(-75%, -7.5%) scale(1.1)' },
         },
         shape2: {
@@ -266,9 +266,9 @@ export default {
         'card-left-fade-in': 'cardLeftFadeIn linear both',
         'card-right-fade-in': 'cardRightFadeIn linear both',
         //
-        'shape-1': 'shape1 6s ease-in-out infinite both',
-        'shape-2': 'shape2 6s ease-in-out infinite both',
-        'shape-3': 'shape3 6s 2s ease-in-out infinite both',
+        'shape-1': 'shape1 5s ease-in-out infinite both',
+        'shape-2': 'shape2 5s ease-in-out infinite both',
+        'shape-3': 'shape3 5s 1.5s ease-in-out infinite both',
       },
       lineClamp: {
         7: '7',
