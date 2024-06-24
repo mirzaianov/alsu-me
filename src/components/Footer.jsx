@@ -23,7 +23,7 @@ const Footer = ({ width }) => {
         >
           <div className="flex flex-col justify-start gap-[var(--s)]">
             <p className="text-heading-s">Алсу Каримова</p>
-            <p className="tablet:max-w-[560px]">
+            <p className="text-pretty tablet:max-w-[560px]">
               Дипломированный преподаватель и переводчик английского и немецкого
               языков с многолетним опытом профессиональной деятельности в
               международных компаниях России и США

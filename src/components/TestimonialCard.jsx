@@ -60,7 +60,7 @@ const TestimonialCard = ({
       </div>
       <p
         ref={paragraphRef}
-        className="line-clamp-10 whitespace-normal"
+        className="line-clamp-10 whitespace-normal text-pretty"
       >
         {comment}
       </p>
@@ -91,7 +91,7 @@ const TestimonialCard = ({
               <p>{occupation}</p>
             </div>
           </div>
-          <p className="whitespace-normal">{comment}</p>
+          <p className="whitespace-normal text-pretty">{comment}</p>
         </TestimonialCardModal>
       )}
     </div>

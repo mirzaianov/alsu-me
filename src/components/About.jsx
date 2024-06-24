@@ -57,21 +57,21 @@ const About = ({ width }) => {
                     desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)] desktop:items-start desktop:gap-[var(--2xl)]"
         >
           <div className="flex flex-col items-start justify-start gap-[var(--m)]">
-            <p className="p-fade-in animate-p-fade-in">
+            <p className="p-fade-in animate-p-fade-in text-pretty">
               Меня зовут Алсу Каримова, и я рада приветствовать тебя на своём
               сайте!
             </p>
-            <p className="p-fade-in animate-p-fade-in">
+            <p className="p-fade-in animate-p-fade-in text-pretty">
               Я дипломированный преподаватель и переводчик английского и
               немецкого языков с многолетним опытом профессиональной
               деятельности в компаниях из России, Германии и США.
             </p>
-            <p className="p-fade-in animate-p-fade-in">
+            <p className="p-fade-in animate-p-fade-in text-pretty">
               Я занимаюсь преподаванием и переводами уже более 16 лет и
               продолжаю с удовольствием делиться своими знаниями как с учениками
               разных возрастов и уровней подготовки, так и c бизнесом.
             </p>
-            <p className="p-fade-in animate-p-fade-in">
+            <p className="p-fade-in animate-p-fade-in text-pretty">
               Если ты хочешь начать изучение английского с нуля, улучшить свои
               навыки или же заказать устный / письменный перевод - то я
               нетерпением жду возможности помочь тебе в этом!

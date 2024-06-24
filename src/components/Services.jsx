@@ -69,16 +69,16 @@ const Services = () => {
                         tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)]
                         desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)]"
         >
-          <p className="p-fade-in animate-p-fade-in">
+          <p className="p-fade-in animate-p-fade-in text-pretty">
             В своих занятиях я акцентирую внимание на развитии разговорных
             навыков и понимании аутентичной речи.{' '}
           </p>
-          <p className="p-fade-in animate-p-fade-in">
+          <p className="p-fade-in animate-p-fade-in text-pretty">
             Моей целью является помощь ученикам в достижении своих языковых
             целей, будь то повышение уровня разговорной речи, подготовка к
             экзаменам или обогащение словарного запаса.
           </p>
-          <p className="p-fade-in animate-p-fade-in">
+          <p className="p-fade-in animate-p-fade-in text-pretty">
             Моя методика преподавания основана на индивидуальном подходе к
             каждому ученику. Я стремлюсь создать комфортную и дружелюбную
             атмосферу на занятиях, где ученики могут свободно выражать свои

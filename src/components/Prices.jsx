@@ -94,10 +94,10 @@ const Prices = () => {
                         tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)]
                         desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)]"
         >
-          <p className="p-fade-in animate-p-fade-in">
+          <p className="p-fade-in animate-p-fade-in text-pretty">
             Подбери план и стоимость, которые наиболее подходят тебе.
           </p>
-          <p className="p-fade-in animate-p-fade-in">
+          <p className="p-fade-in animate-p-fade-in text-pretty">
             Или свяжись со мной, и мы вместе определимся с программой.
           </p>
         </div>
