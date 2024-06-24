@@ -1,9 +1,10 @@
+import propTypes from 'prop-types';
 import Stat from './Stat';
 import HeroPhotoCard from './HeroPhotoCard';
 import Badge from './Badge';
 import hand from '../assets/icons/hand.svg';
 
-const HeroPhotoCardBlock = () => {
+const HeroPhotoCardBlock = ({ width }) => {
   return (
     <div
       className="flex animate-hero-foto-fade-in items-center justify-between
@@ -44,18 +45,33 @@ const HeroPhotoCardBlock = () => {
             className="absolute -left-[20px] top-[126px] animate-waving-badge-3
                           tablet:top-[260px]"
           >
-            <Badge
-              alt="The hand icon with wavy animation"
-              text="Hi"
-              icon={hand}
-              isReversed
-              isAnimated
-            />
+            {width < 577 ? (
+              <Badge
+                alt="The hand icon with wavy animation"
+                text="Hi"
+                icon={hand}
+                isReversed
+                isAnimated
+              />
+            ) : (
+              <Badge
+                alt="The hand icon with wavy animation"
+                text="Hi"
+                icon={hand}
+                isReversed
+                isAnimated
+                size="large"
+              />
+            )}
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+HeroPhotoCardBlock.propTypes = {
+  width: propTypes.string,
 };
 
 export default HeroPhotoCardBlock;

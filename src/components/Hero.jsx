@@ -21,7 +21,7 @@ const Hero = ({ width }) => {
                       tablet:gap-[var(--2xl)]
                       desktop:flex-row-reverse desktop:items-center desktop:justify-between desktop:gap-[var(--xl)]"
       >
-        <HeroPhotoCardBlock />
+        <HeroPhotoCardBlock width={width} />
         <HeroTextBlock />
       </article>
       <article

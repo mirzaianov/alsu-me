@@ -10,7 +10,9 @@ const Badge = ({
   isAnimated = false,
 }) => {
   const isLarge =
-    size === 'large' ? 'h-[52px] text-body-l' : 'h-[var(--xl)] text-body';
+    size === 'large'
+      ? 'h-[52px] text-body-l gap-[var(--s)]'
+      : 'h-[var(--xl)] text-body gap-[var(--xs)]';
 
   const isType = () => {
     switch (type) {
@@ -31,11 +33,11 @@ const Badge = ({
 
   return (
     <div
-      className={`flex w-fit cursor-default content-center justify-center gap-[var(--xs)] rounded-lg px-[var(--s)] py-[var(--xs)] text-body font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
+      className={`flex w-fit cursor-default items-center justify-center  rounded-lg px-[var(--s)] py-[var(--xs)] text-body font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
       style={{}}
     >
       <img
-        className={`${isAnimated ? 'animate-waving-hand' : ''} h-[var(--s)] self-center`}
+        className={`${isAnimated ? 'animate-waving-hand' : ''} ${size === 'large' ? 'h-[var(--m)]' : 'h-[var(--s)] self-center'}`}
         src={icon}
         alt={alt}
       />
