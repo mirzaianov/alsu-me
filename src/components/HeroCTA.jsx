@@ -18,15 +18,15 @@ const HeroCTA = ({ size = '', link = '', ariaLabel, text }) => {
         <span className="relative z-10 text-text-0">{text}</span>
         <div
           className="animate-shape-1  absolute inset-0 m-auto size-20 rounded-full bg-primary-30 blur
-                        desktop:size-24"
+                        desktop:size-28"
         ></div>
         <div
           className="animate-shape-2 absolute inset-0 m-auto size-20 rounded-full bg-primary-20 blur
-                        desktop:size-24"
+                        desktop:size-28"
         ></div>
         <div
           className="animate-shape-3 absolute inset-0 m-auto size-20 translate-x-[75%] translate-y-[15%] rounded-full bg-primary-10 blur
-                        desktop:size-24"
+                        desktop:size-28"
         ></div>
       </div>
 
