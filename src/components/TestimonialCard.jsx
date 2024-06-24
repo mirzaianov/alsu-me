@@ -67,7 +67,7 @@ const TestimonialCard = ({
       {isClamped && (
         <button
           aria-label="Читать далее"
-          className="mt-auto text-left text-body-bold"
+          className="mt-auto text-left text-body-bold hover:opacity-70"
           onClick={handleModalOpen}
           type="button"
         >
