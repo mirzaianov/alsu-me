@@ -71,7 +71,7 @@ const HeroPhotoCardBlock = ({ width }) => {
 };
 
 HeroPhotoCardBlock.propTypes = {
-  width: propTypes.string,
+  width: propTypes.number.isRequired,
 };
 
 export default HeroPhotoCardBlock;
