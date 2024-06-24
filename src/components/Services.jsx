@@ -45,7 +45,7 @@ const Services = () => {
                   desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--3xl)] desktop:px-[var(--3xl)]"
     >
       <h2
-        className="text-heading-s
+        className="text-balance text-heading-s
                     tablet:text-heading-m
                     desktop:text-heading-l"
       >

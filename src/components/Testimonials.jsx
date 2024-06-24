@@ -10,7 +10,7 @@ const Testimonials = () => {
                 desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
     >
       <h2
-        className="text-center text-heading-s
+        className="text-balance text-center text-heading-s
                     tablet:text-heading-m
                     desktop:text-heading-l"
       >
