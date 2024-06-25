@@ -136,7 +136,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
           >
             <a
               aria-label={`Go to the ${item[0]} section`}
-              className={`relative inline-block hover:text-text-90/50 ${activeLink === item[0] ? 'active' : ''}`}
+              className={`relative inline-block transition duration-300 ease-in-out hover:text-text-90/50 ${activeLink === item[0] ? 'active' : ''}`}
               href={`#${item[0]}`}
             >
               {item[1]}
