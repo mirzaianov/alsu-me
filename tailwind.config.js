@@ -110,6 +110,10 @@ export default {
           '0%': { transform: 'translateX(-100px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
+        heroBg: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         pFadeIn: {
           '0%': { transform: 'translateY(80px)', opacity: '0' },
           '100%': { transform: 'none', opacity: '1' },
@@ -232,6 +236,7 @@ export default {
         'logos-fade-in': 'logosFadeIn 0.5s 0.2s ease-in both',
         'hero-foto-fade-in': 'heroFotoFadeIn 0.5s ease-in backwards',
         'hero-text-fade-in': 'heroTextFadeIn 0.5s ease-in backwards',
+        'hero-bg': 'heroBg 0.5s 0.2s ease-in backwards',
         //
         'waving-hand': 'wavingHand 4s linear infinite',
         'waving-badge-3': 'wavindBadge 3s linear infinite',

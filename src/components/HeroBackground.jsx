@@ -1,6 +1,6 @@
 const HeroBackground = () => {
   return (
-    <div className="absolute inset-0 -z-10">
+    <div className="animate-hero-bg absolute inset-0 -z-10">
       <div
         className="absolute -right-[16px] -top-[80px] size-[200px] animate-blob rounded-full bg-primary-20 mix-blend-multiply blur-[75px] filter tablet:-right-[140px]
                            tablet:-top-[104px] tablet:size-[400px] tablet:animate-blob-tablet tablet:blur-[150px]
