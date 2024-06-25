@@ -14,13 +14,18 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
   const [activeLink, setActiveLink] = useState('');
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
-        }
-      });
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      },
+    );
 
     items.forEach((item) => {
       const section = document.getElementById(item[0]);
