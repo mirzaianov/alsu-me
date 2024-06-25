@@ -197,16 +197,16 @@ export default {
           '100%': { transform: 'none' },
         },
         shape1: {
-          '0%, 100%': { transform: 'translate(-60%, 0%) scale(1)' },
-          '50%': { transform: 'translate(-75%, -7.5%) scale(1.1)' },
+          '0%, 100%': { transform: 'translate(-80%, -50%) scale(1)' },
+          '50%': { transform: 'translate(-70%, -30%) scale(1.1)' },
         },
         shape2: {
-          '0%, 100%': { transform: 'translate(10%, 0%) scale(1)' },
-          '50%': { transform: 'translate(0%, -5%) scale(1.1)' },
+          '0%, 100%': { transform: 'translate(5%, 5%) scale(1.1)' },
+          '50%': { transform: 'translate(5%, -5%) scale(1.2)' },
         },
         shape3: {
-          '0%, 100%': { transform: 'translate(70%, 5%) scale(1)' },
-          '50%': { transform: 'translate(90%, 10%) scale(1.1)' },
+          '0%, 100%': { transform: 'translate(100%, 50%) scale(1)' },
+          '50%': { transform: 'translate(80%, 40%) scale(1.1)' },
         },
       },
       animation: {
