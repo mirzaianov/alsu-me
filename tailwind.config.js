@@ -228,10 +228,10 @@ export default {
         'slide-words-tablet': 'slideWordsTablet 20s linear infinite',
         'slide-words-desktop': 'slideWordsDesktop 20s linear infinite',
         //
-        'header-fade-in': 'headerFadeIn 0.7s 0.3s ease-in backwards',
-        'logos-fade-in': 'logosFadeIn 0.7s 0.3s ease-in both',
-        'hero-foto-fade-in': 'heroFotoFadeIn 0.5s 0.3s ease-in backwards',
-        'hero-text-fade-in': 'heroTextFadeIn 0.5s 0.3s ease-in backwards',
+        'header-fade-in': 'headerFadeIn 0.5s 0.2s ease-in backwards',
+        'logos-fade-in': 'logosFadeIn 0.5s 0.2s ease-in both',
+        'hero-foto-fade-in': 'heroFotoFadeIn 0.5s ease-in backwards',
+        'hero-text-fade-in': 'heroTextFadeIn 0.5s ease-in backwards',
         //
         'waving-hand': 'wavingHand 4s linear infinite',
         'waving-badge-3': 'wavindBadge 3s linear infinite',
