@@ -10,7 +10,6 @@
 }
 
 body {
-  /* min-height: 100dvh; */
   background-color: hsla(0, 0%, 100%, 1);
   font-family: 'Inter', sans-serif;
   color: hsla(219, 40%, 11%, 1);
@@ -21,15 +20,6 @@ body {
 section {
   scroll-margin-top: var(--xl);
 }
-
-/* button:hover svg path {
-  opacity: 0.7;
-  transition: all ease 0.3s;
-}
-
-button svg path {
-  transition: all ease 0.3s;
-} */
 
 @layer utilities {
   .clip-path-hero {

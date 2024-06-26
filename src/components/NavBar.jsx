@@ -130,7 +130,7 @@ const Navbar = ({ type = '', setIsDropdownOpen, isDropdownOpen }) => {
         {items.map((item) => (
           <li
             style={{ ...LIstyle, gridArea: item[0] }}
-            id={`navbar-${item[0]}`}
+            id={`navbar-${type}-${item[0]}`}
             key={item[0]}
             onClick={() => handleClick(item[0])}
           >
