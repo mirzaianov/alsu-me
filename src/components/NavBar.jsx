@@ -18,7 +18,6 @@ const Navbar = ({ type, setIsDropdownOpen, isDropdownOpen }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(entry.target.id);
             setActiveLink(entry.target.id);
           }
         });

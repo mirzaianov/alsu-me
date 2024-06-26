@@ -1,14 +1,13 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-
-const LazyAbout = lazy(() => import('./components/About'));
-const LazyBackToTopButton = lazy(() => import('./components/BackToTopButton'));
-const LazyContacts = lazy(() => import('./components/Contacts'));
-const LazyFooter = lazy(() => import('./components/Footer'));
-const LazyPrices = lazy(() => import('./components/Prices'));
-const LazyServices = lazy(() => import('./components/Services'));
-const LazyTestimonials = lazy(() => import('./components/Testimonials'));
+import About from './components/About';
+import Services from './components/Services';
+import Prices from './components/Prices';
+import Testimonials from './components/Testimonials';
+import Contacts from './components/Contacts';
+import Footer from './components/Footer';
+import BackToTopButton from './components/BackToTopButton';
 
 const App = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -33,15 +32,13 @@ const App = () => {
     >
       <Header width={windowWidth} />
       <Hero width={windowWidth} />
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyAbout width={windowWidth} />
-        <LazyServices />
-        <LazyPrices />
-        <LazyTestimonials />
-        <LazyContacts width={windowWidth} />
-        <LazyFooter width={windowWidth} />
-        <LazyBackToTopButton width={windowWidth} />
-      </Suspense>
+      <About width={windowWidth} />
+      <Services />
+      <Prices />
+      <Testimonials />
+      <Contacts width={windowWidth} />
+      <Footer width={windowWidth} />
+      <BackToTopButton width={windowWidth} />
     </div>
   );
 };
