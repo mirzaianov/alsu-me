@@ -65,7 +65,9 @@ const Header = ({ width }) => {
         <div className="-mt-1 flex items-center justify-center tablet:ml-2">
           <BrandLogo />
         </div>
-        {width < 1061 ? <NavBar /> : <NavBar type="inline" />}
+        <div className="flex w-fit grow items-center justify-center">
+          {width < 1061 ? '' : <NavBar type="inline" />}
+        </div>
         <div
           className="flex items-center justify-center tablet:mr-2"
           ref={buttonRef}
