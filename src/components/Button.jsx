@@ -14,8 +14,8 @@ const Button = ({
     icon === 'true' ? 'min-w-[160px] desktop:min-w-[220px]' : 'w-fit';
   const isLarge =
     size === 'large'
-      ? 'h-[52px] px-[var(--m)] text-button-l gap-[var(--s)]'
-      : 'h-[var(--xl)] px-[var(--s)] text-button gap-[var(--xs)]';
+      ? 'h-[52px] px-[var(--m)] text-button-l gap-[var(--s)] rounded-xl'
+      : 'h-[var(--xl)] px-[var(--s)] text-button gap-[var(--xs)] rounded-lg';
 
   const isType = () => {
     switch (type) {
@@ -49,7 +49,7 @@ const Button = ({
   return (
     <button
       aria-label={ariaLabel}
-      className={`group flex items-center justify-center rounded-lg py-[var(--xs)] tracking-[0.05em] transition duration-300 active:-translate-y-1 ${isLarge} ${isIcon} ${isType()} w-fit`}
+      className={`group flex items-center justify-center py-[var(--xs)] tracking-[0.05em] transition duration-300 active:-translate-y-1 ${isLarge} ${isIcon} ${isType()} w-fit`}
       type="button"
       onClick={handleClick}
     >

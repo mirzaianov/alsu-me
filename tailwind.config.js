@@ -208,6 +208,14 @@ export default {
           '0%, 100%': { transform: 'translate(100%, 50%) scale(1)' },
           '50%': { transform: 'translate(80%, 40%) scale(1.1)' },
         },
+        ctaRotate: {
+          '0%': { transform: 'none' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        ctaBounce: {
+          '0%, 100%': { transform: 'none' },
+          '50%': { transform: 'translateX(15%)' },
+        },
       },
       animation: {
         //
@@ -274,6 +282,8 @@ export default {
         'shape-1': 'shape1 5s ease-in-out infinite both',
         'shape-2': 'shape2 5s ease-in-out infinite both',
         'shape-3': 'shape3 5s 1.5s ease-in-out infinite both',
+        //
+        cta: 'ctaRotate 500ms ease-out backwards, ctaBounce 1500ms 500ms linear infinite',
       },
       lineClamp: {
         7: '7',

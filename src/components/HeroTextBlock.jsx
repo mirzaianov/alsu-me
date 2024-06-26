@@ -4,8 +4,8 @@ const HeroTextBlock = () => {
   return (
     <div
       className="flex animate-hero-text-fade-in flex-col items-center justify-between gap-[var(--m)] text-center
-                     tablet:gap-[var(--2xl)]
-                     desktop:items-start desktop:text-start"
+                     tablet:gap-[var(--xl)]
+                     desktop:items-start desktop:gap-[var(--2xl)] desktop:text-start"
     >
       <h1
         className="flex flex-col items-center justify-start text-heading-s
