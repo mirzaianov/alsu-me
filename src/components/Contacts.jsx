@@ -22,8 +22,8 @@ const Contacts = ({ width }) => {
       </h2>
       <article
         className="relative flex flex-col justify-start gap-[var(--l)]
-                  tablet:w-full tablet:flex-row tablet:justify-between tablet:gap-[var(--l)]
-                  desktop:max-w-[800px] desktop:gap-[var(--m)]"
+                  tablet:gap-[var(--xl)]
+                  desktop:w-full desktop:max-w-[800px] desktop:flex-row desktop:justify-between desktop:gap-[var(--m)]"
       >
         <img
           className="ml-8 h-[var(--img-size-mobile)]

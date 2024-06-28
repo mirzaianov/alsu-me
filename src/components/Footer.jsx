@@ -7,9 +7,9 @@ const Footer = ({ width }) => {
   return (
     <footer
       id="footer"
-      className="m-[var(--xl)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)]
-                 tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                 desktop:max-w-[var(--l-end)]"
+      className="my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)]
+                 tablet:my-[var(--tablet-y-margin)] tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
+                 desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--l-end)]"
     >
       <article
         className="flex flex-col items-start gap-[var(--l)]
@@ -19,7 +19,7 @@ const Footer = ({ width }) => {
         <BrandLogo />
         <div
           className="flex flex-col justify-start gap-[var(--l)]
-                          desktop:w-full desktop:flex-row desktop:justify-between"
+                     desktop:grow desktop:flex-row desktop:justify-between"
         >
           <div className="flex flex-col justify-start gap-[var(--s)]">
             <p className="text-heading-s">Алсу Каримова</p>
