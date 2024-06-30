@@ -44,6 +44,22 @@ const TestimonialCard = ({
     document.body.style.overflow = '';
   };
 
+  const closeOnEscape = (e) => {
+    if (e.code === 'Escape') {
+      handleModalClose();
+    }
+  };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.addEventListener('keydown', closeOnEscape);
+    }
+
+    return () => {
+      document.body.removeEventListener('keydown', closeOnEscape);
+    };
+  });
+
   return (
     <div className="relative flex h-[400px] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]">
       <div className="min-h-[64px]">

@@ -22,12 +22,23 @@ const Header = ({ width }) => {
     [buttonRef],
   );
 
+  const closeOnEscape = (e) => {
+    if (e.code === 'Escape') {
+      setIsDropdownOpen(false);
+    }
+  };
+
   useEffect(() => {
     if (isDropdownOpen) {
+      document.body.addEventListener('keydown', closeOnEscape);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
+
+    return () => {
+      document.body.removeEventListener('keydown', closeOnEscape);
+    };
   }, [isDropdownOpen]);
 
   useEffect(() => {
