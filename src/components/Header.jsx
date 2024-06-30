@@ -23,6 +23,14 @@ const Header = ({ width }) => {
   );
 
   useEffect(() => {
+    if (isDropdownOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isDropdownOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const infiniteLogosSection = document.getElementById('infinite-logos');
 

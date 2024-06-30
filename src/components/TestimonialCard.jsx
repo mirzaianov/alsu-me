@@ -35,11 +35,13 @@ const TestimonialCard = ({
   const handleModalOpen = () => {
     setIsModalOpen(true);
     setIsInfiniteScroll(!isInfiniteScroll);
+    document.body.style.overflow = 'hidden';
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsInfiniteScroll(!isInfiniteScroll);
+    document.body.style.overflow = '';
   };
 
   return (
