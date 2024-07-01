@@ -216,6 +216,10 @@ export default {
           '0%, 100%': { transform: 'none' },
           '50%': { transform: 'translateX(15%)' },
         },
+        modalOpen: {
+          '0%': { transform: 'scale(0.8)' },
+          '100%': { transform: 'none' },
+        },
       },
       animation: {
         //
@@ -284,6 +288,8 @@ export default {
         'shape-3': 'shape3 5s 1.5s ease-in-out infinite both',
         //
         cta: 'ctaRotate 500ms ease-out backwards, ctaBounce 1500ms 500ms linear infinite',
+        //
+        'modal-open': 'modalOpen 0.3s ease-in',
       },
       lineClamp: {
         7: '7',
