@@ -45,6 +45,8 @@ const TestimonialCard = ({
   };
 
   const closeOnEscape = (e) => {
+    e.preventDefault();
+
     if (e.code === 'Escape') {
       handleModalClose();
     }

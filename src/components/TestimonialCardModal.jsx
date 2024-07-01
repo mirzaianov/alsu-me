@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useClickAway } from '@uidotdev/usehooks';
@@ -27,8 +28,8 @@ const TestimonialCardModal = ({ onClose, children }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-90/50">
       <div
         ref={closeRef}
-        className="flex max-h-[calc(100svh-2*var(--s))] max-w-[calc(100vw-2*var(--m))] flex-col justify-start gap-[var(--m)] overflow-y-auto rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]
-                  tablet:max-w-[51ch]"
+        className={`animate-modal-open flex max-h-[calc(100svh-2*var(--s))] max-w-[calc(100vw-2*var(--m))] flex-col justify-start gap-[var(--m)] overflow-y-auto rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]
+                  tablet:max-w-[51ch]`}
       >
         {children}
         <div className="self-end">
@@ -44,6 +45,11 @@ const TestimonialCardModal = ({ onClose, children }) => {
     </div>,
     elRef.current,
   );
+};
+
+TestimonialCardModal.propTypes = {
+  onClose: propTypes.func.isRequired,
+  children: propTypes.node.isRequired,
 };
 
 export default TestimonialCardModal;
