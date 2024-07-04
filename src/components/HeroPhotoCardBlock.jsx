@@ -41,9 +41,9 @@ const HeroPhotoCardBlock = ({ width }) => {
       >
         <div className="relative flex items-center justify-start">
           <HeroPhotoCard />
-          {/* <div
-            className="absolute -left-[20px] top-[126px] animate-waving-badge-3
-                          tablet:top-[260px]"
+          <div
+            className="absolute -left-[20px] bottom-[24px] animate-waving-badge-3
+                          tablet:bottom-[40px]"
           >
             {width < 577 ? (
               <Badge
@@ -63,7 +63,7 @@ const HeroPhotoCardBlock = ({ width }) => {
                 size="large"
               />
             )}
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

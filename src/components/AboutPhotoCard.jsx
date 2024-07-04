@@ -17,7 +17,7 @@ const AboutPhotoCard = () => {
         />
         <img
           className="group-hover:scale-140 absolute -bottom-[32px] -left-[8px] z-10 scale-[1.1] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
-                     tablet:-bottom-[64px] tablet:-left-[16px] tablet:scale-[1.15]"
+                     tablet:-bottom-[40px] tablet:-left-[16px] tablet:scale-[1]"
           src={alsuAbout}
           srcSet={`
                    ${alsuAbout} 577w,

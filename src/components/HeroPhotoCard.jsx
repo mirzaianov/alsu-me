@@ -6,21 +6,30 @@ const HeroPhotoCard = () => {
     // Container
     <div className="group relative w-[185px] tablet:w-[330px]">
       {/* Inner Container */}
-      <div className="clip-path-hero tablet:clip-path-hero-tablet relative flex h-[210px] items-end overflow-hidden transition-transform duration-300 ease-in-out hover:scale-[1.1] tablet:h-[380px]">
+      <div className="relative flex h-[210px] items-end transition-transform duration-300 ease-in-out hover:scale-[1.1] tablet:h-[380px]">
         {/* Border */}
-        <div className="absolute bottom-[14px] left-[3px] aspect-square w-[var(--img-size-mobile)] -rotate-[2.5deg] rounded-[var(--s)] border-2 border-[var(--neutral-90)] tablet:bottom-[22px] tablet:left-[6px] tablet:w-[var(--img-size-tablet)]" />
-        {/* Color */}
-        <div className="absolute bottom-[3px] right-[3px] aspect-square w-[var(--img-size-mobile)] rotate-[2.5deg] rounded-[var(--s)] bg-primary-50 tablet:bottom-[6px] tablet:right-[6px] tablet:w-[var(--img-size-tablet)]" />
-        <img
-          className="group-hover:scale-140 absolute -bottom-[10px] left-[12px] z-10 scale-[1.6] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
-                     tablet:-bottom-[20px] tablet:left-[24px]"
-          src={alsuHero}
-          srcSet={`
-                   ${alsuHero} 577w,
-                   ${alsuHeroTablet}
-                 `}
-          alt="Alsu in a formal office suit smiling"
-        />
+        <div className="absolute bottom-[10px] left-[3px] aspect-square w-[var(--img-size-mobile)] -rotate-[2.5deg] rounded-[var(--s)] border-2 border-[var(--neutral-90)] tablet:bottom-[20px] tablet:left-[10px] tablet:w-[var(--img-size-tablet)]" />
+        {/* Mask */}
+        <div
+          className="absolute bottom-0 right-0 h-[210px] w-[var(--img-size-mobile)] rotate-[2.5deg] overflow-hidden rounded-[var(--s)]
+                     tablet:h-[380px] tablet:w-[var(--img-size-tablet)]"
+        >
+          {/* Color */}
+          <div
+            className="absolute bottom-0 right-0 aspect-square w-[var(--img-size-mobile)] rounded-[var(--s)] bg-primary-50
+                          tablet:w-[var(--img-size-tablet)]"
+          />
+          <img
+            className="group-hover:scale-140 absolute -bottom-[10px] left-[8px] z-10 -rotate-[2.5deg] scale-[1.8] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
+                       tablet:bottom-[0px] tablet:left-[16px]"
+            src={alsuHero}
+            srcSet={`
+                     ${alsuHero} 577w,
+                     ${alsuHeroTablet}
+                   `}
+            alt="Alsu in a formal office suit smiling"
+          />
+        </div>
       </div>
     </div>
   );

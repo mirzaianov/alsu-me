@@ -32,7 +32,7 @@ const About = ({ width }) => {
           <AboutPhotoCard />
           <div
             className="absolute -left-[30px] bottom-[8px] flex size-12 animate-waving-badge-3 items-center justify-center rounded-full bg-secondary-25 p-3 shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]
-                       tablet:-left-[40px] tablet:bottom-[24px] tablet:size-16"
+                       tablet:-left-[40px] tablet:bottom-[40px] tablet:size-16"
           >
             <img
               className="h-full"
