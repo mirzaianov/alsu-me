@@ -42,7 +42,7 @@ const HeroPhotoCardBlock = ({ width }) => {
         <div className="relative flex items-center justify-start">
           <HeroPhotoCard />
           <div
-            className="absolute -left-[20px] bottom-[24px] animate-waving-badge-3
+            className="absolute -left-[32px] bottom-[24px] animate-waving-badge-3
                           tablet:bottom-[40px]"
           >
             {width < 577 ? (
