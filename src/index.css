@@ -22,30 +22,6 @@ section {
 }
 
 @layer utilities {
-  .clip-path-hero {
-    clip-path: path(
-      'M 0 0 L 185 0 L 185 56.8293 L 178.9653 194.6979 Q 178.2007 210.6827 162.2826 209.9848 L 162.2826 209.9848 L 24.414 203.9653 Q 6.7848 203.1956 6.0347 186.0152 L 0 48.1466 Z'
-    );
-  }
-
-  .clip-path-hero-tablet {
-    clip-path: path(
-      'M 0 0 L 330 0 L 330 96.968 L 318.31 364.713 Q 317.612 380.698 301.627 380 L 301.627 380 L 26.977 368.009 Q 12.33 367.369 11.69 352.722 L 0 84.977 Z'
-    );
-  }
-
-  .clip-path-about {
-    clip-path: path(
-      'M 0 16 Q 0 0 16 0 L 154 0 Q 170 0 170 16 L 170 194 Q 170 210 154 210 L 16 210 Q 0 210 0 194'
-    );
-  }
-
-  .clip-path-about-tablet {
-    clip-path: path(
-      'M 0 16 Q 0 0 16 0 L 284 0 Q 300 0 300 16 L 300 344 Q 300 360 284 360 L 16 360 Q 0 360 0 344'
-    );
-  }
-
   .pause {
     animation-play-state: paused;
   }
@@ -74,44 +50,44 @@ section {
     animation-range-start: 10%;
     animation-range-end: 40%;
   }
-}
 
-.ham {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 400ms;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+  .ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-.hamRotate.active {
-  transform: rotate(45deg);
-}
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
 
-.line {
-  fill: none;
-  transition:
-    stroke-dasharray 400ms,
-    stroke-dashoffset 400ms;
-  stroke: hsla(234, 86%, 57%, 1);
-  stroke-width: 5.5;
-  stroke-linecap: round;
-}
+  .line {
+    fill: none;
+    transition:
+      stroke-dasharray 400ms,
+      stroke-dashoffset 400ms;
+    stroke: hsla(234, 86%, 57%, 1);
+    stroke-width: 5.5;
+    stroke-linecap: round;
+  }
 
-.ham4 .top {
-  stroke-dasharray: 40 121;
-}
+  .ham4 .top {
+    stroke-dasharray: 40 121;
+  }
 
-.ham4 .bottom {
-  stroke-dasharray: 40 121;
-}
+  .ham4 .bottom {
+    stroke-dasharray: 40 121;
+  }
 
-.ham4.active .top {
-  stroke-dashoffset: -68px;
-}
+  .ham4.active .top {
+    stroke-dashoffset: -68px;
+  }
 
-.ham4.active .bottom {
-  stroke-dashoffset: -68px;
+  .ham4.active .bottom {
+    stroke-dashoffset: -68px;
+  }
 }

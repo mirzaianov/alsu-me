@@ -16,14 +16,14 @@ const AboutPhotoCard = () => {
                       tablet:size-[var(--img-size-tablet)]"
         />
         <img
-          className="group-hover:scale-140 absolute bottom-[0px] left-[3px] z-10 scale-[1.7] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
-                     tablet:bottom-[0px] tablet:left-[6px]"
+          className="group-hover:scale-140 absolute -bottom-[32px] -left-[8px] z-10 scale-[1.1] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5
+                     tablet:-bottom-[40px] tablet:-left-[16px] tablet:scale-[1]"
           src={alsuAbout}
           srcSet={`
                    ${alsuAbout} 577w,
                    ${alsuAboutTablet}
                  `}
-          alt="Alsu in a formal office suit smiling"
+          alt="Alsu in a formal office suit"
         />
       </div>
     </div>
