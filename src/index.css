@@ -26,6 +26,17 @@ section {
     animation-play-state: paused;
   }
 
+  .note-container {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    background: none;
+  }
+
+  .backface {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
   .p-fade-in {
     animation-timeline: view();
     animation-range-start: entry 120px;

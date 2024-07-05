@@ -58,16 +58,16 @@ const HeroTextBlock = () => {
         </div>
         {/* notes */}
         <div
-          className="relative flex h-[100px] w-[288px] items-center justify-center
-                        desktop:h-[137px] desktop:w-[365px]"
+          className="note-container relative flex h-[100px] w-[288px] items-center justify-center
+                     desktop:h-[137px] desktop:w-[366px]"
         >
-          <div className="absolute animate-rotate-first-note [backface-visibility:hidden]">
+          <div className="backface absolute animate-rotate-first-note">
             <Note type="translator">
               Научу тебя понимать и говорить на английском языке, подобрав
               индивидуальную программу
             </Note>
           </div>
-          <div className="absolute animate-rotate-second-note [backface-visibility:hidden]">
+          <div className="backface absolute animate-rotate-second-note">
             <Note>
               Помогу твоему бизнесу с устным и письменным переводом, тренингом
               сотрудников
