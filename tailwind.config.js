@@ -220,6 +220,10 @@ export default {
           '0%': { transform: 'scale(0.8)' },
           '100%': { transform: 'none' },
         },
+        modalBgOpen: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         //
@@ -290,6 +294,7 @@ export default {
         cta: 'ctaRotate 500ms ease-out backwards, ctaBounce 1500ms 500ms linear infinite',
         //
         'modal-open': 'modalOpen 0.3s ease-in',
+        'modal-bg-open': 'modalBgOpen 0.3s ease-in',
       },
       lineClamp: {
         7: '7',
