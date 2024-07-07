@@ -50,20 +50,20 @@ export default {
           '98%': { 'margin-top': '0px' },
           '100%': { 'margin-top': '0px' },
         },
-        rotateFirstNote: {
-          '0%': { transform: 'perspective(1000px) rotateX(0deg)' },
-          '45%': { transform: 'perspective(1000px) rotateX(0deg)' },
-          '50%': { transform: 'perspective(1000px) rotateX(-180deg)' },
-          '95%': { transform: 'perspective(1000px) rotateX(-180deg)' },
-          '100%': { transform: 'perspective(1000px) rotateX(-360deg)' },
-        },
-        rotateSecondNote: {
-          '0%': { transform: 'perspective(1000px) rotateX(180deg)' },
-          '45%': { transform: 'perspective(1000px) rotateX(180deg)' },
-          '50%': { transform: 'perspective(1000px) rotateX(0deg)' },
-          '95%': { transform: 'perspective(1000px) rotateX(0deg)' },
-          '100%': { transform: 'perspective(1000px) rotateX(-180deg)' },
-        },
+        // rotateFirstNote: {
+        //   '0%': { transform: 'perspective(1000px) rotateX(0deg)' },
+        //   '45%': { transform: 'perspective(1000px) rotateX(0deg)' },
+        //   '50%': { transform: 'perspective(1000px) rotateX(-180deg)' },
+        //   '95%': { transform: 'perspective(1000px) rotateX(-180deg)' },
+        //   '100%': { transform: 'perspective(1000px) rotateX(-360deg)' },
+        // },
+        // rotateSecondNote: {
+        //   '0%': { transform: 'perspective(1000px) rotateX(180deg)' },
+        //   '45%': { transform: 'perspective(1000px) rotateX(180deg)' },
+        //   '50%': { transform: 'perspective(1000px) rotateX(0deg)' },
+        //   '95%': { transform: 'perspective(1000px) rotateX(0deg)' },
+        //   '100%': { transform: 'perspective(1000px) rotateX(-180deg)' },
+        // },
         wavingHand: {
           '0%': { transform: 'scale(1) rotate(0deg)' },
           '10%': { transform: 'rotate(14.0deg)' },
@@ -258,8 +258,8 @@ export default {
         'waving-badge-3': 'wavindBadge 3s linear infinite',
         'waving-badge-4': 'wavindBadge 4s linear infinite',
         //
-        'rotate-first-note': 'rotateFirstNote 20s infinite',
-        'rotate-second-note': 'rotateSecondNote 20s infinite',
+        // 'rotate-first-note': 'rotateFirstNote 20s infinite',
+        // 'rotate-second-note': 'rotateSecondNote 20s infinite',
         //
         'p-fade-in': 'pFadeIn linear both',
         //
