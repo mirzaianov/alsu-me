@@ -20,21 +20,21 @@ const HeroTextBlock = () => {
         >
           <div
             className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px]
-                          tablet:animate-slide-words-tablet tablet:px-5 desktop:mb-[70px]
+                          tablet:animate-slide-words-tablet tablet:rounded-lg tablet:px-5 desktop:mb-[70px]
                           desktop:animate-slide-words-desktop desktop:rounded-xl desktop:px-6"
           >
             преподавателя
           </div>
           <div
             className="mb-[36px] w-fit rounded-md bg-primary-30 px-3
-                          tablet:mb-[50px] tablet:px-5
+                          tablet:mb-[50px] tablet:rounded-lg tablet:px-5
                           desktop:mb-[70px] desktop:rounded-xl desktop:px-6"
           >
             переводчика
           </div>
           <div
             className="mb-[36px] w-fit rounded-md bg-primary-30 px-3
-                          tablet:mb-[50px] tablet:px-5
+                          tablet:mb-[50px] tablet:rounded-lg tablet:px-5
                           desktop:mb-[70px] desktop:rounded-xl desktop:px-6"
           >
             преподавателя
