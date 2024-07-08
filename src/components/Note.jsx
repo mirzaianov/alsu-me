@@ -5,7 +5,7 @@ const Note = ({ type, children }) => {
 
   return (
     <div
-      className={`block rounded-[var(--s)] p-[var(--xs)] text-center shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] desktop:p-[var(--s)] desktop:text-body-l ${role}`}
+      className={`block rounded-[var(--s)] p-[var(--xs)] text-center desktop:p-[var(--s)] desktop:text-body-l ${role}`}
     >
       {children}
     </div>
