@@ -62,8 +62,8 @@ const HeroTextBlock = () => {
                      desktop:h-[137px] desktop:w-[366px] desktop:items-start"
         >
           <div
-            className="animate-slide-notes desktop:animate-slide-notes-desktop mb-[50px]
-                          w-fit desktop:mb-[70px]"
+            className="animate-slide-notes desktop:animate-slide-notes-desktop mb-[100px]
+                          w-fit desktop:mb-[137px]"
           >
             <Note type="translator">
               Научу тебя понимать и говорить на английском языке, подобрав
@@ -71,8 +71,8 @@ const HeroTextBlock = () => {
             </Note>
           </div>
           <div
-            className="mb-[50px] w-fit
-                      desktop:mb-[70px]"
+            className="mb-[100px] w-fit
+                      desktop:mb-[137px]"
           >
             <Note>
               Помогу твоему бизнесу с устным и письменным переводом, тренингом
@@ -80,8 +80,8 @@ const HeroTextBlock = () => {
             </Note>
           </div>
           <div
-            className="mb-[50px] w-fit
-                       desktop:mb-[70px]"
+            className="mb-[100px] w-fit
+                       desktop:mb-[137px]"
           >
             <Note type="translator">
               Научу тебя понимать и говорить на английском языке, подобрав
