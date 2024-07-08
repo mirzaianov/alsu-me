@@ -86,7 +86,7 @@ const testimonialCardData = [
 const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
   return (
     <div
-      className={`group-hover:pause inline-block w-max animate-testimonials ${isInfiniteScroll ? '' : 'pause'}`}
+      className={`inline-block w-max animate-testimonials ${isInfiniteScroll ? '' : 'pause'}`}
     >
       {testimonialCardData.map((item, index) => (
         <div
