@@ -22,24 +22,32 @@ section {
 }
 
 @layer utilities {
+  .translate-z-8 {
+    transform: translateZ(8px);
+  }
+
+  .translate-z-1 {
+    transform: translateZ(0.1px);
+  }
+
   .pause {
     animation-play-state: paused;
   }
 
-  .note-container {
+  .preserve-3d {
     transform-style: preserve-3d;
   }
 
-  .backface {
+  .backface-hidden {
     backface-visibility: hidden;
   }
 
   .rotate-first-note {
-    animation: rotateFirstNote 20s infinite linear both;
+    animation: rotateFirstNote 20s infinite linear;
   }
 
   .rotate-second-note {
-    animation: rotateSecondNote 20s infinite linear both;
+    animation: rotateSecondNote 20s infinite linear;
   }
 
   .p-fade-in {
@@ -107,46 +115,46 @@ section {
   @keyframes rotateFirstNote {
     0% {
       transform: perspective(1000px) rotateX(0turn);
-      z-index: 1;
+      /* z-index: 1; */
     }
     45% {
       transform: perspective(1000px) rotateX(0turn);
-      z-index: 1;
+      /* z-index: 1; */
     }
     50% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      /* z-index: 0; */
     }
     95% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      /* z-index: 0; */
     }
     100% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      /* z-index: 1; */
     }
   }
 
   @keyframes rotateSecondNote {
     0% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      /* z-index: 0; */
     }
     45% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      /* z-index: 0; */
     }
     50% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      /* z-index: 1; */
     }
     95% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      /* z-index: 1; */
     }
     100% {
       transform: perspective(1000px) rotateX(-1.5turn);
-      z-index: 0;
+      /* z-index: 0; */
     }
   }
 }

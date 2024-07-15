@@ -19,21 +19,21 @@ const HeroTextBlock = () => {
         <span>английского?</span>
       </h1>
       {/* block */}
-      <div className="flex w-full flex-col items-center justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row desktop:max-w-full desktop:flex-wrap desktop:justify-between desktop:gap-[var(--xl)]">
+      <div className="flex w-full flex-col items-center justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row desktop:max-w-full desktop:flex-wrap desktop:justify-between desktop:gap-[var(--2xl)]">
         {/* greeting */}
         <div className="flex justify-center tablet:flex-col tablet:items-start">
           <span>Привет!&nbsp;</span>
           <span>Меня зовут Алсу</span>
         </div>
         {/* notes */}
-        <div className="note-container relative flex h-[100px] w-[288px] items-center justify-center desktop:h-[137px] desktop:w-[366px]">
-          <div className="backface rotate-first-note absolute">
+        <div className="preserve-3d relative flex h-[100px] w-[288px] items-center justify-center bg-transparent desktop:h-[137px] desktop:w-[366px]">
+          <div className="backface-hidden rotate-first-note preserve-3d absolute inset-0">
             <Note type="translator">
               Научу тебя понимать и говорить на английском языке, подобрав
               индивидуальную программу
             </Note>
           </div>
-          <div className="backface rotate-second-note absolute">
+          <div className="backface-hidden rotate-second-note preserve-3d absolute inset-0">
             <Note>
               Помогу твоему бизнесу с устным и письменным переводом, тренингом
               сотрудников
