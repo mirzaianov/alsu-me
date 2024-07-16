@@ -4,7 +4,7 @@
 
 ## Description
 
-### A personal website of Alsu Karimova - the professional tutor, translator & interpreter
+### A personal website of Alsu Karimova - a professional tutor, translator & interpreter
 
 ### Features
 
