@@ -19,7 +19,7 @@ const HeroTextBlock = () => {
         <span>английского?</span>
       </h1>
       {/* block */}
-      <div className="flex w-full flex-col items-center justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row desktop:max-w-full desktop:flex-wrap desktop:justify-between desktop:gap-[var(--2xl)]">
+      <div className="flex w-full flex-col items-center justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row desktop:max-w-full desktop:flex-wrap desktop:justify-start desktop:gap-[var(--xl)]">
         {/* greeting */}
         <div className="flex justify-center tablet:flex-col tablet:items-start">
           <span>Привет!&nbsp;</span>
