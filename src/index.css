@@ -22,8 +22,32 @@ section {
 }
 
 @layer utilities {
+  .translate-z-8 {
+    transform: translateZ(8px);
+  }
+
+  .translate-z-1 {
+    transform: translateZ(0.1px);
+  }
+
   .pause {
     animation-play-state: paused;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-first-note {
+    animation: rotateFirstNote 20s infinite linear;
+  }
+
+  .rotate-second-note {
+    animation: rotateSecondNote 20s infinite linear;
   }
 
   .p-fade-in {
@@ -55,9 +79,6 @@ section {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: transform 400ms;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 
@@ -89,5 +110,47 @@ section {
 
   .ham4.active .bottom {
     stroke-dashoffset: -68px;
+  }
+
+  @keyframes rotateFirstNote {
+    0% {
+      transform: perspective(1000px) rotateX(0turn);
+    }
+    45% {
+      transform: perspective(1000px) rotateX(0turn);
+    }
+    48% {
+      transform: perspective(1000px) rotateX(-0.5turn);
+    }
+    95% {
+      transform: perspective(1000px) rotateX(-0.5turn);
+    }
+    98% {
+      transform: perspective(1000px) rotateX(-1turn);
+    }
+    100% {
+      transform: perspective(1000px) rotateX(-1turn);
+    }
+  }
+
+  @keyframes rotateSecondNote {
+    0% {
+      transform: perspective(1000px) rotateX(-0.5turn);
+    }
+    45% {
+      transform: perspective(1000px) rotateX(-0.5turn);
+    }
+    48% {
+      transform: perspective(1000px) rotateX(-1turn);
+    }
+    95% {
+      transform: perspective(1000px) rotateX(-1turn);
+    }
+    98% {
+      transform: perspective(1000px) rotateX(-1.5turn);
+    }
+    100% {
+      transform: perspective(1000px) rotateX(-1.5turn);
+    }
   }
 }

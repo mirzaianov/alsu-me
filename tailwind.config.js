@@ -260,9 +260,6 @@ export default {
         'waving-badge-3': 'wavindBadge 3s linear infinite',
         'waving-badge-4': 'wavindBadge 4s linear infinite',
         //
-        'slide-notes': 'slideNotes 20s linear infinite',
-        'slide-notes-desktop': 'slideNotesDesktop 20s linear infinite',
-        //
         'p-fade-in': 'pFadeIn linear both',
         //
         'arrow-bounce': 'arrowBounce 1.5s linear infinite',
