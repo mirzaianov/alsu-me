@@ -6,13 +6,13 @@ const HeroTextBlock = () => {
       <h1 className="flex flex-col items-center justify-start text-heading-s tablet:text-heading-l desktop:items-start desktop:text-heading-xl">
         <span>В поисках идеального</span>
         <div className="flex h-[36px] flex-col items-center overflow-hidden text-text-0 tablet:h-[50px] desktop:h-[70px] desktop:w-full desktop:items-start">
-          <div className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet tablet:px-5 desktop:mb-[70px] desktop:animate-slide-words-desktop desktop:rounded-xl desktop:px-6">
+          <div className="mb-[36px] w-fit animate-slide-words rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:animate-slide-words-tablet tablet:rounded-lg tablet:px-5 desktop:mb-[70px] desktop:animate-slide-words-desktop desktop:rounded-xl desktop:px-6">
             преподавателя
           </div>
-          <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
+          <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:rounded-lg tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
             переводчика
           </div>
-          <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
+          <div className="mb-[36px] w-fit rounded-md bg-primary-30 px-3 tablet:mb-[50px] tablet:rounded-lg tablet:px-5 desktop:mb-[70px] desktop:rounded-xl desktop:px-6">
             преподавателя
           </div>
         </div>
@@ -37,6 +37,15 @@ const HeroTextBlock = () => {
             <Note>
               Помогу твоему бизнесу с устным и письменным переводом, тренингом
               сотрудников
+            </Note>
+          </div>
+          <div
+            className="mb-[100px] w-fit
+                       desktop:mb-[137px]"
+          >
+            <Note type="translator">
+              Научу тебя понимать и говорить на английском языке, подобрав
+              индивидуальную программу
             </Note>
           </div>
         </div>

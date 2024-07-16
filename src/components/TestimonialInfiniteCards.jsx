@@ -5,7 +5,7 @@ const TestimonialInfiniteCards = () => {
   const [isInfiniteScroll, setIsInfiniteScroll] = useState(true);
 
   return (
-    <div className="group relative w-full whitespace-nowrap px-0">
+    <div className="relative w-full whitespace-nowrap px-0">
       <TestimonialCardsRow
         isInfiniteScroll={isInfiniteScroll}
         setIsInfiniteScroll={setIsInfiniteScroll}

@@ -11,7 +11,7 @@ import tempo from '../assets/icons/logos/logo-tempo.svg';
 const HeroInfiniteLogosRow = () => {
   return (
     <div
-      className="group-hover:pause inline-block w-max animate-slides
+      className="inline-block w-max animate-slides
                  tablet:animate-slides-tablet"
     >
       <HeroInfiniteLogo
