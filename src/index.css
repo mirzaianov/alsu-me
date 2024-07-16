@@ -108,16 +108,16 @@ section {
     0% {
       transform: perspective(1000px) rotateX(0turn);
     }
-    45% {
+    42% {
       transform: perspective(1000px) rotateX(0turn);
     }
-    48% {
+    46% {
       transform: perspective(1000px) rotateX(-0.5turn);
     }
-    95% {
+    92% {
       transform: perspective(1000px) rotateX(-0.5turn);
     }
-    98% {
+    96% {
       transform: perspective(1000px) rotateX(-1turn);
     }
     100% {
@@ -129,16 +129,16 @@ section {
     0% {
       transform: perspective(1000px) rotateX(-0.5turn);
     }
-    45% {
+    42% {
       transform: perspective(1000px) rotateX(-0.5turn);
     }
-    48% {
+    46% {
       transform: perspective(1000px) rotateX(-1turn);
     }
-    95% {
+    92% {
       transform: perspective(1000px) rotateX(-1turn);
     }
-    98% {
+    96% {
       transform: perspective(1000px) rotateX(-1.5turn);
     }
     100% {
