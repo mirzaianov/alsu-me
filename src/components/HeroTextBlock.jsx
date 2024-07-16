@@ -19,14 +19,14 @@ const HeroTextBlock = () => {
         <span>английского?</span>
       </h1>
       {/* block */}
-      <div className="flex w-full flex-col items-center justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row desktop:max-w-full desktop:flex-wrap desktop:justify-start desktop:gap-[var(--xl)]">
+      <div className="flex w-full flex-col items-center justify-between gap-[var(--s)] tablet:max-w-[500px] tablet:flex-row desktop:max-w-full desktop:justify-between desktop:gap-[var(--l)]">
         {/* greeting */}
-        <div className="flex justify-center tablet:flex-col tablet:items-start">
+        <div className="desktop:shrink-1 flex justify-center tablet:flex-col tablet:items-start">
           <span>Привет!&nbsp;</span>
-          <span>Меня зовут Алсу</span>
+          <span className="desktop:text-wrap">Меня зовут Алсу</span>
         </div>
         {/* notes */}
-        <div className="preserve-3d relative flex h-[100px] w-[288px] items-center justify-center bg-transparent desktop:h-[137px] desktop:w-[366px]">
+        <div className="preserve-3d relative flex h-[100px] w-[288px] items-center justify-center bg-transparent desktop:h-[137px] desktop:w-[366px] desktop:shrink-0">
           <div className="backface-hidden rotate-first-note preserve-3d absolute inset-0">
             <Note type="translator">
               Научу тебя понимать и говорить на английском языке, подобрав
