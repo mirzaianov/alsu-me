@@ -22,14 +22,6 @@ section {
 }
 
 @layer utilities {
-  .translate-z-8 {
-    transform: translateZ(8px);
-  }
-
-  .translate-z-1 {
-    transform: translateZ(0.1px);
-  }
-
   .pause {
     animation-play-state: paused;
   }

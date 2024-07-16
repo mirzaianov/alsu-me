@@ -39,15 +39,6 @@ const HeroTextBlock = () => {
               сотрудников
             </Note>
           </div>
-          <div
-            className="mb-[100px] w-fit
-                       desktop:mb-[137px]"
-          >
-            <Note type="translator">
-              Научу тебя понимать и говорить на английском языке, подобрав
-              индивидуальную программу
-            </Note>
-          </div>
         </div>
       </div>
     </div>
