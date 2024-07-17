@@ -10,7 +10,7 @@ const AboutPhotoCard = () => {
         {/* Color */}
         <div className="absolute bottom-0 left-0 size-[var(--img-size-mobile)] rounded-[var(--s)] bg-primary-40 tablet:size-[var(--img-size-tablet)]" />
         <img
-          className="group-hover:scale-140 absolute -bottom-[4px] left-[8px] z-10 scale-[1.5] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5 tablet:-bottom-[8px] tablet:left-[16px] tablet:scale-[1.5]"
+          className="group-hover:scale-140 absolute -bottom-[4px] left-[10px] z-10 scale-[1.5] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5 tablet:-bottom-[8px] tablet:left-[18px] tablet:scale-[1.5]"
           src={alsuAbout}
           srcSet={`
                    ${alsuAbout} 577w,
