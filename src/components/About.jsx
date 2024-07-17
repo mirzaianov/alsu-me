@@ -35,21 +35,21 @@ const About = ({ width }) => {
         </article>
         <article className="flex max-w-[var(--mobile-text-wrapper)] flex-col items-center justify-start gap-[var(--l)] tablet:max-w-[var(--tablet-text-wrapper)] tablet:gap-[var(--xl)] desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)] desktop:items-start desktop:gap-[var(--2xl)]">
           <div className="flex flex-col items-start justify-start gap-[var(--m)]">
-            <p className="p-fade-in animate-p-fade-in text-pretty">
+            <p className="p-fade-in animate-p-fade-in">
               Меня зовут Алсу Каримова, и я рада приветствовать тебя на своём
               сайте!
             </p>
-            <p className="p-fade-in animate-p-fade-in text-pretty">
+            <p className="p-fade-in animate-p-fade-in">
               Я дипломированный преподаватель и переводчик английского с опытом
               профессиональной деятельности более 16 лет.
             </p>
-            <p className="p-fade-in animate-p-fade-in text-pretty">
+            <p className="p-fade-in animate-p-fade-in">
               Уровень владения языком - advanced (C1) - подтвержден
               международным сертификатом IELTS. Также имею сертификат TESOL,
               выданный Arizona State University, который позволяет обучать языку
               в любой стране.
             </p>
-            <p className="p-fade-in animate-p-fade-in text-pretty">
+            <p className="p-fade-in animate-p-fade-in">
               Если ты хочешь начать изучение английского с нуля, улучшить свои
               навыки или же заказать устный / письменный перевод - то я с
               нетерпением жду возможности помочь тебе в этом!
