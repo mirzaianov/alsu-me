@@ -1,8 +1,8 @@
 import propTypes from 'prop-types';
 import Button from './Button';
 import AboutPhotoCard from './AboutPhotoCard';
-import rocket from '../assets/img/about/rocket.png';
-import firstPlace from '../assets/img/about/first-place.png';
+import ielts from '../assets/img/about/ielts.svg';
+import tesol from '../assets/img/about/tesol.png';
 
 const telegramLink = import.meta.env.VITE_TELEGRAM;
 
@@ -21,15 +21,15 @@ const About = ({ width }) => {
           <div className="absolute -left-[30px] bottom-[16px] z-10 flex size-12 animate-waving-badge-3 items-center justify-center rounded-full bg-secondary-25 p-3 shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] tablet:-left-[40px] tablet:bottom-[56px] tablet:size-16">
             <img
               className="h-full"
-              src={rocket}
-              alt="Rocket Image"
+              src={ielts}
+              alt="IELTS"
             />
           </div>
           <div className="absolute left-[150px] top-[60px] flex size-12 animate-waving-badge-4 items-center justify-center rounded-full bg-secondary-15 p-2 shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] tablet:left-[280px] tablet:top-[120px] tablet:size-16">
             <img
               className="h-full"
-              src={firstPlace}
-              alt="First Place Image"
+              src={tesol}
+              alt="TESOL"
             />
           </div>
         </article>
