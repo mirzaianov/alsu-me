@@ -36,12 +36,10 @@ section {
   }
 
   .preserve-3d {
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
 
   .backface-hidden {
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
 
@@ -118,54 +116,54 @@ section {
   @keyframes rotateFirstNote {
     0% {
       transform: perspective(1000px) rotateX(0turn);
-      z-index: 1;
+      z-index: 20;
     }
     42% {
       transform: perspective(1000px) rotateX(0turn);
-      z-index: 1;
+      z-index: 20;
     }
     46% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      z-index: 10;
     }
     92% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      z-index: 10;
     }
     96% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      z-index: 20;
     }
     100% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      z-index: 20;
     }
   }
 
   @keyframes rotateSecondNote {
     0% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      z-index: 10;
     }
     42% {
       transform: perspective(1000px) rotateX(-0.5turn);
-      z-index: 0;
+      z-index: 10;
     }
     46% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      z-index: 20;
     }
     92% {
       transform: perspective(1000px) rotateX(-1turn);
-      z-index: 1;
+      z-index: 20;
     }
     96% {
       transform: perspective(1000px) rotateX(-1.5turn);
-      z-index: 0;
+      z-index: 10;
     }
     100% {
       transform: perspective(1000px) rotateX(-1.5turn);
-      z-index: 0;
+      z-index: 10;
     }
   }
 }
