@@ -33,7 +33,7 @@ const Badge = ({
 
   return (
     <div
-      className={`flex w-fit cursor-default items-center justify-center  rounded-lg px-[var(--s)] py-[var(--xs)] text-body font-bold leading-normal tracking-[0.05em] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
+      className={`shadow-primary flex w-fit cursor-default items-center justify-center rounded-lg px-[var(--s)] py-[var(--xs)] text-body font-bold leading-normal tracking-[0.05em] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
       style={{}}
     >
       <img

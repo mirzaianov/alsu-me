@@ -9,46 +9,23 @@ const Contacts = ({ width }) => {
   return (
     <section
       id="contacts"
-      className="relative my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)]
-                 tablet:my-[var(--tablet-y-margin)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                 desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--2xl)]"
+      className="relative my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:my-[var(--tablet-y-margin)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)] desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
     >
-      <h2
-        className="text-balance text-center text-heading-s
-                     tablet:text-heading-m
-                     desktop:text-heading-l"
-      >
+      <h2 className="text-balance text-center text-heading-s tablet:text-heading-m desktop:text-heading-l">
         Готов начать сотрудничество?
       </h2>
-      <article
-        className="relative flex flex-col justify-start gap-[var(--l)]
-                  tablet:gap-[var(--xl)]
-                  desktop:w-full desktop:max-w-[800px] desktop:flex-row desktop:justify-between desktop:gap-[var(--m)]"
-      >
+      <article className="relative flex flex-col justify-start gap-[var(--l)] tablet:gap-[var(--xl)] desktop:w-full desktop:max-w-[800px] desktop:flex-row desktop:justify-between desktop:gap-[var(--m)]">
         <img
-          className="ml-8 h-[var(--img-size-mobile)]
-                     tablet:h-[var(--img-size-tablet)]"
+          className="ml-8 h-[var(--img-size-mobile)] tablet:h-[var(--img-size-tablet)]"
           src={contacts}
           alt="Contacts"
           loading="lazy"
         />
-        <div
-          className="flex flex-col items-center justify-center gap-[var(--s)]
-                     tablet:gap-[var(--l)]
-                     desktop:gap-[var(--xl)]"
-        >
-          <p
-            className="text-center text-body-bold
-                        tablet:text-heading-s
-                        desktop:text-heading-m"
-          >
+        <div className="flex flex-col items-center justify-center gap-[var(--s)] tablet:gap-[var(--l)] desktop:gap-[var(--xl)]">
+          <p className="text-center text-body-bold tablet:text-heading-s desktop:text-heading-m">
             Свяжись со мной
           </p>
-          <div
-            className="flex flex-col items-center gap-[var(--s)]
-                          tablet:gap-[var(--m)]
-                          desktop:gap-[var(--l)]"
-          >
+          <div className="flex flex-col items-center gap-[var(--s)] tablet:gap-[var(--m)] desktop:gap-[var(--l)]">
             {width < 1061 ? (
               <Button
                 ariaLabel="Telegram"

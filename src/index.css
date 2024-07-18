@@ -9,6 +9,11 @@
   scroll-behavior: smooth;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 body {
   background-color: hsla(0, 0%, 100%, 1);
   font-family: 'Inter', sans-serif;
@@ -22,6 +27,10 @@ section {
 }
 
 @layer utilities {
+  .shadow-primary {
+    box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.25);
+  }
+
   .pause {
     animation-play-state: paused;
   }
@@ -107,42 +116,54 @@ section {
   @keyframes rotateFirstNote {
     0% {
       transform: perspective(1000px) rotateX(0turn);
+      z-index: 20;
     }
     42% {
       transform: perspective(1000px) rotateX(0turn);
+      z-index: 20;
     }
     46% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 10;
     }
     92% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 10;
     }
     96% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 20;
     }
     100% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 20;
     }
   }
 
   @keyframes rotateSecondNote {
     0% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 10;
     }
     42% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 10;
     }
     46% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 20;
     }
     92% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 20;
     }
     96% {
       transform: perspective(1000px) rotateX(-1.5turn);
+      z-index: 10;
     }
     100% {
       transform: perspective(1000px) rotateX(-1.5turn);
+      z-index: 10;
     }
   }
 }

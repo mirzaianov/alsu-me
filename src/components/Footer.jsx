@@ -7,26 +7,17 @@ const Footer = ({ width }) => {
   return (
     <footer
       id="footer"
-      className="my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)]
-                 tablet:my-[var(--tablet-y-margin)] tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)]
-                 desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--l-end)]"
+      className="my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:my-[var(--tablet-y-margin)] tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)] desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--l-end)] desktop:px-[var(--3xl)]"
     >
-      <article
-        className="flex flex-col items-start gap-[var(--l)]
-                  tablet:flex-row
-                  desktop:w-full desktop:justify-between desktop:gap-[var(--2xl)]"
-      >
+      <article className="flex flex-col items-start gap-[var(--l)] tablet:flex-row desktop:w-full desktop:justify-between desktop:gap-[var(--2xl)]">
         <BrandLogo />
-        <div
-          className="flex flex-col justify-start gap-[var(--l)]
-                     desktop:grow desktop:flex-row desktop:justify-between"
-        >
+        <div className="flex flex-col justify-start gap-[var(--l)] desktop:grow desktop:flex-row desktop:justify-between">
           <div className="flex flex-col justify-start gap-[var(--s)]">
             <p className="text-heading-s">Алсу Каримова</p>
             <p className="text-pretty tablet:max-w-[560px]">
-              Дипломированный преподаватель и переводчик английского и немецкого
-              языков с многолетним опытом профессиональной деятельности в
-              международных компаниях России и США
+              Дипломированный преподаватель и переводчик английского с
+              многолетним опытом профессиональной деятельности в
+              международных компаниях
             </p>
           </div>
           <div>

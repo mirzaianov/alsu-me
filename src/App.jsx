@@ -27,13 +27,12 @@ const App = () => {
   return (
     <div
       id="app"
-      className="relative flex flex-col items-center justify-start overflow-clip
-                 desktop:text-body-l"
+      className="relative flex flex-col items-center justify-start overflow-clip desktop:text-body-l"
     >
       <Header width={windowWidth} />
       <Hero width={windowWidth} />
       <About width={windowWidth} />
-      <Services />
+      <Services width={windowWidth} />
       <Prices />
       <Testimonials />
       <Contacts width={windowWidth} />
