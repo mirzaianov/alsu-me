@@ -81,6 +81,9 @@ const Prices = () => {
           <p className="p-fade-in animate-p-fade-in text-pretty">
             Или свяжись со мной, и мы вместе определимся с программой.
           </p>
+          <p className="p-fade-in animate-p-fade-in text-pretty font-bold text-primary-30">
+            * Цены актуальны до 01.01.2025
+          </p>
         </div>
       </article>
       <article className="flex flex-col items-center gap-[var(--xl)] desktop:gap-[var(--2xl)]">
