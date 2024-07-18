@@ -63,7 +63,7 @@ const TestimonialCard = ({
   });
 
   return (
-    <div className="relative flex h-[400px] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)]">
+    <div className="shadow-primary relative flex h-[400px] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight">
       <div className="min-h-[64px]">
         <div className="flex gap-[var(--s)]">
           <img

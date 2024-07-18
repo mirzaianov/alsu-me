@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 
 const ServiceCard = ({ src, alt, subheading, description }) => {
   return (
-    <div className="even:card-fade-in odd:card-fade-in flex h-[352px] w-[var(--card-width)] origin-bottom-left flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] bg-neutral-0 px-[var(--s)] pb-[var(--m)] pt-[var(--l)] shadow-[5px_5px_25px_0px_rgba(0,0,0,0.25)] odd:animate-card-right-fade-in even:animate-card-left-fade-in">
+    <div className="even:card-fade-in odd:card-fade-in shadow-primary flex h-[352px] w-[var(--card-width)] origin-bottom-left flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] bg-neutral-0 px-[var(--s)] pb-[var(--m)] pt-[var(--l)] odd:animate-card-right-fade-in even:animate-card-left-fade-in">
       <div className="flex flex-col items-center justify-center gap-[var(--m)]">
         <img
           className="h-20"

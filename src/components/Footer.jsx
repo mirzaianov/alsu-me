@@ -7,7 +7,7 @@ const Footer = ({ width }) => {
   return (
     <footer
       id="footer"
-      className="my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:my-[var(--tablet-y-margin)] tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)] desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--l-end)]"
+      className="my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:my-[var(--tablet-y-margin)] tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)] desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--l-end)] desktop:px-[var(--3xl)]"
     >
       <article className="flex flex-col items-start gap-[var(--l)] tablet:flex-row desktop:w-full desktop:justify-between desktop:gap-[var(--2xl)]">
         <BrandLogo />

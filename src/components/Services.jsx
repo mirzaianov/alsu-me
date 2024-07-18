@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import ServiceCard from './ServiceCard';
 import Badge from './Badge';
 import tutor from '../assets/img/services/tutor.png';
@@ -37,7 +36,7 @@ const serviceCardData = [
   },
 ];
 
-const Services = ({ width }) => {
+const Services = () => {
   return (
     <section
       id="services"
@@ -58,22 +57,12 @@ const Services = ({ width }) => {
             В своих занятиях я делаю акцент на развитии разговорных навыков и
             понимании аутентичной речи.{' '}
           </p>
-          {width < 1061 ? (
-            <p className="p-fade-in animate-p-fade-in">
-              Моя методика преподавания основана на индивидуальном подходе к
-              каждому ученику. Я стремлюсь создать комфортную и дружелюбную
-              атмосферу, в которой ученики могут свободно выражать свои мысли на
-              английском и развивать навыки общения.
-            </p>
-          ) : (
-            <p className="p-fade-in animate-p-fade-in">
-              Моя методика преподавания основана на индивидуальном подходе к
-              каждому ученику.
-              <br />Я стремлюсь создать комфортную и дружелюбную атмосферу, в
-              которой ученики могут свободно выражать свои мысли на английском и
-              развивать навыки общения.
-            </p>
-          )}
+          <p className="p-fade-in animate-p-fade-in">
+            Моя методика преподавания основана на индивидуальном подходе к
+            каждому ученику. Я стремлюсь создать комфортную и дружелюбную
+            атмосферу, в которой ученики могут свободно выражать свои мысли на
+            английском и развивать навыки общения.
+          </p>
 
           <p className="p-fade-in animate-p-fade-in">
             На протяжении нескольких лет являюсь надежным партнером в качестве
@@ -178,10 +167,6 @@ const Services = ({ width }) => {
       </article>
     </section>
   );
-};
-
-Services.propTypes = {
-  width: propTypes.number.isRequired,
 };
 
 export default Services;
