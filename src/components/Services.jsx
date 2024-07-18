@@ -63,7 +63,7 @@ const Services = () => {
             атмосферу, где можно и нужно свободно выражать свои мысли на
             английском и развивать навыки общения.
           </p>
-          <p className="p-fade-in animate-p-fade-in font-bold">
+          <p className="p-fade-in animate-p-fade-in text-pretty font-bold">
             Важный момент: обучаю только взрослых с 16 лет. Не
             готовлю к ОГЭ и ЕГЭ.
           </p>
