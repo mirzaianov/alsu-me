@@ -116,42 +116,54 @@ section {
   @keyframes rotateFirstNote {
     0% {
       transform: perspective(1000px) rotateX(0turn);
+      z-index: 1;
     }
     42% {
       transform: perspective(1000px) rotateX(0turn);
+      z-index: 1;
     }
     46% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 0;
     }
     92% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 0;
     }
     96% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 1;
     }
     100% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 1;
     }
   }
 
   @keyframes rotateSecondNote {
     0% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 0;
     }
     42% {
       transform: perspective(1000px) rotateX(-0.5turn);
+      z-index: 0;
     }
     46% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 1;
     }
     92% {
       transform: perspective(1000px) rotateX(-1turn);
+      z-index: 1;
     }
     96% {
       transform: perspective(1000px) rotateX(-1.5turn);
+      z-index: 0;
     }
     100% {
       transform: perspective(1000px) rotateX(-1.5turn);
+      z-index: 0;
     }
   }
 }
