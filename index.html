@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <!-- Google Tag Manager -->
-    <script nonce="{SERVER-GENERATED-NONCE}">
+    <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -11,8 +11,6 @@
           dl = l != 'dataLayer' ? '&l=' + l : '';
         j.async = true;
         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        var n = d.querySelector('[nonce]');
-        n && j.setAttribute('nonce', n.nonce || n.getAttribute('nonce'));
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-M5VTG5VP');
     </script>
@@ -23,13 +21,13 @@
       href="/favicon.svg"
     />
     <meta charset="UTF-8" />
-    <!-- <meta
+    <meta
       http-equiv="Content-Security-Policy"
       content="
-        script-src 'self' 'nonce-{SERVER-GENERATED-NONCE}',
-        object-src 'self'
+        script-src 'self' 'unsafe-inline' googletagmanager.com va.vercel-scripts.com,
+        object-src 'self',
       "
-    /> -->
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
