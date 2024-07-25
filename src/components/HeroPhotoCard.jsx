@@ -14,6 +14,7 @@ const HeroPhotoCard = () => {
           {/* Color */}
           <div className="absolute bottom-0 right-0 aspect-square w-[var(--img-size-mobile)] rounded-[var(--s)] bg-primary-50 tablet:w-[var(--img-size-tablet)]" />
           <img
+            fetchpriority="high"
             className="group-hover:scale-140 absolute -bottom-[8px] left-[4px] z-10 -rotate-[2.5deg] scale-[1.5] transition-transform delay-150 duration-300 ease-in-out group-hover:-translate-y-2.5 tablet:bottom-[0px] tablet:left-[8px]"
             src={alsuHero}
             srcSet={`
