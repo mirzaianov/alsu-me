@@ -19,16 +19,16 @@ const tutorCardData = [
     heading: '1',
     subheading: 'Индивидуальное занятие',
     duration: `Продолжительность: 60 мин`,
-    price: 2000,
+    price: 2250,
     description: ['80% занятия - практика', 'Современные материалы'],
   },
   {
     quantity: 5,
-    discount: 500,
+    discount: 1250,
     heading: '5',
     subheading: 'Индивидуальных занятий',
     duration: `Продолжительность: 60 мин`,
-    price: 2000,
+    price: 2250,
     description: ['80% занятия - практика', 'Современные материалы'],
   },
 ];
@@ -81,9 +81,9 @@ const Prices = () => {
           <p className="p-fade-in animate-p-fade-in text-pretty">
             Или свяжись со мной, и мы вместе определимся с программой.
           </p>
-          <p className="p-fade-in animate-p-fade-in text-pretty font-bold text-primary-30">
+          {/* <p className="p-fade-in animate-p-fade-in text-pretty font-bold text-primary-30">
             Цены актуальны до 01.01.2025.
-          </p>
+          </p> */}
         </div>
       </article>
       <article className="flex flex-col items-center gap-[var(--xl)] desktop:gap-[var(--2xl)]">
