@@ -39,7 +39,9 @@ const App = () => {
       <Contacts width={windowWidth} />
       <Footer width={windowWidth} />
       <BackToTopButton width={windowWidth} />
+      {/* Vercel Analytics */}
       <Analytics />
+      {/* End Vercel Analytics */}
     </div>
   );
 };
