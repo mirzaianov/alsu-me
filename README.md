@@ -33,8 +33,6 @@
     cd alsu-me
     npm install
 
-### Create the .env file and add the following local variables:
-
 You can remove Vercel Analytics from `App.jsx` with deleting the respective import and code between `Vercel Analytics` comments.
 
 ### Run in the development mode:
@@ -55,7 +53,3 @@ Vite will start frontend server on http://localhost:4173/
 ### MIT license
 
 You can use the code, but I ask you do not copy this site without giving me credit.
-
-## Version History
-
-- 1.0.0 First Release
