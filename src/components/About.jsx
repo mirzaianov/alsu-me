@@ -5,8 +5,6 @@ import Badge from './Badge';
 import ielts from '../assets/img/about/ielts.png';
 import tesol from '../assets/img/about/tesol.png';
 
-const telegramLink = import.meta.env.VITE_TELEGRAM;
-
 const About = ({ width }) => {
   return (
     <section
@@ -77,7 +75,7 @@ const About = ({ width }) => {
           {width < 1061 ? (
             <Button
               ariaLabel="Записаться бесплатно"
-              link={telegramLink}
+              link="https://t.me/sue_onlineenglish"
             >
               <span>Записаться бесплатно</span>
             </Button>
@@ -85,7 +83,7 @@ const About = ({ width }) => {
             <Button
               ariaLabel="Записаться бесплатно"
               size="large"
-              link={telegramLink}
+              link="https://t.me/sue_onlineenglish"
             >
               <span>Записаться бесплатно</span>
             </Button>

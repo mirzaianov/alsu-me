@@ -35,7 +35,6 @@
 
 ### Create the .env file and add the following local variables:
 
-- VITE_TELEGRAM=%your_telegram_link%
 - VITE_EMAIL=%your_email_address%
 - VITE_GAT_KEY=%your_google_analytics_token% (if you use it)
 

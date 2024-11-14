@@ -2,8 +2,6 @@ import propTypes from 'prop-types';
 import Button from './Button';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
 
-const telegramLink = import.meta.env.VITE_TELEGRAM;
-
 const PriceTutorCard = ({
   quantity,
   discount,
@@ -49,14 +47,14 @@ const PriceTutorCard = ({
           <Button
             ariaLabel="Записаться"
             type="inverse"
-            link={telegramLink}
+            link="https://t.me/sue_onlineenglish"
           >
             <span>Записаться</span>
           </Button>
         ) : (
           <Button
             ariaLabel="Записаться"
-            link={telegramLink}
+            link="https://t.me/sue_onlineenglish"
           >
             <span>Записаться</span>
           </Button>
