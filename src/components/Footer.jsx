@@ -42,7 +42,7 @@ const Footer = ({ width }) => {
             <p>|</p>
             <a
               aria-label="Visit the CV site of Riaz Mirzaianov"
-              href="https://cv.mirzaianov.com/"
+              href="https://www.mirzaianov.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-block text-text-10"

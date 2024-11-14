@@ -6,8 +6,6 @@ import HeroTextBlock from './HeroTextBlock';
 import HeroInfiniteLogos from './HeroInfiniteLogos';
 import HeroCTA from './HeroCTA';
 
-const telegramLink = import.meta.env.VITE_TELEGRAM;
-
 const Hero = ({ width }) => {
   return (
     <section
@@ -55,14 +53,14 @@ const Hero = ({ width }) => {
           <HeroCTA
             text="Записаться"
             ariaLabel="Записаться"
-            link={telegramLink}
+            link="https://t.me/sue_onlineenglish"
           />
         ) : (
           <HeroCTA
             text="Записаться"
             ariaLabel="Записаться"
             size="large"
-            link={telegramLink}
+            link="https://t.me/sue_onlineenglish"
           />
         )}
       </article>

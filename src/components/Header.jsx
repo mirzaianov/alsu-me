@@ -7,8 +7,6 @@ import Button from './Button';
 import HamburgerDropdown from './HamburgerDropdown';
 import useOnClickOutside from '../hooks/useOnClickOutside';
 
-const telegramLink = import.meta.env.VITE_TELEGRAM;
-
 const Header = ({ width }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
@@ -94,7 +92,7 @@ const Header = ({ width }) => {
             <Button
               ariaLabel="Записаться"
               type="secondary"
-              link={telegramLink}
+              link="https://t.me/sue_onlineenglish"
             >
               <span>Записаться</span>
             </Button>

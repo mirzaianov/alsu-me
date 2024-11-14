@@ -2,9 +2,6 @@ import propTypes from 'prop-types';
 import Button from './Button';
 import contacts from '../assets/img/contacts/contacts.png';
 
-const telegramLink = import.meta.env.VITE_TELEGRAM;
-const emailLink = import.meta.env.VITE_EMAIL;
-
 const Contacts = ({ width }) => {
   return (
     <section
@@ -31,7 +28,7 @@ const Contacts = ({ width }) => {
                 ariaLabel="Telegram"
                 text="Telegram"
                 icon="true"
-                link={telegramLink}
+                link="https://t.me/sue_onlineenglish"
                 type="primary"
               >
                 <svg
@@ -54,7 +51,7 @@ const Contacts = ({ width }) => {
                 ariaLabel="Telegram"
                 text="Telegram"
                 icon="true"
-                link={telegramLink}
+                link="https://t.me/sue_onlineenglish"
                 type="primary"
                 size="large"
               >
@@ -79,7 +76,7 @@ const Contacts = ({ width }) => {
                 ariaLabel="Email"
                 text="Email"
                 icon="true"
-                link={emailLink}
+                link="karimovaalsu@yahoo.com"
                 type="secondary"
               >
                 <svg
@@ -100,7 +97,7 @@ const Contacts = ({ width }) => {
                 ariaLabel="Email"
                 text="Email"
                 icon="true"
-                link={emailLink}
+                link="karimovaalsu@yahoo.com"
                 type="secondary"
                 size="large"
               >
