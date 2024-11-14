@@ -2,8 +2,6 @@ import propTypes from 'prop-types';
 import Button from './Button';
 import contacts from '../assets/img/contacts/contacts.png';
 
-const emailLink = import.meta.env.VITE_EMAIL;
-
 const Contacts = ({ width }) => {
   return (
     <section
@@ -78,7 +76,7 @@ const Contacts = ({ width }) => {
                 ariaLabel="Email"
                 text="Email"
                 icon="true"
-                link={emailLink}
+                link="karimovaalsu@yahoo.com"
                 type="secondary"
               >
                 <svg
@@ -99,7 +97,7 @@ const Contacts = ({ width }) => {
                 ariaLabel="Email"
                 text="Email"
                 icon="true"
-                link={emailLink}
+                link="karimovaalsu@yahoo.com"
                 type="secondary"
                 size="large"
               >
