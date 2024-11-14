@@ -50,7 +50,7 @@ Vite will start frontend server on http://localhost:5173/
 
 Vite will start frontend server on http://localhost:4173/
 
-## Licence
+## License
 
 ### MIT license
 
