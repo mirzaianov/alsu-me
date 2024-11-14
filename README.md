@@ -35,9 +35,6 @@
 
 ### Create the .env file and add the following local variables:
 
-- VITE_GAT_KEY=%your_google_analytics_token% (if you use it)
-
-You can remove Google Analytics from `index.html` with deleting code between `Google Tag Manager` comments.
 You can remove Vercel Analytics from `App.jsx` with deleting the respective import and code between `Vercel Analytics` comments.
 
 ### Run in the development mode:
