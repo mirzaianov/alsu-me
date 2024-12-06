@@ -19,7 +19,7 @@ const tutorCardData = [
     heading: '1',
     subheading: 'Индивидуальное занятие',
     duration: `Продолжительность: 60 мин`,
-    price: 2250,
+    price: 2500,
     description: ['80% занятия - практика', 'Современные материалы'],
   },
   {
@@ -28,7 +28,7 @@ const tutorCardData = [
     heading: '5',
     subheading: 'Индивидуальных занятий',
     duration: `Продолжительность: 60 мин`,
-    price: 2250,
+    price: 2500,
     description: ['80% занятия - практика', 'Современные материалы'],
   },
 ];
