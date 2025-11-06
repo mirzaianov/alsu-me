@@ -21,7 +21,7 @@ const PriceRewriterCard = ({
         ariaLabel="Записаться"
         link="https://t.me/sue_onlineenglish"
       >
-        <span>Записаться</span>
+        <span>Заказать</span>
       </Button>
       <ul className="flex flex-col justify-start">
         {description.map((item) => (
