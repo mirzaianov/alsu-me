@@ -19,7 +19,7 @@ const HeroPhotoCardBlock = ({ width }) => {
           />
           <div className="flex h-[76px] w-full flex-col items-start overflow-hidden desktop:h-[98px]">
             <Stat
-              className="animate-slide-stat mb-[36px] desktop:mb-[49px]"
+              className="animate-slide-stat desktop:animate-slide-stat-desktop mb-[36px] desktop:mb-[49px]"
               quantity="200+"
               text="довольных учеников"
             />
