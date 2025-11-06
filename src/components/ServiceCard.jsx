@@ -10,7 +10,9 @@ const ServiceCard = ({ src, alt, subheading, description }) => {
           alt={alt}
           loading="lazy"
         />
-        <h4 className="text-center text-body-bold uppercase">{subheading}</h4>
+        <h4 className="text-pretty text-center text-body-bold uppercase">
+          {subheading}
+        </h4>
       </div>
       <ul className="mt-auto flex flex-col justify-start">
         {description.map((item, index) => (
