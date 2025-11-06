@@ -52,7 +52,7 @@ PriceRewriterCard.propTypes = {
   subheading: propTypes.string.isRequired,
   price: propTypes.number.isRequired,
   description: propTypes.array.isRequired,
-  note: propTypes.string.isRequired,
+  notes: propTypes.array.isRequired,
 };
 
 export default PriceRewriterCard;
