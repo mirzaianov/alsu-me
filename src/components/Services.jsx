@@ -34,6 +34,20 @@ const serviceCardData = [
       'Русский - Английский',
     ],
   },
+  {
+    delay: 0,
+    badgeOneText: 'Work',
+    badgeTwoText: 'Business',
+    src: translator,
+    alt: 'Рерайтер',
+    subheading: 'Рерайт текстов под Ваши цели',
+    description: [
+      'Доступность, уникальность',
+      'SEO, адаптация под аудиторию',
+      'IT, E-commerce',
+      'MedTech, FinTech, EdTech',
+    ],
+  },
 ];
 
 const Services = () => {
