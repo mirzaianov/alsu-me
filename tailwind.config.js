@@ -67,6 +67,22 @@ export default {
           '100%': { 'margin-top': '0px' },
         },
         slideStat: {
+          '0%': { 'margin-top': '-224px' },
+          '42%': { 'margin-top': '-224px' },
+          '46%': { 'margin-top': '-112px' },
+          '92%': { 'margin-top': '-112px' },
+          '96%': { 'margin-top': '0px' },
+          '100%': { 'margin-top': '0px' },
+        },
+        slideStatTablet: {
+          '0%': { 'margin-top': '-294px' },
+          '42%': { 'margin-top': '-294px' },
+          '46%': { 'margin-top': '-147px' },
+          '92%': { 'margin-top': '-147px' },
+          '96%': { 'margin-top': '0px' },
+          '100%': { 'margin-top': '0px' },
+        },
+        slideStatDesktop: {
           '0%': { 'margin-top': '-294px' },
           '42%': { 'margin-top': '-294px' },
           '46%': { 'margin-top': '-147px' },
@@ -258,6 +274,8 @@ export default {
         'slide-words-tablet': 'slideWordsTablet 20s linear infinite',
         'slide-words-desktop': 'slideWordsDesktop 20s linear infinite',
         'slide-stat': 'slideStat 20s linear infinite',
+        'slide-stat-tablet': 'slideStatTablet 20s linear infinite',
+        'slide-stat-desktop': 'slideStatDesktop 20s linear infinite',
         //
         'header-fade-in': 'headerFadeIn 0.5s 0.2s ease-in backwards',
         'logos-fade-in': 'logosFadeIn 0.5s 0.2s ease-in both',

@@ -17,24 +17,22 @@ const HeroPhotoCardBlock = ({ width }) => {
             quantity="4+"
             text="года работы в США"
           />
-          <div className="h-[98px] overflow-hidden">
-            <div className="animate-slide-stat flex w-full flex-col items-start">
-              <Stat
-                className="mb-[49px]"
-                quantity="200+"
-                text="довольных учеников"
-              />
-              <Stat
-                className="mb-[49px]"
-                quantity="50+"
-                text="успешных кейсов"
-              />
-              <Stat
-                className="mb-[49px]"
-                quantity="200+"
-                text="довольных учеников"
-              />
-            </div>
+          <div className="flex h-[76px] w-full flex-col items-start overflow-hidden tablet:h-[98px]">
+            <Stat
+              className="animate-slide-stat mb-[36px] tablet:mb-[49px]"
+              quantity="200+"
+              text="довольных учеников"
+            />
+            <Stat
+              className="mb-[36px] tablet:mb-[49px]"
+              quantity="50+"
+              text="успешных кейсов"
+            />
+            <Stat
+              className="mb-[36px] tablet:mb-[49px]"
+              quantity="200+"
+              text="довольных учеников"
+            />
           </div>
         </ul>
       </div>
