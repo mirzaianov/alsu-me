@@ -1,17 +1,17 @@
 import propTypes from 'prop-types';
-import Button from './Button';
+import Button from './Button.jsx';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
 
-const PriceTranslatorCard = ({
+const PriceRewriterCard = ({
   heading,
   subheading,
   price,
   description,
-  note,
+  notes,
 }) => {
   return (
     <div className="even:card-fade-in odd:card-fade-in shadow-primary relative flex h-[436px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] bg-neutral-0 px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] odd:animate-card-right-fade-in even:animate-card-left-fade-in">
-      <h4 className="min-h-[56px] text-center uppercase">{heading}</h4>
+      <h4 className="text-center uppercase">{heading}</h4>
       <p>{subheading}</p>
       <h5 className="text-heading-s uppercase text-text-10">
         {addSpacesToNumber(price)}
@@ -33,19 +33,26 @@ const PriceTranslatorCard = ({
           </li>
         ))}
       </ul>
-      <p className="min-h-[84px] max-w-[185px] text-center text-body-bold">
-        {note}
-      </p>
+      <ul className="min-h-[84px] max-w-[185px] text-center text-body-bold">
+        {notes.map((item) => (
+          <li
+            key={item}
+            className="text-center"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-PriceTranslatorCard.propTypes = {
+PriceRewriterCard.propTypes = {
   heading: propTypes.string.isRequired,
   subheading: propTypes.string.isRequired,
   price: propTypes.number.isRequired,
   description: propTypes.array.isRequired,
-  note: propTypes.string.isRequired,
+  notes: propTypes.array.isRequired,
 };
 
-export default PriceTranslatorCard;
+export default PriceRewriterCard;

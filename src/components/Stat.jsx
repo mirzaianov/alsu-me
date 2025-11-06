@@ -1,8 +1,10 @@
 import propTypes from 'prop-types';
 
-const Stat = ({ quantity, text }) => {
+const Stat = ({ quantity, text, className }) => {
   return (
-    <li className="flex flex-col desktop:w-min desktop:min-w-[125px]">
+    <li
+      className={`flex flex-col desktop:w-min desktop:min-w-[125px] ${className || ''}`}
+    >
       <p className="text-heading-s desktop:text-heading-m">{quantity}</p>
       <p className="text-body-tight desktop:text-body-l-tight">{text}</p>
     </li>

@@ -2,6 +2,7 @@ import ServiceCard from './ServiceCard';
 import Badge from './Badge';
 import tutor from '../assets/img/services/tutor.png';
 import translator from '../assets/img/services/translator.png';
+import rewriter from '../assets/img/services/rewriter.png';
 import uk from '../assets/icons/uk.svg';
 import usa from '../assets/icons/usa.svg';
 import services from '../assets/img/services/services.png';
@@ -32,6 +33,20 @@ const serviceCardData = [
       'Устные',
       'Английский - Русский',
       'Русский - Английский',
+    ],
+  },
+  {
+    delay: 0,
+    badgeOneText: 'Work',
+    badgeTwoText: 'Business',
+    src: rewriter,
+    alt: 'Рерайтер',
+    subheading: 'Рерайт текста под Ваши цели',
+    description: [
+      'Доступность, уникальность',
+      'SEO, адаптация под аудиторию',
+      'IT, E-commerce',
+      'MedTech, FinTech, EdTech',
     ],
   },
 ];
