@@ -40,7 +40,7 @@ const serviceCardData = [
     badgeTwoText: 'Business',
     src: translator,
     alt: 'Рерайтер',
-    subheading: 'Рерайт текстов под Ваши цели',
+    subheading: 'Рерайт текста под Ваши цели',
     description: [
       'Доступность, уникальность',
       'SEO, адаптация под аудиторию',

@@ -21,7 +21,7 @@ const PriceRewriterCard = ({
         ariaLabel="Записаться"
         link="https://t.me/sue_onlineenglish"
       >
-        <span>Записаться</span>
+        <span>Заказать</span>
       </Button>
       <ul className="flex flex-col justify-start">
         {description.map((item) => (
@@ -52,7 +52,7 @@ PriceRewriterCard.propTypes = {
   subheading: propTypes.string.isRequired,
   price: propTypes.number.isRequired,
   description: propTypes.array.isRequired,
-  note: propTypes.string.isRequired,
+  notes: propTypes.array.isRequired,
 };
 
 export default PriceRewriterCard;
