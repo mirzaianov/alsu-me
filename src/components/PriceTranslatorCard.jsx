@@ -23,7 +23,7 @@ const PriceTranslatorCard = ({
       >
         <span>Записаться</span>
       </Button>
-      <ul className="mt-auto flex flex-col justify-start">
+      <ul className="flex flex-col justify-start">
         {description.map((item) => (
           <li
             key={item}
