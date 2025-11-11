@@ -1,6 +1,5 @@
 import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
-import PriceRewriterCard from './PriceRewriterCard';
 import prices from '../assets/img/prices/prices.png';
 import sale from '../assets/img/prices/sale.png';
 
@@ -48,33 +47,6 @@ const translatorCardData = [
     price: 1500,
     description: ['Английский - Русский', 'Русский - Английский'],
     note: 'Стоимость и сроки - после ознакомления с материалом',
-  },
-];
-
-const rewriterCardData = [
-  {
-    heading: 'Базовый рерайт',
-    subheading: '1000 знаков без пробелов',
-    price: 1100,
-    description: ['Английский - Русский', 'Русский - Английский'],
-    notes: ['Стоимость и сроки - после ознакомления с материалом'],
-  },
-  {
-    heading: 'Продвинутый рерайт',
-    subheading: '1000 знаков без пробелов',
-    price: 1300,
-    description: ['Английский - Русский', 'Русский - Английский'],
-    notes: ['Стоимость и сроки - после ознакомления с материалом'],
-  },
-  {
-    heading: 'Премиум рерайт',
-    subheading: '1000 знаков без пробелов',
-    price: 1500,
-    description: ['Английский - Русский', 'Русский - Английский'],
-    notes: [
-      'Полная оптимизация',
-      'Стоимость и сроки - после ознакомления с материалом',
-    ],
   },
 ];
 
@@ -135,19 +107,6 @@ const Prices = () => {
           <div className="flex flex-col items-center justify-center gap-[var(--l)] text-body tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)] desktop:gap-[var(--2xl)]">
             {translatorCardData.map((item) => (
               <PriceTranslatorCard
-                key={item.heading}
-                {...item}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)] desktop:gap-[var(--xl)]">
-          <h3 className="text-center text-body-bold uppercase tablet:text-heading-s">
-            Рерайт текста
-          </h3>
-          <div className="flex flex-col items-center justify-center gap-[var(--l)] text-body tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)] desktop:gap-[var(--2xl)]">
-            {rewriterCardData.map((item) => (
-              <PriceRewriterCard
                 key={item.heading}
                 {...item}
               />
