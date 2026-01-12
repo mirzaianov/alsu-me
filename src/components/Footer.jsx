@@ -33,7 +33,7 @@ const Footer = ({ width }) => {
         <Divider />
         <div className="flex flex-wrap justify-between gap-[var(--s)]">
           <div className="flex flex-wrap justify-start gap-x-[var(--xs)] gap-y-[var(--2xs)]">
-            <p>©️ 2024 Алсу Каримова</p>
+            <p>©️ 2026 Алсу Каримова</p>
             <p>|</p>
             <p>Все права защищены</p>
           </div>
