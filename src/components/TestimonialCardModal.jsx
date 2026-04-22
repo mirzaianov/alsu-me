@@ -1,28 +1,22 @@
 import propTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useClickAway } from '@uidotdev/usehooks';
 import Button from './Button';
 
-const modalRoot = document.getElementById('testimonail-card-modal');
+const modalRoot = document.getElementById('testimonial-card-modal');
 
 const TestimonialCardModal = ({ onClose, children }) => {
-  const elRef = useRef(null);
+  const [portalElement] = useState(() => document.createElement('div'));
   const closeRef = useClickAway(() => onClose());
 
-  if (!elRef.current) {
-    elRef.current = document.createElement('div');
-  }
-
   useEffect(() => {
-    const currentEl = elRef.current;
-
-    modalRoot.appendChild(currentEl);
+    modalRoot.appendChild(portalElement);
 
     return () => {
-      modalRoot.removeChild(currentEl);
+      modalRoot.removeChild(portalElement);
     };
-  }, []);
+  }, [portalElement]);
 
   return ReactDOM.createPortal(
     <div className="fixed inset-0 z-50 flex animate-modal-bg-open items-center justify-center bg-neutral-90/50">
@@ -42,7 +36,7 @@ const TestimonialCardModal = ({ onClose, children }) => {
         </div>
       </div>
     </div>,
-    elRef.current,
+    portalElement,
   );
 };
 

@@ -12,6 +12,7 @@ const Stat = ({ quantity, text, className }) => {
 };
 
 Stat.propTypes = {
+  className: propTypes.string,
   quantity: propTypes.string.isRequired,
   text: propTypes.string.isRequired,
 };

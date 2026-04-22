@@ -92,7 +92,7 @@ export default {
           '60%': { transform: 'scale(1) rotate(0.0deg)' },
           '100%': { transform: 'scale(1) rotate( 0.0deg)' },
         },
-        wavindBadge: {
+        wavingBadge: {
           '0%': { transform: 'translateY(0)' },
           '25%': { transform: 'translateY(3px)' },
           '75%': { transform: 'translateY(-3px)' },
@@ -120,7 +120,7 @@ export default {
           '0%': { transform: 'translateY(100px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-        heroFotoFadeIn: {
+        heroPhotoFadeIn: {
           '0%': { transform: 'translateX(100px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
@@ -270,13 +270,13 @@ export default {
         //
         'header-fade-in': 'headerFadeIn 0.5s 0.2s ease-in backwards',
         'logos-fade-in': 'logosFadeIn 0.5s 0.2s ease-in both',
-        'hero-foto-fade-in': 'heroFotoFadeIn 0.5s ease-in backwards',
+        'hero-photo-fade-in': 'heroPhotoFadeIn 0.5s ease-in backwards',
         'hero-text-fade-in': 'heroTextFadeIn 0.5s ease-in backwards',
         'hero-bg': 'heroBg 0.5s 0.2s ease-in backwards',
         //
         'waving-hand': 'wavingHand 4s linear infinite',
-        'waving-badge-3': 'wavindBadge 3s linear infinite',
-        'waving-badge-4': 'wavindBadge 4s linear infinite',
+        'waving-badge-3': 'wavingBadge 3s linear infinite',
+        'waving-badge-4': 'wavingBadge 4s linear infinite',
         //
         'p-fade-in': 'pFadeIn linear both',
         //

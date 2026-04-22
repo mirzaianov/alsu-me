@@ -1,25 +1,19 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import propTypes from 'prop-types';
 
 const modalRoot = document.getElementById('hamburger-dropdown');
 
 const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
-  const elRef = useRef(null);
-
-  if (!elRef.current) {
-    elRef.current = document.createElement('div');
-  }
+  const [portalElement] = useState(() => document.createElement('div'));
 
   useEffect(() => {
-    const currentEl = elRef.current;
-
-    modalRoot.appendChild(currentEl);
+    modalRoot.appendChild(portalElement);
 
     return () => {
-      modalRoot.removeChild(currentEl);
+      modalRoot.removeChild(portalElement);
     };
-  }, []);
+  }, [portalElement]);
 
   return ReactDOM.createPortal(
     <div
@@ -33,7 +27,7 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
         {children}
       </div>
     </div>,
-    elRef.current,
+    portalElement,
   );
 };
 

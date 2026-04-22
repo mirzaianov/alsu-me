@@ -6,7 +6,7 @@ const BrandLogo = () => {
     <a
       className="tablet:shrink-0 tablet:grow desktop:grow-0"
       aria-label="Go to the top of the page"
-      href="#"
+      href="#app"
     >
       <img
         className="h-[var(--m)] tablet:h-[var(--xl)]"
