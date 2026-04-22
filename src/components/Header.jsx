@@ -10,6 +10,8 @@ import useOnClickOutside from '../hooks/useOnClickOutside';
 const Header = ({ width }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const isMobile = width < 1061;
+  const isMenuOpen = isMobile && isDropdownOpen;
 
   const dropdownRef = useRef();
   const buttonRef = useRef();
@@ -25,7 +27,7 @@ const Header = ({ width }) => {
   };
 
   useEffect(() => {
-    if (isDropdownOpen) {
+    if (isMenuOpen) {
       document.body.addEventListener('keydown', closeOnEscape);
       document.body.style.overflow = 'hidden';
     } else {
@@ -35,7 +37,7 @@ const Header = ({ width }) => {
     return () => {
       document.body.removeEventListener('keydown', closeOnEscape);
     };
-  }, [isDropdownOpen]);
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,12 +57,6 @@ const Header = ({ width }) => {
     };
   }, []);
 
-  useEffect(() => {
-    if (width >= 1061) {
-      setIsDropdownOpen(false);
-    }
-  }, [width]);
-
   return (
     <header
       id="header"
@@ -77,16 +73,16 @@ const Header = ({ width }) => {
           <BrandLogo />
         </div>
         <div className="flex w-fit grow items-center justify-center">
-          {width < 1061 ? '' : <NavBar type="inline" />}
+          {isMobile ? '' : <NavBar type="inline" />}
         </div>
         <div
           className="flex items-center justify-center tablet:mr-2"
           ref={buttonRef}
         >
-          {width < 1061 ? (
+          {isMobile ? (
             <Hamburger
               onClick={() => setIsDropdownOpen((prev) => !prev)}
-              isDropdownOpen={isDropdownOpen}
+              isDropdownOpen={isMenuOpen}
             />
           ) : (
             <Button
@@ -98,16 +94,16 @@ const Header = ({ width }) => {
             </Button>
           )}
         </div>
-        {width < 1061 && (
+        {isMobile && (
           <HamburgerDropdown
             isFixed={isFixed}
-            isDropdownOpen={isDropdownOpen}
+            isDropdownOpen={isMenuOpen}
           >
             <div ref={dropdownRef}>
               <NavBar
                 type="block-1"
                 setIsDropdownOpen={setIsDropdownOpen}
-                isDropdownOpen={isDropdownOpen}
+                isDropdownOpen={isMenuOpen}
               />
             </div>
           </HamburgerDropdown>

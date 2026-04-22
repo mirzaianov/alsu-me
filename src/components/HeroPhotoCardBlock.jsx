@@ -6,7 +6,7 @@ import hand from '../assets/icons/hand.svg';
 
 const HeroPhotoCardBlock = ({ width }) => {
   return (
-    <div className="flex animate-hero-foto-fade-in items-center justify-between desktop:flex-col-reverse desktop:gap-[var(--m)]">
+    <div className="animate-hero-photo-fade-in flex items-center justify-between desktop:flex-col-reverse desktop:gap-[var(--m)]">
       <div className="flex max-w-[160px] items-center justify-center tablet:min-w-[160px] desktop:max-w-full">
         <ul className="flex w-[100px] flex-col justify-start gap-[var(--s)] tablet:gap-[var(--l)] desktop:w-fit desktop:flex-row desktop:gap-[var(--m)]">
           <Stat
@@ -19,7 +19,7 @@ const HeroPhotoCardBlock = ({ width }) => {
           />
           <div className="flex h-[76px] w-full flex-col items-start overflow-hidden desktop:h-[98px]">
             <Stat
-              className="animate-slide-stat desktop:animate-slide-stat-desktop mb-[36px] desktop:mb-[49px]"
+              className="mb-[36px] animate-slide-stat desktop:mb-[49px] desktop:animate-slide-stat-desktop"
               quantity="200+"
               text="довольных учеников"
             />

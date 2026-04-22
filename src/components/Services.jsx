@@ -55,7 +55,7 @@ const Services = () => {
         <div className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-start tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)] desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)]">
           <p className="p-fade-in animate-p-fade-in">
             В своих занятиях я делаю акцент на развитии разговорных навыков и
-            понимании аутентичной речи.{' '}
+            понимании аутентичной речи.
           </p>
           <p className="p-fade-in animate-p-fade-in">
             Моя методика преподавания основана на индивидуальном подходе к
@@ -64,8 +64,8 @@ const Services = () => {
             английском и развивать навыки общения.
           </p>
           <p className="p-fade-in animate-p-fade-in text-pretty font-bold">
-            Важный момент: обучаю только взрослых с 16 лет. Не
-            готовлю к ОГЭ и ЕГЭ.
+            Важный момент: обучаю только взрослых с 16 лет. Не готовлю к ОГЭ и
+            ЕГЭ.
           </p>
           <p className="p-fade-in animate-p-fade-in">
             На протяжении нескольких лет являюсь надежным партнером в качестве

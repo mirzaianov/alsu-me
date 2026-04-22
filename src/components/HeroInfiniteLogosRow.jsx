@@ -10,10 +10,7 @@ import tempo from '../assets/icons/logos/logo-tempo.svg';
 
 const HeroInfiniteLogosRow = () => {
   return (
-    <div
-      className="inline-block w-max animate-slides
-                 tablet:animate-slides-tablet"
-    >
+    <div className="inline-block w-max animate-slides tablet:animate-slides-tablet">
       <HeroInfiniteLogo
         alt="Камский автомобильный завод ПАО «КАМАЗ»"
         src={kamaz}

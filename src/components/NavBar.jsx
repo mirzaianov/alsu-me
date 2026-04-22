@@ -126,12 +126,12 @@ const Navbar = ({ type, setIsDropdownOpen, isDropdownOpen }) => {
         <li
           style={{ ...LIstyle, gridArea: item[0] }}
           key={item[0]}
-          onClick={() => handleClick(item[0])}
         >
           <a
             aria-label={`Go to the ${item[0]} section`}
             className={`relative inline-block transition duration-300 ease-in-out hover:text-text-90/50`}
             href={`#${item[0]}`}
+            onClick={() => handleClick(item[0])}
           >
             {item[1]}
             <span
