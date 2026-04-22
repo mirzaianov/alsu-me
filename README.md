@@ -27,26 +27,29 @@
 
 ## Installation & Execution
 
-### Install via Vite:
+### Install via Vite
 
     git clone https://github.com/mirzaianov/alsu-me.git
     cd alsu-me
+    nvm use 24.15.0
     npm install
+
+Supported toolchain: Node.js `24.15.0` LTS and npm `11+`.
 
 You can remove Vercel Analytics from `App.jsx` with deleting the respective import and code between `Vercel Analytics` comments.
 
-### Run in the development mode:
+### Run in the development mode
 
     npm run dev
 
-Vite will start frontend server on http://localhost:5173/
+Vite will start frontend server on [http://localhost:5173/](http://localhost:5173/)
 
 ## Building and Running for Production
 
     npm run build
     npm run preview
 
-Vite will start frontend server on http://localhost:4173/
+Vite will start frontend server on [http://localhost:4173/](http://localhost:4173/)
 
 ## License
 
