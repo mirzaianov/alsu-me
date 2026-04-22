@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--neutral-0);
+  color: var(--text-90);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--font-body);
+  line-height: var(--line-body);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.section {
+  --section-max: var(--container-mobile);
+  --section-max-tablet: var(--container-tablet);
+  --section-max-desktop: var(--container-desktop);
+  --section-gap: var(--l);
+  --section-gap-tablet: var(--xl);
+  --section-gap-desktop: var(--2xl);
+  --section-pad-x: var(--s);
+  --section-pad-x-tablet: var(--xl);
+  --section-pad-x-desktop: var(--3xl);
+  --section-margin-y: var(--mobile-y-margin);
+  --section-margin-y-tablet: var(--tablet-y-margin);
+  --section-margin-y-desktop: var(--desktop-y-margin);
+  --section-scroll-margin: 9rem;
+  --section-scroll-margin-tablet: var(--section-scroll-margin);
+  --section-scroll-margin-desktop: var(--section-scroll-margin-tablet);
+  --section-align: center;
+  width: 100%;
+  max-width: var(--section-max);
+  margin-block: var(--section-margin-y);
+  padding-inline: var(--section-pad-x);
+  display: flex;
+  flex-direction: column;
+  align-items: var(--section-align);
+  justify-content: flex-start;
+  gap: var(--section-gap);
+  scroll-margin-top: var(--section-scroll-margin);
+}
+
+.title {
+  --title-align: center;
+  --title-max: none;
+  width: 100%;
+  max-width: var(--title-max);
+  margin: 0;
+  text-align: var(--title-align);
+  text-wrap: balance;
+}
+
+.stack {
+  --stack-gap: var(--m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap);
+}
+
+.cluster {
+  --cluster-gap: var(--s);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cluster-gap);
+}
+
+.gridCards {
+  --grid-gap: var(--l);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+@media (min-width: 577px) {
+  .section {
+    max-width: var(--section-max-tablet);
+    margin-block: var(--section-margin-y-tablet);
+    padding-inline: var(--section-pad-x-tablet);
+    gap: var(--section-gap-tablet);
+    scroll-margin-top: var(--section-scroll-margin-tablet);
+  }
+}
+
+@media (min-width: 1061px) {
+  .section {
+    max-width: var(--section-max-desktop);
+    margin-block: var(--section-margin-y-desktop);
+    padding-inline: var(--section-pad-x-desktop);
+    gap: var(--section-gap-desktop);
+    scroll-margin-top: var(--section-scroll-margin-desktop);
+  }
+}

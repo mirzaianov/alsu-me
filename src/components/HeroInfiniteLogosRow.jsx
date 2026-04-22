@@ -7,10 +7,11 @@ import ischi from '../assets/icons/logos/logo-ischi.svg';
 import inn from '../assets/icons/logos/logo-inn.svg';
 import akulchev from '../assets/icons/logos/logo-akulchev.svg';
 import tempo from '../assets/icons/logos/logo-tempo.svg';
+import styles from './HeroInfiniteLogosRow.module.css';
 
 const HeroInfiniteLogosRow = () => {
   return (
-    <div className="inline-block w-max animate-slides tablet:animate-slides-tablet">
+    <div className={styles.root}>
       <HeroInfiniteLogo
         alt="Камский автомобильный завод ПАО «КАМАЗ»"
         src={kamaz}

@@ -1,0 +1,19 @@
+.root {
+  display: inline-block;
+  height: var(--l);
+  padding-inline: 20px;
+}
+
+@media (min-width: 577px) {
+  .root {
+    height: var(--xl);
+    padding-inline: var(--xl);
+  }
+}
+
+@media (min-width: 1061px) {
+  .root {
+    height: var(--2xl);
+    padding-inline: var(--2xl);
+  }
+}

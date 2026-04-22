@@ -1,0 +1,24 @@
+.root {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--s);
+  overflow: clip;
+  background-color: var(--secondary-15);
+  padding-block: var(--s);
+  white-space: nowrap;
+  line-height: 1;
+  animation: logosFadeIn 500ms 200ms ease-in both;
+}
+
+@media (min-width: 577px) {
+  .root {
+    margin-bottom: var(--xl);
+    padding-block: var(--m);
+  }
+}
+
+@media (min-width: 1061px) {
+  .root {
+    padding-block: var(--xl);
+  }
+}

@@ -1,0 +1,51 @@
+.root {
+  width: var(--card-width);
+  height: 352px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s);
+  padding: var(--l) var(--s) var(--m);
+  border-radius: var(--s);
+  background-color: var(--neutral-0);
+  box-shadow: var(--shadow-primary);
+  animation-timeline: view();
+  animation-range-start: 10%;
+  animation-range-end: 40%;
+}
+
+.root:nth-child(odd) {
+  animation: cardRightFadeIn 800ms ease-out both;
+}
+
+.root:nth-child(even) {
+  animation: cardLeftFadeIn 800ms ease-out both;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--m);
+}
+
+.image {
+  height: 5rem;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: pretty;
+  font-size: var(--font-body);
+  font-weight: 700;
+  line-height: var(--line-body);
+}
+
+.list {
+  margin-top: auto;
+}
+
+.item {
+  text-align: center;
+}

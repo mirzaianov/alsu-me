@@ -1,12 +1,12 @@
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
+import styles from './Stat.module.css';
 
 const Stat = ({ quantity, text, className }) => {
   return (
-    <li
-      className={`flex flex-col desktop:w-min desktop:min-w-[125px] ${className || ''}`}
-    >
-      <p className="text-heading-s desktop:text-heading-m">{quantity}</p>
-      <p className="text-body-tight desktop:text-body-l-tight">{text}</p>
+    <li className={clsx(styles.root, className)}>
+      <p className={styles.quantity}>{quantity}</p>
+      <p className={styles.text}>{text}</p>
     </li>
   );
 };

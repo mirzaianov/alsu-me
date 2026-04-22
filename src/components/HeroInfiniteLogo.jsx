@@ -1,9 +1,10 @@
 import propTypes from 'prop-types';
+import styles from './HeroInfiniteLogo.module.css';
 
 const HeroInfiniteLogo = ({ src, alt }) => {
   return (
     <img
-      className="my-0 inline-block h-[var(--l)] px-[20px] tablet:h-[var(--xl)] tablet:px-[var(--xl)] desktop:h-[var(--2xl)] desktop:px-[var(--2xl)]"
+      className={styles.root}
       src={src}
       alt={alt}
     />

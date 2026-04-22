@@ -1,24 +1,20 @@
-import propTypes from 'prop-types';
 import alsuLogo from '../assets/icons/alsu-logo.svg';
+import styles from './BrandLogo.module.css';
 
 const BrandLogo = () => {
   return (
     <a
-      className="tablet:shrink-0 tablet:grow desktop:grow-0"
+      className={styles.root}
       aria-label="Go to the top of the page"
       href="#app"
     >
       <img
-        className="h-[var(--m)] tablet:h-[var(--xl)]"
+        className={styles.logo}
         src={alsuLogo}
         alt="BrandLogo"
       />
     </a>
   );
-};
-
-BrandLogo.propTypes = {
-  size: propTypes.string,
 };
 
 export default BrandLogo;

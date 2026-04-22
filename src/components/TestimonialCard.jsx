@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
 import TestimonialCardModal from './TestimonialCardModal.jsx';
+import styles from './TestimonialCard.module.css';
 
 const maxLines = 10;
 
@@ -63,31 +64,31 @@ const TestimonialCard = ({
   });
 
   return (
-    <div className="shadow-primary relative flex h-[400px] w-[var(--card-width)] min-w-[var(--card-width)] flex-col justify-start gap-[var(--m)] rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight">
-      <div className="min-h-[64px]">
-        <div className="flex gap-[var(--s)]">
+    <div className={styles.root}>
+      <div className={styles.header}>
+        <div className={styles.person}>
           <img
-            className="aspect-square h-[56px] rounded-full object-cover"
+            className={styles.avatar}
             src={src}
             alt={fullName}
             loading="lazy"
           />
-          <div className="flex flex-col justify-center gap-[var(--2xs)]">
-            <p className="text-body-bold">{fullName}</p>
-            <p className="text-balance">{occupation}</p>
+          <div className={styles.meta}>
+            <p className={styles.name}>{fullName}</p>
+            <p className={styles.occupation}>{occupation}</p>
           </div>
         </div>
       </div>
       <p
         ref={paragraphRef}
-        className="line-clamp-10 whitespace-normal text-pretty"
+        className={styles.comment}
       >
         {comment}
       </p>
       {isClamped && (
         <button
           aria-label="Читать далее"
-          className="mt-auto w-fit text-left text-body-bold transition duration-300 ease-in-out hover:opacity-70"
+          className={styles.more}
           onClick={handleModalOpen}
           type="button"
         >
@@ -97,21 +98,21 @@ const TestimonialCard = ({
       {isModalOpen && (
         <TestimonialCardModal onClose={handleModalClose}>
           <div
-            className="flex gap-[var(--s)]"
+            className={styles.person}
             ref={modalRef}
           >
             <img
-              className="aspect-square h-[56px] rounded-full object-cover"
+              className={styles.avatar}
               src={src}
               alt={fullName}
               loading="lazy"
             />
-            <div className="flex flex-col justify-center gap-[var(--2xs)]">
-              <p className="text-body-bold">{fullName}</p>
+            <div className={styles.meta}>
+              <p className={styles.name}>{fullName}</p>
               <p>{occupation}</p>
             </div>
           </div>
-          <p className="whitespace-normal text-pretty">{comment}</p>
+          <p className={styles.modalComment}>{comment}</p>
         </TestimonialCardModal>
       )}
     </div>

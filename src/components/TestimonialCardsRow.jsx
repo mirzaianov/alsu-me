@@ -1,4 +1,5 @@
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
 import TestimonialCard from './TestimonialCard';
 import almaz from '../assets/img/testimonials/almaz.jpeg';
 import elena from '../assets/img/testimonials/elena.jpeg';
@@ -10,6 +11,7 @@ import aiza from '../assets/img/testimonials/aiza.jpeg';
 import alina from '../assets/img/testimonials/alina.jpeg';
 import alsu from '../assets/img/testimonials/alsu.jpeg';
 import girlAvatar from '../assets/img/testimonials/girl-avatar.png';
+import styles from './TestimonialCardsRow.module.css';
 
 const testimonialCardData = [
   {
@@ -86,13 +88,11 @@ const testimonialCardData = [
 
 const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
   return (
-    <div
-      className={`inline-block w-max animate-testimonials ${isInfiniteScroll ? '' : 'pause'}`}
-    >
+    <div className={clsx(styles.root, !isInfiniteScroll && styles.paused)}>
       {testimonialCardData.map((item, index) => (
         <div
           key={`${index}-${item.fullName}`}
-          className="relative my-0 inline-block h-full px-[12px]"
+          className={styles.item}
         >
           <TestimonialCard
             {...item}

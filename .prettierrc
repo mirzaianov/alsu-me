@@ -8,6 +8,5 @@
   "bracketSpacing": true,
   "arrowParens": "always",
   "htmlWhitespaceSensitivity": "strict",
-  "singleAttributePerLine": true,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "singleAttributePerLine": true
 }

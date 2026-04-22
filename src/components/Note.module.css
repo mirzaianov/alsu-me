@@ -1,0 +1,20 @@
+.root {
+  display: grid;
+  place-items: center;
+  padding: var(--xs);
+  border-radius: var(--s);
+  background-color: var(--primary-40);
+  box-shadow: var(--shadow-primary);
+  text-align: center;
+}
+
+.translator {
+  background-color: var(--primary-20);
+}
+
+@media (min-width: 1061px) {
+  .root {
+    padding: var(--s);
+    font-size: var(--font-body-large);
+  }
+}

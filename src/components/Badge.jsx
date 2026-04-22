@@ -1,4 +1,6 @@
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
+import styles from './Badge.module.css';
 
 const Badge = ({
   icon,
@@ -9,35 +11,17 @@ const Badge = ({
   isReversed = false,
   isAnimated = false,
 }) => {
-  const isLarge =
-    size === 'large'
-      ? 'h-[52px] text-body-l gap-[var(--s)]'
-      : 'h-[var(--xl)] text-body gap-[var(--xs)]';
-
-  const isType = () => {
-    switch (type) {
-      case 'secondary-15':
-        return `bg-secondary-15 text-text-90`;
-      case 'secondary-25':
-        return `bg-secondary-25 text-text-90`;
-      case 'secondary-35':
-        return `bg-secondary-35 text-text-90`;
-      case 'secondary-45':
-        return `bg-secondary-45 text-text-90`;
-      case 'secondary-55':
-        return `bg-secondary-55 text-text-90`;
-      default:
-        return `bg-primary-10 text-text-0`;
-    }
-  };
-
   return (
     <div
-      className={`shadow-primary flex w-fit cursor-default items-center justify-center rounded-lg px-[var(--s)] py-[var(--xs)] text-body font-bold leading-normal tracking-[0.05em] ${isType()} ${isReversed ? 'flex-row-reverse' : ''} ${isLarge}`}
-      style={{}}
+      className={clsx(
+        styles.root,
+        styles[type || 'primary'],
+        size === 'large' && styles.large,
+        isReversed && styles.reversed,
+      )}
     >
       <img
-        className={`${isAnimated ? 'animate-waving-hand' : ''} ${size === 'large' ? 'h-[var(--m)]' : 'h-[var(--s)] self-center'}`}
+        className={clsx(styles.icon, isAnimated && styles.animated)}
         src={icon}
         alt={alt}
       />

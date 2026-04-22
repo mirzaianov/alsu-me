@@ -1,0 +1,54 @@
+.root {
+  position: relative;
+  width: var(--card-width);
+  height: 436px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s);
+  padding: var(--l) var(--xs) var(--m);
+  border-radius: var(--s);
+  background-color: var(--neutral-0);
+  box-shadow: var(--shadow-primary);
+  animation-timeline: view();
+  animation-range-start: 10%;
+  animation-range-end: 40%;
+}
+
+.root:nth-child(odd) {
+  animation: cardRightFadeIn 800ms ease-out both;
+}
+
+.root:nth-child(even) {
+  animation: cardLeftFadeIn 800ms ease-out both;
+}
+
+.heading {
+  min-height: 56px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.price {
+  color: var(--text-10);
+  font-size: var(--font-heading-s);
+  font-weight: 700;
+  line-height: var(--line-heading-relaxed);
+  text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  text-align: center;
+}
+
+.note {
+  min-height: 84px;
+  max-width: 185px;
+  text-align: center;
+  font-weight: 700;
+}

@@ -1,0 +1,16 @@
+.root {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: clip;
+  font-size: var(--font-body);
+}
+
+@media (min-width: 1061px) {
+  .root {
+    font-size: var(--font-body-large);
+  }
+}

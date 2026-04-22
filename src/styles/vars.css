@@ -1,10 +1,14 @@
 :root {
-  /* --neutral-00: hsla(0, 0%, 100%, 1);
+  --neutral-0: hsla(0, 0%, 100%, 1);
+  --neutral-0-70: hsla(0, 0%, 100%, 0.7);
   --neutral-70: hsla(213, 5%, 37%, 1);
   --neutral-90: hsla(219, 40%, 11%, 1);
+  --neutral-90-50: hsla(219, 40%, 11%, 0.5);
   --primary-10: hsla(234, 86%, 57%, 1);
+  --primary-10-70: hsla(234, 86%, 57%, 0.7);
   --primary-20: hsla(40, 100%, 55%, 1);
   --primary-30: hsla(353, 100%, 65%, 1);
+  --primary-30-70: hsla(353, 100%, 65%, 0.7);
   --primary-40: hsla(162, 77%, 76%, 1);
   --primary-50: hsla(255, 62%, 72%, 1);
   --secondary-15: hsla(235, 85%, 95%, 1);
@@ -12,10 +16,13 @@
   --secondary-35: hsla(353, 100%, 81%, 1);
   --secondary-45: hsla(162, 76%, 87%, 1);
   --secondary-55: hsla(256, 61%, 94%, 1);
-  --text-00: hsla(0, 0%, 100%, 1);
-  --text-20: hsla(234, 86%, 57%, 1);
+  --text-0: hsla(0, 0%, 100%, 1);
+  --text-10: hsla(234, 86%, 57%, 1);
+  --text-10-70: hsla(234, 86%, 57%, 0.7);
   --text-70: hsla(213, 5%, 37%, 1);
-  --text-90: hsla(219, 40%, 11%, 1); */
+  --text-90: hsla(219, 40%, 11%, 1);
+  --text-90-50: hsla(219, 40%, 11%, 0.5);
+
   --2xs: 4px;
   --xs: 8px;
   --s: 16px;
@@ -54,4 +61,21 @@
   --mobile-y-margin: 56px;
   --tablet-y-margin: 80px;
   --desktop-y-margin: 96px;
+
+  --shadow-primary: 5px 5px 25px 0 rgba(0, 0, 0, 0.25);
+  --transition-primary: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  --font-body: 16px;
+  --font-body-large: 20px;
+  --font-heading-s: 24px;
+  --font-heading-m: 32px;
+  --font-heading-l: 40px;
+  --font-heading-xl: 56px;
+  --font-button: 16px;
+  --font-button-large: 24px;
+  --line-body: 1.75;
+  --line-tight: 1.25;
+  --line-heading: 1.25;
+  --line-heading-relaxed: 1.5;
+  --icon-size: 24px;
 }

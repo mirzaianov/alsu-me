@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
+import styles from './NavBar.module.css';
 
 const items = [
   ['hero', 'Главная'],
@@ -40,75 +42,6 @@ const Navbar = ({ type, setIsDropdownOpen, isDropdownOpen }) => {
     };
   }, []);
 
-  let ULstyle = {};
-  let LIstyle = {};
-
-  if (type === 'inline') {
-    ULstyle = {
-      gridTemplateAreas: `
-        'hero about services prices testimonials contacts'
-      `,
-      paddingInline: 'var(--l)',
-      minWidth: '460px',
-      maxWidth: '640px',
-      margin: '0 auto',
-    };
-
-    LIstyle = {
-      textAlign: 'center',
-    };
-  }
-
-  if (type === 'block-1') {
-    ULstyle = {
-      gridTemplateAreas: `
-      'hero'
-      'about'
-      'services'
-      'prices'
-      'testimonials'
-      'contacts'
-    `,
-      gap: 'var(--l)',
-      justifyContent: 'start',
-    };
-
-    LIstyle = {
-      width: '40vw',
-    };
-  }
-
-  if (type === 'block-2') {
-    ULstyle = {
-      gridTemplateAreas: `
-      'hero services testimonials'
-      'about prices contacts'
-    `,
-      gap: 'var(--l)',
-      justifyContent: 'start',
-    };
-
-    LIstyle = {
-      width: 'fit-content',
-    };
-  }
-
-  if (type === 'block-3') {
-    ULstyle = {
-      gridTemplateAreas: `
-      'hero prices'
-      'about testimonials'
-      'services contacts'
-    `,
-      gap: 'var(--l)',
-      justifyContent: 'start',
-    };
-
-    LIstyle = {
-      width: 'fit-content',
-    };
-  }
-
   const handleClick = (id) => {
     if (setIsDropdownOpen) {
       setIsDropdownOpen(!isDropdownOpen);
@@ -118,24 +51,27 @@ const Navbar = ({ type, setIsDropdownOpen, isDropdownOpen }) => {
   };
 
   return (
-    <ul
-      className="grid w-full text-body-bold"
-      style={{ ...ULstyle }}
-    >
+    <ul className={clsx(styles.root, styles[type])}>
       {items.map((item) => (
         <li
-          style={{ ...LIstyle, gridArea: item[0] }}
+          className={clsx(styles.item, styles[item[0]])}
           key={item[0]}
         >
           <a
             aria-label={`Go to the ${item[0]} section`}
-            className={`relative inline-block transition duration-300 ease-in-out hover:text-text-90/50`}
+            className={clsx(
+              styles.link,
+              activeLink === item[0] && styles.active,
+            )}
             href={`#${item[0]}`}
             onClick={() => handleClick(item[0])}
           >
             {item[1]}
             <span
-              className={`w-[calc(100% + 0.5rem)] absolute bottom-[-2px] left-0 right-0 ml-[-0.25rem] mr-[-0.25rem] h-[4px] rounded-sm bg-current transition-transform duration-300 ease-in-out ${activeLink === item[0] ? 'scale-x-100' : 'scale-x-0'}`}
+              className={clsx(
+                styles.underline,
+                activeLink === item[0] && styles.underlineActive,
+              )}
             />
           </a>
         </li>

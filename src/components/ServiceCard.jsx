@@ -1,23 +1,22 @@
 import propTypes from 'prop-types';
+import styles from './ServiceCard.module.css';
 
 const ServiceCard = ({ src, alt, subheading, description }) => {
   return (
-    <div className="even:card-fade-in odd:card-fade-in shadow-primary flex h-[352px] w-[var(--card-width)] origin-bottom-left flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] bg-neutral-0 px-[var(--s)] pb-[var(--m)] pt-[var(--l)] odd:animate-card-right-fade-in even:animate-card-left-fade-in">
-      <div className="flex flex-col items-center justify-center gap-[var(--m)]">
+    <div className={styles.root}>
+      <div className={styles.content}>
         <img
-          className="h-20"
+          className={styles.image}
           src={src}
           alt={alt}
           loading="lazy"
         />
-        <h4 className="text-pretty text-center text-body-bold uppercase">
-          {subheading}
-        </h4>
+        <h4 className={styles.title}>{subheading}</h4>
       </div>
-      <ul className="mt-auto flex flex-col justify-start">
+      <ul className={styles.list}>
         {description.map((item, index) => (
           <li
-            className="text-center"
+            className={styles.item}
             key={`${index}-${item}`}
           >
             {item}

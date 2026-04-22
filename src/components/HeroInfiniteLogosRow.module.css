@@ -1,0 +1,11 @@
+.root {
+  display: inline-block;
+  width: max-content;
+  animation: slideMarquee 40s linear infinite;
+}
+
+@media (min-width: 577px) {
+  .root {
+    animation-duration: 60s;
+  }
+}

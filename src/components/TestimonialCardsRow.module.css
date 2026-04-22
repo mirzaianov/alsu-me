@@ -1,0 +1,16 @@
+.root {
+  display: inline-block;
+  width: max-content;
+  animation: slideMarquee 120s linear infinite;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.item {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  padding-inline: 12px;
+}
