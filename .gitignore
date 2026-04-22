@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.npm-cache/
 
 # testing
 coverage/
@@ -44,6 +45,3 @@ lerna-debug.log*
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
-
-# Custom
-package-lock.json
