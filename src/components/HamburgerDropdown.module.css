@@ -25,6 +25,12 @@
 .closed {
   opacity: 0;
   pointer-events: none;
+  transform: translateX(110%);
+}
+
+.closing {
+  opacity: 1;
+  pointer-events: none;
   animation: dropdownClose 300ms ease-out both;
 }
 

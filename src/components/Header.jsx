@@ -10,26 +10,42 @@ import useMediaQuery from '../hooks/useMediaQuery';
 import styles from './Header.module.css';
 
 const Header = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [menuState, setMenuState] = useState('closed');
   const [isFixed, setIsFixed] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 1061px)');
   const isMobile = !isDesktop;
-  const isMenuOpen = isMobile && isDropdownOpen;
+  const isMenuOpen = isMobile && menuState === 'open';
 
   const dropdownRef = useRef();
   const buttonRef = useRef();
 
-  useOnClickOutside(dropdownRef, () => {
-    setIsDropdownOpen(false);
-  }, [buttonRef]);
-
-  const closeOnEscape = (e) => {
-    if (e.code === 'Escape') {
-      setIsDropdownOpen(false);
-    }
+  const closeMenu = () => {
+    setMenuState((state) => (state === 'open' ? 'closing' : state));
   };
 
+  const toggleMenu = () => {
+    setMenuState((state) => (state === 'open' ? 'closing' : 'open'));
+  };
+
+  const handleDropdownAnimationEnd = (event) => {
+    if (event.currentTarget !== event.target) {
+      return;
+    }
+
+    setMenuState((state) => (state === 'closing' ? 'closed' : state));
+  };
+
+  useOnClickOutside(dropdownRef, () => {
+    closeMenu();
+  }, [buttonRef]);
+
   useEffect(() => {
+    const closeOnEscape = (e) => {
+      if (e.code === 'Escape') {
+        setMenuState((state) => (state === 'open' ? 'closing' : state));
+      }
+    };
+
     if (isMenuOpen) {
       document.body.addEventListener('keydown', closeOnEscape);
       document.body.classList.add('noScroll');
@@ -81,7 +97,7 @@ const Header = () => {
         >
           {isMobile ? (
             <Hamburger
-              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              onClick={toggleMenu}
               isDropdownOpen={isMenuOpen}
             />
           ) : (
@@ -97,12 +113,17 @@ const Header = () => {
         {isMobile && (
           <HamburgerDropdown
             isFixed={isFixed}
-            isDropdownOpen={isMenuOpen}
+            menuState={menuState}
+            onAnimationEnd={handleDropdownAnimationEnd}
           >
             <div ref={dropdownRef}>
               <NavBar
                 type="block-1"
-                setIsDropdownOpen={setIsDropdownOpen}
+                setIsDropdownOpen={(next) => {
+                  if (next === false) {
+                    closeMenu();
+                  }
+                }}
                 isDropdownOpen={isMenuOpen}
               />
             </div>

@@ -6,7 +6,12 @@ import styles from './HamburgerDropdown.module.css';
 
 const modalRoot = document.getElementById('hamburger-dropdown');
 
-const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
+const HamburgerDropdown = ({
+  children,
+  isFixed,
+  menuState,
+  onAnimationEnd,
+}) => {
   const [portalElement] = useState(() => document.createElement('div'));
 
   useEffect(() => {
@@ -19,9 +24,10 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
 
   return ReactDOM.createPortal(
     <div
+      onAnimationEnd={onAnimationEnd}
       className={clsx(
         styles.hamburgerDropdown,
-        isDropdownOpen ? styles.open : styles.closed,
+        styles[menuState],
         isFixed ? styles.fixed : styles.default,
       )}
     >
@@ -33,8 +39,9 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
 
 HamburgerDropdown.propTypes = {
   children: propTypes.node.isRequired,
-  isDropdownOpen: propTypes.bool.isRequired,
   isFixed: propTypes.bool,
+  menuState: propTypes.oneOf(['closed', 'open', 'closing']).isRequired,
+  onAnimationEnd: propTypes.func.isRequired,
 };
 
 export default HamburgerDropdown;
