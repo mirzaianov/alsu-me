@@ -99,10 +99,9 @@ h6 {
 }
 
 .stack {
-  --stack-gap: var(--m);
   display: flex;
   flex-direction: column;
-  gap: var(--stack-gap);
+  gap: var(--stack-gap, var(--m));
 }
 
 .cluster {
@@ -114,12 +113,11 @@ h6 {
 }
 
 .gridCards {
-  --grid-gap: var(--l);
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--grid-gap);
+  gap: var(--grid-gap, var(--l));
 }
 
 .srOnly {
