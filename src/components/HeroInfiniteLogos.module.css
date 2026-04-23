@@ -6,7 +6,7 @@
   background-color: var(--secondary-15);
   padding-block: var(--s);
   white-space: nowrap;
-  line-height: 1;
+  line-height: 0;
   animation: logosFadeIn 500ms 200ms ease-in both;
 }
 
