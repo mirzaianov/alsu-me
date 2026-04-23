@@ -1,7 +1,7 @@
 .badge {
   display: inline-flex;
   width: fit-content;
-  min-height: var(--xl);
+  height: var(--xl);
   align-items: center;
   justify-content: center;
   gap: var(--xs);
@@ -17,6 +17,9 @@
 }
 
 .icon {
+  width: auto;
+  max-width: none;
+  flex-shrink: 0;
   align-self: center;
   height: var(--s);
 }
@@ -61,7 +64,7 @@
 
 @media (min-width: 577px) {
   .large {
-    min-height: 52px;
+    height: 52px;
     gap: var(--s);
     font-size: var(--font-body-large);
   }
