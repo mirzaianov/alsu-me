@@ -1,6 +1,8 @@
 .testimonialInfiniteCards {
   position: relative;
   width: 100%;
+  height: 400px;
   padding-inline: 0;
   white-space: nowrap;
+  line-height: 0;
 }
