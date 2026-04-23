@@ -2,17 +2,18 @@
   --button-radius: 0.5rem;
   --button-bg: var(--primary-10);
   --button-border: transparent;
+  --button-border-width: 0;
   --button-color: var(--text-0);
   --button-bg-hover: var(--primary-10-70);
   display: inline-flex;
   width: fit-content;
-  min-height: var(--xl);
+  height: var(--xl);
   align-items: center;
   justify-content: center;
   gap: var(--xs);
   padding-inline: var(--s);
   padding-block: var(--xs);
-  border: 3px solid var(--button-border);
+  border: var(--button-border-width) solid var(--button-border);
   border-radius: var(--button-radius);
   background-color: var(--button-bg);
   color: var(--button-color);
@@ -51,16 +52,13 @@
   min-width: 160px;
 }
 
-.large {
-  gap: var(--s);
-}
-
 .primary {}
 
 .secondary {
   --button-bg: transparent;
   --button-bg-hover: transparent;
   --button-border: var(--primary-10);
+  --button-border-width: 3px;
   --button-color: var(--text-10);
 }
 
@@ -88,6 +86,7 @@
   --button-bg: transparent;
   --button-bg-hover: transparent;
   --button-border: var(--neutral-90);
+  --button-border-width: 3px;
   --button-color: var(--text-90);
 }
 
@@ -102,8 +101,9 @@
   }
 
   .large {
-    min-height: 52px;
+    height: 52px;
     padding-inline: var(--m);
+    gap: var(--s);
     border-radius: 0.75rem;
     font-size: var(--font-button-large);
   }
