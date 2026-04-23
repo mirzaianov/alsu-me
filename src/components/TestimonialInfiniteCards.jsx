@@ -6,7 +6,7 @@ const TestimonialInfiniteCards = () => {
   const [isInfiniteScroll, setIsInfiniteScroll] = useState(true);
 
   return (
-    <div className={styles.root}>
+    <div className={styles.testimonialInfiniteCards}>
       <TestimonialCardsRow
         isInfiniteScroll={isInfiniteScroll}
         setIsInfiniteScroll={setIsInfiniteScroll}

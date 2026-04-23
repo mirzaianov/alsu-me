@@ -6,7 +6,7 @@ import styles from './HeroPhotoCardBlock.module.css';
 
 const HeroPhotoCardBlock = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.heroPhotoCardBlock}>
       <div className={styles.statsWrap}>
         <ul className={styles.stats}>
           <Stat

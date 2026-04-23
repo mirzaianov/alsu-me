@@ -1,4 +1,4 @@
-.root {
+.stat {
   display: flex;
   flex-direction: column;
 }
@@ -15,7 +15,7 @@
 }
 
 @media (min-width: 1061px) {
-  .root {
+  .stat {
     width: min-content;
     min-width: 125px;
   }

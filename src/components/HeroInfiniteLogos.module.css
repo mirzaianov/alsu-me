@@ -1,4 +1,4 @@
-.root {
+.heroInfiniteLogos {
   position: relative;
   width: 100%;
   margin-bottom: var(--s);
@@ -11,14 +11,14 @@
 }
 
 @media (min-width: 577px) {
-  .root {
+  .heroInfiniteLogos {
     margin-bottom: var(--xl);
     padding-block: var(--m);
   }
 }
 
 @media (min-width: 1061px) {
-  .root {
+  .heroInfiniteLogos {
     padding-block: var(--xl);
   }
 }

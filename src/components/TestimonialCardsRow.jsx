@@ -88,7 +88,12 @@ const testimonialCardData = [
 
 const TestimonialCardsRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
   return (
-    <div className={clsx(styles.root, !isInfiniteScroll && styles.paused)}>
+    <div
+      className={clsx(
+        styles.testimonialCardsRow,
+        !isInfiniteScroll && styles.paused,
+      )}
+    >
       {testimonialCardData.map((item, index) => (
         <div
           key={`${index}-${item.fullName}`}

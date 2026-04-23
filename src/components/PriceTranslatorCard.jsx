@@ -11,7 +11,7 @@ const PriceTranslatorCard = ({
   note,
 }) => {
   return (
-    <div className={styles.root}>
+    <div className={styles.priceTranslatorCard}>
       <h4 className={styles.heading}>{heading}</h4>
       <p>{subheading}</p>
       <h5 className={styles.price}>

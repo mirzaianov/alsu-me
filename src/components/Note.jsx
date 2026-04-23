@@ -5,7 +5,7 @@ import styles from './Note.module.css';
 const Note = ({ type, children }) => {
   return (
     <div
-      className={clsx(styles.root, type === 'translator' && styles.translator)}
+      className={clsx(styles.note, type === 'translator' && styles.translator)}
     >
       {children}
     </div>

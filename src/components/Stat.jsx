@@ -4,7 +4,7 @@ import styles from './Stat.module.css';
 
 const Stat = ({ quantity, text, className }) => {
   return (
-    <li className={clsx(styles.root, className)}>
+    <li className={clsx(styles.stat, className)}>
       <p className={styles.quantity}>{quantity}</p>
       <p className={styles.text}>{text}</p>
     </li>

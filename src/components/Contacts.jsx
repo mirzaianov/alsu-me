@@ -7,7 +7,7 @@ const Contacts = () => {
   return (
     <section
       id="contacts"
-      className={clsx('section', styles.root)}
+      className={clsx('section', styles.contacts)}
     >
       <h2 className={clsx('title', styles.title)}>
         Готов начать сотрудничество?

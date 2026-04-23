@@ -3,7 +3,7 @@ import styles from './ServiceCard.module.css';
 
 const ServiceCard = ({ src, alt, subheading, description }) => {
   return (
-    <div className={styles.root}>
+    <div className={styles.serviceCard}>
       <div className={styles.content}>
         <img
           className={styles.image}

@@ -4,7 +4,7 @@ import styles from './HeroInfiniteLogo.module.css';
 const HeroInfiniteLogo = ({ src, alt }) => {
   return (
     <img
-      className={styles.root}
+      className={styles.heroInfiniteLogo}
       src={src}
       alt={alt}
     />

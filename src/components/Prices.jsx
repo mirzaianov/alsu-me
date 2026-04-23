@@ -56,7 +56,7 @@ const Prices = () => {
   return (
     <section
       id="prices"
-      className={clsx('section', styles.root)}
+      className={clsx('section', styles.prices)}
     >
       <div className={styles.sale}>
         <img

@@ -14,7 +14,7 @@ const PriceTutorCard = ({
   description,
 }) => {
   return (
-    <div className={clsx(styles.root, discount && styles.discount)}>
+    <div className={clsx(styles.priceTutorCard, discount && styles.discount)}>
       <div className={styles.header}>
         <h4 className={styles.heading}>{heading}</h4>
         <p className={styles.subheading}>{subheading}</p>

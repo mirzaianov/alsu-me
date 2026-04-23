@@ -1,4 +1,4 @@
-.root {
+.header {
   position: relative;
   z-index: 30;
   display: flex;
@@ -55,7 +55,7 @@
 }
 
 @media (min-width: 577px) {
-  .root {
+  .header {
     margin-top: var(--xl);
   }
 
@@ -78,8 +78,8 @@
 }
 
 @media (min-width: 1061px) {
-  .root {
-    max-width: var(--l-end);
+  .header {
+    max-width: var(--container-wide);
   }
 
   .default {

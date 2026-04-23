@@ -10,7 +10,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className={clsx('section', styles.root)}
+      className={clsx('section', styles.about)}
     >
       <h2 className={clsx('title', styles.title)}>Обо мне</h2>
       <div className={styles.content}>

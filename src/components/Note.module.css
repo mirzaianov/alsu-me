@@ -1,4 +1,4 @@
-.root {
+.note {
   display: grid;
   place-items: center;
   padding: var(--xs);
@@ -13,7 +13,7 @@
 }
 
 @media (min-width: 1061px) {
-  .root {
+  .note {
     padding: var(--s);
     font-size: var(--font-body-large);
   }

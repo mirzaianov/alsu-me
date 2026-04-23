@@ -30,7 +30,7 @@ const Button = ({
     <button
       aria-label={ariaLabel}
       className={clsx(
-        styles.root,
+        styles.button,
         styles[type || 'primary'],
         size === 'large' && styles.large,
         icon === 'true' && styles.icon,

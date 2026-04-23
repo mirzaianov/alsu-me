@@ -14,7 +14,7 @@ const Badge = ({
   return (
     <div
       className={clsx(
-        styles.root,
+        styles.badge,
         styles[type || 'primary'],
         size === 'large' && styles.large,
         isReversed && styles.reversed,

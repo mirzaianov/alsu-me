@@ -1,4 +1,4 @@
-.root {
+.heroPhotoCard {
   position: relative;
   width: 185px;
 }
@@ -11,7 +11,7 @@
   transition: transform var(--transition-primary);
 }
 
-.root:hover .inner {
+.heroPhotoCard:hover .inner {
   transform: scale(1.1);
 }
 
@@ -57,12 +57,12 @@
   transition-delay: 150ms;
 }
 
-.root:hover .image {
+.heroPhotoCard:hover .image {
   transform: translateY(-10px) rotate(-2.5deg) scale(1.4);
 }
 
 @media (min-width: 577px) {
-  .root {
+  .heroPhotoCard {
     width: 330px;
   }
 

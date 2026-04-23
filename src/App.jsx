@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div
       id="app"
-      className={styles.root}
+      className={styles.app}
     >
       <Header />
       <Hero />

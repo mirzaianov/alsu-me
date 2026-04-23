@@ -1,4 +1,4 @@
-.root {
+.button {
   --button-radius: 0.5rem;
   --button-bg: var(--primary-10);
   --button-border: transparent;
@@ -28,21 +28,21 @@
     transform var(--transition-primary);
 }
 
-.root:hover {
+.button:hover {
   background-color: var(--button-bg-hover);
 }
 
-.root:active {
+.button:active {
   transform: translateY(-4px);
 }
 
-.root svg {
+.button svg {
   width: var(--icon-size);
   height: var(--icon-size);
   flex-shrink: 0;
 }
 
-.root svg path {
+.button svg path {
   fill: currentColor;
   transition: fill var(--transition-primary);
 }

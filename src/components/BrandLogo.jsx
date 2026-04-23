@@ -4,7 +4,7 @@ import styles from './BrandLogo.module.css';
 const BrandLogo = () => {
   return (
     <a
-      className={styles.root}
+      className={styles.brandLogo}
       aria-label="Go to the top of the page"
       href="#app"
     >

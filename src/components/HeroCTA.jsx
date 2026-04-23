@@ -6,7 +6,7 @@ import styles from './HeroCTA.module.css';
 const HeroCTA = ({ size = '', link = '', ariaLabel, text }) => {
   return (
     <button
-      className={styles.root}
+      className={styles.heroCTA}
       aria-label={ariaLabel}
       onClick={() => window.open(link, '_blank')}
     >

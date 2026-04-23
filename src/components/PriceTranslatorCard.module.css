@@ -1,4 +1,4 @@
-.root {
+.priceTranslatorCard {
   position: relative;
   width: var(--card-width);
   height: 436px;
@@ -15,11 +15,11 @@
   animation-range-end: 40%;
 }
 
-.root:nth-child(odd) {
+.priceTranslatorCard:nth-child(odd) {
   animation: cardRightFadeIn 800ms ease-out both;
 }
 
-.root:nth-child(even) {
+.priceTranslatorCard:nth-child(even) {
   animation: cardLeftFadeIn 800ms ease-out both;
 }
 

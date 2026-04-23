@@ -64,7 +64,7 @@ const TestimonialCard = ({
   });
 
   return (
-    <div className={styles.root}>
+    <div className={styles.testimonialCard}>
       <div className={styles.header}>
         <div className={styles.person}>
           <img

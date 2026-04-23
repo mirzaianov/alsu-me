@@ -1,4 +1,4 @@
-.root {
+.testimonialCardsRow {
   display: inline-block;
   width: max-content;
   animation: slideMarquee 120s linear infinite;

@@ -42,7 +42,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className={clsx('section', styles.root)}
+      className={clsx('section', styles.services)}
     >
       <h2 className={clsx('title', styles.title)}>Что я предлагаю</h2>
       <article className={styles.intro}>

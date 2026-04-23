@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className={clsx('section', styles.root)}
+      className={clsx('section', styles.footer)}
     >
       <article className={styles.top}>
         <BrandLogo />

@@ -11,7 +11,7 @@ import styles from './HeroInfiniteLogosRow.module.css';
 
 const HeroInfiniteLogosRow = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.heroInfiniteLogosRow}>
       <HeroInfiniteLogo
         alt="Камский автомобильный завод ПАО «КАМАЗ»"
         src={kamaz}

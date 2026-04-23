@@ -5,7 +5,7 @@ const HeroInfiniteLogos = () => {
   return (
     <section
       id="infinite-logos"
-      className={styles.root}
+      className={styles.heroInfiniteLogos}
     >
       <HeroInfiniteLogosRow />
       <HeroInfiniteLogosRow />

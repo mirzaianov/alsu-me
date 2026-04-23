@@ -32,22 +32,10 @@
   --2xl: 56px;
   --3xl: 80px;
 
-  --m-start: 577px;
-  --l-start: 1061px;
-  --l-end: 1600px;
-
-  --mobile-width: 390px;
-  --mobile-heighht: 844px;
-
-  --tablet-width: 834px;
-  --tablet-height: 1194px;
-
-  --desktop-width: 1920px;
-  --desktop-height: 1024px;
-
   --container-mobile: 432px;
   --container-tablet: 720px;
   --container-desktop: 1300px;
+  --container-wide: 1600px;
 
   --mobile-text-wrapper: 400px;
   --tablet-text-wrapper: 560px;

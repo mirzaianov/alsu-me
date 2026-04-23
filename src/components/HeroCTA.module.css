@@ -1,4 +1,4 @@
-.root {
+.heroCTA {
   position: relative;
 }
 
@@ -23,11 +23,11 @@
   transition: transform var(--transition-primary);
 }
 
-.root:hover .surface {
+.heroCTA:hover .surface {
   transform: scale(1.05);
 }
 
-.root:active .surface {
+.heroCTA:active .surface {
   transform: translateY(-4px);
 }
 
@@ -61,15 +61,15 @@
   animation: shape3 5s 1.5s ease-in-out infinite both;
 }
 
-.root:hover .shapeOne {
+.heroCTA:hover .shapeOne {
   background-color: var(--primary-40);
 }
 
-.root:hover .shapeTwo {
+.heroCTA:hover .shapeTwo {
   background-color: var(--primary-30);
 }
 
-.root:hover .shapeThree {
+.heroCTA:hover .shapeThree {
   background-color: var(--primary-20);
 }
 
@@ -84,7 +84,7 @@
   height: var(--m);
 }
 
-.root:hover .icon {
+.heroCTA:hover .icon {
   animation:
     ctaRotate 500ms ease-out backwards,
     ctaBounce 1500ms 500ms linear infinite;

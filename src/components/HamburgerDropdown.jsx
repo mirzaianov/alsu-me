@@ -20,7 +20,7 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
   return ReactDOM.createPortal(
     <div
       className={clsx(
-        styles.root,
+        styles.hamburgerDropdown,
         isDropdownOpen ? styles.open : styles.closed,
         isFixed ? styles.fixed : styles.default,
       )}

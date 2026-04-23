@@ -4,7 +4,7 @@ import styles from './HeroPhotoCard.module.css';
 
 const HeroPhotoCard = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.heroPhotoCard}>
       <div className={styles.inner}>
         <div className={styles.border} />
         <div className={styles.mask}>

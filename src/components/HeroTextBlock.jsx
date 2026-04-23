@@ -3,7 +3,7 @@ import styles from './HeroTextBlock.module.css';
 
 const HeroTextBlock = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.heroTextBlock}>
       <h1 className={styles.heading}>
         <span>В поисках идеального</span>
         <div className={styles.words}>

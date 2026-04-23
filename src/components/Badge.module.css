@@ -1,4 +1,4 @@
-.root {
+.badge {
   display: inline-flex;
   width: fit-content;
   min-height: var(--xl);

@@ -1,4 +1,4 @@
-.root {
+.aboutPhotoCard {
   position: relative;
   width: 170px;
 }
@@ -13,7 +13,7 @@
   transition: transform var(--transition-primary);
 }
 
-.root:hover .inner {
+.aboutPhotoCard:hover .inner {
   transform: scale(1.1);
 }
 
@@ -37,12 +37,12 @@
   transition-delay: 150ms;
 }
 
-.root:hover .image {
+.aboutPhotoCard:hover .image {
   transform: translateY(-10px) scale(1.4);
 }
 
 @media (min-width: 577px) {
-  .root {
+  .aboutPhotoCard {
     width: 300px;
   }
 

@@ -32,7 +32,7 @@ const BackToTopButton = () => {
   return (
     <a
       aria-label="Go to the top of the page"
-      className={clsx(styles.root, isVisible && styles.visible)}
+      className={clsx(styles.backToTopButton, isVisible && styles.visible)}
       href="#app"
     >
       <PiArrowFatUpFill className={styles.icon} />

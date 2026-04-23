@@ -7,7 +7,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className={clsx('section', styles.root)}
+      className={clsx('section', styles.testimonials)}
     >
       <h2 className={clsx('title', styles.title)}>
         Что говорят мои ученики и клиенты

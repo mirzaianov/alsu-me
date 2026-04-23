@@ -10,7 +10,7 @@ const Hamburger = ({ onClick, isDropdownOpen }) => {
   return (
     <button
       aria-label={`${isDropdownOpen ? 'Close hamburger menu' : 'Open hamburger menu'}`}
-      className={styles.root}
+      className={styles.hamburger}
       onClick={handleClick}
       type="button"
     >

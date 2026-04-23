@@ -1,4 +1,4 @@
-.root {
+.hero {
   position: relative;
   display: flex;
   width: 100%;
@@ -41,7 +41,7 @@
 }
 
 @media (min-width: 577px) {
-  .root {
+  .hero {
     max-width: 560px;
     min-height: calc(100svh - 104px);
     gap: var(--xl);
@@ -59,7 +59,7 @@
 }
 
 @media (min-width: 1061px) {
-  .root {
+  .hero {
     max-width: var(--container-desktop);
     padding-inline: var(--3xl);
   }

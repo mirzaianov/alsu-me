@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className={styles.root}
+      className={styles.hero}
     >
       <HeroBackground />
       <article className={styles.content}>

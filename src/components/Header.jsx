@@ -64,7 +64,7 @@ const Header = () => {
   return (
     <header
       id="header"
-      className={styles.root}
+      className={styles.header}
     >
       <div
         className={clsx(styles.shell, isFixed ? styles.fixed : styles.default)}

@@ -1,4 +1,4 @@
-.root {
+.hamburgerDropdown {
   position: fixed;
   z-index: 30;
   right: var(--s);
@@ -37,7 +37,7 @@
 }
 
 @media (min-width: 577px) {
-  .root {
+  .hamburgerDropdown {
     right: var(--xl);
     border-radius: 36px;
   }

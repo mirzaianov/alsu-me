@@ -1,18 +1,18 @@
-.root {
+.heroInfiniteLogo {
   display: inline-block;
   height: var(--l);
   padding-inline: 20px;
 }
 
 @media (min-width: 577px) {
-  .root {
+  .heroInfiniteLogo {
     height: var(--xl);
     padding-inline: var(--xl);
   }
 }
 
 @media (min-width: 1061px) {
-  .root {
+  .heroInfiniteLogo {
     height: var(--2xl);
     padding-inline: var(--2xl);
   }

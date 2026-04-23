@@ -1,4 +1,4 @@
-.root {
+.serviceCard {
   width: var(--card-width);
   height: 352px;
   display: flex;
@@ -14,11 +14,11 @@
   animation-range-end: 40%;
 }
 
-.root:nth-child(odd) {
+.serviceCard:nth-child(odd) {
   animation: cardRightFadeIn 800ms ease-out both;
 }
 
-.root:nth-child(even) {
+.serviceCard:nth-child(even) {
   animation: cardLeftFadeIn 800ms ease-out both;
 }
 

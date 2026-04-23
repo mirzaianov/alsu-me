@@ -1,4 +1,4 @@
-.root {
+.priceTutorCard {
   position: relative;
   width: var(--card-width);
   height: 380px;
@@ -15,15 +15,15 @@
   animation-range-end: 40%;
 }
 
-.root:nth-child(odd) {
+.priceTutorCard:nth-child(odd) {
   animation: cardRightFadeIn 800ms ease-out both;
 }
 
-.root:nth-child(even) {
+.priceTutorCard:nth-child(even) {
   animation: cardLeftFadeIn 800ms ease-out both;
 }
 
-.root:last-child {
+.priceTutorCard:last-child {
   margin-top: var(--m);
 }
 
@@ -107,7 +107,7 @@
 }
 
 @media (min-width: 1061px) {
-  .root:last-child {
+  .priceTutorCard:last-child {
     margin-top: 0;
   }
 }

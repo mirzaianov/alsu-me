@@ -4,7 +4,7 @@ import styles from './AboutPhotoCard.module.css';
 
 const AboutPhotoCard = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.aboutPhotoCard}>
       <div className={styles.inner}>
         <div className={styles.color} />
         <img

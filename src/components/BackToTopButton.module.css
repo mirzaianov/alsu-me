@@ -1,4 +1,4 @@
-.root {
+.backToTopButton {
   position: fixed;
   right: var(--s);
   bottom: -108px;
@@ -18,7 +18,7 @@
     transform var(--transition-slow);
 }
 
-.root:hover {
+.backToTopButton:hover {
   background-color: var(--primary-10);
   opacity: 0.6;
 }
@@ -37,14 +37,14 @@
     opacity var(--transition-slow);
 }
 
-.root:hover .icon {
+.backToTopButton:hover .icon {
   color: var(--text-0);
   opacity: 1;
   animation: arrowBounce 1500ms linear infinite;
 }
 
 @media (min-width: 577px) {
-  .root {
+  .backToTopButton {
     right: var(--xl);
     bottom: -164px;
   }
@@ -55,7 +55,7 @@
 }
 
 @media (min-width: 1761px) {
-  .root {
+  .backToTopButton {
     right: auto;
     left: calc(50% + 760px);
   }

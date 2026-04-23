@@ -1,8 +1,8 @@
-.root {
+.footer {
   --section-gap: var(--m);
   --section-gap-tablet: var(--xl);
   --section-max-tablet: 100%;
-  --section-max-desktop: var(--l-end);
+  --section-max-desktop: var(--container-wide);
   --section-align: flex-start;
 }
 

@@ -51,7 +51,7 @@ const Navbar = ({ type, setIsDropdownOpen, isDropdownOpen }) => {
   };
 
   return (
-    <ul className={clsx(styles.root, styles[type])}>
+    <ul className={clsx(styles.navBar, styles[type])}>
       {items.map((item) => (
         <li
           className={clsx(styles.item, styles[item[0]])}
