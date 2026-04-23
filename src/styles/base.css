@@ -60,32 +60,16 @@ h6 {
 }
 
 .section {
-  --section-max: var(--container-mobile);
-  --section-max-tablet: var(--container-tablet);
-  --section-max-desktop: var(--container-desktop);
-  --section-gap: var(--l);
-  --section-gap-tablet: var(--xl);
-  --section-gap-desktop: var(--2xl);
-  --section-pad-x: var(--s);
-  --section-pad-x-tablet: var(--xl);
-  --section-pad-x-desktop: var(--3xl);
-  --section-margin-y: var(--mobile-y-margin);
-  --section-margin-y-tablet: var(--tablet-y-margin);
-  --section-margin-y-desktop: var(--desktop-y-margin);
-  --section-scroll-margin: 9rem;
-  --section-scroll-margin-tablet: var(--section-scroll-margin);
-  --section-scroll-margin-desktop: var(--section-scroll-margin-tablet);
-  --section-align: center;
   width: 100%;
-  max-width: var(--section-max);
-  margin-block: var(--section-margin-y);
-  padding-inline: var(--section-pad-x);
+  max-width: var(--section-max, var(--container-mobile));
+  margin-block: var(--section-margin-y, var(--mobile-y-margin));
+  padding-inline: var(--section-pad-x, var(--s));
   display: flex;
   flex-direction: column;
-  align-items: var(--section-align);
+  align-items: var(--section-align, center);
   justify-content: flex-start;
-  gap: var(--section-gap);
-  scroll-margin-top: var(--section-scroll-margin);
+  gap: var(--section-gap, var(--l));
+  scroll-margin-top: var(--section-scroll-margin, 9rem);
 }
 
 .title {
@@ -138,20 +122,26 @@ h6 {
 
 @media (min-width: 577px) {
   .section {
-    max-width: var(--section-max-tablet);
-    margin-block: var(--section-margin-y-tablet);
-    padding-inline: var(--section-pad-x-tablet);
-    gap: var(--section-gap-tablet);
-    scroll-margin-top: var(--section-scroll-margin-tablet);
+    max-width: var(--section-max-tablet, var(--container-tablet));
+    margin-block: var(--section-margin-y-tablet, var(--tablet-y-margin));
+    padding-inline: var(--section-pad-x-tablet, var(--xl));
+    gap: var(--section-gap-tablet, var(--xl));
+    scroll-margin-top: var(
+      --section-scroll-margin-tablet,
+      var(--section-scroll-margin, 9rem)
+    );
   }
 }
 
 @media (min-width: 1061px) {
   .section {
-    max-width: var(--section-max-desktop);
-    margin-block: var(--section-margin-y-desktop);
-    padding-inline: var(--section-pad-x-desktop);
-    gap: var(--section-gap-desktop);
-    scroll-margin-top: var(--section-scroll-margin-desktop);
+    max-width: var(--section-max-desktop, var(--container-desktop));
+    margin-block: var(--section-margin-y-desktop, var(--desktop-y-margin));
+    padding-inline: var(--section-pad-x-desktop, var(--3xl));
+    gap: var(--section-gap-desktop, var(--section-gap-tablet, var(--2xl)));
+    scroll-margin-top: var(
+      --section-scroll-margin-desktop,
+      var(--section-scroll-margin-tablet, var(--section-scroll-margin, 9rem))
+    );
   }
 }
