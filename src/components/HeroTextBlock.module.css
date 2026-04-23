@@ -91,6 +91,7 @@
 
   .heading {
     font-size: var(--font-heading-l);
+    line-height: var(--line-heading);
   }
 
   .words {
