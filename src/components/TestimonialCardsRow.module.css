@@ -1,6 +1,7 @@
 .testimonialCardsRow {
   display: inline-block;
   width: max-content;
+  line-height: 0;
   animation: slideMarquee 120s linear infinite;
 }
 
@@ -13,4 +14,6 @@
   display: inline-block;
   height: 100%;
   padding-inline: 12px;
+  vertical-align: top;
+  line-height: var(--line-body);
 }

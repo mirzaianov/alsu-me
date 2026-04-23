@@ -61,6 +61,9 @@
 
 .cards {
   --grid-gap: var(--l);
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-body);
 }
 
 @media (min-width: 577px) {
@@ -93,6 +96,7 @@
 
   .cards {
     --grid-gap: var(--xl);
+    flex-direction: row;
   }
 }
 

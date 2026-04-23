@@ -9,17 +9,18 @@
   border-radius: var(--s);
   background-color: var(--neutral-0);
   box-shadow: var(--shadow-primary);
-  animation-timeline: view();
-  animation-range-start: 10%;
-  animation-range-end: 40%;
+  transform-origin: bottom left;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
 }
 
 .serviceCard:nth-child(odd) {
-  animation: cardRightFadeIn 800ms ease-out both;
+  animation-name: cardRightFadeIn;
 }
 
 .serviceCard:nth-child(even) {
-  animation: cardLeftFadeIn 800ms ease-out both;
+  animation-name: cardLeftFadeIn;
 }
 
 .content {
@@ -43,9 +44,22 @@
 }
 
 .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   margin-top: auto;
 }
 
 .item {
   text-align: center;
+}
+
+@supports (animation-timeline: view()) {
+  .serviceCard {
+    animation-timeline: view();
+    animation-range-start: 10%;
+    animation-range-end: 40%;
+    animation-duration: auto;
+    animation-timing-function: linear;
+  }
 }

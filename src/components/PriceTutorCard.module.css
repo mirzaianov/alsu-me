@@ -10,17 +10,17 @@
   border-radius: var(--s);
   background-color: var(--neutral-0);
   box-shadow: var(--shadow-primary);
-  animation-timeline: view();
-  animation-range-start: 10%;
-  animation-range-end: 40%;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
 }
 
 .priceTutorCard:nth-child(odd) {
-  animation: cardRightFadeIn 800ms ease-out both;
+  animation-name: cardRightFadeIn;
 }
 
 .priceTutorCard:nth-child(even) {
-  animation: cardLeftFadeIn 800ms ease-out both;
+  animation-name: cardLeftFadeIn;
 }
 
 .priceTutorCard:last-child {
@@ -80,6 +80,7 @@
 .list {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .item {
@@ -109,5 +110,15 @@
 @media (min-width: 1061px) {
   .priceTutorCard:last-child {
     margin-top: 0;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .priceTutorCard {
+    animation-timeline: view();
+    animation-range-start: 10%;
+    animation-range-end: 40%;
+    animation-duration: auto;
+    animation-timing-function: linear;
   }
 }
