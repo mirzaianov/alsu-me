@@ -75,25 +75,25 @@
 
 .badgeItem {
   transform-origin: center;
-  animation-timeline: view();
-  animation-range-start: 20%;
-  animation-range-end: 50%;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
 }
 
 .badgeItem1 {
-  animation: expand1 800ms ease-out both;
+  animation-name: expand1;
 }
 
 .badgeItem2 {
-  animation: expand2 800ms ease-out both;
+  animation-name: expand2;
 }
 
 .badgeItem3 {
-  animation: expand3 800ms ease-out both;
+  animation-name: expand3;
 }
 
 .badgeItem4 {
-  animation: expand4 800ms ease-out both;
+  animation-name: expand4;
 }
 
 .servicesGroup {
@@ -243,5 +243,15 @@
 
   .cards {
     --grid-gap: var(--2xl);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .badgeItem {
+    animation-timeline: view();
+    animation-range-start: 20%;
+    animation-range-end: 50%;
+    animation-duration: auto;
+    animation-timing-function: linear;
   }
 }
