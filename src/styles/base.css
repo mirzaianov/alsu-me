@@ -89,11 +89,11 @@ h6 {
 }
 
 .cluster {
-  --cluster-gap: var(--s);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--cluster-gap);
+  column-gap: var(--cluster-gap, var(--s));
+  row-gap: var(--cluster-row-gap, var(--cluster-gap, var(--s)));
 }
 
 .gridCards {

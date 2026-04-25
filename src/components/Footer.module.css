@@ -50,8 +50,8 @@
 
 .copy {
   --cluster-gap: var(--xs);
+  --cluster-row-gap: var(--2xs);
   align-items: flex-start;
-  row-gap: var(--2xs);
 }
 
 .credit {
