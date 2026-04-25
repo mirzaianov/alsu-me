@@ -1,0 +1,114 @@
+.heroCTA {
+  position: relative;
+}
+
+.surface {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  min-height: var(--xl);
+  align-items: center;
+  justify-content: center;
+  gap: var(--xs);
+  overflow: hidden;
+  padding-inline: var(--s);
+  padding-block: var(--xs);
+  border-radius: 0.5rem;
+  background-color: var(--primary-10);
+  color: var(--text-0);
+  font-size: var(--font-button);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  transition: transform var(--transition-primary);
+}
+
+.heroCTA:hover .surface {
+  transform: scale(1.05);
+}
+
+.heroCTA:active .surface {
+  transform: translateY(-4px);
+}
+
+.large {
+  gap: var(--s);
+}
+
+.shape {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  filter: blur(12px);
+  transition: background-color var(--transition-slow);
+}
+
+.shapeOne {
+  background-color: var(--primary-30);
+  animation: shape1 5s ease-in-out infinite both;
+}
+
+.shapeTwo {
+  background-color: var(--primary-20);
+  animation: shape2 5s ease-in-out infinite both;
+}
+
+.shapeThree {
+  background-color: var(--primary-40);
+  animation: shape3 5s 1.5s ease-in-out infinite both;
+}
+
+.heroCTA:hover .shapeOne {
+  background-color: var(--primary-40);
+}
+
+.heroCTA:hover .shapeTwo {
+  background-color: var(--primary-30);
+}
+
+.heroCTA:hover .shapeThree {
+  background-color: var(--primary-20);
+}
+
+.label,
+.icon {
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  width: var(--m);
+  height: var(--m);
+}
+
+.heroCTA:hover .icon {
+  animation:
+    ctaRotate 500ms ease-out backwards,
+    ctaBounce 1500ms 500ms linear infinite;
+}
+
+@media (min-width: 1061px) {
+  .surface {
+    border-radius: 0.75rem;
+  }
+
+  .large {
+    min-height: 52px;
+    padding-inline: var(--m);
+    font-size: var(--font-button-large);
+  }
+
+  .shape {
+    width: 5rem;
+    height: 5rem;
+    filter: blur(16px);
+  }
+
+  .icon {
+    width: var(--l);
+    height: var(--l);
+  }
+}

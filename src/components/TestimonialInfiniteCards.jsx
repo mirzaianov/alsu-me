@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import TestimonialCardsRow from './TestimonialCardsRow';
+import styles from './TestimonialInfiniteCards.module.css';
 
 const TestimonialInfiniteCards = () => {
   const [isInfiniteScroll, setIsInfiniteScroll] = useState(true);
 
   return (
-    <div className="relative w-full whitespace-nowrap px-0">
+    <div className={styles.testimonialInfiniteCards}>
       <TestimonialCardsRow
         isInfiniteScroll={isInfiniteScroll}
         setIsInfiniteScroll={setIsInfiniteScroll}

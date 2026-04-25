@@ -1,8 +1,9 @@
-import propTypes from 'prop-types';
+import { clsx } from 'clsx';
 import { useState, useEffect } from 'react';
 import { PiArrowFatUpFill } from 'react-icons/pi';
+import styles from './BackToTopButton.module.css';
 
-const BackToTopButton = ({ width }) => {
+const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -31,16 +32,12 @@ const BackToTopButton = ({ width }) => {
   return (
     <a
       aria-label="Go to the top of the page"
-      className={`group z-30 ${isVisible ? '-translate-y-[124px] tablet:-translate-y-[196px]' : ''} shadow-primary fixed -bottom-[108px] right-[var(--s)] flex aspect-square items-center justify-center rounded-full bg-neutral-0/70 p-[var(--xs)] backdrop-blur-sm transition-all duration-500 ease-in-out hover:bg-primary-10 hover:opacity-60 tablet:-bottom-[164px] tablet:right-[var(--xl)] ${width < 1761 ? '' : 'tablet:left-[calc(50%+760px)] tablet:right-auto'}`}
+      className={clsx(styles.backToTopButton, isVisible && styles.visible)}
       href="#app"
     >
-      <PiArrowFatUpFill className="size-[var(--xl)] text-text-10 opacity-60 transition-colors duration-500 group-hover:animate-arrow-bounce group-hover:text-text-0 group-hover:opacity-100" />
+      <PiArrowFatUpFill className={styles.icon} />
     </a>
   );
-};
-
-BackToTopButton.propTypes = {
-  width: propTypes.number.isRequired,
 };
 
 export default BackToTopButton;

@@ -1,0 +1,111 @@
+.heroPhotoCardBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: heroPhotoFadeIn 500ms ease-in backwards;
+}
+
+.statsWrap {
+  display: flex;
+  max-width: 160px;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats {
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  gap: var(--s);
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  height: 76px;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.slideItem,
+.slideItemAnimated {
+  margin-bottom: 36px;
+}
+
+.slideItemAnimated {
+  animation: slideStat 20s linear infinite;
+}
+
+.photoWrap {
+  display: flex;
+  min-width: 178px;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.badge {
+  position: absolute;
+  left: -32px;
+  bottom: 24px;
+  animation: wavingBadge 3s linear infinite;
+}
+
+@media (min-width: 577px) {
+  .statsWrap {
+    min-width: 160px;
+  }
+
+  .stats {
+    gap: var(--l);
+  }
+
+  .photoWrap {
+    min-width: 400px;
+  }
+
+  .badge {
+    bottom: 40px;
+  }
+}
+
+@media (min-width: 1061px) {
+  .heroPhotoCardBlock {
+    flex-direction: column-reverse;
+    gap: var(--m);
+  }
+
+  .statsWrap {
+    max-width: none;
+  }
+
+  .stats {
+    width: fit-content;
+    flex-direction: row;
+    gap: var(--m);
+  }
+
+  .slider {
+    height: 98px;
+  }
+
+  .slideItem,
+  .slideItemAnimated {
+    margin-bottom: 49px;
+  }
+
+  .slideItemAnimated {
+    animation-name: slideStatDesktop;
+  }
+
+  .photoWrap {
+    min-width: fit-content;
+  }
+}

@@ -1,43 +1,43 @@
-import propTypes from 'prop-types';
+import { clsx } from 'clsx';
 import Divider from './Divider';
 import BrandLogo from './BrandLogo';
 import Navbar from './NavBar';
+import useMediaQuery from '../hooks/useMediaQuery';
+import styles from './Footer.module.css';
 
-const Footer = ({ width }) => {
+const Footer = () => {
+  const isDesktop = useMediaQuery('(min-width: 1061px)');
+
   return (
     <footer
       id="footer"
-      className="my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-start gap-[var(--m)] px-[var(--s)] tablet:my-[var(--tablet-y-margin)] tablet:max-w-full tablet:gap-[var(--xl)] tablet:px-[var(--xl)] desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--l-end)] desktop:px-[var(--3xl)]"
+      className={clsx('section', styles.footer)}
     >
-      <article className="flex flex-col items-start gap-[var(--l)] tablet:flex-row desktop:w-full desktop:justify-between desktop:gap-[var(--2xl)]">
+      <article className={styles.top}>
         <BrandLogo />
-        <div className="flex flex-col justify-start gap-[var(--l)] desktop:grow desktop:flex-row desktop:justify-between">
-          <div className="flex flex-col justify-start gap-[var(--s)]">
-            <p className="text-heading-s">Алсу Каримова</p>
-            <p className="text-pretty tablet:max-w-[560px]">
+        <div className={styles.about}>
+          <div className={styles.summary}>
+            <p className={styles.name}>Алсу Каримова</p>
+            <p className={styles.description}>
               Дипломированный преподаватель и переводчик английского с
               многолетним опытом профессиональной деятельности в международных
               компаниях
             </p>
           </div>
-          <div>
-            {width < 1061 ? (
-              <Navbar type="block-2" />
-            ) : (
-              <Navbar type="block-3" />
-            )}
+          <div className={styles.nav}>
+            {isDesktop ? <Navbar type="block-3" /> : <Navbar type="block-2" />}
           </div>
         </div>
       </article>
-      <article className="flex w-full flex-col justify-start gap-[var(--l)]">
+      <article className={clsx('stack', styles.bottom)}>
         <Divider />
-        <div className="flex flex-wrap justify-between gap-[var(--s)]">
-          <div className="flex flex-wrap justify-start gap-x-[var(--xs)] gap-y-[var(--2xs)]">
+        <div className={styles.meta}>
+          <div className={clsx('cluster', styles.copy)}>
             <p>©️ 2026 Алсу Каримова</p>
             <p>|</p>
             <p>Все права защищены</p>
           </div>
-          <div className="flex flex-wrap justify-start gap-[var(--xs)]">
+          <div className={clsx('cluster', styles.credit)}>
             <p>Дизайн и разработка</p>
             <p>|</p>
             <a
@@ -45,28 +45,16 @@ const Footer = ({ width }) => {
               href="https://www.mirzaianov.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-block text-text-10"
+              className={styles.link}
             >
               mirzaianov
-              <span
-                className="absolute bottom-[3px] left-0 right-0 h-[2px] scale-x-0 rounded-sm bg-primary-10 transition-transform duration-300 ease-in-out group-hover:scale-x-100"
-                style={{
-                  transformOrigin: 'left',
-                  marginLeft: '-0.15rem',
-                  marginRight: '-0.15rem',
-                  width: 'calc(100% + 0.3rem)',
-                }}
-              />
+              <span className={styles.linkUnderline} />
             </a>
           </div>
         </div>
       </article>
     </footer>
   );
-};
-
-Footer.propTypes = {
-  width: propTypes.number.isRequired,
 };
 
 export default Footer;

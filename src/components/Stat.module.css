@@ -1,0 +1,30 @@
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity {
+  font-size: var(--font-heading-s);
+  font-weight: 700;
+  line-height: var(--line-heading-relaxed);
+}
+
+.text {
+  font-size: var(--font-body);
+  line-height: var(--line-tight);
+}
+
+@media (min-width: 1061px) {
+  .stat {
+    width: min-content;
+    min-width: 125px;
+  }
+
+  .quantity {
+    font-size: var(--font-heading-m);
+  }
+
+  .text {
+    font-size: var(--font-body-large);
+  }
+}

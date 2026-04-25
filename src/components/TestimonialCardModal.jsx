@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useClickAway } from '@uidotdev/usehooks';
 import Button from './Button';
+import styles from './TestimonialCardModal.module.css';
 
 const modalRoot = document.getElementById('testimonial-card-modal');
 
@@ -19,13 +20,13 @@ const TestimonialCardModal = ({ onClose, children }) => {
   }, [portalElement]);
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 flex animate-modal-bg-open items-center justify-center bg-neutral-90/50">
+    <div className={styles.overlay}>
       <div
         ref={closeRef}
-        className={`shadow-primary flex max-h-[calc(100svh-2*var(--s))] max-w-[calc(100vw-2*var(--m))] animate-modal-open flex-col justify-start gap-[var(--m)] overflow-y-auto rounded-[var(--s)] bg-neutral-0 p-[var(--m)] text-body-tight tablet:max-w-[51ch]`}
+        className={styles.panel}
       >
         {children}
-        <div className="self-end">
+        <div className={styles.action}>
           <Button
             ariaLabel="Закрыть"
             type="accent"

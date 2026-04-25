@@ -1,0 +1,75 @@
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  height: var(--xl);
+  align-items: center;
+  justify-content: center;
+  gap: var(--xs);
+  padding-inline: var(--s);
+  padding-block: var(--xs);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-primary);
+  font-size: var(--font-body);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  cursor: default;
+}
+
+.icon {
+  width: auto;
+  max-width: none;
+  flex-shrink: 0;
+  align-self: center;
+  height: var(--s);
+}
+
+.animated {
+  animation: wavingHand 4s linear infinite;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+.primary {
+  background-color: var(--primary-10);
+  color: var(--text-0);
+}
+
+.secondary-15 {
+  background-color: var(--secondary-15);
+  color: var(--text-90);
+}
+
+.secondary-25 {
+  background-color: var(--secondary-25);
+  color: var(--text-90);
+}
+
+.secondary-35 {
+  background-color: var(--secondary-35);
+  color: var(--text-90);
+}
+
+.secondary-45 {
+  background-color: var(--secondary-45);
+  color: var(--text-90);
+}
+
+.secondary-55 {
+  background-color: var(--secondary-55);
+  color: var(--text-90);
+}
+
+@media (min-width: 577px) {
+  .large {
+    height: 52px;
+    gap: var(--s);
+    font-size: var(--font-body-large);
+  }
+
+  .large .icon {
+    height: var(--m);
+  }
+}

@@ -1,6 +1,8 @@
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
 import Button from './Button';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
+import styles from './PriceTutorCard.module.css';
 
 const PriceTutorCard = ({
   quantity,
@@ -12,37 +14,31 @@ const PriceTutorCard = ({
   description,
 }) => {
   return (
-    <div
-      className={`even:card-fade-in odd:card-fade-in shadow-primary relative flex h-[380px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] last:mt-[var(--m)] odd:animate-card-right-fade-in even:animate-card-left-fade-in desktop:last:mt-0 ${discount ? 'bg-primary-10 text-text-0' : 'bg-neutral-0'}`}
-    >
-      <div className="flex flex-col items-center justify-center gap-[var(--xs)]">
-        <h4 className="text-heading-s uppercase">{heading}</h4>
-        <p className="uppercase">{subheading}</p>
+    <div className={clsx(styles.priceTutorCard, discount && styles.discount)}>
+      <div className={styles.header}>
+        <h4 className={styles.heading}>{heading}</h4>
+        <p className={styles.subheading}>{subheading}</p>
       </div>
       <p>{duration}</p>
-      <div
-        className={`flex h-full flex-col items-center justify-start ${discount ? '' : 'text-text-10'}`}
-      >
-        {/* main price */}
+      <div className={clsx(styles.pricing, !discount && styles.pricingNeutral)}>
         {price ? (
-          <h5 className="text-heading-s uppercase">
+          <h5 className={styles.price}>
             {addSpacesToNumber(price * quantity - discount)}
             {quantity ? ` ₽` : ''}
           </h5>
         ) : (
-          <h5 className="text-heading-s uppercase">Бесплатно</h5>
+          <h5 className={styles.price}>Бесплатно</h5>
         )}
-        {/* discount price */}
         {discount ? (
-          <p className="text-body-bold line-through">
+          <p className={styles.crossedOut}>
             {addSpacesToNumber(price * quantity)}
             {` ₽`}
           </p>
         ) : (
-          <p className="hidden text-body-bold line-through">{price}</p>
+          <p className={styles.hidden}>{price}</p>
         )}
       </div>
-      <div className="mt-auto">
+      <div className={styles.action}>
         {discount ? (
           <Button
             ariaLabel="Записаться"
@@ -60,21 +56,19 @@ const PriceTutorCard = ({
           </Button>
         )}
       </div>
-      <ul className="mt-auto flex flex-col justify-start">
+      <ul className={styles.list}>
         {description.map((item) => (
           <li
             key={item}
-            className="text-center"
+            className={styles.item}
           >
             {item}
           </li>
         ))}
       </ul>
       {discount ? (
-        <div className="absolute -top-[19px] left-2/4 -translate-x-1/2">
-          <div className="flex animate-tada cursor-default justify-center rounded-lg bg-primary-30 px-[var(--s)] py-[var(--2xs)] font-bold tracking-[0.05em] text-text-0">
-            Популярно
-          </div>
+        <div className={styles.promoWrap}>
+          <div className={styles.promo}>Популярно</div>
         </div>
       ) : null}
     </div>

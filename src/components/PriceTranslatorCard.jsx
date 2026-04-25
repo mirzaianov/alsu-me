@@ -1,6 +1,7 @@
 import propTypes from 'prop-types';
 import Button from './Button';
 import addSpacesToNumber from '../utils/addSpacesToNumbers.js';
+import styles from './PriceTranslatorCard.module.css';
 
 const PriceTranslatorCard = ({
   heading,
@@ -10,10 +11,10 @@ const PriceTranslatorCard = ({
   note,
 }) => {
   return (
-    <div className="even:card-fade-in odd:card-fade-in shadow-primary relative flex h-[436px] w-[var(--card-width)] flex-col items-center justify-start gap-[var(--s)] rounded-[var(--s)] bg-neutral-0 px-[var(--xs)] pb-[var(--m)] pt-[var(--l)] odd:animate-card-right-fade-in even:animate-card-left-fade-in">
-      <h4 className="min-h-[56px] text-center uppercase">{heading}</h4>
+    <div className={styles.priceTranslatorCard}>
+      <h4 className={styles.heading}>{heading}</h4>
       <p>{subheading}</p>
-      <h5 className="text-heading-s uppercase text-text-10">
+      <h5 className={styles.price}>
         {addSpacesToNumber(price)}
         {` ₽`}
       </h5>
@@ -23,19 +24,17 @@ const PriceTranslatorCard = ({
       >
         <span>Заказать</span>
       </Button>
-      <ul className="flex flex-col justify-start">
+      <ul className={styles.list}>
         {description.map((item) => (
           <li
             key={item}
-            className="text-center"
+            className={styles.item}
           >
             {item}
           </li>
         ))}
       </ul>
-      <p className="min-h-[84px] max-w-[185px] text-center text-body-bold">
-        {note}
-      </p>
+      <p className={styles.note}>{note}</p>
     </div>
   );
 };

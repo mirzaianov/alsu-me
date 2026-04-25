@@ -1,11 +1,11 @@
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
+import styles from './Note.module.css';
 
 const Note = ({ type, children }) => {
-  const role = type === 'translator' ? 'bg-primary-20' : 'bg-primary-40';
-
   return (
     <div
-      className={`place-center shadow-primary grid rounded-[var(--s)] p-[var(--xs)] text-center desktop:p-[var(--s)] desktop:text-body-l ${role}`}
+      className={clsx(styles.note, type === 'translator' && styles.translator)}
     >
       {children}
     </div>

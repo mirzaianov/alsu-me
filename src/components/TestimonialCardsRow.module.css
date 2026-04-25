@@ -1,0 +1,19 @@
+.testimonialCardsRow {
+  display: inline-block;
+  width: max-content;
+  line-height: 0;
+  animation: slideMarquee 120s linear infinite;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.item {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  padding-inline: 12px;
+  vertical-align: top;
+  line-height: var(--line-body);
+}

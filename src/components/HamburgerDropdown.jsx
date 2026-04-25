@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import propTypes from 'prop-types';
+import { clsx } from 'clsx';
+import styles from './HamburgerDropdown.module.css';
 
 const modalRoot = document.getElementById('hamburger-dropdown');
 
-const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
+const HamburgerDropdown = ({
+  children,
+  isFixed,
+  menuState,
+  onAnimationEnd,
+}) => {
   const [portalElement] = useState(() => document.createElement('div'));
 
   useEffect(() => {
@@ -17,15 +24,14 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
 
   return ReactDOM.createPortal(
     <div
-      className={`z-30 ${
-        isDropdownOpen
-          ? 'animate-dropdown-open opacity-100'
-          : 'animate-dropdown-close opacity-0 delay-300'
-      } shadow-primary fixed right-[var(--s)] rounded-[28px] bg-neutral-0/70 backdrop-blur-sm tablet:right-[var(--xl)] tablet:rounded-[36px] ${isFixed ? 'top-[90px] tablet:top-[120px]' : 'top-[64px] tablet:top-[104px]'}`}
+      onAnimationEnd={onAnimationEnd}
+      className={clsx(
+        styles.hamburgerDropdown,
+        styles[menuState],
+        isFixed ? styles.fixed : styles.default,
+      )}
     >
-      <div className="flex h-fit w-fit items-center justify-center p-[var(--xl)]">
-        {children}
-      </div>
+      <div className={styles.content}>{children}</div>
     </div>,
     portalElement,
   );
@@ -33,8 +39,9 @@ const HamburgerDropdown = ({ children, isFixed, isDropdownOpen }) => {
 
 HamburgerDropdown.propTypes = {
   children: propTypes.node.isRequired,
-  isDropdownOpen: propTypes.bool.isRequired,
   isFixed: propTypes.bool,
+  menuState: propTypes.oneOf(['closed', 'open', 'closing']).isRequired,
+  onAnimationEnd: propTypes.func.isRequired,
 };
 
 export default HamburgerDropdown;

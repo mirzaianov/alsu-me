@@ -23,7 +23,7 @@
 ### Dependencies
 
 - `Vite`
-- `React` • `Tailwind`
+- `React` • `CSS Modules` • `clsx`
 
 ## Installation & Execution
 

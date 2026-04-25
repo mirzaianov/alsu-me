@@ -1,0 +1,62 @@
+.backToTopButton {
+  position: fixed;
+  right: var(--s);
+  bottom: -108px;
+  z-index: 30;
+  display: flex;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  padding: var(--xs);
+  border-radius: 999px;
+  background-color: var(--neutral-0-70);
+  box-shadow: var(--shadow-primary);
+  backdrop-filter: blur(12px);
+  transition:
+    background-color var(--transition-slow),
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.backToTopButton:hover {
+  background-color: var(--primary-10);
+  opacity: 0.6;
+}
+
+.visible {
+  transform: translateY(-124px);
+}
+
+.icon {
+  width: var(--xl);
+  height: var(--xl);
+  color: var(--text-10);
+  opacity: 0.6;
+  transition:
+    color var(--transition-slow),
+    opacity var(--transition-slow);
+}
+
+.backToTopButton:hover .icon {
+  color: var(--text-0);
+  opacity: 1;
+  animation: arrowBounce 1500ms linear infinite;
+}
+
+@media (min-width: 577px) {
+  .backToTopButton {
+    right: var(--xl);
+    bottom: -164px;
+  }
+
+  .visible {
+    transform: translateY(-196px);
+  }
+}
+
+@media (min-width: 1761px) {
+  .backToTopButton {
+    right: auto;
+    left: calc(50% + 760px);
+  }
+}

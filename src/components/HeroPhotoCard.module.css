@@ -1,0 +1,92 @@
+.heroPhotoCard {
+  position: relative;
+  width: 185px;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  height: 210px;
+  align-items: flex-end;
+  transition: transform var(--transition-primary);
+}
+
+.heroPhotoCard:hover .inner {
+  transform: scale(1.1);
+}
+
+.border,
+.color {
+  position: absolute;
+  aspect-ratio: 1;
+  width: var(--img-size-mobile);
+  border-radius: var(--s);
+}
+
+.border {
+  bottom: 10px;
+  left: 3px;
+  rotate: -2.5deg;
+  border: 2px solid var(--neutral-90);
+}
+
+.mask {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--img-size-mobile);
+  height: 210px;
+  overflow: hidden;
+  border-radius: var(--s);
+  rotate: 2.5deg;
+}
+
+.color {
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-50);
+}
+
+.image {
+  position: absolute;
+  z-index: 1;
+  bottom: -8px;
+  left: 4px;
+  transform: rotate(-2.5deg) scale(1.5);
+  transition: transform var(--transition-primary);
+  transition-delay: 150ms;
+}
+
+.heroPhotoCard:hover .image {
+  transform: translateY(-10px) rotate(-2.5deg) scale(1.4);
+}
+
+@media (min-width: 577px) {
+  .heroPhotoCard {
+    width: 330px;
+  }
+
+  .inner {
+    height: 380px;
+  }
+
+  .border {
+    bottom: 20px;
+    left: 10px;
+    width: var(--img-size-tablet);
+  }
+
+  .mask {
+    width: var(--img-size-tablet);
+    height: 380px;
+  }
+
+  .color {
+    width: var(--img-size-tablet);
+  }
+
+  .image {
+    bottom: 0;
+    left: 8px;
+  }
+}

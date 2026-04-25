@@ -2,6 +2,8 @@ import PriceTutorCard from './PriceTutorCard';
 import PriceTranslatorCard from './PriceTranslatorCard';
 import prices from '../assets/img/prices/prices.png';
 import sale from '../assets/img/prices/sale.png';
+import { clsx } from 'clsx';
+import styles from './Prices.module.css';
 
 const tutorCardData = [
   {
@@ -54,44 +56,35 @@ const Prices = () => {
   return (
     <section
       id="prices"
-      className="relative my-[var(--mobile-y-margin)] flex w-full max-w-[var(--container-mobile)] scroll-mt-36 flex-col items-center justify-start gap-[var(--l)] px-[var(--s)] tablet:my-[var(--tablet-y-margin)] tablet:max-w-[var(--container-tablet)] tablet:gap-[var(--xl)] tablet:px-[var(--xl)] desktop:my-[var(--desktop-y-margin)] desktop:max-w-[var(--container-desktop)] desktop:gap-[var(--2xl)] desktop:px-[var(--3xl)]"
+      className={clsx('section', styles.prices)}
     >
-      <div className="image-fade-in-right absolute right-0 top-0 z-10 hidden animate-image-fade-in-right desktop:-right-1/4 desktop:top-2/3 desktop:block">
+      <div className={styles.sale}>
         <img
-          className="desktop:h-full"
+          className={styles.saleImage}
           src={sale}
           alt="Sale"
           loading="lazy"
         />
       </div>
-      <h2 className="text-balance text-heading-s tablet:text-heading-m desktop:text-heading-l">
-        Выбери свой план
-      </h2>
-      <article className="tablet: flex flex-col items-center justify-center gap-[var(--l)] tablet:gap-[var(--xl)] desktop:w-full desktop:flex-row desktop:justify-between">
+      <h2 className={clsx('title', styles.title)}>Выбери свой план</h2>
+      <article className={styles.intro}>
         <img
-          className="ml-8 h-[var(--img-size-mobile)] tablet:ml-16 tablet:h-[var(--img-size-tablet)] desktop:h-auto desktop:w-4/12"
+          className={styles.image}
           src={prices}
           alt="Prices"
           loading="lazy"
         />
-        <div className="flex max-w-[var(--mobile-text-wrapper)] flex-col justify-start gap-[var(--m)] text-start tablet:max-w-[var(--tablet-text-wrapper)] tablet:justify-between tablet:gap-[var(--s)] desktop:w-7/12 desktop:max-w-[var(--desktop-text-wrapper)]">
-          <p className="p-fade-in animate-p-fade-in text-pretty">
-            Подбери план и стоимость, которые наиболее подходят тебе.
-          </p>
-          <p className="p-fade-in animate-p-fade-in text-pretty">
-            Или свяжись со мной, и мы вместе определимся с программой.
-          </p>
-          {/* <p className="p-fade-in animate-p-fade-in text-pretty font-bold text-primary-30">
-            Цены актуальны до 01.01.2025.
-          </p> */}
+        <div className={clsx('stack', styles.copy)}>
+          <p>Подбери план и стоимость, которые наиболее подходят тебе.</p>
+          <p>Или свяжись со мной, и мы вместе определимся с программой.</p>
         </div>
       </article>
-      <article className="flex flex-col items-center gap-[var(--xl)] desktop:gap-[var(--2xl)]">
-        <div className="relative flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)] desktop:gap-[var(--xl)]">
-          <h3 className="max-w-[var(--mobile-text-wrapper)] text-center text-body-bold uppercase tablet:max-w-[var(--tablet-text-wrapper)] tablet:text-heading-s desktop:max-w-[var(--desktop-text-wrapper)]">
+      <article className={styles.groups}>
+        <div className={clsx('stack', styles.group)}>
+          <h3 className={styles.subtitle}>
             Индивидуальные занятия на платформе Zoom
           </h3>
-          <div className="flex flex-col items-center justify-center gap-[var(--l)] text-body tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)] desktop:gap-[var(--2xl)]">
+          <div className={clsx('gridCards', styles.cards)}>
             {tutorCardData.map((item) => (
               <PriceTutorCard
                 key={item.heading}
@@ -100,11 +93,9 @@ const Prices = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-[var(--m)] tablet:gap-[var(--l)] desktop:gap-[var(--xl)]">
-          <h3 className="text-center text-body-bold uppercase tablet:text-heading-s">
-            Переводы
-          </h3>
-          <div className="flex flex-col items-center justify-center gap-[var(--l)] text-body tablet:flex-row tablet:flex-wrap tablet:gap-[var(--xl)] desktop:gap-[var(--2xl)]">
+        <div className={clsx('stack', styles.group)}>
+          <h3 className={styles.subtitle}>Переводы</h3>
+          <div className={clsx('gridCards', styles.cards)}>
             {translatorCardData.map((item) => (
               <PriceTranslatorCard
                 key={item.heading}

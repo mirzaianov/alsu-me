@@ -1,41 +1,61 @@
 import { useState, useEffect, useRef } from 'react';
-import propTypes from 'prop-types';
+import { clsx } from 'clsx';
 import BrandLogo from './BrandLogo';
 import NavBar from './NavBar';
 import Hamburger from './Hamburger';
 import Button from './Button';
 import HamburgerDropdown from './HamburgerDropdown';
 import useOnClickOutside from '../hooks/useOnClickOutside';
+import useMediaQuery from '../hooks/useMediaQuery';
+import styles from './Header.module.css';
 
-const Header = ({ width }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const Header = () => {
+  const [menuState, setMenuState] = useState('closed');
   const [isFixed, setIsFixed] = useState(false);
-  const isMobile = width < 1061;
-  const isMenuOpen = isMobile && isDropdownOpen;
+  const isDesktop = useMediaQuery('(min-width: 1061px)');
+  const isMobile = !isDesktop;
+  const isMenuOpen = isMobile && menuState === 'open';
 
   const dropdownRef = useRef();
   const buttonRef = useRef();
 
-  useOnClickOutside(dropdownRef, () => {
-    setIsDropdownOpen(false);
-  }, [buttonRef]);
-
-  const closeOnEscape = (e) => {
-    if (e.code === 'Escape') {
-      setIsDropdownOpen(false);
-    }
+  const closeMenu = () => {
+    setMenuState((state) => (state === 'open' ? 'closing' : state));
   };
 
+  const toggleMenu = () => {
+    setMenuState((state) => (state === 'open' ? 'closing' : 'open'));
+  };
+
+  const handleDropdownAnimationEnd = (event) => {
+    if (event.currentTarget !== event.target) {
+      return;
+    }
+
+    setMenuState((state) => (state === 'closing' ? 'closed' : state));
+  };
+
+  useOnClickOutside(dropdownRef, () => {
+    closeMenu();
+  }, [buttonRef]);
+
   useEffect(() => {
+    const closeOnEscape = (e) => {
+      if (e.code === 'Escape') {
+        setMenuState((state) => (state === 'open' ? 'closing' : state));
+      }
+    };
+
     if (isMenuOpen) {
       document.body.addEventListener('keydown', closeOnEscape);
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('noScroll');
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('noScroll');
     }
 
     return () => {
       document.body.removeEventListener('keydown', closeOnEscape);
+      document.body.classList.remove('noScroll');
     };
   }, [isMenuOpen]);
 
@@ -60,28 +80,24 @@ const Header = ({ width }) => {
   return (
     <header
       id="header"
-      className="relative z-30 mt-[var(--s)] flex w-full animate-header-fade-in justify-center px-[var(--s)] tablet:mt-[var(--xl)] desktop:max-w-[var(--l-end)]"
+      className={styles.header}
     >
       <div
-        className={`flex items-center justify-between transition-all duration-500 ease-in-out ${
-          isFixed
-            ? 'shadow-primary fixed top-[var(--s)] w-11/12 rounded-full bg-neutral-0/70 px-[var(--m)] py-[var(--xs)] backdrop-blur-sm tablet:top-[var(--m)] tablet:w-11/12 tablet:py-[var(--s)] desktop:max-w-[1440px]'
-            : 'absolute w-full px-[var(--s)] tablet:px-[var(--xl)] desktop:px-[var(--3xl)]'
-        }`}
+        className={clsx(styles.shell, isFixed ? styles.fixed : styles.default)}
       >
-        <div className="-mt-1 flex items-center justify-center tablet:ml-2">
+        <div className={styles.brand}>
           <BrandLogo />
         </div>
-        <div className="flex w-fit grow items-center justify-center">
+        <div className={styles.navSlot}>
           {isMobile ? '' : <NavBar type="inline" />}
         </div>
         <div
-          className="flex items-center justify-center tablet:mr-2"
+          className={styles.action}
           ref={buttonRef}
         >
           {isMobile ? (
             <Hamburger
-              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              onClick={toggleMenu}
               isDropdownOpen={isMenuOpen}
             />
           ) : (
@@ -97,12 +113,17 @@ const Header = ({ width }) => {
         {isMobile && (
           <HamburgerDropdown
             isFixed={isFixed}
-            isDropdownOpen={isMenuOpen}
+            menuState={menuState}
+            onAnimationEnd={handleDropdownAnimationEnd}
           >
             <div ref={dropdownRef}>
               <NavBar
                 type="block-1"
-                setIsDropdownOpen={setIsDropdownOpen}
+                setIsDropdownOpen={(next) => {
+                  if (next === false) {
+                    closeMenu();
+                  }
+                }}
                 isDropdownOpen={isMenuOpen}
               />
             </div>
@@ -111,10 +132,6 @@ const Header = ({ width }) => {
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  width: propTypes.number.isRequired,
 };
 
 export default Header;

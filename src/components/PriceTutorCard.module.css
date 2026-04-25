@@ -1,0 +1,124 @@
+.priceTutorCard {
+  position: relative;
+  width: var(--card-width);
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s);
+  padding: var(--l) var(--xs) var(--m);
+  border-radius: var(--s);
+  background-color: var(--neutral-0);
+  box-shadow: var(--shadow-primary);
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.priceTutorCard:nth-child(odd) {
+  animation-name: cardRightFadeIn;
+}
+
+.priceTutorCard:nth-child(even) {
+  animation-name: cardLeftFadeIn;
+}
+
+.priceTutorCard:last-child {
+  margin-top: var(--m);
+}
+
+.discount {
+  background-color: var(--primary-10);
+  color: var(--text-0);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--xs);
+}
+
+.heading,
+.price {
+  font-size: var(--font-heading-s);
+  font-weight: 700;
+  line-height: var(--line-heading-relaxed);
+  text-transform: uppercase;
+}
+
+.subheading {
+  text-transform: uppercase;
+}
+
+.pricing {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pricingNeutral {
+  color: var(--text-10);
+}
+
+.crossedOut {
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.hidden {
+  display: none;
+}
+
+.action,
+.list {
+  margin-top: auto;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.item {
+  text-align: center;
+}
+
+.promoWrap {
+  position: absolute;
+  top: -19px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.promo {
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: var(--primary-30);
+  padding: var(--2xs) var(--s);
+  color: var(--text-0);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  animation: tada 8s ease-in-out infinite;
+  cursor: default;
+}
+
+@media (min-width: 1061px) {
+  .priceTutorCard:last-child {
+    margin-top: 0;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .priceTutorCard {
+    animation-timeline: view();
+    animation-range-start: 10%;
+    animation-range-end: 40%;
+    animation-duration: auto;
+    animation-timing-function: linear;
+  }
+}
