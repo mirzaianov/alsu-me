@@ -81,6 +81,7 @@
   }
 
   .copy {
+    --stack-gap: var(--s);
     max-width: var(--tablet-text-wrapper);
   }
 
