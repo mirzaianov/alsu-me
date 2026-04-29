@@ -27,6 +27,7 @@ Status: project-state current repository state
 ## Current Repository State
 
 - Source entrypoints are `src/main.jsx` and `src/app.jsx`.
+- `src/app.jsx` keeps the critical header, hero, and about sections eager, then lazy-loads the services, prices, testimonials, and contacts sections.
 - UI source is organized by intent under `src/components`: page sections live under `src/components/sections`, site chrome lives under `src/components/layout`, and reusable primitives live under `src/components/ui`.
 - Most UI files pair `component-name.jsx` with `component-name.module.css`.
 - Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
