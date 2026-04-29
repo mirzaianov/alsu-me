@@ -4,12 +4,12 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and commit the component structure refactor after verification.
+- Review and commit the verified component structure refactor and commit-check setup.
 
 ## Immediate Goal
 
-- Keep the structure refactor limited to source layout and import paths; avoid behavior, styling, dependency, routing, or asset changes.
+- Keep remaining work limited to review, staging, and commit preparation; avoid behavior, styling, routing, deployment, or UI-system changes.
 
 ## Open Questions
 
-- None for the current structure scope.
+- None for the current review scope.

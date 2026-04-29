@@ -16,11 +16,13 @@ Status: project-state current repository state
 - React and React DOM are at major version 19.
 - ESLint flat config is present in `eslint.config.js`.
 - Prettier config is present in `.prettierrc`.
+- Husky and commitlint enforce commit-message checks through `.husky/commit-msg` and `commitlint.config.js`. [Reason why added: local commit-policy readiness is now enforced by repository-owned tooling.]
 - Available scripts:
   - `npm run dev`
   - `npm run build`
   - `npm run lint`
   - `npm run preview`
+  - `npm run prepare`
 
 ## Current Repository State
 
