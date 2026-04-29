@@ -4,7 +4,7 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and commit the lazy-loading update if the bundle split is accepted.
+- Review and commit the LF normalization update if the verification checks pass.
 
 ## Immediate Goal
 

@@ -15,7 +15,7 @@ Status: project-state current repository state
 - Vite is the frontend build tool.
 - React and React DOM are at major version 19.
 - ESLint flat config is present in `eslint.config.js`.
-- Prettier config is present in `.prettierrc`.
+- Prettier config is present in `.prettierrc` and enforces LF line endings.
 - Husky and commitlint enforce commit-message checks through `.husky/commit-msg` and `commitlint.config.js`. [Reason why added: local commit-policy readiness is now enforced by repository-owned tooling.]
 - Available scripts:
   - `npm run dev`
@@ -36,3 +36,4 @@ Status: project-state current repository state
 - Vercel Analytics is enabled in `src/app.jsx`.
 - There is no configured test script in `package.json`.
 - Project-support files now live under `.agents/project-files`.
+- Repository line endings are defined by `.gitattributes` with LF for text files and binary handling for images/fonts.

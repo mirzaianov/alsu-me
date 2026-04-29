@@ -62,11 +62,11 @@ export default [
       'import/extensions': 0,
       'import/namespace': 0,
       'import/no-unresolved': 0,
-      'linebreak-style': ['error', 'windows'],
+      'linebreak-style': ['error', 'unix'],
       'no-bitwise': 0,
       'no-restricted-syntax': 0,
       'no-unused-expressions': ['error', { allowTernary: true }],
-      'prettier/prettier': ['error', { endOfLine: 'auto' }],
+      'prettier/prettier': ['error', { endOfLine: 'lf' }],
     },
   },
 ];
