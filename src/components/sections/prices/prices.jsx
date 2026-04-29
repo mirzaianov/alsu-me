@@ -1,7 +1,7 @@
 import PriceTutorCard from './price-tutor-card';
 import PriceTranslatorCard from './price-translator-card';
-import prices from '../assets/img/prices/prices.png';
-import sale from '../assets/img/prices/sale.png';
+import prices from '../../../assets/img/prices/prices.png';
+import sale from '../../../assets/img/prices/sale.png';
 import { clsx } from 'clsx';
 import styles from './prices.module.css';
 

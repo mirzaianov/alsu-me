@@ -1,6 +1,6 @@
 import propTypes from 'prop-types';
-import Button from './button';
-import addSpacesToNumber from '../utils/add-spaces-to-numbers.js';
+import Button from '../../ui/button/button';
+import addSpacesToNumber from '../../../utils/add-spaces-to-numbers';
 import styles from './price-translator-card.module.css';
 
 const PriceTranslatorCard = ({

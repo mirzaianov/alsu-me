@@ -1,10 +1,10 @@
 import ServiceCard from './service-card';
-import Badge from './badge';
-import tutor from '../assets/img/services/tutor.png';
-import translator from '../assets/img/services/translator.png';
-import uk from '../assets/icons/uk.svg';
-import usa from '../assets/icons/usa.svg';
-import services from '../assets/img/services/services.png';
+import Badge from '../../ui/badge/badge';
+import tutor from '../../../assets/img/services/tutor.png';
+import translator from '../../../assets/img/services/translator.png';
+import uk from '../../../assets/icons/uk.svg';
+import usa from '../../../assets/icons/usa.svg';
+import services from '../../../assets/img/services/services.png';
 import { clsx } from 'clsx';
 import styles from './services.module.css';
 

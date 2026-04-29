@@ -1,4 +1,4 @@
-import alsuLogo from '../assets/icons/alsu-logo.svg';
+import alsuLogo from '../../../assets/icons/alsu-logo.svg';
 import styles from './brand-logo.module.css';
 
 const BrandLogo = () => {

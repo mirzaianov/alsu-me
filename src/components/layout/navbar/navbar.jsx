@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import { clsx } from 'clsx';
-import styles from './nav-bar.module.css';
+import styles from './navbar.module.css';
 
 const items = [
   ['hero', 'Главная'],

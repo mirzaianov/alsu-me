@@ -1,8 +1,8 @@
 import { clsx } from 'clsx';
-import Divider from './divider';
-import BrandLogo from './brand-logo';
-import Navbar from './nav-bar';
-import useMediaQuery from '../hooks/use-media-query';
+import Divider from '../../ui/divider/divider';
+import BrandLogo from '../../ui/brand-logo/brand-logo';
+import Navbar from '../navbar/navbar';
+import useMediaQuery from '../../../hooks/use-media-query';
 import styles from './footer.module.css';
 
 const Footer = () => {

@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useClickAway } from '@uidotdev/usehooks';
-import Button from './button';
+import Button from '../../ui/button/button';
 import styles from './testimonial-card-modal.module.css';
 
 const modalRoot = document.getElementById('testimonial-card-modal');

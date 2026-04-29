@@ -1,7 +1,7 @@
-import Stat from './stat';
+import Stat from '../../ui/stat/stat';
 import HeroPhotoCard from './hero-photo-card';
-import Badge from './badge';
-import hand from '../assets/icons/hand.svg';
+import Badge from '../../ui/badge/badge';
+import hand from '../../../assets/icons/hand.svg';
 import styles from './hero-photo-card-block.module.css';
 
 const HeroPhotoCardBlock = () => {

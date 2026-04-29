@@ -1,16 +1,16 @@
 import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import TestimonialCard from './testimonial-card';
-import almaz from '../assets/img/testimonials/almaz.jpeg';
-import elena from '../assets/img/testimonials/elena.jpeg';
-import ruslan from '../assets/img/testimonials/ruslan.jpeg';
-import rozaliia from '../assets/img/testimonials/rozaliia.jpeg';
-import albina from '../assets/img/testimonials/albina.jpeg';
-import dmitrii from '../assets/img/testimonials/dmitrii.jpeg';
-import aiza from '../assets/img/testimonials/aiza.jpeg';
-import alina from '../assets/img/testimonials/alina.jpeg';
-import alsu from '../assets/img/testimonials/alsu.jpeg';
-import girlAvatar from '../assets/img/testimonials/girl-avatar.png';
+import almaz from '../../../assets/img/testimonials/almaz.jpeg';
+import elena from '../../../assets/img/testimonials/elena.jpeg';
+import ruslan from '../../../assets/img/testimonials/ruslan.jpeg';
+import rozaliia from '../../../assets/img/testimonials/rozaliia.jpeg';
+import albina from '../../../assets/img/testimonials/albina.jpeg';
+import dmitrii from '../../../assets/img/testimonials/dmitrii.jpeg';
+import aiza from '../../../assets/img/testimonials/aiza.jpeg';
+import alina from '../../../assets/img/testimonials/alina.jpeg';
+import alsu from '../../../assets/img/testimonials/alsu.jpeg';
+import girlAvatar from '../../../assets/img/testimonials/girl-avatar.png';
 import styles from './testimonial-cards-row.module.css';
 
 const testimonialCardData = [

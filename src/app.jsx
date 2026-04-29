@@ -1,13 +1,13 @@
 import { Analytics } from '@vercel/analytics/react';
-import Header from './components/header';
-import Hero from './components/hero';
-import About from './components/about';
-import Services from './components/services';
-import Prices from './components/prices';
-import Testimonials from './components/testimonials';
-import Contacts from './components/contacts';
-import Footer from './components/footer';
-import BackToTopButton from './components/back-to-top-button';
+import Header from './components/layout/header/header';
+import Hero from './components/sections/hero/hero';
+import About from './components/sections/about/about';
+import Services from './components/sections/services/services';
+import Prices from './components/sections/prices/prices';
+import Testimonials from './components/sections/testimonials/testimonials';
+import Contacts from './components/sections/contacts/contacts';
+import Footer from './components/layout/footer/footer';
+import BackToTopButton from './components/ui/back-to-top-button/back-to-top-button';
 import styles from './app.module.css';
 
 const App = () => {

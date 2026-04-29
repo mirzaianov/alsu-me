@@ -1,9 +1,9 @@
 import { clsx } from 'clsx';
-import Button from './button';
+import Button from '../../ui/button/button';
 import AboutPhotoCard from './about-photo-card';
-import Badge from './badge';
-import ielts from '../assets/img/about/ielts.png';
-import tesol from '../assets/img/about/tesol.png';
+import Badge from '../../ui/badge/badge';
+import ielts from '../../../assets/img/about/ielts.png';
+import tesol from '../../../assets/img/about/tesol.png';
 import styles from './about.module.css';
 
 const About = () => {

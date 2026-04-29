@@ -4,7 +4,7 @@ import HeroPhotoCardBlock from './hero-photo-card-block';
 import HeroTextBlock from './hero-text-block';
 import HeroInfiniteLogos from './hero-infinite-logos';
 import HeroCTA from './hero-cta';
-import useMediaQuery from '../hooks/use-media-query';
+import useMediaQuery from '../../../hooks/use-media-query';
 import styles from './hero.module.css';
 
 const Hero = () => {

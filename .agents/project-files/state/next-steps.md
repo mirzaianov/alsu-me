@@ -4,12 +4,12 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and commit the KAN-105 naming refactor after verification.
+- Review and commit the component structure refactor after verification.
 
 ## Immediate Goal
 
-- Keep the refactor limited to source filename/import alignment; avoid behavior, styling, or public asset changes.
+- Keep the structure refactor limited to source layout and import paths; avoid behavior, styling, dependency, routing, or asset changes.
 
 ## Open Questions
 
-- None for the current naming scope.
+- None for the current structure scope.

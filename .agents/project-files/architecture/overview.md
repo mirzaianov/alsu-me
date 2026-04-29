@@ -6,10 +6,13 @@ The app is a Vite-built React single-page frontend. `src/main.jsx` mounts `App` 
 
 ## Component Structure
 
-Page sections and reusable UI pieces live in `src/components`. The established convention is:
+Frontend UI code is split by intent:
 
 - `component-name.jsx` for React implementation files
 - `component-name.module.css` for component-local styles
+- Page sections live under `src/components/sections/<section-name>`
+- Site chrome lives under `src/components/layout/<component-name>`
+- Reusable primitives live under `src/components/ui/<component-name>`
 - Shared hooks in `src/hooks`
 - Shared utilities in `src/utils`
 

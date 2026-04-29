@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
-import Button from './button';
-import contacts from '../assets/img/contacts/contacts.png';
+import Button from '../../ui/button/button';
+import contacts from '../../../assets/img/contacts/contacts.png';
 import styles from './contacts.module.css';
 
 const Contacts = () => {

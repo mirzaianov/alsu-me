@@ -1,4 +1,4 @@
-import Note from './note';
+import Note from '../../ui/note/note';
 import styles from './hero-text-block.module.css';
 
 const HeroTextBlock = () => {

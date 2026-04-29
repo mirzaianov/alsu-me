@@ -1,5 +1,5 @@
-import alsuHero from '../assets/img/hero/alsu-hero.png';
-import alsuHeroTablet from '../assets/img/hero/alsu-hero-tablet.png';
+import alsuHero from '../../../assets/img/hero/alsu-hero.png';
+import alsuHeroTablet from '../../../assets/img/hero/alsu-hero-tablet.png';
 import styles from './hero-photo-card.module.css';
 
 const HeroPhotoCard = () => {

@@ -1,5 +1,5 @@
 import TestimonialInfiniteCards from './testimonial-infinite-cards';
-import testimonials from '../assets/img/testimonials/testimonials.png';
+import testimonials from '../../../assets/img/testimonials/testimonials.png';
 import { clsx } from 'clsx';
 import styles from './testimonials.module.css';
 

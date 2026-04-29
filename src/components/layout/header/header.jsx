@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { clsx } from 'clsx';
-import BrandLogo from './brand-logo';
-import NavBar from './nav-bar';
-import Hamburger from './hamburger';
-import Button from './button';
-import HamburgerDropdown from './hamburger-dropdown';
-import useOnClickOutside from '../hooks/use-on-click-outside';
-import useMediaQuery from '../hooks/use-media-query';
+import BrandLogo from '../../ui/brand-logo/brand-logo';
+import NavBar from '../navbar/navbar';
+import Hamburger from '../hamburger/hamburger';
+import Button from '../../ui/button/button';
+import HamburgerDropdown from '../hamburger-dropdown/hamburger-dropdown';
+import useOnClickOutside from '../../../hooks/use-on-click-outside';
+import useMediaQuery from '../../../hooks/use-media-query';
 import styles from './header.module.css';
 
 const Header = () => {
