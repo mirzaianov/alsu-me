@@ -2,16 +2,18 @@
 
 ## Runtime Shape
 
-The app is a Vite-built React single-page frontend. `src/main.jsx` mounts `App` into the root DOM node, and `src/App.jsx` composes the page sections in order.
+The app is a Vite-built React single-page frontend. `src/main.jsx` mounts `App` into the root DOM node, and `src/app.jsx` composes the page sections in order.
 
 ## Component Structure
 
 Page sections and reusable UI pieces live in `src/components`. The established convention is:
 
-- `Component.jsx` for React implementation
-- `Component.module.css` for component-local styles
+- `component-name.jsx` for React implementation files
+- `component-name.module.css` for component-local styles
 - Shared hooks in `src/hooks`
 - Shared utilities in `src/utils`
+
+React component symbols remain `PascalCase`; only ordinary source filenames use lowercase kebab-case.
 
 ## Styling
 

@@ -24,11 +24,11 @@ Status: project-state current repository state
 
 ## Current Repository State
 
-- Source entrypoints are `src/main.jsx` and `src/App.jsx`.
-- Components live under `src/components`; most components pair `Component.jsx` with `Component.module.css`.
+- Source entrypoints are `src/main.jsx` and `src/app.jsx`.
+- Components live under `src/components`; most components pair `component-name.jsx` with `component-name.module.css`.
+- Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
 - Shared styling lives in `src/styles` and `src/index.css`.
 - Images, fonts, and icons live under `src/assets`; public web assets live under `public`.
-- Vercel Analytics is enabled in `src/App.jsx`.
+- Vercel Analytics is enabled in `src/app.jsx`.
 - There is no configured test script in `package.json`.
 - Project-support files now live under `.agents/project-files`.
-
