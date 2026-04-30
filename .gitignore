@@ -2,6 +2,7 @@
 node_modules/
 .npm-cache/
 .pnpm-cache/
+.pnpm-store/
 
 # testing
 coverage/
