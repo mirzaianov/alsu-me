@@ -11,18 +11,20 @@ Status: project-state current repository state
 ## Current Tooling Baseline
 
 - Node.js `24.15.0` is pinned in `.nvmrc`; `package.json` allows Node `>=24.15.0 <25`.
-- npm is the package manager; `package-lock.json` is present and npm `>=11` is required.
+- pnpm is the package manager; `packageManager` pins `pnpm@10.33.2`, `package.json` requires pnpm `>=10.33.2 <11`, and `pnpm-lock.yaml` is present. [Reason why added: package installs are now lockfile-owned by pnpm instead of npm.]
+- A local `preinstall` guard in `scripts/ensure-pnpm.js` rejects non-pnpm installs.
 - Vite is the frontend build tool.
 - React and React DOM are at major version 19.
 - ESLint flat config is present in `eslint.config.js`.
 - Prettier config is present in `.prettierrc` and enforces LF line endings.
 - Husky and commitlint enforce commit-message checks through `.husky/commit-msg` and `commitlint.config.js`. [Reason why added: local commit-policy readiness is now enforced by repository-owned tooling.]
 - Available scripts:
-  - `npm run dev`
-  - `npm run build`
-  - `npm run lint`
-  - `npm run preview`
-  - `npm run prepare`
+  - `pnpm dev`
+  - `pnpm build`
+  - `pnpm lint`
+  - `pnpm preview`
+  - `pnpm prepare`
+  - `pnpm run preinstall`
 
 ## Current Repository State
 

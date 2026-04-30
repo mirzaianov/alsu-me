@@ -32,22 +32,23 @@
     git clone https://github.com/mirzaianov/alsu-me.git
     cd alsu-me
     nvm use 24.15.0
-    npm install
+    corepack enable
+    pnpm install
 
-Supported toolchain: Node.js `24.15.0` LTS and npm `11+`.
+Supported toolchain: Node.js `24.15.0` LTS and pnpm `10.33.2`.
 
 You can remove Vercel Analytics from `src/app.jsx` by deleting the respective import and code between `Vercel Analytics` comments.
 
 ### Run in the development mode
 
-    npm run dev
+    pnpm dev
 
 Vite will start frontend server on [http://localhost:5173/](http://localhost:5173/)
 
 ## Building and Running for Production
 
-    npm run build
-    npm run preview
+    pnpm build
+    pnpm preview
 
 Vite will start frontend server on [http://localhost:4173/](http://localhost:4173/)
 
