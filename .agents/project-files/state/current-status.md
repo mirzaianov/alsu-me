@@ -5,7 +5,7 @@ Status: project-state current repository state
 ## Project State
 
 - Existing frontend app for the `alsu-me` personal website.
-- The site is a single-page React experience with sections for header, hero, about, services, prices, testimonials, contacts, footer, and back-to-top behavior.
+- The site is a single-page React experience with site chrome, hero, about, services, pricing, testimonials, contact, and back-to-top behavior.
 - The README describes the product as a personal website for Alsu Karimova, a professional tutor, translator, and interpreter.
 
 ## Current Tooling Baseline
@@ -27,8 +27,8 @@ Status: project-state current repository state
 ## Current Repository State
 
 - Source entrypoints are `src/main.jsx` and `src/app.jsx`.
-- `src/app.jsx` keeps the critical header, hero, and about sections eager, then lazy-loads the services, prices, testimonials, and contacts sections.
-- UI source is organized by intent under `src/components`: page sections live under `src/components/sections`, site chrome lives under `src/components/layout`, and reusable primitives live under `src/components/ui`.
+- `src/app.jsx` keeps the critical site header, hero, and about sections eager, then lazy-loads the services, pricing, testimonials, and contact sections.
+- UI source is organized by ownership: page sections live under `src/sections`, site chrome lives under `src/layout`, reusable primitives live under `src/shared/ui`, and app-level widgets live under `src/widgets`.
 - Most UI files pair `component-name.jsx` with `component-name.module.css`.
 - Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
 - Shared styling lives in `src/styles` and `src/index.css`.

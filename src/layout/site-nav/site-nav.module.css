@@ -1,0 +1,109 @@
+.navBar {
+  display: grid;
+  width: 100%;
+  font-size: var(--font-body);
+  font-weight: 700;
+  line-height: var(--line-body);
+}
+
+.inline {
+  grid-template-areas: 'hero about services pricing testimonials contact';
+  min-width: 460px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-inline: var(--l);
+}
+
+.block-1 {
+  grid-template-areas:
+    'hero'
+    'about'
+    'services'
+    'pricing'
+    'testimonials'
+    'contact';
+  justify-content: start;
+  gap: var(--l);
+}
+
+.block-2 {
+  grid-template-areas:
+    'hero services testimonials'
+    'about pricing contact';
+  justify-content: start;
+  gap: var(--l);
+}
+
+.block-3 {
+  grid-template-areas:
+    'hero pricing'
+    'about testimonials'
+    'services contact';
+  justify-content: start;
+  gap: var(--l);
+}
+
+.item {
+  width: fit-content;
+}
+
+.inline .item {
+  width: auto;
+  text-align: center;
+}
+
+.block-1 .item {
+  width: 40vw;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.about {
+  grid-area: about;
+}
+
+.services {
+  grid-area: services;
+}
+
+.pricing {
+  grid-area: pricing;
+}
+
+.testimonials {
+  grid-area: testimonials;
+}
+
+.contact {
+  grid-area: contact;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  transition: color var(--transition-primary);
+}
+
+.link:hover {
+  color: var(--text-90-50);
+}
+
+.underline {
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+  width: calc(100% + 0.5rem);
+  height: 4px;
+  margin-inline: -0.25rem;
+  border-radius: var(--2xs);
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform var(--transition-primary);
+}
+
+.underlineActive {
+  transform: scaleX(1);
+}

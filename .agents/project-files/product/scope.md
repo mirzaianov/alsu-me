@@ -9,9 +9,9 @@
 - Hero section with brand introduction and call to action
 - About section with credentials and personal presentation
 - Services section for tutor and translator/interpreter offerings
-- Prices section
+- Pricing section
 - Testimonials section
-- Contacts section
+- Contact section
 - Footer and navigation
 
 ## Current Boundaries
@@ -25,4 +25,3 @@
 - Preserve the single-page flow unless a task explicitly requires routing.
 - Keep content and visuals inspectable and asset-driven.
 - Avoid broad framework or design-system changes for naming or styling tasks.
-

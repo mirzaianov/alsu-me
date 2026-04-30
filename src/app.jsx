@@ -1,18 +1,16 @@
 import { lazy, Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import Header from './components/layout/header/header';
-import Hero from './components/sections/hero/hero';
-import About from './components/sections/about/about';
-import Footer from './components/layout/footer/footer';
-import BackToTopButton from './components/ui/back-to-top-button/back-to-top-button';
+import SiteHeader from './layout/site-header/site-header';
+import Hero from './sections/hero/hero';
+import About from './sections/about/about';
+import SiteFooter from './layout/site-footer/site-footer';
+import BackToTop from './widgets/back-to-top/back-to-top';
 import styles from './app.module.css';
 
-const Services = lazy(() => import('./components/sections/services/services'));
-const Prices = lazy(() => import('./components/sections/prices/prices'));
-const Testimonials = lazy(
-  () => import('./components/sections/testimonials/testimonials'),
-);
-const Contacts = lazy(() => import('./components/sections/contacts/contacts'));
+const Services = lazy(() => import('./sections/services/services'));
+const Pricing = lazy(() => import('./sections/pricing/pricing'));
+const Testimonials = lazy(() => import('./sections/testimonials/testimonials'));
+const Contact = lazy(() => import('./sections/contact/contact'));
 
 const App = () => {
   return (
@@ -20,17 +18,17 @@ const App = () => {
       id="app"
       className={styles.app}
     >
-      <Header />
+      <SiteHeader />
       <Hero />
       <About />
       <Suspense fallback={null}>
         <Services />
-        <Prices />
+        <Pricing />
         <Testimonials />
-        <Contacts />
+        <Contact />
       </Suspense>
-      <Footer />
-      <BackToTopButton />
+      <SiteFooter />
+      <BackToTop />
       {/* Vercel Analytics */}
       <Analytics />
       {/* End Vercel Analytics */}

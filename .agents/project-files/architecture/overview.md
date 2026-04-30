@@ -6,17 +6,20 @@ The app is a Vite-built React single-page frontend. `src/main.jsx` mounts `App` 
 
 ## Component Structure
 
-Frontend UI code is split by intent:
+Frontend UI code is split by ownership:
 
 - `component-name.jsx` for React implementation files
 - `component-name.module.css` for component-local styles
-- Page sections live under `src/components/sections/<section-name>`
-- Site chrome lives under `src/components/layout/<component-name>`
-- Reusable primitives live under `src/components/ui/<component-name>`
+- Page sections and their private helpers live under `src/sections/<section-name>`
+- Site chrome lives under `src/layout/<component-name>`
+- Reusable primitives live under `src/shared/ui/<component-name>`
+- App-level widgets live under `src/widgets/<widget-name>`
 - Shared hooks in `src/hooks`
 - Shared utilities in `src/utils`
 
 React component symbols remain `PascalCase`; only ordinary source filenames use lowercase kebab-case.
+
+Section anchor ids follow section concepts. The pricing and contact sections use `id="pricing"` and `id="contact"` for internal navigation targets.
 
 ## Styling
 

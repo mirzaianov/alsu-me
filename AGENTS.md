@@ -23,7 +23,7 @@ Before changing code, read:
 
 ## Working Rules
 
-- Preserve the intent-based component layout under `src/components`: page sections in `src/components/sections`, site chrome in `src/components/layout`, and shared primitives in `src/components/ui`.
+- Preserve the ownership-first UI layout: page sections in `src/sections`, site chrome in `src/layout`, reusable primitives in `src/shared/ui`, and app-level widgets in `src/widgets`.
 - Keep component symbols in PascalCase and hooks in `useCamelCase`.
 - Keep app-owned styles in CSS Modules unless the style is genuinely global.
 - Do not add routing, state libraries, test frameworks, deployment config, or new UI systems unless the task needs them.
