@@ -2,7 +2,7 @@
 
 ## Project Context
 
-This repository is `alsu-me`, a Vite + React single-page personal site for Alsu Karimova, a tutor, translator, and interpreter.
+This repository is `alsu-me`, a Vite + React + TypeScript single-page personal site for Alsu Karimova, a tutor, translator, and interpreter.
 
 Before changing code, read:
 
@@ -14,12 +14,14 @@ Before changing code, read:
 ## Tech Baseline
 
 - Runtime: Node.js `24.15.0` from `.nvmrc`
-- Package manager: npm, locked by `package-lock.json`
+- Package manager: pnpm `10.33.2`, locked by `pnpm-lock.yaml`
 - Framework: Vite + React
+- Language: TypeScript for app source and Vite config
 - Styling: CSS Modules plus global CSS in `src/styles` and `src/index.css`
 - Main checks:
-  - `npm run lint`
-  - `npm run build`
+  - `pnpm typecheck`
+  - `pnpm lint`
+  - `pnpm build`
 
 ## Working Rules
 

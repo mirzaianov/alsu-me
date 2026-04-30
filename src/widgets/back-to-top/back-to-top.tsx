@@ -8,13 +8,20 @@ const BackToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const infiniteLogosSection =
-        document.getElementById('infinite-logos').offsetTop;
-      const footerSection = document.getElementById('footer').offsetTop - 1000;
+      const infiniteLogosSection = document.getElementById('infinite-logos');
+      const footerSection = document.getElementById('footer');
+
+      if (!infiniteLogosSection || !footerSection) {
+        setIsVisible(false);
+        return;
+      }
+
+      const infiniteLogosOffset = infiniteLogosSection.offsetTop;
+      const footerOffset = footerSection.offsetTop - 1000;
 
       if (
-        window.scrollY >= infiniteLogosSection &&
-        window.scrollY <= footerSection
+        window.scrollY >= infiniteLogosOffset &&
+        window.scrollY <= footerOffset
       ) {
         setIsVisible(true);
       } else {

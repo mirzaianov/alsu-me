@@ -1,7 +1,18 @@
-import propTypes from 'prop-types';
 import styles from './service-card.module.css';
 
-const ServiceCard = ({ src, alt, subheading, description }) => {
+type ServiceCardProps = {
+  src: string;
+  alt: string;
+  subheading: string;
+  description: string[];
+};
+
+const ServiceCard = ({
+  src,
+  alt,
+  subheading,
+  description,
+}: ServiceCardProps) => {
   return (
     <div className={styles.serviceCard}>
       <div className={styles.content}>
@@ -25,13 +36,6 @@ const ServiceCard = ({ src, alt, subheading, description }) => {
       </ul>
     </div>
   );
-};
-
-ServiceCard.propTypes = {
-  src: propTypes.string.isRequired,
-  alt: propTypes.string.isRequired,
-  subheading: propTypes.string.isRequired,
-  description: propTypes.array.isRequired,
 };
 
 export default ServiceCard;

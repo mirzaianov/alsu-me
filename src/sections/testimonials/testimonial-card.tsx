@@ -1,27 +1,39 @@
-import propTypes from 'prop-types';
 import { useState, useRef, useEffect } from 'react';
 import TestimonialDialog from './testimonial-dialog';
 import styles from './testimonial-card.module.css';
 
 const maxLines = 10;
 
+type TestimonialCardProps = {
+  src: string;
+  fullName: string;
+  occupation: string;
+  comment: string;
+  pauseCarousel: () => void;
+  resumeCarousel: () => void;
+};
+
 const TestimonialCard = ({
   src,
   fullName,
   occupation,
   comment,
-  isInfiniteScroll,
-  setIsInfiniteScroll,
-}) => {
+  pauseCarousel,
+  resumeCarousel,
+}: TestimonialCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClamped, setIsClamped] = useState(false);
 
-  const paragraphRef = useRef(null);
-  const modalRef = useRef(null);
+  const paragraphRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     const isOverflowing = () => {
       const { current } = paragraphRef;
+
+      if (!current) {
+        return false;
+      }
+
       const maxHeight =
         parseFloat(getComputedStyle(current).lineHeight) * maxLines;
 
@@ -35,17 +47,17 @@ const TestimonialCard = ({
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
-    setIsInfiniteScroll(!isInfiniteScroll);
+    pauseCarousel();
     document.body.style.overflow = 'hidden';
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setIsInfiniteScroll(!isInfiniteScroll);
+    resumeCarousel();
     document.body.style.overflow = '';
   };
 
-  const closeOnEscape = (e) => {
+  const closeOnEscape = (e: KeyboardEvent) => {
     e.preventDefault();
 
     if (e.code === 'Escape') {
@@ -97,10 +109,7 @@ const TestimonialCard = ({
       )}
       {isModalOpen && (
         <TestimonialDialog onClose={handleModalClose}>
-          <div
-            className={styles.person}
-            ref={modalRef}
-          >
+          <div className={styles.person}>
             <img
               className={styles.avatar}
               src={src}
@@ -117,15 +126,6 @@ const TestimonialCard = ({
       )}
     </div>
   );
-};
-
-TestimonialCard.propTypes = {
-  src: propTypes.string.isRequired,
-  fullName: propTypes.string.isRequired,
-  occupation: propTypes.string.isRequired,
-  comment: propTypes.string.isRequired,
-  isInfiniteScroll: propTypes.bool.isRequired,
-  setIsInfiniteScroll: propTypes.func.isRequired,
 };
 
 export default TestimonialCard;

@@ -1,9 +1,15 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import { PiArrowRightBold } from 'react-icons/pi';
 import styles from './actions.module.css';
 
-const Actions = ({ size = '', link = '', ariaLabel, text }) => {
+type ActionsProps = {
+  size?: string;
+  link?: string;
+  ariaLabel: string;
+  text: string;
+};
+
+const Actions = ({ size = '', link = '', ariaLabel, text }: ActionsProps) => {
   return (
     <button
       className={styles.heroCTA}
@@ -19,13 +25,6 @@ const Actions = ({ size = '', link = '', ariaLabel, text }) => {
       </div>
     </button>
   );
-};
-
-Actions.propTypes = {
-  text: propTypes.string.isRequired,
-  ariaLabel: propTypes.string.isRequired,
-  size: propTypes.string,
-  link: propTypes.string,
 };
 
 export default Actions;

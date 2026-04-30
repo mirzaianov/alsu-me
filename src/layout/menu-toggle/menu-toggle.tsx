@@ -1,8 +1,12 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import styles from './menu-toggle.module.css';
 
-const MenuToggle = ({ onClick, isMenuOpen }) => {
+type MenuToggleProps = {
+  onClick: () => void;
+  isMenuOpen: boolean;
+};
+
+const MenuToggle = ({ onClick, isMenuOpen }: MenuToggleProps) => {
   const handleClick = () => {
     onClick();
   };
@@ -34,11 +38,6 @@ const MenuToggle = ({ onClick, isMenuOpen }) => {
       </svg>
     </button>
   );
-};
-
-MenuToggle.propTypes = {
-  onClick: propTypes.func.isRequired,
-  isMenuOpen: propTypes.bool.isRequired,
 };
 
 export default MenuToggle;

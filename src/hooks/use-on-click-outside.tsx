@@ -1,20 +1,27 @@
 import { useEffect } from 'react';
+import type { RefObject } from 'react';
 
-const useOnClickOutside = (ref, handler, excludedRefs = []) => {
+type ElementRef = RefObject<HTMLElement | null>;
+
+const useOnClickOutside = (
+  ref: ElementRef,
+  handler: () => void,
+  excludedRefs: ElementRef[] = [],
+) => {
   useEffect(() => {
-    const listener = (event) => {
+    const listener = (event: MouseEvent | TouchEvent) => {
+      if (!(event.target instanceof Node)) {
+        return;
+      }
+
+      const target = event.target;
+
       // Check if the clicked element is one of the excluded elements
       const isExcludedElement = excludedRefs.some((excludedRef) => {
-        return (
-          excludedRef.current && excludedRef.current.contains(event.target)
-        );
+        return excludedRef.current && excludedRef.current.contains(target);
       });
 
-      if (
-        isExcludedElement ||
-        !ref.current ||
-        ref.current.contains(event.target)
-      ) {
+      if (isExcludedElement || !ref.current || ref.current.contains(target)) {
         return;
       }
 

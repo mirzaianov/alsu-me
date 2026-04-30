@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-04-30: Migrated the Vite React app to strict TypeScript with `.ts`/`.tsx` source, typed Vite config, TypeScript-aware ESLint, `pnpm typecheck`, and PropTypes removal. [Reason why added: KAN-106 makes type checking a first-class project check while preserving current SPA behavior.]
 - 2026-04-30: Migrated dependency management from npm to pnpm 10 with a pnpm lockfile, package-manager pin, install guard, updated Husky hook, README commands, and project-state docs. [Reason why added: KAN-107 makes pnpm the repository-owned package manager while preventing accidental npm installs.]
 - 2026-04-30: Fixed site navigation tracking for lazy-loaded lower sections and adjusted the active-section observer threshold for tall sections. [Reason why added: header and footer nav state now remains aligned with section navigation after the lower page sections load asynchronously.]
 - 2026-04-29: Reworked UI source into ownership-first folders with renamed layout, section, and widget components plus updated pricing/contact anchors. [Reason why added: component ownership is clearer than the previous classification layout, and internal navigation now matches renamed section concepts.]

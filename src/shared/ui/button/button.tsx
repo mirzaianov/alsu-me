@@ -1,6 +1,17 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
+import type { ReactNode } from 'react';
 import styles from './button.module.css';
+
+type ButtonProps = {
+  children: ReactNode;
+  ariaLabel: string;
+  text?: string;
+  icon?: string;
+  size?: string;
+  type?: string;
+  onClick?: () => void;
+  link?: string;
+};
 
 const Button = ({
   children,
@@ -9,9 +20,9 @@ const Button = ({
   icon = '',
   size = '',
   type = '',
-  onClick = null,
+  onClick,
   link = '',
-}) => {
+}: ButtonProps) => {
   const handleClick = () => {
     if (onClick) {
       onClick();
@@ -41,17 +52,6 @@ const Button = ({
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  children: propTypes.oneOfType([propTypes.object, propTypes.array]),
-  ariaLabel: propTypes.string.isRequired,
-  text: propTypes.string,
-  icon: propTypes.string,
-  size: propTypes.string,
-  type: propTypes.string,
-  link: propTypes.string,
-  onClick: propTypes.func,
 };
 
 export default Button;

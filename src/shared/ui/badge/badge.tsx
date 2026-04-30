@@ -1,6 +1,15 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import styles from './badge.module.css';
+
+type BadgeProps = {
+  icon: string;
+  type?: string;
+  alt: string;
+  text?: string;
+  size?: string;
+  isReversed?: boolean;
+  isAnimated?: boolean;
+};
 
 const Badge = ({
   icon,
@@ -10,7 +19,7 @@ const Badge = ({
   size = '',
   isReversed = false,
   isAnimated = false,
-}) => {
+}: BadgeProps) => {
   return (
     <div
       className={clsx(
@@ -28,16 +37,6 @@ const Badge = ({
       {text}
     </div>
   );
-};
-
-Badge.propTypes = {
-  icon: propTypes.string.isRequired,
-  alt: propTypes.string.isRequired,
-  text: propTypes.string,
-  type: propTypes.string,
-  size: propTypes.string,
-  isReversed: propTypes.bool,
-  isAnimated: propTypes.bool,
 };
 
 export default Badge;

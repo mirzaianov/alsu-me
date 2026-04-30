@@ -1,4 +1,4 @@
-const addSpacesToNumber = (number) => {
+const addSpacesToNumber = (number: number) => {
   let val = number.toString();
   let res = '';
 

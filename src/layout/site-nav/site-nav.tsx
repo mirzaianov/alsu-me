@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import styles from './site-nav.module.css';
 
@@ -10,20 +9,33 @@ const items = [
   ['pricing', 'Цены'],
   ['testimonials', 'Отзывы'],
   ['contact', 'Контакты'],
-];
+] as const;
 
 const activeSectionThreshold = 0.4;
 
-const SiteNav = ({ type, setIsMenuOpen, isMenuOpen }) => {
-  const [activeLink, setActiveLink] = useState('');
+type SectionId = (typeof items)[number][0];
+type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
+const sectionIds = new Set<string>(items.map(([id]) => id));
+
+const isSectionId = (id: string): id is SectionId => sectionIds.has(id);
+
+type SiteNavProps = {
+  type: SiteNavLayout;
+  onNavigate?: (id: SectionId) => void;
+};
+
+const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
+  const [activeLink, setActiveLink] = useState<SectionId | ''>('');
 
   useEffect(() => {
-    const observedIds = new Set();
+    const observedIds = new Set<SectionId>();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
+          const id = entry.target.id;
+
+          if (entry.isIntersecting && isSectionId(id)) {
+            setActiveLink(id);
           }
         });
       },
@@ -68,11 +80,8 @@ const SiteNav = ({ type, setIsMenuOpen, isMenuOpen }) => {
     };
   }, []);
 
-  const handleClick = (id) => {
-    if (setIsMenuOpen) {
-      setIsMenuOpen(!isMenuOpen);
-    }
-
+  const handleClick = (id: SectionId) => {
+    onNavigate?.(id);
     setActiveLink(id);
   };
 
@@ -104,12 +113,6 @@ const SiteNav = ({ type, setIsMenuOpen, isMenuOpen }) => {
       ))}
     </ul>
   );
-};
-
-SiteNav.propTypes = {
-  type: propTypes.string.isRequired,
-  setIsMenuOpen: propTypes.func,
-  isMenuOpen: propTypes.bool,
 };
 
 export default SiteNav;
