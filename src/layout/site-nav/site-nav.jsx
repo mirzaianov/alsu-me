@@ -12,10 +12,13 @@ const items = [
   ['contact', 'Контакты'],
 ];
 
+const activeSectionThreshold = 0.4;
+
 const SiteNav = ({ type, setIsMenuOpen, isMenuOpen }) => {
   const [activeLink, setActiveLink] = useState('');
 
   useEffect(() => {
+    const observedIds = new Set();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -25,20 +28,43 @@ const SiteNav = ({ type, setIsMenuOpen, isMenuOpen }) => {
         });
       },
       {
-        threshold: 0.5,
+        threshold: activeSectionThreshold,
       },
     );
 
-    items.forEach((item) => {
-      const section = document.getElementById(item[0]);
-      if (section) observer.observe(section);
+    const observeAvailableSections = () => {
+      items.forEach(([id]) => {
+        if (observedIds.has(id)) {
+          return;
+        }
+
+        const section = document.getElementById(id);
+
+        if (section) {
+          observer.observe(section);
+          observedIds.add(id);
+        }
+      });
+
+      return observedIds.size === items.length;
+    };
+
+    const mutationObserver = new MutationObserver(() => {
+      if (observeAvailableSections()) {
+        mutationObserver.disconnect();
+      }
     });
 
-    return () => {
-      items.forEach((item) => {
-        const section = document.getElementById(item[0]);
-        if (section) observer.unobserve(section);
+    if (!observeAvailableSections()) {
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
       });
+    }
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
     };
   }, []);
 

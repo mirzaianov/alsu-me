@@ -4,7 +4,7 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and commit the slice-based component structure refactor if the verification checks pass.
+- Review and commit the slice-based component structure refactor plus the site-navigation regression fix if verification remains clean.
 
 ## Immediate Goal
 

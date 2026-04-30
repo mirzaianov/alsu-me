@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-04-30: Fixed site navigation tracking for lazy-loaded lower sections and adjusted the active-section observer threshold for tall sections. [Reason why added: header and footer nav state now remains aligned with section navigation after the lower page sections load asynchronously.]
 - 2026-04-29: Reworked UI source into ownership-first folders with renamed layout, section, and widget components plus updated pricing/contact anchors. [Reason why added: component ownership is clearer than the previous classification layout, and internal navigation now matches renamed section concepts.]
 - 2026-04-29: Added repository LF line-ending policy through `.gitattributes`, ESLint, and Prettier configuration. [Reason why added: line endings are now project-owned instead of depending on each developer's Git autocrlf settings.]
 - 2026-04-29: Added lazy-load boundaries for non-critical lower page sections in `src/app.jsx` and kept ESLint source parsing on latest ECMAScript for dynamic imports. [Reason why added: the structure now follows Vercel React bundle-splitting guidance while keeping the first visible page path eager.]
