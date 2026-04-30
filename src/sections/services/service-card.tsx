@@ -1,7 +1,8 @@
+import Image, { type StaticImageData } from 'next/image';
 import styles from './service-card.module.css';
 
 type ServiceCardProps = {
-  src: string;
+  src: StaticImageData;
   alt: string;
   subheading: string;
   description: string[];
@@ -16,11 +17,11 @@ const ServiceCard = ({
   return (
     <div className={styles.serviceCard}>
       <div className={styles.content}>
-        <img
+        <Image
           className={styles.image}
           src={src}
           alt={alt}
-          loading="lazy"
+          sizes="288px"
         />
         <h4 className={styles.title}>{subheading}</h4>
       </div>

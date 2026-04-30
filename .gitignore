@@ -11,6 +11,9 @@ coverage/
 build/
 dist/
 dist-ssr/
+.next/
+out/
+tsconfig.tsbuildinfo
 *.local
 
 # editor directories and files

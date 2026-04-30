@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
 import { clsx } from 'clsx';
 import type { AnimationEvent } from 'react';
@@ -8,15 +10,13 @@ import Button from '../../shared/ui/button/button';
 import type { MenuState } from '../mobile-menu/mobile-menu';
 import MobileMenu from '../mobile-menu/mobile-menu';
 import useOnClickOutside from '../../hooks/use-on-click-outside';
-import useMediaQuery from '../../hooks/use-media-query';
 import styles from './site-header.module.css';
 
 const SiteHeader = () => {
   const [menuState, setMenuState] = useState<MenuState>('closed');
   const [isFixed, setIsFixed] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 1061px)');
-  const isMobile = !isDesktop;
-  const isMenuOpen = isMobile && menuState === 'open';
+  const isMenuOpen = menuState === 'open';
+  const shouldRenderMobileMenu = menuState !== 'closed';
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLDivElement | null>(null);
@@ -64,6 +64,22 @@ const SiteHeader = () => {
   }, [isMenuOpen]);
 
   useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 1061px)');
+    const closeOnDesktop = () => {
+      if (desktopQuery.matches) {
+        setMenuState('closed');
+      }
+    };
+
+    closeOnDesktop();
+    desktopQuery.addEventListener('change', closeOnDesktop);
+
+    return () => {
+      desktopQuery.removeEventListener('change', closeOnDesktop);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       const infiniteLogosSection = document.getElementById('infinite-logos');
 
@@ -74,7 +90,8 @@ const SiteHeader = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -92,19 +109,20 @@ const SiteHeader = () => {
         <div className={styles.brand}>
           <BrandLogo />
         </div>
-        <div className={styles.navSlot}>
-          {isMobile ? '' : <SiteNav type="inline" />}
+        <div className={clsx(styles.navSlot, styles.desktopNav)}>
+          <SiteNav type="inline" />
         </div>
         <div
           className={styles.action}
           ref={buttonRef}
         >
-          {isMobile ? (
+          <div className={styles.mobileAction}>
             <MenuToggle
               onClick={toggleMenu}
               isMenuOpen={isMenuOpen}
             />
-          ) : (
+          </div>
+          <div className={styles.desktopAction}>
             <Button
               ariaLabel="Записаться"
               type="secondary"
@@ -112,9 +130,9 @@ const SiteHeader = () => {
             >
               <span>Записаться</span>
             </Button>
-          )}
+          </div>
         </div>
-        {isMobile && (
+        {shouldRenderMobileMenu && (
           <MobileMenu
             isFixed={isFixed}
             menuState={menuState}

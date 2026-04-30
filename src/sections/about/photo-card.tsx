@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import alsuAbout from '../../assets/img/about/alsu-about.png';
-import alsuAboutTablet from '../../assets/img/about/alsu-about-tablet.png';
 import styles from './photo-card.module.css';
 
 const PhotoCard = () => {
@@ -7,13 +7,10 @@ const PhotoCard = () => {
     <div className={styles.aboutPhotoCard}>
       <div className={styles.inner}>
         <div className={styles.color} />
-        <img
+        <Image
           className={styles.image}
           src={alsuAbout}
-          srcSet={`
-                   ${alsuAbout} 577w,
-                   ${alsuAboutTablet}
-                 `}
+          sizes="(max-width: 576px) 170px, 300px"
           alt="Alsu in a formal office suit"
         />
       </div>

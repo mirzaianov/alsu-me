@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import alsuLogo from '../../../assets/icons/alsu-logo.svg';
 import styles from './brand-logo.module.css';
 
@@ -8,10 +9,12 @@ const BrandLogo = () => {
       aria-label="Go to the top of the page"
       href="#app"
     >
-      <img
+      <Image
         className={styles.logo}
         src={alsuLogo}
         alt="BrandLogo"
+        priority
+        unoptimized
       />
     </a>
   );

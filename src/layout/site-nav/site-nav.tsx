@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import styles from './site-nav.module.css';

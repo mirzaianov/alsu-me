@@ -4,11 +4,11 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and commit the TypeScript migration if verification remains clean.
+- Review and commit the Next.js migration if verification remains clean.
 
 ## Immediate Goal
 
-- Keep remaining work limited to review, staging, and commit preparation; avoid extra dependency upgrades, styling, routing, deployment, or UI-system changes.
+- Keep remaining work limited to review, browser QA, staging, and commit preparation; avoid extra routes, state libraries, test frameworks, or UI-system changes.
 
 ## Open Questions
 

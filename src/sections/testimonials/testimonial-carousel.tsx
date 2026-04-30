@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import TestimonialRow from './testimonial-row';
 import styles from './testimonial-carousel.module.css';

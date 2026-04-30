@@ -2,12 +2,9 @@ import { clsx } from 'clsx';
 import Divider from '../../shared/ui/divider/divider';
 import BrandLogo from '../../shared/ui/brand-logo/brand-logo';
 import SiteNav from '../site-nav/site-nav';
-import useMediaQuery from '../../hooks/use-media-query';
 import styles from './site-footer.module.css';
 
 const SiteFooter = () => {
-  const isDesktop = useMediaQuery('(min-width: 1061px)');
-
   return (
     <footer
       id="footer"
@@ -25,11 +22,12 @@ const SiteFooter = () => {
             </p>
           </div>
           <div className={styles.nav}>
-            {isDesktop ? (
+            <div className={styles.navDesktop}>
               <SiteNav type="block-3" />
-            ) : (
+            </div>
+            <div className={styles.navMobile}>
               <SiteNav type="block-2" />
-            )}
+            </div>
           </div>
         </div>
       </article>

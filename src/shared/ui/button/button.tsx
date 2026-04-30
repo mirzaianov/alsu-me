@@ -1,3 +1,5 @@
+'use client';
+
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
 import styles from './button.module.css';
@@ -23,31 +25,36 @@ const Button = ({
   onClick,
   link = '',
 }: ButtonProps) => {
-  const handleClick = () => {
-    if (onClick) {
-      onClick();
-      return;
-    }
+  const className = clsx(
+    styles.button,
+    styles[type || 'primary'],
+    size === 'large' && styles.large,
+    icon === 'true' && styles.icon,
+  );
 
-    if (text === 'Email') {
-      window.open(`mailto:${link}`, '_blank');
-      return;
-    }
+  if (link) {
+    const href = text === 'Email' ? `mailto:${link}` : link;
+    const isExternal = /^https?:\/\//.test(href);
 
-    window.open(link, '_blank');
-  };
+    return (
+      <a
+        aria-label={ariaLabel}
+        className={className}
+        href={href}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+        target={isExternal ? '_blank' : undefined}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
     <button
       aria-label={ariaLabel}
-      className={clsx(
-        styles.button,
-        styles[type || 'primary'],
-        size === 'large' && styles.large,
-        icon === 'true' && styles.icon,
-      )}
+      className={className}
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
     >
       {children}
     </button>

@@ -32,6 +32,8 @@
   bottom: -4px;
   left: 10px;
   z-index: 1;
+  width: var(--img-size-mobile);
+  height: auto;
   transform: scale(1.5);
   transition: transform var(--transition-primary);
   transition-delay: 150ms;
@@ -58,5 +60,6 @@
   .image {
     bottom: -8px;
     left: 18px;
+    width: var(--img-size-tablet);
   }
 }

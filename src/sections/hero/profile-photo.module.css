@@ -52,6 +52,8 @@
   z-index: 1;
   bottom: -8px;
   left: 4px;
+  width: var(--img-size-mobile);
+  height: auto;
   transform: rotate(-2.5deg) scale(1.5);
   transition: transform var(--transition-primary);
   transition-delay: 150ms;
@@ -88,5 +90,6 @@
   .image {
     bottom: 0;
     left: 8px;
+    width: var(--img-size-tablet);
   }
 }

@@ -1,11 +1,14 @@
+'use client';
+
 import { useState, useRef, useEffect } from 'react';
+import Image, { type StaticImageData } from 'next/image';
 import TestimonialDialog from './testimonial-dialog';
 import styles from './testimonial-card.module.css';
 
 const maxLines = 10;
 
 type TestimonialCardProps = {
-  src: string;
+  src: StaticImageData;
   fullName: string;
   occupation: string;
   comment: string;
@@ -48,42 +51,47 @@ const TestimonialCard = ({
   const handleModalOpen = () => {
     setIsModalOpen(true);
     pauseCarousel();
-    document.body.style.overflow = 'hidden';
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     resumeCarousel();
-    document.body.style.overflow = '';
-  };
-
-  const closeOnEscape = (e: KeyboardEvent) => {
-    e.preventDefault();
-
-    if (e.code === 'Escape') {
-      handleModalClose();
-    }
   };
 
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.addEventListener('keydown', closeOnEscape);
+    if (!isModalOpen) {
+      return;
     }
+
+    document.body.style.overflow = 'hidden';
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.code !== 'Escape') {
+        return;
+      }
+
+      event.preventDefault();
+      setIsModalOpen(false);
+      resumeCarousel();
+    };
+
+    document.body.addEventListener('keydown', closeOnEscape);
 
     return () => {
       document.body.removeEventListener('keydown', closeOnEscape);
+      document.body.style.overflow = '';
     };
-  });
+  }, [isModalOpen, resumeCarousel]);
 
   return (
     <div className={styles.testimonialCard}>
       <div className={styles.header}>
         <div className={styles.person}>
-          <img
+          <Image
             className={styles.avatar}
             src={src}
             alt={fullName}
-            loading="lazy"
+            sizes="56px"
           />
           <div className={styles.meta}>
             <p className={styles.name}>{fullName}</p>
@@ -110,11 +118,11 @@ const TestimonialCard = ({
       {isModalOpen && (
         <TestimonialDialog onClose={handleModalClose}>
           <div className={styles.person}>
-            <img
+            <Image
               className={styles.avatar}
               src={src}
               alt={fullName}
-              loading="lazy"
+              sizes="56px"
             />
             <div className={styles.meta}>
               <p className={styles.name}>{fullName}</p>

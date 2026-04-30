@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
   background-color: var(--neutral-0);
   color: var(--text-90);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: var(--font-body);
   line-height: var(--line-body);
 }

@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
+import Image, { type StaticImageData } from 'next/image';
 import styles from './badge.module.css';
 
 type BadgeProps = {
-  icon: string;
+  icon: StaticImageData | string;
   type?: string;
   alt: string;
   text?: string;
@@ -29,10 +30,11 @@ const Badge = ({
         isReversed && styles.reversed,
       )}
     >
-      <img
+      <Image
         className={clsx(styles.icon, isAnimated && styles.animated)}
         src={icon}
         alt={alt}
+        unoptimized
       />
       {text}
     </div>

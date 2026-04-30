@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import LessonPlanCard from './lesson-plan-card';
 import TranslationRateCard from './translation-rate-card';
 import pricingImage from '../../assets/img/prices/prices.png';
@@ -59,20 +60,20 @@ const Pricing = () => {
       className={clsx('section', styles.pricing)}
     >
       <div className={styles.sale}>
-        <img
+        <Image
           className={styles.saleImage}
           src={sale}
           alt="Sale"
-          loading="lazy"
+          sizes="(max-width: 576px) 170px, 300px"
         />
       </div>
       <h2 className={clsx('title', styles.title)}>Выбери свой план</h2>
       <article className={styles.intro}>
-        <img
+        <Image
           className={styles.image}
           src={pricingImage}
           alt="Pricing"
-          loading="lazy"
+          sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>
           <p>Подбери план и стоимость, которые наиболее подходят тебе.</p>

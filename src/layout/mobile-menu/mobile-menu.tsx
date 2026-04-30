@@ -1,14 +1,10 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { clsx } from 'clsx';
 import type { AnimationEventHandler, ReactNode } from 'react';
 import styles from './mobile-menu.module.css';
-
-const modalRoot = document.getElementById('mobile-menu');
-
-if (!modalRoot) {
-  throw new Error('Portal element #mobile-menu was not found.');
-}
 
 export type MenuState = 'closed' | 'open' | 'closing';
 
@@ -25,15 +21,35 @@ const MobileMenu = ({
   menuState,
   onAnimationEnd,
 }: MobileMenuProps) => {
-  const [portalElement] = useState(() => document.createElement('div'));
+  const [portalElement] = useState<HTMLDivElement | null>(() => {
+    if (typeof document === 'undefined') {
+      return null;
+    }
+
+    return document.createElement('div');
+  });
 
   useEffect(() => {
+    if (!portalElement) {
+      return;
+    }
+
+    const modalRoot = document.getElementById('mobile-menu');
+
+    if (!modalRoot) {
+      return;
+    }
+
     modalRoot.appendChild(portalElement);
 
     return () => {
       modalRoot.removeChild(portalElement);
     };
   }, [portalElement]);
+
+  if (!portalElement) {
+    return null;
+  }
 
   return ReactDOM.createPortal(
     <div
