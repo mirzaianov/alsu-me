@@ -1,6 +1,7 @@
 # dependencies
 node_modules/
 .npm-cache/
+.pnpm-cache/
 
 # testing
 coverage/

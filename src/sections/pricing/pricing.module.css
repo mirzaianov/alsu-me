@@ -1,0 +1,158 @@
+.pricing {
+  position: relative;
+}
+
+.title {
+  font-size: var(--font-heading-s);
+  font-weight: 700;
+  line-height: var(--line-heading-relaxed);
+}
+
+.sale {
+  display: none;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--l);
+}
+
+.image {
+  margin-left: 2rem;
+  height: var(--img-size-mobile);
+}
+
+.copy {
+  --stack-gap: var(--m);
+  max-width: var(--mobile-text-wrapper);
+}
+
+.copy p {
+  text-wrap: pretty;
+  animation: paragraphFadeIn 800ms ease-out both;
+  animation-timeline: view();
+  animation-range-start: entry 120px;
+  animation-range-end: cover 240px;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--xl);
+}
+
+.group {
+  --stack-gap: var(--m);
+  align-items: center;
+}
+
+.subtitle {
+  max-width: var(--mobile-text-wrapper);
+  text-align: center;
+  font-size: var(--font-body);
+  font-weight: 700;
+  line-height: var(--line-body);
+  text-transform: uppercase;
+}
+
+.cards {
+  --grid-gap: var(--l);
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-body);
+}
+
+@media (min-width: 577px) {
+  .title {
+    font-size: var(--font-heading-m);
+  }
+
+  .intro {
+    gap: var(--xl);
+  }
+
+  .image {
+    margin-left: 4rem;
+    height: var(--img-size-tablet);
+  }
+
+  .copy {
+    --stack-gap: var(--s);
+    max-width: var(--tablet-text-wrapper);
+  }
+
+  .group {
+    --stack-gap: var(--l);
+  }
+
+  .subtitle {
+    max-width: var(--tablet-text-wrapper);
+    font-size: var(--font-heading-s);
+    line-height: var(--line-heading-relaxed);
+  }
+
+  .cards {
+    --grid-gap: var(--xl);
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1061px) {
+  .title {
+    font-size: var(--font-heading-l);
+    line-height: var(--line-heading);
+  }
+
+  .sale {
+    position: absolute;
+    top: 66.666667%;
+    right: -25%;
+    z-index: 10;
+    display: block;
+    animation: imageFadeInRight 900ms ease-out both;
+    animation-timeline: view();
+    animation-range-start: 10%;
+    animation-range-end: 50%;
+  }
+
+  .saleImage {
+    height: 100%;
+  }
+
+  .intro {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .image {
+    width: 33.333%;
+    height: auto;
+    margin-left: 4rem;
+  }
+
+  .copy {
+    width: 58.333%;
+    max-width: var(--desktop-text-wrapper);
+  }
+
+  .groups {
+    gap: var(--2xl);
+  }
+
+  .group {
+    --stack-gap: var(--xl);
+  }
+
+  .subtitle {
+    max-width: var(--desktop-text-wrapper);
+  }
+
+  .cards {
+    --grid-gap: var(--2xl);
+  }
+}

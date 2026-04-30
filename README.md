@@ -36,7 +36,7 @@
 
 Supported toolchain: Node.js `24.15.0` LTS and npm `11+`.
 
-You can remove Vercel Analytics from `App.jsx` with deleting the respective import and code between `Vercel Analytics` comments.
+You can remove Vercel Analytics from `src/app.jsx` by deleting the respective import and code between `Vercel Analytics` comments.
 
 ### Run in the development mode
 
