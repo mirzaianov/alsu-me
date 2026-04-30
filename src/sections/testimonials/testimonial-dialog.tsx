@@ -1,15 +1,24 @@
-import propTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useClickAway } from '@uidotdev/usehooks';
+import type { ReactNode } from 'react';
 import Button from '../../shared/ui/button/button';
 import styles from './testimonial-dialog.module.css';
 
 const modalRoot = document.getElementById('testimonial-dialog');
 
-const TestimonialDialog = ({ onClose, children }) => {
+if (!modalRoot) {
+  throw new Error('Portal element #testimonial-dialog was not found.');
+}
+
+type TestimonialDialogProps = {
+  onClose: () => void;
+  children: ReactNode;
+};
+
+const TestimonialDialog = ({ onClose, children }: TestimonialDialogProps) => {
   const [portalElement] = useState(() => document.createElement('div'));
-  const closeRef = useClickAway(() => onClose());
+  const closeRef = useClickAway<HTMLDivElement>(() => onClose());
 
   useEffect(() => {
     modalRoot.appendChild(portalElement);
@@ -39,11 +48,6 @@ const TestimonialDialog = ({ onClose, children }) => {
     </div>,
     portalElement,
   );
-};
-
-TestimonialDialog.propTypes = {
-  onClose: propTypes.func.isRequired,
-  children: propTypes.node.isRequired,
 };
 
 export default TestimonialDialog;

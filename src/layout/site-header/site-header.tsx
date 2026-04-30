@@ -1,23 +1,25 @@
 import { useState, useEffect, useRef } from 'react';
 import { clsx } from 'clsx';
+import type { AnimationEvent } from 'react';
 import BrandLogo from '../../shared/ui/brand-logo/brand-logo';
 import SiteNav from '../site-nav/site-nav';
 import MenuToggle from '../menu-toggle/menu-toggle';
 import Button from '../../shared/ui/button/button';
+import type { MenuState } from '../mobile-menu/mobile-menu';
 import MobileMenu from '../mobile-menu/mobile-menu';
 import useOnClickOutside from '../../hooks/use-on-click-outside';
 import useMediaQuery from '../../hooks/use-media-query';
 import styles from './site-header.module.css';
 
 const SiteHeader = () => {
-  const [menuState, setMenuState] = useState('closed');
+  const [menuState, setMenuState] = useState<MenuState>('closed');
   const [isFixed, setIsFixed] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 1061px)');
   const isMobile = !isDesktop;
   const isMenuOpen = isMobile && menuState === 'open';
 
-  const menuRef = useRef();
-  const buttonRef = useRef();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
 
   const closeMenu = () => {
     setMenuState((state) => (state === 'open' ? 'closing' : state));
@@ -27,7 +29,9 @@ const SiteHeader = () => {
     setMenuState((state) => (state === 'open' ? 'closing' : 'open'));
   };
 
-  const handleMobileMenuAnimationEnd = (event) => {
+  const handleMobileMenuAnimationEnd = (
+    event: AnimationEvent<HTMLDivElement>,
+  ) => {
     if (event.currentTarget !== event.target) {
       return;
     }
@@ -40,7 +44,7 @@ const SiteHeader = () => {
   }, [buttonRef]);
 
   useEffect(() => {
-    const closeOnEscape = (e) => {
+    const closeOnEscape = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
         setMenuState((state) => (state === 'open' ? 'closing' : state));
       }
@@ -119,12 +123,7 @@ const SiteHeader = () => {
             <div ref={menuRef}>
               <SiteNav
                 type="block-1"
-                setIsMenuOpen={(next) => {
-                  if (next === false) {
-                    closeMenu();
-                  }
-                }}
-                isMenuOpen={isMenuOpen}
+                onNavigate={() => closeMenu()}
               />
             </div>
           </MobileMenu>

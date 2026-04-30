@@ -1,8 +1,13 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
+import type { ReactNode } from 'react';
 import styles from './note.module.css';
 
-const Note = ({ type, children }) => {
+type NoteProps = {
+  children: ReactNode;
+  type?: string;
+};
+
+const Note = ({ type, children }: NoteProps) => {
   return (
     <div
       className={clsx(styles.note, type === 'translator' && styles.translator)}
@@ -10,11 +15,6 @@ const Note = ({ type, children }) => {
       {children}
     </div>
   );
-};
-
-Note.propTypes = {
-  children: propTypes.node.isRequired,
-  type: propTypes.string,
 };
 
 export default Note;

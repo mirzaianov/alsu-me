@@ -1,7 +1,14 @@
-import propTypes from 'prop-types';
 import Button from '../../shared/ui/button/button';
 import addSpacesToNumber from '../../utils/add-spaces-to-numbers';
 import styles from './translation-rate-card.module.css';
+
+type TranslationRateCardProps = {
+  heading: string;
+  subheading: string;
+  price: number;
+  description: string[];
+  note: string;
+};
 
 const TranslationRateCard = ({
   heading,
@@ -9,7 +16,7 @@ const TranslationRateCard = ({
   price,
   description,
   note,
-}) => {
+}: TranslationRateCardProps) => {
   return (
     <div className={styles.priceTranslatorCard}>
       <h4 className={styles.heading}>{heading}</h4>
@@ -37,14 +44,6 @@ const TranslationRateCard = ({
       <p className={styles.note}>{note}</p>
     </div>
   );
-};
-
-TranslationRateCard.propTypes = {
-  heading: propTypes.string.isRequired,
-  subheading: propTypes.string.isRequired,
-  price: propTypes.number.isRequired,
-  description: propTypes.array.isRequired,
-  note: propTypes.string.isRequired,
 };
 
 export default TranslationRateCard;

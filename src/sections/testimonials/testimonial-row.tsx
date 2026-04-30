@@ -1,5 +1,5 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
+import type { Dispatch, SetStateAction } from 'react';
 import TestimonialCard from './testimonial-card';
 import almaz from '../../assets/img/testimonials/almaz.jpeg';
 import elena from '../../assets/img/testimonials/elena.jpeg';
@@ -86,7 +86,15 @@ const testimonialCardData = [
   },
 ];
 
-const TestimonialRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
+type TestimonialRowProps = {
+  isInfiniteScroll: boolean;
+  setIsInfiniteScroll: Dispatch<SetStateAction<boolean>>;
+};
+
+const TestimonialRow = ({
+  isInfiniteScroll,
+  setIsInfiniteScroll,
+}: TestimonialRowProps) => {
   return (
     <div
       className={clsx(
@@ -101,18 +109,13 @@ const TestimonialRow = ({ isInfiniteScroll, setIsInfiniteScroll }) => {
         >
           <TestimonialCard
             {...item}
-            isInfiniteScroll={isInfiniteScroll}
-            setIsInfiniteScroll={setIsInfiniteScroll}
+            pauseCarousel={() => setIsInfiniteScroll(false)}
+            resumeCarousel={() => setIsInfiniteScroll(true)}
           />
         </div>
       ))}
     </div>
   );
-};
-
-TestimonialRow.propTypes = {
-  isInfiniteScroll: propTypes.bool,
-  setIsInfiniteScroll: propTypes.func,
 };
 
 export default TestimonialRow;

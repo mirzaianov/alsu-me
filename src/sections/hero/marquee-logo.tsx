@@ -1,7 +1,11 @@
-import propTypes from 'prop-types';
 import styles from './marquee-logo.module.css';
 
-const MarqueeLogo = ({ src, alt }) => {
+type MarqueeLogoProps = {
+  src: string;
+  alt: string;
+};
+
+const MarqueeLogo = ({ src, alt }: MarqueeLogoProps) => {
   return (
     <img
       className={styles.heroInfiniteLogo}
@@ -9,11 +13,6 @@ const MarqueeLogo = ({ src, alt }) => {
       alt={alt}
     />
   );
-};
-
-MarqueeLogo.propTypes = {
-  src: propTypes.string.isRequired,
-  alt: propTypes.string.isRequired,
 };
 
 export default MarqueeLogo;

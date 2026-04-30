@@ -1,12 +1,30 @@
 import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
+import type { AnimationEventHandler, ReactNode } from 'react';
 import styles from './mobile-menu.module.css';
 
 const modalRoot = document.getElementById('mobile-menu');
 
-const MobileMenu = ({ children, isFixed, menuState, onAnimationEnd }) => {
+if (!modalRoot) {
+  throw new Error('Portal element #mobile-menu was not found.');
+}
+
+export type MenuState = 'closed' | 'open' | 'closing';
+
+type MobileMenuProps = {
+  children: ReactNode;
+  isFixed?: boolean;
+  menuState: MenuState;
+  onAnimationEnd: AnimationEventHandler<HTMLDivElement>;
+};
+
+const MobileMenu = ({
+  children,
+  isFixed,
+  menuState,
+  onAnimationEnd,
+}: MobileMenuProps) => {
   const [portalElement] = useState(() => document.createElement('div'));
 
   useEffect(() => {
@@ -30,13 +48,6 @@ const MobileMenu = ({ children, isFixed, menuState, onAnimationEnd }) => {
     </div>,
     portalElement,
   );
-};
-
-MobileMenu.propTypes = {
-  children: propTypes.node.isRequired,
-  isFixed: propTypes.bool,
-  menuState: propTypes.oneOf(['closed', 'open', 'closing']).isRequired,
-  onAnimationEnd: propTypes.func.isRequired,
 };
 
 export default MobileMenu;

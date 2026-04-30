@@ -1,20 +1,19 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import styles from './stat.module.css';
 
-const Stat = ({ quantity, text, className }) => {
+type StatProps = {
+  quantity: string;
+  text: string;
+  className?: string;
+};
+
+const Stat = ({ quantity, text, className }: StatProps) => {
   return (
     <li className={clsx(styles.stat, className)}>
       <p className={styles.quantity}>{quantity}</p>
       <p className={styles.text}>{text}</p>
     </li>
   );
-};
-
-Stat.propTypes = {
-  className: propTypes.string,
-  quantity: propTypes.string.isRequired,
-  text: propTypes.string.isRequired,
 };
 
 export default Stat;

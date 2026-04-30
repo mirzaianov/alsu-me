@@ -2,13 +2,13 @@
 
 ## Runtime Shape
 
-The app is a Vite-built React single-page frontend. `src/main.jsx` mounts `App` into the root DOM node, and `src/app.jsx` composes the page sections in order. The critical header, hero, and about sections render eagerly; lower page sections are lazy-loaded with static dynamic imports.
+The app is a Vite-built React single-page frontend. `src/main.tsx` mounts `App` into the root DOM node, and `src/app.tsx` composes the page sections in order. The critical header, hero, and about sections render eagerly; lower page sections are lazy-loaded with static dynamic imports.
 
 ## Component Structure
 
 Frontend UI code is split by ownership:
 
-- `component-name.jsx` for React implementation files
+- `component-name.tsx` for React implementation files
 - `component-name.module.css` for component-local styles
 - Page sections and their private helpers live under `src/sections/<section-name>`
 - Site chrome lives under `src/layout/<component-name>`
@@ -34,6 +34,7 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 
 ## Build And Quality
 
-- `npm run lint` runs ESLint with React, hooks, import, jsx-a11y, and Prettier integrations.
-- `npm run build` runs the Vite production build.
+- `pnpm typecheck` runs `tsc -b` across the app and Vite config.
+- `pnpm lint` runs ESLint with TypeScript, React, hooks, import, jsx-a11y, and Prettier integrations.
+- `pnpm build` runs TypeScript project checks before the Vite production build.
 - No automated test runner is currently configured.

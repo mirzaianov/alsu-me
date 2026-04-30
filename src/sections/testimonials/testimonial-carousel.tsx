@@ -3,7 +3,7 @@ import TestimonialRow from './testimonial-row';
 import styles from './testimonial-carousel.module.css';
 
 const TestimonialCarousel = () => {
-  const [isInfiniteScroll, setIsInfiniteScroll] = useState(true);
+  const [isInfiniteScroll, setIsInfiniteScroll] = useState<boolean>(true);
 
   return (
     <div className={styles.testimonialInfiniteCards}>

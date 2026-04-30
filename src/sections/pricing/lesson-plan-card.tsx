@@ -1,8 +1,17 @@
-import propTypes from 'prop-types';
 import { clsx } from 'clsx';
 import Button from '../../shared/ui/button/button';
 import addSpacesToNumber from '../../utils/add-spaces-to-numbers';
 import styles from './lesson-plan-card.module.css';
+
+type LessonPlanCardProps = {
+  quantity: number;
+  discount: number;
+  heading: string;
+  subheading: string;
+  duration: string;
+  price: number;
+  description: string[];
+};
 
 const LessonPlanCard = ({
   quantity,
@@ -12,7 +21,7 @@ const LessonPlanCard = ({
   duration,
   price,
   description,
-}) => {
+}: LessonPlanCardProps) => {
   return (
     <div className={clsx(styles.priceTutorCard, discount && styles.discount)}>
       <div className={styles.header}>
@@ -73,16 +82,6 @@ const LessonPlanCard = ({
       ) : null}
     </div>
   );
-};
-
-LessonPlanCard.propTypes = {
-  quantity: propTypes.number.isRequired,
-  discount: propTypes.number.isRequired,
-  heading: propTypes.string.isRequired,
-  subheading: propTypes.string.isRequired,
-  duration: propTypes.string.isRequired,
-  price: propTypes.number.isRequired,
-  description: propTypes.array.isRequired,
 };
 
 export default LessonPlanCard;

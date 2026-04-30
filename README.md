@@ -22,7 +22,7 @@
 
 ### Dependencies
 
-- `Vite`
+- `Vite` • `TypeScript`
 - `React` • `CSS Modules` • `clsx`
 
 ## Installation & Execution
@@ -37,7 +37,7 @@
 
 Supported toolchain: Node.js `24.15.0` LTS and pnpm `10.33.2`.
 
-You can remove Vercel Analytics from `src/app.jsx` by deleting the respective import and code between `Vercel Analytics` comments.
+You can remove Vercel Analytics from `src/app.tsx` by deleting the respective import and code between `Vercel Analytics` comments.
 
 ### Run in the development mode
 
@@ -47,6 +47,8 @@ Vite will start frontend server on [http://localhost:5173/](http://localhost:517
 
 ## Building and Running for Production
 
+    pnpm typecheck
+    pnpm lint
     pnpm build
     pnpm preview
 
