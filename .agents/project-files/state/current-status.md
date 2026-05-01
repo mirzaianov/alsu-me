@@ -16,6 +16,7 @@ Status: project-state current repository state
 - Next.js is the frontend framework and production build tool, with `next.config.ts` typed by TypeScript. [Reason why added: KAN-110 migrated the app from Vite to Next.js while preserving the one-page route surface.]
 - React and React DOM are at major version 19.
 - App source is strict TypeScript, using `.ts`/`.tsx` files and Next-managed image/font/type declarations. [Reason why added: KAN-106 migrated source typing from PropTypes and JS/JSX to TypeScript, and KAN-110 replaced Vite client types with Next types.]
+- `pnpm typecheck` runs `next typegen` before `tsc --noEmit`; `next-env.d.ts` is ignored because Next regenerates it for dev/build/typegen contexts. [Reason why added: Next 16 rewrites the generated route-types import between `.next/dev/types` and `.next/types`.]
 - ESLint flat config is present in `eslint.config.js` with Next Core Web Vitals, TypeScript, React, hooks, import/accessibility, and Prettier coverage.
 - Prettier config is present in `.prettierrc` and enforces LF line endings.
 - Husky and commitlint enforce commit-message checks through `.husky/commit-msg` and `commitlint.config.js`. [Reason why added: local commit-policy readiness is now enforced by repository-owned tooling.]

@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-05-01: Stopped tracking the generated `next-env.d.ts`, ignored it in Git, and made `pnpm typecheck` run `next typegen` before `tsc --noEmit`. [Reason why added: Next rewrites the generated route-types import differently across dev/build/typegen, so the generated file should not create Git churn.]
 - 2026-05-01: Reworked the hero logo marquee from two independently animated rows into one animated track with duplicate flex rows, a logo-specific `-50%` keyframe token, and an assistive-tech-hidden duplicate. [Reason why added: the logo strip should loop continuously without the row reset gap while leaving the testimonial marquee animation unchanged.]
 - 2026-05-01: Restored shared CSS animations after the Next.js migration by routing CSS Module animation declarations through global animation-name custom properties. [Reason why added: Next CSS Modules scoped direct keyframe names and broke runtime animation lookup.]
 - 2026-05-01: Added strict App Router static guardrails for `/` and clarified production README wording around prebuilt static output served by the Next runtime. [Reason why added: the root route should remain statically prerendered in production without switching the deployment to static export.]
@@ -15,4 +16,3 @@ Keep only the 10 most recent entries.
 - 2026-04-30: Fixed site navigation tracking for lazy-loaded lower sections and adjusted the active-section observer threshold for tall sections. [Reason why added: header and footer nav state now remains aligned with section navigation after the lower page sections load asynchronously.]
 - 2026-04-29: Reworked UI source into ownership-first folders with renamed layout, section, and widget components plus updated pricing/contact anchors. [Reason why added: component ownership is clearer than the previous classification layout, and internal navigation now matches renamed section concepts.]
 - 2026-04-29: Added repository LF line-ending policy through `.gitattributes`, ESLint, and Prettier configuration. [Reason why added: line endings are now project-owned instead of depending on each developer's Git autocrlf settings.]
-- 2026-04-29: Added lazy-load boundaries for non-critical lower page sections in `src/app.jsx` and kept ESLint source parsing on latest ECMAScript for dynamic imports. [Reason why added: the structure now follows Vercel React bundle-splitting guidance while keeping the first visible page path eager.]
