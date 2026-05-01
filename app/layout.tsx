@@ -8,6 +8,8 @@ const siteTitle =
 const siteDescription =
   'Дипломированный преподаватель и переводчик английского с опытом профессиональной деятельности более 16 лет';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const inter = localFont({
   src: [
     {
@@ -84,7 +86,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         {children}
         <div id="mobile-menu" />
         <div id="testimonial-dialog" />
-        <Analytics />
+        {isProduction ? <Analytics /> : null}
       </body>
     </html>
   );

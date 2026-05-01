@@ -13,7 +13,6 @@ const BrandLogo = () => {
         className={styles.logo}
         src={alsuLogo}
         alt="BrandLogo"
-        priority
         unoptimized
       />
     </a>

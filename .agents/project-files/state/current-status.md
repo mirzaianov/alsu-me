@@ -42,8 +42,8 @@ Status: project-state current repository state
 - `src/styles/animations.css` owns shared global keyframes and exposes animation-name custom properties for CSS Modules that need to reference those keyframes. [Reason why added: Next CSS Modules scope direct keyframe identifiers in module CSS, so shared animations must cross that boundary through explicit global tokens.]
 - The hero logo marquee uses one animated flex track containing two duplicate logo rows; the duplicate row is hidden from assistive tech and the track uses a logo-specific `-50%` keyframe token. [Reason why added: independent row animations caused unreliable infinite-loop behavior after the Next.js migration.]
 - Images, fonts, and icons live under `src/assets`; public web assets live under `public`.
-- Raster UI images render through `next/image`; SVG logo/icon assets are rendered deliberately through `next/image` with per-image SVG optimization disabled.
-- Vercel Analytics is enabled in `app/layout.tsx`.
+- Raster UI images render through `next/image`; SVG logo/icon assets are rendered deliberately through `next/image` with per-image SVG optimization disabled, and the shared brand logo does not request image preload. [Reason why added: preloading the reusable SVG logo produced local dev browser warnings without improving LCP.]
+- Vercel Analytics is rendered from `app/layout.tsx` for production builds only, keeping the local dev CSP free of the Analytics debug-script warning. [Reason why added: the dev-only Vercel Analytics debug script is externally hosted and blocked by the project's local CSP.]
 - There is no configured test script in `package.json`.
 - Project-support files now live under `.agents/project-files`.
 - Repository line endings are defined by `.gitattributes` with LF for text files and binary handling for images/fonts.
