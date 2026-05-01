@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   background-color: hsla(219, 40%, 11%, 0.5);
-  animation: modalBgOpen 300ms ease-in;
+  animation: var(--animation-name-modal-bg-open) 300ms ease-in;
 }
 
 .panel {
@@ -22,7 +22,7 @@
   box-shadow: var(--shadow-primary);
   font-size: var(--font-body);
   line-height: var(--line-tight);
-  animation: modalOpen 300ms ease-in;
+  animation: var(--animation-name-modal-open) 300ms ease-in;
 }
 
 .action {

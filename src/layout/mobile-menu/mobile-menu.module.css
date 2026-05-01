@@ -19,7 +19,7 @@
 .open {
   opacity: 1;
   pointer-events: auto;
-  animation: dropdownOpen 300ms ease-in both;
+  animation: var(--animation-name-dropdown-open) 300ms ease-in both;
 }
 
 .closed {
@@ -31,7 +31,7 @@
 .closing {
   opacity: 1;
   pointer-events: none;
-  animation: dropdownClose 300ms ease-out both;
+  animation: var(--animation-name-dropdown-close) 300ms ease-out both;
 }
 
 .default {

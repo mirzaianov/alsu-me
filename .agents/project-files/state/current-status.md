@@ -32,11 +32,13 @@ Status: project-state current repository state
 ## Current Repository State
 
 - Next App Router entrypoints are `app/layout.tsx` and `app/page.tsx`.
-- `app/page.tsx` composes the single `/` page in section order; browser-dependent behavior is isolated in client components for header/nav state, mobile menu portals, hero CTA annotation, testimonials carousel/dialog behavior, shared CTA buttons, and the back-to-top widget.
+- `app/page.tsx` composes the single `/` page in section order and exports static route guardrails so build-time prerendering fails loudly if request-time rendering is introduced. [Reason why added: production should keep the Next runtime while returning the root page from prebuilt static output.]
+- Browser-dependent behavior is isolated in client components for header/nav state, mobile menu portals, hero CTA annotation, testimonials carousel/dialog behavior, shared CTA buttons, and the back-to-top widget.
 - UI source is organized by ownership: page sections live under `src/sections`, site chrome lives under `src/layout`, reusable primitives live under `src/shared/ui`, and app-level widgets live under `src/widgets`.
 - Most UI files pair `component-name.tsx` with `component-name.module.css`.
 - Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
 - The global CSS entrypoint is `app/globals.css`; shared global styles live in `src/styles`, route-local styles live beside their route files, and local Inter font files are loaded through `next/font/local`.
+- `src/styles/animations.css` owns shared global keyframes and exposes animation-name custom properties for CSS Modules that need to reference those keyframes. [Reason why added: Next CSS Modules scope direct keyframe identifiers in module CSS, so shared animations must cross that boundary through explicit global tokens.]
 - Images, fonts, and icons live under `src/assets`; public web assets live under `public`.
 - Raster UI images render through `next/image`; SVG logo/icon assets are rendered deliberately through `next/image` with per-image SVG optimization disabled.
 - Vercel Analytics is enabled in `app/layout.tsx`.

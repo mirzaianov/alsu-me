@@ -29,7 +29,7 @@
 }
 
 .copy p {
-  animation: paragraphFadeIn 800ms ease-out both;
+  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
   animation-timeline: view();
   animation-range-start: entry 120px;
   animation-range-end: cover 240px;
@@ -81,19 +81,19 @@
 }
 
 .badgeItem1 {
-  animation-name: expand1;
+  animation-name: var(--animation-name-expand-1);
 }
 
 .badgeItem2 {
-  animation-name: expand2;
+  animation-name: var(--animation-name-expand-2);
 }
 
 .badgeItem3 {
-  animation-name: expand3;
+  animation-name: var(--animation-name-expand-3);
 }
 
 .badgeItem4 {
-  animation-name: expand4;
+  animation-name: var(--animation-name-expand-4);
 }
 
 .servicesGroup {
@@ -153,22 +153,22 @@
 
   .badgeItem1 {
     justify-self: end;
-    animation-name: expand1Tablet;
+    animation-name: var(--animation-name-expand-1-tablet);
   }
 
   .badgeItem2 {
     justify-self: start;
-    animation-name: expand2Tablet;
+    animation-name: var(--animation-name-expand-2-tablet);
   }
 
   .badgeItem3 {
     justify-self: end;
-    animation-name: expand3Tablet;
+    animation-name: var(--animation-name-expand-3-tablet);
   }
 
   .badgeItem4 {
     justify-self: start;
-    animation-name: expand4Tablet;
+    animation-name: var(--animation-name-expand-4-tablet);
   }
 
   .cards {
@@ -226,19 +226,19 @@
   }
 
   .badgeItem1 {
-    animation-name: expand1Desktop;
+    animation-name: var(--animation-name-expand-1-desktop);
   }
 
   .badgeItem2 {
-    animation-name: expand2Desktop;
+    animation-name: var(--animation-name-expand-2-desktop);
   }
 
   .badgeItem3 {
-    animation-name: expand3Desktop;
+    animation-name: var(--animation-name-expand-3-desktop);
   }
 
   .badgeItem4 {
-    animation-name: expand4Desktop;
+    animation-name: var(--animation-name-expand-4-desktop);
   }
 
   .cards {

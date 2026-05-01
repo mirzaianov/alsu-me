@@ -25,7 +25,7 @@
 }
 
 .animated {
-  animation: wavingHand 4s linear infinite;
+  animation: var(--animation-name-waving-hand) 4s linear infinite;
 }
 
 .reversed {

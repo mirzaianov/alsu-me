@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: var(--s);
-  animation: heroTextFadeIn 500ms ease-in backwards;
+  animation: var(--animation-name-hero-text-fade-in) 500ms ease-in backwards;
 }
 
 .ctaTextMobile,

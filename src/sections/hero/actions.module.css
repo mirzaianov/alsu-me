@@ -48,17 +48,17 @@
 
 .shapeOne {
   background-color: var(--primary-30);
-  animation: shape1 5s ease-in-out infinite both;
+  animation: var(--animation-name-shape-1) 5s ease-in-out infinite both;
 }
 
 .shapeTwo {
   background-color: var(--primary-20);
-  animation: shape2 5s ease-in-out infinite both;
+  animation: var(--animation-name-shape-2) 5s ease-in-out infinite both;
 }
 
 .shapeThree {
   background-color: var(--primary-40);
-  animation: shape3 5s 1.5s ease-in-out infinite both;
+  animation: var(--animation-name-shape-3) 5s 1.5s ease-in-out infinite both;
 }
 
 .heroCTA:hover .shapeOne {
@@ -86,8 +86,8 @@
 
 .heroCTA:hover .icon {
   animation:
-    ctaRotate 500ms ease-out backwards,
-    ctaBounce 1500ms 500ms linear infinite;
+    var(--animation-name-cta-rotate) 500ms ease-out backwards,
+    var(--animation-name-cta-bounce) 1500ms 500ms linear infinite;
 }
 
 @media (min-width: 1061px) {

@@ -4,7 +4,7 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and commit the Next.js migration if verification remains clean.
+- Review and commit the Next.js migration, static route guardrails, and animation fix if verification remains clean.
 
 ## Immediate Goal
 

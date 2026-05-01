@@ -32,7 +32,7 @@
 
 .copy p {
   text-wrap: pretty;
-  animation: paragraphFadeIn 800ms ease-out both;
+  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
   animation-timeline: view();
   animation-range-start: entry 120px;
   animation-range-end: cover 240px;
@@ -113,7 +113,7 @@
     right: -25%;
     z-index: 10;
     display: block;
-    animation: imageFadeInRight 900ms ease-out both;
+    animation: var(--animation-name-image-fade-in-right) 900ms ease-out both;
     animation-timeline: view();
     animation-range-start: 10%;
     animation-range-end: 50%;

@@ -40,7 +40,7 @@
 .backToTopButton:hover .icon {
   color: var(--text-0);
   opacity: 1;
-  animation: arrowBounce 1500ms linear infinite;
+  animation: var(--animation-name-arrow-bounce) 1500ms linear infinite;
 }
 
 @media (min-width: 577px) {

@@ -7,7 +7,7 @@
   padding-block: var(--s);
   white-space: nowrap;
   line-height: 0;
-  animation: logosFadeIn 500ms 200ms ease-in both;
+  animation: var(--animation-name-logos-fade-in) 500ms 200ms ease-in both;
 }
 
 @media (min-width: 577px) {

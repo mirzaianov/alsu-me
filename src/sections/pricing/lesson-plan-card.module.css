@@ -16,11 +16,11 @@
 }
 
 .priceTutorCard:nth-child(odd) {
-  animation-name: cardRightFadeIn;
+  animation-name: var(--animation-name-card-right-fade-in);
 }
 
 .priceTutorCard:nth-child(even) {
-  animation-name: cardLeftFadeIn;
+  animation-name: var(--animation-name-card-left-fade-in);
 }
 
 .priceTutorCard:last-child {
@@ -103,7 +103,7 @@
   color: var(--text-0);
   font-weight: 700;
   letter-spacing: 0.05em;
-  animation: tada 8s ease-in-out infinite;
+  animation: var(--animation-name-tada) 8s ease-in-out infinite;
   cursor: default;
 }
 

@@ -5,7 +5,7 @@
   justify-content: space-between;
   gap: var(--m);
   text-align: center;
-  animation: heroTextFadeIn 500ms ease-in backwards;
+  animation: var(--animation-name-hero-text-fade-in) 500ms ease-in backwards;
 }
 
 .heading {
@@ -37,7 +37,7 @@
 }
 
 .wordCurrent {
-  animation: slideWords 20s linear infinite;
+  animation: var(--animation-name-slide-words) 20s linear infinite;
 }
 
 .bottom {
@@ -77,11 +77,11 @@
 }
 
 .firstNote {
-  animation: rotateFirstNote 20s linear infinite;
+  animation: var(--animation-name-rotate-first-note) 20s linear infinite;
 }
 
 .secondNote {
-  animation: rotateSecondNote 20s linear infinite;
+  animation: var(--animation-name-rotate-second-note) 20s linear infinite;
 }
 
 @media (min-width: 577px) {
@@ -106,7 +106,7 @@
   }
 
   .wordCurrent {
-    animation-name: slideWordsTablet;
+    animation-name: var(--animation-name-slide-words-tablet);
   }
 
   .bottom {
@@ -147,7 +147,7 @@
   }
 
   .wordCurrent {
-    animation-name: slideWordsDesktop;
+    animation-name: var(--animation-name-slide-words-desktop);
   }
 
   .bottom {
