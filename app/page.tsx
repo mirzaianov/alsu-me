@@ -9,6 +9,9 @@ import SiteFooter from '../src/layout/site-footer/site-footer';
 import BackToTop from '../src/widgets/back-to-top/back-to-top';
 import styles from './page.module.css';
 
+export const dynamic = 'error';
+export const revalidate = false;
+
 const HomePage = () => {
   return (
     <div

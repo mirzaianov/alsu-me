@@ -52,7 +52,15 @@ Next.js will start the development server on [http://localhost:3000/](http://loc
     pnpm build
     pnpm preview
 
-After `pnpm build`, `pnpm preview` serves the production build on [http://localhost:3000/](http://localhost:3000/)
+After `pnpm build`, the `/` route is prerendered as static content. The
+production build output should list `/` as a static route; if the page starts
+using request-time APIs, the build is configured to fail instead of silently
+switching to dynamic rendering.
+
+`pnpm preview` runs `next start` and serves the production build on
+[http://localhost:3000/](http://localhost:3000/). This project keeps the Next.js
+production runtime for headers, image handling, and analytics while serving the
+root page from its prebuilt static output.
 
 ## License
 
