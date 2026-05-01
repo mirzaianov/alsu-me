@@ -1,12 +1,7 @@
 .heroInfiniteLogosRow {
-  display: inline-block;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
   width: max-content;
   line-height: 0;
-  animation: var(--animation-name-slide-marquee) 40s linear infinite;
-}
-
-@media (min-width: 577px) {
-  .heroInfiniteLogosRow {
-    animation-duration: 60s;
-  }
 }

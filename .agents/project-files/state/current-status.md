@@ -39,6 +39,7 @@ Status: project-state current repository state
 - Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
 - The global CSS entrypoint is `app/globals.css`; shared global styles live in `src/styles`, route-local styles live beside their route files, and local Inter font files are loaded through `next/font/local`.
 - `src/styles/animations.css` owns shared global keyframes and exposes animation-name custom properties for CSS Modules that need to reference those keyframes. [Reason why added: Next CSS Modules scope direct keyframe identifiers in module CSS, so shared animations must cross that boundary through explicit global tokens.]
+- The hero logo marquee uses one animated flex track containing two duplicate logo rows; the duplicate row is hidden from assistive tech and the track uses a logo-specific `-50%` keyframe token. [Reason why added: independent row animations caused unreliable infinite-loop behavior after the Next.js migration.]
 - Images, fonts, and icons live under `src/assets`; public web assets live under `public`.
 - Raster UI images render through `next/image`; SVG logo/icon assets are rendered deliberately through `next/image` with per-image SVG optimization disabled.
 - Vercel Analytics is enabled in `app/layout.tsx`.

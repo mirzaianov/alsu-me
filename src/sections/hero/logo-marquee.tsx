@@ -7,8 +7,10 @@ const LogoMarquee = () => {
       id="infinite-logos"
       className={styles.heroInfiniteLogos}
     >
-      <LogoMarqueeRow />
-      <LogoMarqueeRow />
+      <div className={styles.track}>
+        <LogoMarqueeRow />
+        <LogoMarqueeRow isDuplicate />
+      </div>
     </section>
   );
 };

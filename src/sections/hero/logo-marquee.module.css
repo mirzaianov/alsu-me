@@ -10,10 +10,22 @@
   animation: var(--animation-name-logos-fade-in) 500ms 200ms ease-in both;
 }
 
+.track {
+  display: flex;
+  width: max-content;
+  line-height: 0;
+  animation: var(--animation-name-slide-logo-marquee) 40s linear infinite;
+  will-change: transform;
+}
+
 @media (min-width: 577px) {
   .heroInfiniteLogos {
     margin-bottom: var(--xl);
     padding-block: var(--m);
+  }
+
+  .track {
+    animation-duration: 60s;
   }
 }
 

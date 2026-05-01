@@ -4,6 +4,7 @@
   --animation-name-blob: blob;
   --animation-name-blob-2: blob2;
   --animation-name-blob-3: blob3;
+  --animation-name-slide-logo-marquee: slideLogoMarquee;
   --animation-name-slide-marquee: slideMarquee;
   --animation-name-slide-words: slideWords;
   --animation-name-slide-words-tablet: slideWordsTablet;
@@ -150,6 +151,16 @@
 
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes slideLogoMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

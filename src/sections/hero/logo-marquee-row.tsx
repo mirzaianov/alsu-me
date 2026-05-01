@@ -9,9 +9,16 @@ import akulchev from '../../assets/icons/logos/logo-akulchev.svg';
 import tempo from '../../assets/icons/logos/logo-tempo.svg';
 import styles from './logo-marquee-row.module.css';
 
-const LogoMarqueeRow = () => {
+type LogoMarqueeRowProps = {
+  isDuplicate?: boolean;
+};
+
+const LogoMarqueeRow = ({ isDuplicate = false }: LogoMarqueeRowProps) => {
   return (
-    <div className={styles.heroInfiniteLogosRow}>
+    <div
+      className={styles.heroInfiniteLogosRow}
+      aria-hidden={isDuplicate || undefined}
+    >
       <MarqueeLogo
         alt="Камский автомобильный завод ПАО «КАМАЗ»"
         src={kamaz}
