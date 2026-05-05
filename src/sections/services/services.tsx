@@ -51,6 +51,7 @@ const Services = () => {
           className={styles.image}
           src={services}
           alt="Services"
+          quality={100}
           sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>

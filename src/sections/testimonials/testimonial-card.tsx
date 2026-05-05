@@ -91,6 +91,7 @@ const TestimonialCard = ({
             className={styles.avatar}
             src={src}
             alt={fullName}
+            quality={100}
             sizes="56px"
           />
           <div className={styles.meta}>
@@ -122,6 +123,7 @@ const TestimonialCard = ({
               className={styles.avatar}
               src={src}
               alt={fullName}
+              quality={100}
               sizes="56px"
             />
             <div className={styles.meta}>

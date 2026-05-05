@@ -18,6 +18,7 @@ const Contact = () => {
           className={styles.image}
           src={contactImage}
           alt="Contact"
+          quality={100}
           sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={styles.copy}>

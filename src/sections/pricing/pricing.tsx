@@ -64,6 +64,7 @@ const Pricing = () => {
           className={styles.saleImage}
           src={sale}
           alt="Sale"
+          quality={100}
           sizes="(max-width: 576px) 170px, 300px"
         />
       </div>
@@ -73,6 +74,7 @@ const Pricing = () => {
           className={styles.image}
           src={pricingImage}
           alt="Pricing"
+          quality={100}
           sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>

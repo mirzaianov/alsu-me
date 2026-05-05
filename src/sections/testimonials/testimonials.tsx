@@ -18,6 +18,7 @@ const Testimonials = () => {
           className={styles.image}
           src={testimonials}
           alt="Testimonials"
+          quality={100}
           sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>

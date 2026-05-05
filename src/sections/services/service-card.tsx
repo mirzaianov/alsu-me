@@ -21,6 +21,7 @@ const ServiceCard = ({
           className={styles.image}
           src={src}
           alt={alt}
+          quality={100}
           sizes="288px"
         />
         <h4 className={styles.title}>{subheading}</h4>

@@ -21,6 +21,11 @@ const Badge = ({
   isReversed = false,
   isAnimated = false,
 }: BadgeProps) => {
+  const isSvgIcon =
+    typeof icon === 'string'
+      ? icon.endsWith('.svg')
+      : icon.src.endsWith('.svg');
+
   return (
     <div
       className={clsx(
@@ -34,7 +39,9 @@ const Badge = ({
         className={clsx(styles.icon, isAnimated && styles.animated)}
         src={icon}
         alt={alt}
-        unoptimized
+        quality={100}
+        sizes="(max-width: 576px) 64px, 96px"
+        unoptimized={isSvgIcon}
       />
       {text}
     </div>

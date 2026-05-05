@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,
+    qualities: [100],
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async headers() {
