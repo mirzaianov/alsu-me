@@ -40,7 +40,7 @@
 }
 
 .aboutPhotoCard:hover .image {
-  transform: translateY(-10px) scale(1.4);
+  transform: translateY(-10px) scale(1.5);
 }
 
 @media (min-width: 577px) {
