@@ -3,6 +3,7 @@
 }
 
 .logo {
+  width: auto;
   height: var(--m);
 }
 

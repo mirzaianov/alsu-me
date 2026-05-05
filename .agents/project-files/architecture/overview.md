@@ -2,7 +2,9 @@
 
 ## Runtime Shape
 
-The app is a Vite-built React single-page frontend. `src/main.tsx` mounts `App` into the root DOM node, and `src/app.tsx` composes the page sections in order. The critical header, hero, and about sections render eagerly; lower page sections are lazy-loaded with static dynamic imports.
+The app is a Next.js App Router single-page frontend. `app/layout.tsx` owns document metadata, local font loading, global CSS, Vercel Analytics, and portal roots. `app/page.tsx` composes the home page sections in order at `/`.
+
+The route is statically prerendered by Next. Browser-dependent behavior is isolated in client components for header/nav state, mobile menu portals, hero CTA annotation, testimonial carousel/dialog behavior, shared CTA buttons, and the back-to-top widget.
 
 ## Component Structure
 
@@ -23,18 +25,27 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 
 ## Styling
 
-- CSS Modules are used for component styles.
-- Global tokens and base styles live in `src/styles` and `src/index.css`.
-- Vite is configured to use Lightning CSS for CSS processing and CSS Modules behavior.
+- CSS Modules are used for component and route-local styles.
+- Styles follow a mobile-first approach: base rules target the smallest supported layout, with larger layouts layered through responsive overrides.
+- The global CSS entrypoint is `app/globals.css`; shared global tokens, base styles, and animations live in `src/styles`.
+- Local Inter font files are loaded through `next/font/local` in `app/layout.tsx`.
+
+## Animation
+
+- GSAP is the project animation library for non-trivial JavaScript-driven animations.
+- Use GSAP for continuous loops, responsive or measurement-based motion, sequencing, timeline control, and browser-sensitive transform behavior.
+- CSS transitions and keyframes remain acceptable for simple hover states, small decorative effects, and static animations that do not need runtime measurement or timeline control.
+- GSAP setup belongs in client components and should clean up timelines/inline styles through `gsap.context(...).revert()` or an equivalent teardown.
 
 ## Assets
 
 - Product images, testimonial photos, icons, and fonts live under `src/assets`.
 - Browser and social assets live under `public`.
+- Raster UI images are rendered through `next/image`; SVG logo/icon assets are kept as static assets and rendered deliberately through `next/image` with SVG optimization disabled per image.
 
 ## Build And Quality
 
-- `pnpm typecheck` runs `tsc -b` across the app and Vite config.
-- `pnpm lint` runs ESLint with TypeScript, React, hooks, import, jsx-a11y, and Prettier integrations.
-- `pnpm build` runs TypeScript project checks before the Vite production build.
+- `pnpm typecheck` runs `tsc --noEmit` with the Next TypeScript plugin.
+- `pnpm lint` runs ESLint flat config with Next Core Web Vitals, TypeScript, React, hooks, import, accessibility, and Prettier coverage.
+- `pnpm build` runs a Next production build.
 - No automated test runner is currently configured.

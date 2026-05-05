@@ -1,3 +1,51 @@
+:root {
+  --animation-name-rotate-first-note: rotateFirstNote;
+  --animation-name-rotate-second-note: rotateSecondNote;
+  --animation-name-blob: blob;
+  --animation-name-blob-2: blob2;
+  --animation-name-blob-3: blob3;
+  --animation-name-slide-marquee: slideMarquee;
+  --animation-name-slide-words: slideWords;
+  --animation-name-slide-words-tablet: slideWordsTablet;
+  --animation-name-slide-words-desktop: slideWordsDesktop;
+  --animation-name-slide-stat: slideStat;
+  --animation-name-slide-stat-desktop: slideStatDesktop;
+  --animation-name-waving-hand: wavingHand;
+  --animation-name-waving-badge: wavingBadge;
+  --animation-name-tada: tada;
+  --animation-name-header-fade-in: headerFadeIn;
+  --animation-name-logos-fade-in: logosFadeIn;
+  --animation-name-hero-photo-fade-in: heroPhotoFadeIn;
+  --animation-name-hero-text-fade-in: heroTextFadeIn;
+  --animation-name-hero-bg-fade-in: heroBgFadeIn;
+  --animation-name-paragraph-fade-in: paragraphFadeIn;
+  --animation-name-arrow-bounce: arrowBounce;
+  --animation-name-dropdown-open: dropdownOpen;
+  --animation-name-dropdown-close: dropdownClose;
+  --animation-name-image-fade-in-right: imageFadeInRight;
+  --animation-name-expand-1: expand1;
+  --animation-name-expand-2: expand2;
+  --animation-name-expand-3: expand3;
+  --animation-name-expand-4: expand4;
+  --animation-name-expand-1-tablet: expand1Tablet;
+  --animation-name-expand-2-tablet: expand2Tablet;
+  --animation-name-expand-3-tablet: expand3Tablet;
+  --animation-name-expand-4-tablet: expand4Tablet;
+  --animation-name-expand-1-desktop: expand1Desktop;
+  --animation-name-expand-2-desktop: expand2Desktop;
+  --animation-name-expand-3-desktop: expand3Desktop;
+  --animation-name-expand-4-desktop: expand4Desktop;
+  --animation-name-card-left-fade-in: cardLeftFadeIn;
+  --animation-name-card-right-fade-in: cardRightFadeIn;
+  --animation-name-shape-1: shape1;
+  --animation-name-shape-2: shape2;
+  --animation-name-shape-3: shape3;
+  --animation-name-cta-rotate: ctaRotate;
+  --animation-name-cta-bounce: ctaBounce;
+  --animation-name-modal-open: modalOpen;
+  --animation-name-modal-bg-open: modalBgOpen;
+}
+
 @keyframes rotateFirstNote {
   0%,
   42% {

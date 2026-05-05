@@ -29,11 +29,16 @@
   align-items: center;
   justify-content: flex-start;
   gap: var(--s);
-  animation: heroTextFadeIn 500ms ease-in backwards;
+  animation: var(--animation-name-hero-text-fade-in) 500ms ease-in backwards;
 }
 
-.ctaText {
+.ctaTextMobile,
+.ctaTextDesktop {
   text-align: center;
+}
+
+.ctaTextDesktop {
+  display: none;
 }
 
 .logos {
@@ -56,6 +61,14 @@
   .ctaBlock {
     gap: var(--l);
   }
+
+  .ctaTextMobile {
+    display: none;
+  }
+
+  .ctaTextDesktop {
+    display: block;
+  }
 }
 
 @media (min-width: 1061px) {
@@ -76,7 +89,7 @@
     align-self: flex-start;
   }
 
-  .ctaText {
+  .ctaTextDesktop {
     text-align: left;
   }
 }

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  animation: heroPhotoFadeIn 500ms ease-in backwards;
+  animation: var(--animation-name-hero-photo-fade-in) 500ms ease-in backwards;
 }
 
 .statsWrap {
@@ -34,7 +34,7 @@
 }
 
 .slideItemAnimated {
-  animation: slideStat 20s linear infinite;
+  animation: var(--animation-name-slide-stat) 20s linear infinite;
 }
 
 .photoWrap {
@@ -55,7 +55,7 @@
   position: absolute;
   left: -32px;
   bottom: 24px;
-  animation: wavingBadge 3s linear infinite;
+  animation: var(--animation-name-waving-badge) 3s linear infinite;
 }
 
 @media (min-width: 577px) {
@@ -102,7 +102,7 @@
   }
 
   .slideItemAnimated {
-    animation-name: slideStatDesktop;
+    animation-name: var(--animation-name-slide-stat-desktop);
   }
 
   .photoWrap {

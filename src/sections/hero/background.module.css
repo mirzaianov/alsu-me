@@ -2,7 +2,7 @@
   position: absolute;
   inset: 0;
   z-index: -10;
-  animation: heroBgFadeIn 500ms 200ms ease-in backwards;
+  animation: var(--animation-name-hero-bg-fade-in) 500ms 200ms ease-in backwards;
 }
 
 .first,
@@ -20,7 +20,7 @@
   top: -80px;
   right: -16px;
   background-color: var(--primary-20);
-  animation: blob 12s 2s ease-in-out infinite both;
+  animation: var(--animation-name-blob) 12s 2s ease-in-out infinite both;
 }
 
 .second {
@@ -29,7 +29,7 @@
   background-color: var(--primary-10);
   opacity: 0.7;
   transform: translate(-50%, -50%);
-  animation: blob2 12s ease-in-out infinite both;
+  animation: var(--animation-name-blob-2) 12s ease-in-out infinite both;
 }
 
 .third {
@@ -37,7 +37,7 @@
   bottom: 0;
   background-color: var(--primary-30);
   opacity: 0.7;
-  animation: blob3 12s 1s ease-in-out infinite both;
+  animation: var(--animation-name-blob-3) 12s 1s ease-in-out infinite both;
 }
 
 @media (min-width: 577px) {

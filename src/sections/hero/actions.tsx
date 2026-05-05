@@ -11,10 +11,12 @@ type ActionsProps = {
 
 const Actions = ({ size = '', link = '', ariaLabel, text }: ActionsProps) => {
   return (
-    <button
+    <a
       className={styles.heroCTA}
       aria-label={ariaLabel}
-      onClick={() => window.open(link, '_blank')}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <div className={clsx(styles.surface, size === 'large' && styles.large)}>
         <div className={clsx(styles.shape, styles.shapeTwo)}></div>
@@ -23,7 +25,7 @@ const Actions = ({ size = '', link = '', ariaLabel, text }: ActionsProps) => {
         <span className={styles.label}>{text}</span>
         <PiArrowRightBold className={styles.icon} />
       </div>
-    </button>
+    </a>
   );
 };
 

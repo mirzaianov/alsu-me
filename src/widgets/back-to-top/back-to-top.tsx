@@ -1,3 +1,5 @@
+'use client';
+
 import { clsx } from 'clsx';
 import { useState, useEffect } from 'react';
 import { PiArrowFatUpFill } from 'react-icons/pi';
@@ -29,7 +31,8 @@ const BackToTop = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

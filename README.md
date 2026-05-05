@@ -10,6 +10,7 @@
 
 - Compelling UI & Solid UX
 - Major browser compatibility
+- Mobile-first responsive styling
 - 3 Adaptive layouts + Responsiveness
 - 6 sections
 - Dynamic animated header
@@ -22,12 +23,12 @@
 
 ### Dependencies
 
-- `Vite` • `TypeScript`
-- `React` • `CSS Modules` • `clsx`
+- `Next.js` • `TypeScript`
+- `React` • `CSS Modules` • `GSAP` • `clsx`
 
 ## Installation & Execution
 
-### Install via Vite
+### Install
 
     git clone https://github.com/mirzaianov/alsu-me.git
     cd alsu-me
@@ -37,13 +38,13 @@
 
 Supported toolchain: Node.js `24.15.0` LTS and pnpm `10.33.2`.
 
-You can remove Vercel Analytics from `src/app.tsx` by deleting the respective import and code between `Vercel Analytics` comments.
+Vercel Analytics is configured in `app/layout.tsx`.
 
 ### Run in the development mode
 
     pnpm dev
 
-Vite will start frontend server on [http://localhost:5173/](http://localhost:5173/)
+Next.js will start the development server on [http://localhost:3000/](http://localhost:3000/)
 
 ## Building and Running for Production
 
@@ -52,7 +53,15 @@ Vite will start frontend server on [http://localhost:5173/](http://localhost:517
     pnpm build
     pnpm preview
 
-Vite will start frontend server on [http://localhost:4173/](http://localhost:4173/)
+After `pnpm build`, the `/` route is prerendered as static content. The
+production build output should list `/` as a static route; if the page starts
+using request-time APIs, the build is configured to fail instead of silently
+switching to dynamic rendering.
+
+`pnpm preview` runs `next start` and serves the production build on
+[http://localhost:3000/](http://localhost:3000/). This project keeps the Next.js
+production runtime for headers, image handling, and analytics while serving the
+root page from its prebuilt static output.
 
 ## License
 

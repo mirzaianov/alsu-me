@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import TestimonialCarousel from './testimonial-carousel';
 import testimonials from '../../assets/img/testimonials/testimonials.png';
 import { clsx } from 'clsx';
@@ -13,11 +14,12 @@ const Testimonials = () => {
         Что говорят мои ученики и клиенты
       </h2>
       <article className={styles.intro}>
-        <img
+        <Image
           className={styles.image}
           src={testimonials}
           alt="Testimonials"
-          loading="lazy"
+          quality={100}
+          sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>
           <p>

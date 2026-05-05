@@ -1,3 +1,5 @@
+'use client';
+
 import { clsx } from 'clsx';
 import type { Dispatch, SetStateAction } from 'react';
 import TestimonialCard from './testimonial-card';

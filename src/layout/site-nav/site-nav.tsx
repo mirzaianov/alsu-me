@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import styles from './site-nav.module.css';
@@ -11,7 +13,7 @@ const items = [
   ['contact', 'Контакты'],
 ] as const;
 
-const activeSectionThreshold = 0.4;
+const activeSectionRootMargin = '-45% 0px -45% 0px';
 
 type SectionId = (typeof items)[number][0];
 type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
@@ -40,7 +42,8 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
         });
       },
       {
-        threshold: activeSectionThreshold,
+        rootMargin: activeSectionRootMargin,
+        threshold: 0,
       },
     );
 

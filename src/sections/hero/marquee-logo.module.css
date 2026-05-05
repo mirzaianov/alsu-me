@@ -1,5 +1,8 @@
 .heroInfiniteLogo {
-  display: inline-block;
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
   height: var(--l);
   padding-inline: 20px;
 }

@@ -2,7 +2,7 @@
   display: inline-block;
   width: max-content;
   line-height: 0;
-  animation: slideMarquee 120s linear infinite;
+  animation: var(--animation-name-slide-marquee) 120s linear infinite;
 }
 
 .paused {

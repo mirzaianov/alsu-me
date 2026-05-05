@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import Image from 'next/image';
 import Button from '../../shared/ui/button/button';
 import contactImage from '../../assets/img/contacts/contacts.png';
 import styles from './contact.module.css';
@@ -13,11 +14,12 @@ const Contact = () => {
         Готов начать сотрудничество?
       </h2>
       <article className={styles.content}>
-        <img
+        <Image
           className={styles.image}
           src={contactImage}
           alt="Contact"
-          loading="lazy"
+          quality={100}
+          sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={styles.copy}>
           <p className={styles.subtitle}>Свяжись со мной</p>

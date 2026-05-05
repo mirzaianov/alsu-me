@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ServiceCard from './service-card';
 import Badge from '../../shared/ui/badge/badge';
 import tutor from '../../assets/img/services/tutor.png';
@@ -46,11 +47,12 @@ const Services = () => {
     >
       <h2 className={clsx('title', styles.title)}>Что я предлагаю</h2>
       <article className={styles.intro}>
-        <img
+        <Image
           className={styles.image}
           src={services}
           alt="Services"
-          loading="lazy"
+          quality={100}
+          sizes="(max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>
           <p>

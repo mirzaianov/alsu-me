@@ -1,21 +1,26 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import importPlugin from 'eslint-plugin-import';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import reactPlugin from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
+import globals from 'globals';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
 import tseslint from 'typescript-eslint';
 
-export default [
+export default defineConfig([
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'dist/**',
+    'node_modules/**',
+    '.npm-cache/**',
+    '.pnpm-cache/**',
+    '.pnpm-store/**',
+    'next-env.d.ts',
+  ]),
+  ...nextVitals,
+  ...nextTypescript,
+  eslintPluginPrettierRecommended,
   {
-    ignores: [
-      'dist',
-      'dist/**',
-      '**/dist/**',
-      'node_modules/**',
-      '.npm-cache/**',
-    ],
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
     },
@@ -25,54 +30,21 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
-      },
-      globals: {
-        ...globals.browser,
-        ...globals.node,
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     settings: {
       react: {
         version: 'detect',
-      },
-    },
-  },
-  js.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  importPlugin.flatConfigs.recommended,
-  reactPlugin.configs.flat.recommended,
-  reactPlugin.configs.flat['jsx-runtime'],
-  jsxA11y.flatConfigs.recommended,
-  reactHooks.configs.flat['recommended-latest'],
-  eslintPluginPrettierRecommended,
-  {
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
-  {
-    files: ['**/*.{js,jsx}'],
-    ...tseslint.configs.disableTypeChecked,
-  },
-  {
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
       },
     },
     rules: {
@@ -86,4 +58,8 @@ export default [
       'prettier/prettier': ['error', { endOfLine: 'lf' }],
     },
   },
-];
+  {
+    files: ['**/*.{js,jsx}'],
+    ...tseslint.configs.disableTypeChecked,
+  },
+]);

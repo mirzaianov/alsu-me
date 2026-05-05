@@ -32,13 +32,15 @@
   bottom: -4px;
   left: 10px;
   z-index: 1;
+  width: var(--img-size-mobile);
+  height: auto;
   transform: scale(1.5);
   transition: transform var(--transition-primary);
   transition-delay: 150ms;
 }
 
 .aboutPhotoCard:hover .image {
-  transform: translateY(-10px) scale(1.4);
+  transform: translateY(-10px) scale(1.5);
 }
 
 @media (min-width: 577px) {
@@ -58,5 +60,6 @@
   .image {
     bottom: -8px;
     left: 18px;
+    width: var(--img-size-tablet);
   }
 }

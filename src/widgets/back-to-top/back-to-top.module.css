@@ -4,6 +4,9 @@
   bottom: -108px;
   z-index: 30;
   display: flex;
+  inline-size: var(--2xl);
+  min-inline-size: var(--2xl);
+  block-size: var(--2xl);
   aspect-ratio: 1;
   align-items: center;
   justify-content: center;
@@ -28,6 +31,7 @@
 }
 
 .icon {
+  flex: none;
   width: var(--xl);
   height: var(--xl);
   color: var(--text-10);
@@ -40,7 +44,7 @@
 .backToTopButton:hover .icon {
   color: var(--text-0);
   opacity: 1;
-  animation: arrowBounce 1500ms linear infinite;
+  animation: var(--animation-name-arrow-bounce) 1500ms linear infinite;
 }
 
 @media (min-width: 577px) {

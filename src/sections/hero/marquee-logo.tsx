@@ -1,16 +1,18 @@
+import Image, { type StaticImageData } from 'next/image';
 import styles from './marquee-logo.module.css';
 
 type MarqueeLogoProps = {
-  src: string;
+  src: StaticImageData | string;
   alt: string;
 };
 
 const MarqueeLogo = ({ src, alt }: MarqueeLogoProps) => {
   return (
-    <img
+    <Image
       className={styles.heroInfiniteLogo}
       src={src}
       alt={alt}
+      unoptimized
     />
   );
 };

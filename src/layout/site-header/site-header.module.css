@@ -6,7 +6,7 @@
   justify-content: center;
   padding-inline: var(--s);
   margin-top: var(--s);
-  animation: headerFadeIn 500ms 200ms ease-in backwards;
+  animation: var(--animation-name-header-fade-in) 500ms 200ms ease-in backwards;
 }
 
 .shell {
@@ -54,6 +54,15 @@
   justify-content: center;
 }
 
+.desktopNav,
+.desktopAction {
+  display: none;
+}
+
+.mobileAction {
+  display: block;
+}
+
 @media (min-width: 577px) {
   .header {
     margin-top: var(--xl);
@@ -84,5 +93,14 @@
 
   .default {
     padding-inline: var(--3xl);
+  }
+
+  .desktopNav,
+  .desktopAction {
+    display: flex;
+  }
+
+  .mobileAction {
+    display: none;
   }
 }

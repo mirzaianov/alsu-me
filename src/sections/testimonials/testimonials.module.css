@@ -16,6 +16,7 @@
 
 .image {
   margin-left: 2rem;
+  width: auto;
   height: var(--img-size-mobile);
 }
 
@@ -26,7 +27,7 @@
 
 .copy p {
   text-wrap: pretty;
-  animation: paragraphFadeIn 800ms ease-out both;
+  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
   animation-timeline: view();
   animation-range-start: entry 120px;
   animation-range-end: cover 240px;
