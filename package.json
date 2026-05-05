@@ -10,7 +10,7 @@
   },
   "scripts": {
     "preinstall": "node scripts/ensure-pnpm.js",
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
