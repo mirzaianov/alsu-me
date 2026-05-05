@@ -39,10 +39,11 @@ Status: project-state current repository state
 - Most UI files pair `component-name.tsx` with `component-name.module.css`.
 - Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
 - The global CSS entrypoint is `app/globals.css`; shared global styles live in `src/styles`, route-local styles live beside their route files, and local Inter font files are loaded through `next/font/local`.
+- Styling follows a mobile-first approach: base styles target the smallest supported layout, with larger layouts layered through responsive overrides.
 - `src/styles/animations.css` owns shared global keyframes and exposes animation-name custom properties for CSS Modules that need to reference those keyframes. [Reason why added: Next CSS Modules scope direct keyframe identifiers in module CSS, so shared animations must cross that boundary through explicit global tokens.]
 - The hero logo marquee uses one animated flex track containing two duplicate logo rows; the duplicate row is hidden from assistive tech and the track uses a logo-specific `-50%` keyframe token. [Reason why added: independent row animations caused unreliable infinite-loop behavior after the Next.js migration.]
 - Images, fonts, and icons live under `src/assets`; public web assets live under `public`.
-- Raster UI images render through `next/image`; SVG logo/icon assets are rendered deliberately through `next/image` with per-image SVG optimization disabled, and the shared brand logo does not request image preload. [Reason why added: preloading the reusable SVG logo produced local dev browser warnings without improving LCP.]
+- Raster UI images render through `next/image` with `quality={100}` allowed by `next.config.ts`; the hero/about portraits use the higher-resolution tablet source to account for CSS scaling. SVG logo/icon assets are rendered deliberately through `next/image` with per-image SVG optimization disabled, and the shared brand logo does not request image preload. [Reason why added: default Next image quality and the smaller portrait source reduced visual fidelity after the KAN-110 migration.]
 - Vercel Analytics is rendered from `app/layout.tsx` for production builds only, keeping the local dev CSP free of the Analytics debug-script warning. [Reason why added: the dev-only Vercel Analytics debug script is externally hosted and blocked by the project's local CSP.]
 - There is no configured test script in `package.json`.
 - Project-support files now live under `.agents/project-files`.

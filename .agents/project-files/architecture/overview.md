@@ -26,6 +26,7 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 ## Styling
 
 - CSS Modules are used for component and route-local styles.
+- Styles follow a mobile-first approach: base rules target the smallest supported layout, with larger layouts layered through responsive overrides.
 - The global CSS entrypoint is `app/globals.css`; shared global tokens, base styles, and animations live in `src/styles`.
 - Local Inter font files are loaded through `next/font/local` in `app/layout.tsx`.
 

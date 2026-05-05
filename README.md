@@ -10,6 +10,7 @@
 
 - Compelling UI & Solid UX
 - Major browser compatibility
+- Mobile-first responsive styling
 - 3 Adaptive layouts + Responsiveness
 - 6 sections
 - Dynamic animated header
