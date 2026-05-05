@@ -16,6 +16,7 @@
 
 .image {
   margin-left: 2rem;
+  width: auto;
   height: var(--img-size-mobile);
 }
 
