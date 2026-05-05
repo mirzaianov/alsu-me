@@ -14,7 +14,10 @@
   display: flex;
   width: max-content;
   line-height: 0;
-  animation: var(--animation-name-slide-logo-marquee) 40s linear infinite;
+}
+
+.item {
+  flex: 0 0 auto;
   will-change: transform;
 }
 
@@ -22,10 +25,6 @@
   .heroInfiniteLogos {
     margin-bottom: var(--xl);
     padding-block: var(--m);
-  }
-
-  .track {
-    animation-duration: 60s;
   }
 }
 
