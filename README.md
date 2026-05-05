@@ -24,7 +24,7 @@
 ### Dependencies
 
 - `Next.js` • `TypeScript`
-- `React` • `CSS Modules` • `clsx`
+- `React` • `CSS Modules` • `GSAP` • `clsx`
 
 ## Installation & Execution
 
