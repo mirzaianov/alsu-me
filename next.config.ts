@@ -6,7 +6,13 @@ const scriptSrc = [
   ...(process.env.NODE_ENV === 'development' ? ["'unsafe-eval'"] : []),
 ].join(' ');
 
+const allowedDevOrigins =
+  process.env.ALLOWED_DEV_ORIGINS?.split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean) ?? [];
+
 const nextConfig: NextConfig = {
+  ...(allowedDevOrigins.length > 0 ? { allowedDevOrigins } : {}),
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,

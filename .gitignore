@@ -28,6 +28,8 @@ tsconfig.tsbuildinfo
 *.sln
 *.sw?
 .env
+.env.*
+!.env.schema
 
 # sketch
 *.sketch
