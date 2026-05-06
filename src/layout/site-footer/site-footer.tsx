@@ -35,7 +35,7 @@ const SiteFooter = () => {
         <Divider />
         <div className={styles.meta}>
           <div className={clsx('cluster', styles.copy)}>
-            <p>©️ 2026 Алсу Каримова</p>
+            <p>© 2026 Алсу Каримова</p>
             <p>|</p>
             <p>Все права защищены</p>
           </div>
