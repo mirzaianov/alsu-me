@@ -18,21 +18,26 @@ const ProfileSummary = () => {
             text="года работы в США"
           />
           <div className={styles.slider}>
-            <Stat
-              className={styles.slideItemAnimated}
-              quantity="200+"
-              text="довольных учеников"
-            />
-            <Stat
-              className={styles.slideItem}
-              quantity="50+"
-              text="успешных кейсов"
-            />
-            <Stat
-              className={styles.slideItem}
-              quantity="200+"
-              text="довольных учеников"
-            />
+            <div
+              className={styles.sliderTrack}
+              data-hero-stat-track
+            >
+              <Stat
+                className={styles.slideItem}
+                quantity="200+"
+                text="довольных учеников"
+              />
+              <Stat
+                className={styles.slideItem}
+                quantity="50+"
+                text="успешных кейсов"
+              />
+              <Stat
+                className={styles.slideItem}
+                quantity="200+"
+                text="довольных учеников"
+              />
+            </div>
           </div>
         </ul>
       </div>

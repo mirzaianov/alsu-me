@@ -1,6 +1,5 @@
 import Background from './background';
-import ProfileSummary from './profile-summary';
-import Introduction from './introduction';
+import HeroDynamicHighlights from './hero-dynamic-highlights';
 import LogoMarquee from './logo-marquee';
 import HeroCta from './hero-cta';
 import styles from './hero.module.css';
@@ -12,10 +11,7 @@ const Hero = () => {
       className={styles.hero}
     >
       <Background />
-      <article className={styles.content}>
-        <ProfileSummary />
-        <Introduction />
-      </article>
+      <HeroDynamicHighlights />
       <HeroCta />
       <article className={styles.logos}>
         <LogoMarquee />
