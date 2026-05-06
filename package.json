@@ -19,6 +19,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@uidotdev/usehooks": "^2.4.1",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",

@@ -1,8 +1,9 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import MarqueeLogo from './marquee-logo';
+import ClientLogo from './client-logo';
 import kamaz from '../../assets/icons/logos/logo-kamaz.svg';
 import knorr from '../../assets/icons/logos/logo-knorr.svg';
 import bendix from '../../assets/icons/logos/logo-bendix.svg';
@@ -51,106 +52,133 @@ const logos = [
 const mobileAndTabletPixelsPerSecond = 35;
 const desktopPixelsPerSecond = 50;
 
+gsap.registerPlugin(useGSAP);
+
 const LogoMarquee = () => {
   const trackRef = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
-    const track = trackRef.current;
+  useGSAP(
+    () => {
+      const track = trackRef.current;
 
-    if (!track) {
-      return;
-    }
+      if (!track) {
+        return;
+      }
 
-    const items = gsap.utils.toArray<HTMLElement>(
-      `[data-logo-marquee-item]`,
-      track,
-    );
+      const items = gsap.utils.toArray<HTMLElement>(
+        `[data-logo-marquee-item]`,
+        track,
+      );
 
-    if (items.length === 0) {
-      return;
-    }
+      if (items.length === 0) {
+        return;
+      }
 
-    const context = gsap.context(() => {
-      const desktopQuery = window.matchMedia('(min-width: 1061px)');
-      const pixelsPerSecond = desktopQuery.matches
-        ? desktopPixelsPerSecond
-        : mobileAndTabletPixelsPerSecond;
-      const widths: number[] = [];
-      const xPercents: number[] = [];
-      const startX = items[0].offsetLeft;
-      const snap = gsap.utils.snap(1);
+      const media = gsap.matchMedia();
 
-      gsap.set(items, {
-        xPercent: (index, item) => {
-          const width = (widths[index] = parseFloat(
-            gsap.getProperty(item, 'width', 'px') as string,
-          ));
-          const x = parseFloat(gsap.getProperty(item, 'x', 'px') as string);
-          const xPercent = gsap.getProperty(item, 'xPercent') as number;
-
-          xPercents[index] = snap((x / width) * 100 + xPercent);
-
-          return xPercents[index];
+      media.add(
+        {
+          isDesktop: '(min-width: 1061px)',
+          isMobileOrTablet: '(max-width: 1060px)',
+          reduceMotion: '(prefers-reduced-motion: reduce)',
         },
-      });
-      gsap.set(items, { x: 0 });
+        (context) => {
+          const { isDesktop, reduceMotion } = context.conditions as {
+            isDesktop: boolean;
+            reduceMotion: boolean;
+          };
 
-      const lastItem = items[items.length - 1];
-      const totalWidth =
-        lastItem.offsetLeft +
-        (xPercents[items.length - 1] / 100) * widths[items.length - 1] -
-        startX +
-        lastItem.offsetWidth * (gsap.getProperty(lastItem, 'scaleX') as number);
+          gsap.set(items, { x: 0, xPercent: 0 });
 
-      const timeline = gsap.timeline({
-        repeat: -1,
-        defaults: { ease: 'none' },
-      });
+          if (reduceMotion) {
+            return;
+          }
 
-      items.forEach((item, index) => {
-        const currentX = (xPercents[index] / 100) * widths[index];
-        const distanceToStart = item.offsetLeft + currentX - startX;
-        const distanceToLoop =
-          distanceToStart +
-          widths[index] * (gsap.getProperty(item, 'scaleX') as number);
+          const pixelsPerSecond = isDesktop
+            ? desktopPixelsPerSecond
+            : mobileAndTabletPixelsPerSecond;
 
-        timeline
-          .to(
-            item,
-            {
-              duration: distanceToLoop / pixelsPerSecond,
-              xPercent: snap(
-                ((currentX - distanceToLoop) / widths[index]) * 100,
-              ),
+          const widths: number[] = [];
+          const xPercents: number[] = [];
+          const startX = items[0].offsetLeft;
+          const snap = gsap.utils.snap(1);
+
+          gsap.set(items, {
+            xPercent: (index, item) => {
+              const width = (widths[index] = parseFloat(
+                gsap.getProperty(item, 'width', 'px') as string,
+              ));
+              const x = parseFloat(gsap.getProperty(item, 'x', 'px') as string);
+              const xPercent = gsap.getProperty(item, 'xPercent') as number;
+
+              xPercents[index] = snap((x / width) * 100 + xPercent);
+
+              return xPercents[index];
             },
-            0,
-          )
-          .fromTo(
-            item,
-            {
-              xPercent: snap(
-                ((currentX - distanceToLoop + totalWidth) / widths[index]) *
-                  100,
-              ),
-            },
-            {
-              duration:
-                (currentX - distanceToLoop + totalWidth - currentX) /
-                pixelsPerSecond,
-              immediateRender: false,
-              xPercent: xPercents[index],
-            },
-            distanceToLoop / pixelsPerSecond,
-          );
-      });
+          });
+          gsap.set(items, { x: 0 });
 
-      timeline.progress(1, true).progress(0, true);
-    }, track);
+          const lastItem = items[items.length - 1];
+          const totalWidth =
+            lastItem.offsetLeft +
+            (xPercents[items.length - 1] / 100) * widths[items.length - 1] -
+            startX +
+            lastItem.offsetWidth *
+              (gsap.getProperty(lastItem, 'scaleX') as number);
 
-    return () => {
-      context.revert();
-    };
-  }, []);
+          const timeline = gsap.timeline({
+            repeat: -1,
+            defaults: { ease: 'none' },
+          });
+
+          items.forEach((item, index) => {
+            const currentX = (xPercents[index] / 100) * widths[index];
+            const distanceToStart = item.offsetLeft + currentX - startX;
+            const distanceToLoop =
+              distanceToStart +
+              widths[index] * (gsap.getProperty(item, 'scaleX') as number);
+
+            timeline
+              .to(
+                item,
+                {
+                  duration: distanceToLoop / pixelsPerSecond,
+                  xPercent: snap(
+                    ((currentX - distanceToLoop) / widths[index]) * 100,
+                  ),
+                },
+                0,
+              )
+              .fromTo(
+                item,
+                {
+                  xPercent: snap(
+                    ((currentX - distanceToLoop + totalWidth) / widths[index]) *
+                      100,
+                  ),
+                },
+                {
+                  duration:
+                    (currentX - distanceToLoop + totalWidth - currentX) /
+                    pixelsPerSecond,
+                  immediateRender: false,
+                  xPercent: xPercents[index],
+                },
+                distanceToLoop / pixelsPerSecond,
+              );
+          });
+
+          timeline.progress(1, true).progress(0, true);
+        },
+        track,
+      );
+
+      return () => {
+        media.revert();
+      };
+    },
+    { scope: trackRef },
+  );
 
   return (
     <section
@@ -167,7 +195,7 @@ const LogoMarquee = () => {
             className={styles.item}
             data-logo-marquee-item
           >
-            <MarqueeLogo
+            <ClientLogo
               alt={logo.alt}
               src={logo.src}
             />
