@@ -1,0 +1,25 @@
+project:
+  name: alsu-me
+  type: frontend
+  canonical_state_dir: .agents/project-files/state
+
+runtime:
+  node: "24.15.0"
+  package_manager: npm
+
+commands:
+  lint: npm run lint
+  build: npm run build
+  dev: npm run dev
+  preview: npm run preview
+
+privacy:
+  protected_paths:
+    - .env
+    - "*.local"
+    - node_modules/
+    - .npm-cache/
+
+git:
+  safe_directory: C:/Users/kirsan/Projects/alsu-me/chore/KAN-105-naming
+

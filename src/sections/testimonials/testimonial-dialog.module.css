@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(219, 40%, 11%, 0.5);
+  animation: var(--animation-name-modal-bg-open) 300ms ease-in;
+}
+
+.panel {
+  display: flex;
+  max-width: calc(100vw - 2 * var(--m));
+  max-height: calc(100svh - 2 * var(--s));
+  flex-direction: column;
+  gap: var(--m);
+  overflow-y: auto;
+  border-radius: var(--s);
+  background-color: var(--neutral-0);
+  padding: var(--m);
+  box-shadow: var(--shadow-primary);
+  font-size: var(--font-body);
+  line-height: var(--line-tight);
+  animation: var(--animation-name-modal-open) 300ms ease-in;
+}
+
+.action {
+  align-self: flex-end;
+}
+
+@media (min-width: 577px) {
+  .panel {
+    max-width: 51ch;
+  }
+}

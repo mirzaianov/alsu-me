@@ -1,0 +1,148 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--neutral-0);
+  color: var(--text-90);
+  font-family: var(--font-inter), sans-serif;
+  font-size: var(--font-body);
+  line-height: var(--line-body);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.section {
+  width: 100%;
+  max-width: var(--section-max, var(--container-mobile));
+  margin-block: var(--section-margin-y, var(--mobile-y-margin));
+  padding-inline: var(--section-pad-x, var(--s));
+  display: flex;
+  flex-direction: column;
+  align-items: var(--section-align, center);
+  justify-content: flex-start;
+  gap: var(--section-gap, var(--l));
+  scroll-margin-top: var(--section-scroll-margin, 9rem);
+}
+
+.title {
+  --title-align: center;
+  --title-max: none;
+  width: 100%;
+  max-width: var(--title-max);
+  margin: 0;
+  text-align: var(--title-align);
+  text-wrap: balance;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, var(--m));
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--cluster-gap, var(--s));
+  row-gap: var(--cluster-row-gap, var(--cluster-gap, var(--s)));
+}
+
+.gridCards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap, var(--l));
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+@media (min-width: 577px) {
+  .section {
+    max-width: var(--section-max-tablet, var(--container-tablet));
+    margin-block: var(--section-margin-y-tablet, var(--tablet-y-margin));
+    padding-inline: var(--section-pad-x-tablet, var(--xl));
+    gap: var(--section-gap-tablet, var(--xl));
+    scroll-margin-top: var(
+      --section-scroll-margin-tablet,
+      var(--section-scroll-margin, 9rem)
+    );
+  }
+}
+
+@media (min-width: 1061px) {
+  .section {
+    max-width: var(--section-max-desktop, var(--container-desktop));
+    margin-block: var(--section-margin-y-desktop, var(--desktop-y-margin));
+    padding-inline: var(--section-pad-x-desktop, var(--3xl));
+    gap: var(--section-gap-desktop, var(--section-gap-tablet, var(--2xl)));
+    scroll-margin-top: var(
+      --section-scroll-margin-desktop,
+      var(--section-scroll-margin-tablet, var(--section-scroll-margin, 9rem))
+    );
+  }
+}

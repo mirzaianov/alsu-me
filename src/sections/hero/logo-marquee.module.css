@@ -1,0 +1,35 @@
+.heroInfiniteLogos {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--s);
+  overflow: clip;
+  background-color: var(--secondary-15);
+  padding-block: var(--s);
+  white-space: nowrap;
+  line-height: 0;
+  animation: var(--animation-name-logos-fade-in) 500ms 200ms ease-in both;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  line-height: 0;
+}
+
+.item {
+  flex: 0 0 auto;
+  will-change: transform;
+}
+
+@media (min-width: 577px) {
+  .heroInfiniteLogos {
+    margin-bottom: var(--xl);
+    padding-block: var(--m);
+  }
+}
+
+@media (min-width: 1061px) {
+  .heroInfiniteLogos {
+    padding-block: var(--xl);
+  }
+}

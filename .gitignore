@@ -1,6 +1,8 @@
 # dependencies
 node_modules/
 .npm-cache/
+.pnpm-cache/
+.pnpm-store/
 
 # testing
 coverage/
@@ -9,6 +11,10 @@ coverage/
 build/
 dist/
 dist-ssr/
+.next/
+out/
+next-env.d.ts
+tsconfig.tsbuildinfo
 *.local
 
 # editor directories and files
@@ -22,6 +28,8 @@ dist-ssr/
 *.sln
 *.sw?
 .env
+.env.*
+!.env.schema
 
 # sketch
 *.sketch

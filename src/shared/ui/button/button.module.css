@@ -1,0 +1,115 @@
+.button {
+  --button-radius: 0.5rem;
+  --button-bg: var(--primary-10);
+  --button-border: transparent;
+  --button-border-width: 0;
+  --button-color: var(--text-0);
+  --button-bg-hover: var(--primary-10-70);
+  display: inline-flex;
+  width: fit-content;
+  height: var(--xl);
+  align-items: center;
+  justify-content: center;
+  gap: var(--xs);
+  padding-inline: var(--s);
+  padding-block: var(--xs);
+  border: var(--button-border-width) solid var(--button-border);
+  border-radius: var(--button-radius);
+  background-color: var(--button-bg);
+  color: var(--button-color);
+  font-size: var(--font-button);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  transition:
+    background-color var(--transition-primary),
+    color var(--transition-primary),
+    border-color var(--transition-primary),
+    opacity var(--transition-primary),
+    transform var(--transition-primary);
+}
+
+.button:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.button:active {
+  transform: translateY(-4px);
+}
+
+.button svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  flex-shrink: 0;
+}
+
+.button svg path {
+  fill: currentColor;
+  transition: fill var(--transition-primary);
+}
+
+.icon {
+  min-width: 160px;
+}
+
+.primary {}
+
+.secondary {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-border: var(--primary-10);
+  --button-border-width: 3px;
+  --button-color: var(--text-10);
+}
+
+.secondary:hover {
+  border-color: var(--primary-10-70);
+  color: var(--text-10-70);
+}
+
+.inverse {
+  --button-bg: var(--neutral-0);
+  --button-bg-hover: var(--neutral-0);
+  --button-color: var(--text-10);
+}
+
+.inverse:hover {
+  color: var(--text-10-70);
+}
+
+.accent {
+  --button-bg: var(--primary-30);
+  --button-bg-hover: var(--primary-30-70);
+}
+
+.neutral {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-border: var(--neutral-90);
+  --button-border-width: 3px;
+  --button-color: var(--text-90);
+}
+
+.neutral:hover {
+  border-color: var(--neutral-90-50);
+  color: var(--text-90-50);
+}
+
+@media (min-width: 1061px) {
+  .icon {
+    min-width: 220px;
+  }
+
+  .large {
+    height: 52px;
+    padding-inline: var(--m);
+    gap: var(--s);
+    border-radius: 0.75rem;
+    font-size: var(--font-button-large);
+  }
+
+  .large svg {
+    width: 32px;
+    height: 32px;
+  }
+}

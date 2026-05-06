@@ -1,0 +1,65 @@
+.aboutPhotoCard {
+  position: relative;
+  width: 170px;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  height: 210px;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: var(--s);
+  transition: transform var(--transition-primary);
+}
+
+.aboutPhotoCard:hover .inner {
+  transform: scale(1.1);
+}
+
+.color {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--img-size-mobile);
+  height: var(--img-size-mobile);
+  border-radius: var(--s);
+  background-color: var(--primary-40);
+}
+
+.image {
+  position: absolute;
+  bottom: -4px;
+  left: 10px;
+  z-index: 1;
+  width: var(--img-size-mobile);
+  height: auto;
+  transform: scale(1.5);
+  transition: transform var(--transition-primary);
+  transition-delay: 150ms;
+}
+
+.aboutPhotoCard:hover .image {
+  transform: translateY(-10px) scale(1.5);
+}
+
+@media (min-width: 577px) {
+  .aboutPhotoCard {
+    width: 300px;
+  }
+
+  .inner {
+    height: 365px;
+  }
+
+  .color {
+    width: var(--img-size-tablet);
+    height: var(--img-size-tablet);
+  }
+
+  .image {
+    bottom: -8px;
+    left: 18px;
+    width: var(--img-size-tablet);
+  }
+}
