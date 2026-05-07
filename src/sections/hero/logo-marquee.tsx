@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ClientLogo from './client-logo';
 import kamaz from '../../assets/icons/logos/logo-kamaz.svg';
 import knorr from '../../assets/icons/logos/logo-knorr.svg';
@@ -51,9 +52,28 @@ const logos = [
 
 const mobileAndTabletPixelsPerSecond = 35;
 const desktopPixelsPerSecond = 50;
+const normalMarqueeTimeScale = 1;
+const maxScrollMarqueeTimeScale = 4;
+const scrollVelocityForMaxBoost = 3200;
+const marqueeScrollResponseDuration = 0.18;
+const marqueeSettleDelay = 0.12;
+const marqueeSettleDuration = 0.65;
 const visualLogoSetCount = 3;
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const getScrollTimeScale = (velocity: number) =>
+  gsap.utils.clamp(
+    normalMarqueeTimeScale,
+    maxScrollMarqueeTimeScale,
+    gsap.utils.mapRange(
+      0,
+      scrollVelocityForMaxBoost,
+      normalMarqueeTimeScale,
+      maxScrollMarqueeTimeScale,
+      velocity,
+    ),
+  );
 
 const LogoMarquee = () => {
   const trackRef = useRef<HTMLDivElement | null>(null);
@@ -131,6 +151,9 @@ const LogoMarquee = () => {
             repeat: -1,
             defaults: { ease: 'none' },
           });
+          timeline.eventCallback('onReverseComplete', () => {
+            timeline.totalTime(timeline.rawTime() + timeline.duration() * 100);
+          });
 
           items.forEach((item, index) => {
             const currentX = (xPercents[index] / 100) * widths[index];
@@ -169,7 +192,54 @@ const LogoMarquee = () => {
               );
           });
 
-          timeline.progress(1, true).progress(0, true);
+          timeline
+            .progress(1, true)
+            .progress(0, true)
+            .timeScale(normalMarqueeTimeScale);
+
+          let timeScaleTween: gsap.core.Tween | null = null;
+
+          const tweenTimeScale = (timeScale: number, duration: number) => {
+            timeScaleTween?.kill();
+            timeScaleTween = gsap.to(timeline, {
+              duration,
+              ease: 'power2.out',
+              overwrite: true,
+              timeScale,
+            });
+          };
+
+          let settledMarqueeTimeScale = normalMarqueeTimeScale;
+
+          const settleMarquee = gsap
+            .delayedCall(marqueeSettleDelay, () => {
+              tweenTimeScale(settledMarqueeTimeScale, marqueeSettleDuration);
+            })
+            .pause();
+
+          ScrollTrigger.create({
+            end: 'max',
+            onUpdate: (self) => {
+              const scrollDirection = self.direction === -1 ? -1 : 1;
+              settledMarqueeTimeScale =
+                scrollDirection * normalMarqueeTimeScale;
+              const scrollTimeScale = getScrollTimeScale(
+                Math.abs(self.getVelocity()),
+              );
+
+              tweenTimeScale(
+                scrollDirection * scrollTimeScale,
+                marqueeScrollResponseDuration,
+              );
+              settleMarquee.restart(true);
+            },
+            start: 0,
+          });
+
+          return () => {
+            settleMarquee.kill();
+            timeScaleTween?.kill();
+          };
         },
         track,
       );
