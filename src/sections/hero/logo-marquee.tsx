@@ -51,6 +51,7 @@ const logos = [
 
 const mobileAndTabletPixelsPerSecond = 35;
 const desktopPixelsPerSecond = 50;
+const visualLogoSetCount = 3;
 
 gsap.registerPlugin(useGSAP);
 
@@ -189,18 +190,25 @@ const LogoMarquee = () => {
         ref={trackRef}
         className={styles.track}
       >
-        {logos.map((logo) => (
-          <div
-            key={logo.alt}
-            className={styles.item}
-            data-logo-marquee-item
-          >
-            <ClientLogo
-              alt={logo.alt}
-              src={logo.src}
-            />
-          </div>
-        ))}
+        {Array.from({ length: visualLogoSetCount }, (_, setIndex) =>
+          logos.map((logo) => {
+            const isDuplicateSet = setIndex > 0;
+
+            return (
+              <div
+                key={`${setIndex}-${logo.alt}`}
+                className={styles.item}
+                aria-hidden={isDuplicateSet ? true : undefined}
+                data-logo-marquee-item
+              >
+                <ClientLogo
+                  alt={isDuplicateSet ? '' : logo.alt}
+                  src={logo.src}
+                />
+              </div>
+            );
+          }),
+        )}
       </div>
     </section>
   );
