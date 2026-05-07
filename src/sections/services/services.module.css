@@ -29,13 +29,6 @@
   max-width: var(--mobile-text-wrapper);
 }
 
-.copy p {
-  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
-  animation-timeline: view();
-  animation-range-start: entry 120px;
-  animation-range-end: cover 240px;
-}
-
 .emphasis {
   font-weight: 700;
   text-wrap: pretty;
