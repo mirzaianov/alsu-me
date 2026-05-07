@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import LessonPlanCard from './lesson-plan-card';
 import TranslationRateCard from './translation-rate-card';
+import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import pricingImage from '../../assets/img/prices/prices.png';
 import sale from '../../assets/img/prices/sale.png';
 import { clsx } from 'clsx';
@@ -87,25 +88,25 @@ const Pricing = () => {
           <h3 className={styles.subtitle}>
             Индивидуальные занятия на платформе Zoom
           </h3>
-          <div className={clsx('gridCards', styles.cards)}>
+          <ScrollCardReveal className={clsx('gridCards', styles.cards)}>
             {tutorCardData.map((item) => (
               <LessonPlanCard
                 key={item.heading}
                 {...item}
               />
             ))}
-          </div>
+          </ScrollCardReveal>
         </div>
         <div className={clsx('stack', styles.group)}>
           <h3 className={styles.subtitle}>Переводы</h3>
-          <div className={clsx('gridCards', styles.cards)}>
+          <ScrollCardReveal className={clsx('gridCards', styles.cards)}>
             {translatorCardData.map((item) => (
               <TranslationRateCard
                 key={item.heading}
                 {...item}
               />
             ))}
-          </div>
+          </ScrollCardReveal>
         </div>
       </article>
     </section>

@@ -3,6 +3,7 @@
 import { clsx } from 'clsx';
 import type { Dispatch, SetStateAction } from 'react';
 import TestimonialCard from './testimonial-card';
+import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import almaz from '../../assets/img/testimonials/almaz.jpeg';
 import elena from '../../assets/img/testimonials/elena.jpeg';
 import ruslan from '../../assets/img/testimonials/ruslan.jpeg';
@@ -98,7 +99,7 @@ const TestimonialRow = ({
   setIsInfiniteScroll,
 }: TestimonialRowProps) => {
   return (
-    <div
+    <ScrollCardReveal
       className={clsx(
         styles.testimonialCardsRow,
         !isInfiniteScroll && styles.paused,
@@ -116,7 +117,7 @@ const TestimonialRow = ({
           />
         </div>
       ))}
-    </div>
+    </ScrollCardReveal>
   );
 };
 

@@ -10,17 +10,6 @@
   border-radius: var(--s);
   background-color: var(--neutral-0);
   box-shadow: var(--shadow-primary);
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
-}
-
-.priceTranslatorCard:nth-child(odd) {
-  animation-name: var(--animation-name-card-right-fade-in);
-}
-
-.priceTranslatorCard:nth-child(even) {
-  animation-name: var(--animation-name-card-left-fade-in);
 }
 
 .heading {
@@ -52,14 +41,4 @@
   max-width: 185px;
   text-align: center;
   font-weight: 700;
-}
-
-@supports (animation-timeline: view()) {
-  .priceTranslatorCard {
-    animation-timeline: view();
-    animation-range-start: 10%;
-    animation-range-end: 40%;
-    animation-duration: auto;
-    animation-timing-function: linear;
-  }
 }

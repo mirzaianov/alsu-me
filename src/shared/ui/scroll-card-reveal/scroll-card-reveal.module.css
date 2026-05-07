@@ -1,0 +1,13 @@
+.reveal[data-scroll-card-reveal='pending'] > * {
+  visibility: hidden;
+}
+
+.reveal[data-scroll-card-reveal='ready'] > * {
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  .reveal[data-scroll-card-reveal='pending'] > * {
+    visibility: visible;
+  }
+}
