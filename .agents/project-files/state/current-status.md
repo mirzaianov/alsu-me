@@ -37,6 +37,7 @@ Status: project-state current repository state
 - `app/page.tsx` composes the single `/` page in section order and exports static route guardrails so build-time prerendering fails loudly if request-time rendering is introduced. [Reason why added: production should keep the Next runtime while returning the root page from prebuilt static output.]
 - Browser-dependent behavior is isolated in client components for header/nav state, mobile menu portals, hero CTA annotation, testimonials carousel/dialog behavior, shared CTA buttons, and the back-to-top widget.
 - UI source is organized by ownership: page sections live under `src/sections`, site chrome lives under `src/layout`, reusable primitives live under `src/shared/ui`, and app-level widgets live under `src/widgets`.
+- Section folders contain React section components; shared and feature-specific non-component utilities live in folders under `src/utils/<utility-area>`. [Reason why added: GSAP timelines, easing functions, and formatting helpers are app utility logic, not React components, and should not clutter section component folders or the root utility folder.]
 - Most UI files pair `component-name.tsx` with `component-name.module.css`.
 - Ordinary frontend source filenames use lowercase kebab-case; React symbols remain `PascalCase`.
 - The global CSS entrypoint is `app/globals.css`; shared global styles live in `src/styles`, route-local styles live beside their route files, and local Inter font files are loaded through `next/font/local`.

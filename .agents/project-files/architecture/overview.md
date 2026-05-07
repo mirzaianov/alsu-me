@@ -12,12 +12,12 @@ Frontend UI code is split by ownership:
 
 - `component-name.tsx` for React implementation files
 - `component-name.module.css` for component-local styles
-- Page sections and their private helpers live under `src/sections/<section-name>`
+- Page section React components live under `src/sections/<section-name>`
 - Site chrome lives under `src/layout/<component-name>`
 - Reusable primitives live under `src/shared/ui/<component-name>`
 - App-level widgets live under `src/widgets/<widget-name>`
 - Shared hooks in `src/hooks`
-- Shared utilities in `src/utils`
+- Shared and feature-specific non-component utilities live in folders under `src/utils/<utility-area>`
 
 React component symbols remain `PascalCase`; only ordinary source filenames use lowercase kebab-case.
 
