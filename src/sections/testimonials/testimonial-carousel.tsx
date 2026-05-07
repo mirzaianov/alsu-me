@@ -17,7 +17,7 @@ import styles from './testimonial-carousel.module.css';
 import rowStyles from './testimonial-row.module.css';
 
 const testimonialCarouselDuration = 120;
-const testimonialGestureMaxReleaseTimeScale = 5;
+const testimonialGestureMaxReleaseTimeScale = 12;
 
 gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
 

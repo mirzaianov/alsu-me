@@ -10,14 +10,21 @@ const DEFAULT_SCROLL_VELOCITY_FOR_MAX_BOOST = 3200;
 const DEFAULT_SCROLL_RESPONSE_DURATION = 0.18;
 const DEFAULT_SETTLE_DELAY = 0.12;
 const DEFAULT_SETTLE_DURATION = 0.65;
-const DEFAULT_GESTURE_RELEASE_DURATION = 1.4;
+const DEFAULT_GESTURE_RELEASE_COAST_DURATION = 0.18;
+const DEFAULT_GESTURE_RELEASE_DECAY_DURATION = 1.15;
+const DEFAULT_GESTURE_RELEASE_DECAY_STRENGTH = 1.55;
+const DEFAULT_MIN_GESTURE_RELEASE_TIME_SCALE = MARQUEE_NORMAL_TIME_SCALE;
+const POINTER_RELEASE_SAMPLE_WINDOW = 240;
 const REVERSE_LOOP_OFFSET_MULTIPLIER = 100;
 
 type ScrollResponsiveMarqueeOptions = {
   animation: gsap.core.Animation;
   controller?: MarqueeTimeScaleController;
-  gestureReleaseDuration?: number;
+  gestureReleaseCoastDuration?: number;
+  gestureReleaseDecayDuration?: number;
+  gestureReleaseDecayStrength?: number;
   maxTimeScale?: number;
+  minReleaseTimeScale?: number;
   normalTimeScale?: number;
   responseDuration?: number;
   settleDelay?: number;
@@ -29,15 +36,19 @@ type GestureResponsiveMarqueeOptions = {
   controller: MarqueeTimeScaleController;
   getPixelsPerSecond: () => number;
   maxReleaseTimeScale?: number;
+  minReleaseTimeScale?: number;
   target: Element;
 };
 
 type MarqueeDirection = -1 | 1;
 
 type ReleaseVelocityOptions = {
+  coastDuration?: number;
+  decayDuration?: number;
+  decayStrength?: number;
   direction: MarqueeDirection;
-  duration?: number;
   maxTimeScale?: number;
+  minTimeScale?: number;
   pixelsPerSecond: number;
   velocity: number;
 };
@@ -76,11 +87,13 @@ const getScrollTimeScale = ({
 
 const getPointerTimeScale = ({
   maxTimeScale,
+  minTimeScale,
   normalTimeScale,
   pixelsPerSecond,
   velocity,
 }: {
   maxTimeScale: number;
+  minTimeScale: number;
   normalTimeScale: number;
   pixelsPerSecond: number;
   velocity: number;
@@ -90,10 +103,18 @@ const getPointerTimeScale = ({
   }
 
   return gsap.utils.clamp(
-    normalTimeScale,
+    Math.max(normalTimeScale, minTimeScale),
     maxTimeScale,
     Math.abs(velocity) / pixelsPerSecond,
   );
+};
+
+const getExponentialDecayRatio = (progress: number, strength: number) => {
+  const safeStrength = Math.max(strength, 0.01);
+  const decay = Math.exp(-safeStrength * progress);
+  const endDecay = Math.exp(-safeStrength);
+
+  return (decay - endDecay) / (1 - endDecay);
 };
 
 export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
@@ -106,8 +127,11 @@ export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
 
 export const createMarqueeTimeScaleController = ({
   animation,
-  gestureReleaseDuration = DEFAULT_GESTURE_RELEASE_DURATION,
+  gestureReleaseCoastDuration = DEFAULT_GESTURE_RELEASE_COAST_DURATION,
+  gestureReleaseDecayDuration = DEFAULT_GESTURE_RELEASE_DECAY_DURATION,
+  gestureReleaseDecayStrength = DEFAULT_GESTURE_RELEASE_DECAY_STRENGTH,
   maxTimeScale = DEFAULT_MAX_SCROLL_MARQUEE_TIME_SCALE,
+  minReleaseTimeScale = DEFAULT_MIN_GESTURE_RELEASE_TIME_SCALE,
   normalTimeScale = MARQUEE_NORMAL_TIME_SCALE,
   responseDuration = DEFAULT_SCROLL_RESPONSE_DURATION,
   settleDelay = DEFAULT_SETTLE_DELAY,
@@ -115,7 +139,7 @@ export const createMarqueeTimeScaleController = ({
   velocityForMaxBoost = DEFAULT_SCROLL_VELOCITY_FOR_MAX_BOOST,
 }: Omit<ScrollResponsiveMarqueeOptions, 'controller'>) => {
   let settledTimeScale = normalTimeScale;
-  let timeScaleTween: gsap.core.Tween | null = null;
+  let timeScaleTween: gsap.core.Animation | null = null;
 
   const tweenTimeScale = (
     timeScale: number,
@@ -171,14 +195,18 @@ export const createMarqueeTimeScaleController = ({
   };
 
   const releaseWithVelocity = ({
+    coastDuration = gestureReleaseCoastDuration,
+    decayDuration = gestureReleaseDecayDuration,
+    decayStrength = gestureReleaseDecayStrength,
     direction,
-    duration = gestureReleaseDuration,
     maxTimeScale: releaseMaxTimeScale = maxTimeScale,
+    minTimeScale = minReleaseTimeScale,
     pixelsPerSecond,
     velocity,
   }: ReleaseVelocityOptions) => {
     const releaseTimeScale = getPointerTimeScale({
       maxTimeScale: releaseMaxTimeScale,
+      minTimeScale,
       normalTimeScale,
       pixelsPerSecond,
       velocity,
@@ -187,8 +215,37 @@ export const createMarqueeTimeScaleController = ({
     settledTimeScale = direction * normalTimeScale;
     settleMarquee.pause(0);
     timeScaleTween?.kill();
+
     animation.timeScale(direction * releaseTimeScale);
-    tweenTimeScale(settledTimeScale, duration, 'power2.inOut');
+
+    const releaseState = { progress: 0 };
+    timeScaleTween = gsap
+      .timeline({
+        onComplete: () => {
+          animation.timeScale(settledTimeScale);
+        },
+      })
+      .to(
+        {},
+        {
+          duration: coastDuration,
+        },
+      )
+      .to(releaseState, {
+        duration: decayDuration,
+        ease: 'none',
+        onUpdate: () => {
+          const decayRatio = getExponentialDecayRatio(
+            releaseState.progress,
+            decayStrength,
+          );
+          const currentTimeScale =
+            normalTimeScale + (releaseTimeScale - normalTimeScale) * decayRatio;
+
+          animation.timeScale(direction * currentTimeScale);
+        },
+        progress: 1,
+      });
   };
 
   const settleToDirection = (direction: MarqueeDirection) => {
@@ -214,7 +271,10 @@ export const createScrollResponsiveMarquee = ({
   animation,
   controller,
   maxTimeScale,
-  gestureReleaseDuration,
+  gestureReleaseCoastDuration,
+  gestureReleaseDecayDuration,
+  gestureReleaseDecayStrength,
+  minReleaseTimeScale,
   normalTimeScale,
   responseDuration,
   settleDelay,
@@ -225,8 +285,11 @@ export const createScrollResponsiveMarquee = ({
     controller ??
     createMarqueeTimeScaleController({
       animation,
-      gestureReleaseDuration,
+      gestureReleaseCoastDuration,
+      gestureReleaseDecayDuration,
+      gestureReleaseDecayStrength,
       maxTimeScale,
+      minReleaseTimeScale,
       normalTimeScale,
       responseDuration,
       settleDelay,
@@ -258,11 +321,33 @@ export const createGestureResponsiveMarquee = ({
   controller,
   getPixelsPerSecond,
   maxReleaseTimeScale,
+  minReleaseTimeScale,
   target,
 }: GestureResponsiveMarqueeOptions) => {
   let gestureDirection: MarqueeDirection | null = null;
+  let gestureLastSampleAt = 0;
+  let gestureVelocitySamples: { time: number; velocity: number }[] = [];
   let gestureVelocity = 0;
   let isDragging = false;
+
+  const getRecentGestureVelocity = () => {
+    const now = Date.now();
+
+    gestureVelocitySamples = gestureVelocitySamples.filter(
+      (sample) => now - sample.time <= POINTER_RELEASE_SAMPLE_WINDOW,
+    );
+
+    if (gestureVelocitySamples.length === 0) {
+      return gestureVelocity;
+    }
+
+    return (
+      gestureVelocitySamples.reduce(
+        (totalVelocity, sample) => totalVelocity + sample.velocity,
+        0,
+      ) / gestureVelocitySamples.length
+    );
+  };
 
   const observer = Observer.create({
     allowClicks: true,
@@ -279,12 +364,24 @@ export const createGestureResponsiveMarquee = ({
       }
 
       gestureDirection = self.deltaX < 0 ? 1 : -1;
-      gestureVelocity = Math.abs(self.velocityX);
+      const now = Date.now();
+      const sampleDuration = (now - gestureLastSampleAt) / 1000;
+      const sampleVelocity =
+        sampleDuration > 0 ? Math.abs(self.deltaX) / sampleDuration : 0;
+
+      gestureLastSampleAt = now;
+      gestureVelocity = Math.max(Math.abs(self.velocityX), sampleVelocity);
+      gestureVelocitySamples.push({ time: now, velocity: gestureVelocity });
+      gestureVelocitySamples = gestureVelocitySamples.filter(
+        (sample) => now - sample.time <= POINTER_RELEASE_SAMPLE_WINDOW,
+      );
       controller.seekByPixels(self.deltaX, getPixelsPerSecond());
     },
     onPress: () => {
       gestureDirection = null;
+      gestureLastSampleAt = Date.now();
       gestureVelocity = 0;
+      gestureVelocitySamples = [];
       isDragging = false;
     },
     onRelease: () => {
@@ -297,8 +394,9 @@ export const createGestureResponsiveMarquee = ({
       controller.releaseWithVelocity({
         direction: gestureDirection,
         maxTimeScale: maxReleaseTimeScale,
+        minTimeScale: minReleaseTimeScale,
         pixelsPerSecond: getPixelsPerSecond(),
-        velocity: gestureVelocity,
+        velocity: getRecentGestureVelocity(),
       });
     },
     target,
