@@ -80,6 +80,18 @@ const wordSlideBounceEase = createTimingEase([
   { progress: 1, value: 1 }, // Final settled position.
 ]);
 
+// Stats follow the word timing, but use softer overshoots for the larger block.
+const statSlideBounceEase = createTimingEase([
+  { progress: 0, value: 0 }, // Current stat position.
+  { progress: 0.23, value: -0.035 }, // Softer upward recoil.
+  { progress: 0.38, value: 0.05 }, // Slow turn back down.
+  { ease: easeInTravel, progress: 0.78, value: 1 }, // Accelerated downward slide into the target.
+  { progress: 0.835, value: 1.035 }, // First downward landing rebound.
+  { progress: 0.89, value: 0.99 }, // Pullback before the target.
+  { progress: 0.945, value: 1.018 }, // Smaller second downward rebound.
+  { progress: 1, value: 1 }, // Final settled position.
+]);
+
 gsap.registerPlugin(useGSAP);
 
 const HeroDynamicHighlights = () => {
@@ -218,7 +230,7 @@ const HeroDynamicHighlights = () => {
                 label,
               )
               .to(wordTrack, { ease: wordSlideBounceEase, y: wordY }, label)
-              .to(statTrack, { y: statY }, label)
+              .to(statTrack, { ease: statSlideBounceEase, y: statY }, label)
               .to(
                 outgoingNote,
                 {
