@@ -2,7 +2,6 @@
   --animation-name-blob: blob;
   --animation-name-blob-2: blob2;
   --animation-name-blob-3: blob3;
-  --animation-name-slide-marquee: slideMarquee;
   --animation-name-waving-hand: wavingHand;
   --animation-name-waving-badge: wavingBadge;
   --animation-name-tada: tada;
@@ -78,16 +77,6 @@
 
   75% {
     transform: translate(0%, -50%) scale(0.9);
-  }
-}
-
-@keyframes slideMarquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
   }
 }
 

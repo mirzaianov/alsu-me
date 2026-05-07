@@ -1,6 +1,5 @@
 'use client';
 
-import { clsx } from 'clsx';
 import type { Dispatch, SetStateAction } from 'react';
 import TestimonialCard from './testimonial-card';
 import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
@@ -90,21 +89,12 @@ const testimonialCardData = [
 ];
 
 type TestimonialRowProps = {
-  isInfiniteScroll: boolean;
   setIsInfiniteScroll: Dispatch<SetStateAction<boolean>>;
 };
 
-const TestimonialRow = ({
-  isInfiniteScroll,
-  setIsInfiniteScroll,
-}: TestimonialRowProps) => {
+const TestimonialRow = ({ setIsInfiniteScroll }: TestimonialRowProps) => {
   return (
-    <ScrollCardReveal
-      className={clsx(
-        styles.testimonialCardsRow,
-        !isInfiniteScroll && styles.paused,
-      )}
-    >
+    <ScrollCardReveal className={styles.testimonialCardsRow}>
       {testimonialCardData.map((item, index) => (
         <div
           key={`${index}-${item.fullName}`}
