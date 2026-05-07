@@ -7,13 +7,18 @@ import ProfileSummary from './profile-summary';
 import Introduction from './introduction';
 import styles from './hero.module.css';
 
+const highlightTiming = {
+  swapDuration: 1.2,
+  swapInterval: 6,
+  firstSwapAt: 3,
+} as const;
 const highlightSchedule = {
-  loopDuration: 20,
-  toTranslatorAt: 8.4,
-  toTeacherAt: 18.4,
+  loopDuration: highlightTiming.swapInterval * 2,
+  toTranslatorAt: highlightTiming.firstSwapAt,
+  toTeacherAt: highlightTiming.firstSwapAt + highlightTiming.swapInterval,
 } as const;
 const highlightSwap = {
-  duration: 0.8,
+  duration: highlightTiming.swapDuration,
   ease: 'back.inOut(1.35)',
 } as const;
 const highlightSwapMidpoint = highlightSwap.duration / 2;
