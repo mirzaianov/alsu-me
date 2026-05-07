@@ -21,10 +21,12 @@ const highlightSwap = {
   duration: highlightTiming.swapDuration,
   ease: 'back.inOut(1.35)',
 } as const;
-const highlightSwapMidpoint = highlightSwap.duration / 2;
 const noteHiddenRotationX = -180;
 const noteVisibleRotationX = 0;
 const noteFullRotationX = -360;
+// Handoff waits until the eased flip is visually near edge-on, not half time.
+const noteFlipHandoffProgress = 0.63;
+const noteFlipHandoffAt = highlightSwap.duration * noteFlipHandoffProgress;
 
 type TimingEasePoint = {
   ease?: (progress: number) => number;
@@ -90,6 +92,18 @@ const statSlideBounceEase = createTimingEase([
   { progress: 0.89, value: 0.99 }, // Pullback before the target.
   { progress: 0.945, value: 1.018 }, // Smaller second downward rebound.
   { progress: 1, value: 1 }, // Final settled position.
+]);
+
+// Notes use the same timing shape, with smaller rotation rebounds.
+const noteFlipBounceEase = createTimingEase([
+  { progress: 0, value: 0 }, // Current note rotation.
+  { progress: 0.23, value: -0.065 }, // Stronger opposite tilt.
+  { progress: 0.38, value: 0.085 }, // Turn back into the flip.
+  { ease: easeInTravel, progress: 0.78, value: 1 }, // Accelerated flip into the target side.
+  { progress: 0.835, value: 1.06 }, // First landing rebound.
+  { progress: 0.89, value: 0.98 }, // Pullback before the target side.
+  { progress: 0.945, value: 1.032 }, // Smaller second rebound.
+  { progress: 1, value: 1 }, // Final settled rotation.
 ]);
 
 gsap.registerPlugin(useGSAP);
@@ -234,6 +248,7 @@ const HeroDynamicHighlights = () => {
               .to(
                 outgoingNote,
                 {
+                  ease: noteFlipBounceEase,
                   rotationX: noteHiddenRotationX,
                 },
                 label,
@@ -242,6 +257,7 @@ const HeroDynamicHighlights = () => {
                 incomingNote,
                 {
                   autoAlpha: 1,
+                  ease: noteFlipBounceEase,
                   rotationX: noteFullRotationX,
                 },
                 label,
@@ -251,14 +267,14 @@ const HeroDynamicHighlights = () => {
                 {
                   zIndex: 2,
                 },
-                `${label}+=${highlightSwapMidpoint}`,
+                `${label}+=${noteFlipHandoffAt}`,
               )
               .set(
                 outgoingNote,
                 {
                   zIndex: 1,
                 },
-                `${label}+=${highlightSwapMidpoint}`,
+                `${label}+=${noteFlipHandoffAt}`,
               )
               .set(
                 outgoingNote,
