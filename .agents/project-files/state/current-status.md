@@ -10,9 +10,9 @@ Status: project-state current repository state
 
 ## Current Tooling Baseline
 
-- Node.js `24.15.0` is pinned in `.nvmrc`; `package.json` allows Node `>=24.15.0 <25`.
-- pnpm is the package manager; `packageManager` pins `pnpm@10.33.2`, `package.json` requires pnpm `>=10.33.2 <11`, and `pnpm-lock.yaml` is present. [Reason why added: package installs are now lockfile-owned by pnpm instead of npm.]
-- A local `preinstall` guard in `scripts/ensure-pnpm.js` rejects non-pnpm installs.
+- Node.js `24.15.0` is pinned in `.nvmrc`; `package.json` allows Node `>=24.15.0`.
+- pnpm is the package manager; `packageManager` pins `pnpm@11.0.0`, `package.json` requires pnpm `>=11.0.0`, and `pnpm-lock.yaml` is present. [Reason why added: package installs are now lockfile-owned by pnpm instead of npm.]
+- A local `preinstall` guard in `scripts/ensure-pnpm.js` rejects non-pnpm installs and accepts pnpm lifecycles detected from the package-manager user agent, executable path, or Vercel's missing-user-agent install environment.
 - Next.js is the frontend framework and production build tool, with `next.config.ts` typed by TypeScript. [Reason why added: KAN-110 migrated the app from Vite to Next.js while preserving the one-page route surface.]
 - React and React DOM are at major version 19.
 - GSAP is the project's JavaScript animation library for non-trivial motion, including continuous loops, measurement-based animation, sequencing, and timeline control. [Reason why added: the marquee needs responsive item-level wrapping without a visible duplicated-track reset seam on mobile browsers, and future animation work should not introduce competing animation libraries without a new decision.]
