@@ -10,19 +10,18 @@ const DEFAULT_SCROLL_VELOCITY_FOR_MAX_BOOST = 3200;
 const DEFAULT_SCROLL_RESPONSE_DURATION = 0.18;
 const DEFAULT_SETTLE_DELAY = 0.12;
 const DEFAULT_SETTLE_DURATION = 0.65;
-const DEFAULT_GESTURE_RELEASE_COAST_DURATION = 0.18;
-const DEFAULT_GESTURE_RELEASE_DECAY_DURATION = 1.15;
-const DEFAULT_GESTURE_RELEASE_DECAY_STRENGTH = 1.55;
+const DEFAULT_GESTURE_RELEASE_HOLD_DURATION = 0.5;
+const DEFAULT_GESTURE_RELEASE_DURATION = 0.5;
 const DEFAULT_MIN_GESTURE_RELEASE_TIME_SCALE = MARQUEE_NORMAL_TIME_SCALE;
 const POINTER_RELEASE_SAMPLE_WINDOW = 240;
+const POINTER_HORIZONTAL_INTENT_RATIO = 1.2;
 const REVERSE_LOOP_OFFSET_MULTIPLIER = 100;
 
 type ScrollResponsiveMarqueeOptions = {
   animation: gsap.core.Animation;
   controller?: MarqueeTimeScaleController;
-  gestureReleaseCoastDuration?: number;
-  gestureReleaseDecayDuration?: number;
-  gestureReleaseDecayStrength?: number;
+  gestureReleaseDuration?: number;
+  gestureReleaseHoldDuration?: number;
   maxTimeScale?: number;
   minReleaseTimeScale?: number;
   normalTimeScale?: number;
@@ -41,16 +40,21 @@ type GestureResponsiveMarqueeOptions = {
 };
 
 type MarqueeDirection = -1 | 1;
+type GestureAxis = 'x' | 'y' | null;
 
 type ReleaseVelocityOptions = {
-  coastDuration?: number;
-  decayDuration?: number;
-  decayStrength?: number;
   direction: MarqueeDirection;
+  duration?: number;
+  holdDuration?: number;
   maxTimeScale?: number;
   minTimeScale?: number;
   pixelsPerSecond: number;
   velocity: number;
+};
+
+type GesturePositionSample = {
+  time: number;
+  x: number;
 };
 
 type MarqueeTimeScaleController = {
@@ -102,19 +106,12 @@ const getPointerTimeScale = ({
     return normalTimeScale;
   }
 
-  return gsap.utils.clamp(
+  const clampTimeScale = gsap.utils.clamp(
     Math.max(normalTimeScale, minTimeScale),
     maxTimeScale,
-    Math.abs(velocity) / pixelsPerSecond,
   );
-};
 
-const getExponentialDecayRatio = (progress: number, strength: number) => {
-  const safeStrength = Math.max(strength, 0.01);
-  const decay = Math.exp(-safeStrength * progress);
-  const endDecay = Math.exp(-safeStrength);
-
-  return (decay - endDecay) / (1 - endDecay);
+  return clampTimeScale(Math.abs(velocity) / pixelsPerSecond);
 };
 
 export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
@@ -127,9 +124,8 @@ export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
 
 export const createMarqueeTimeScaleController = ({
   animation,
-  gestureReleaseCoastDuration = DEFAULT_GESTURE_RELEASE_COAST_DURATION,
-  gestureReleaseDecayDuration = DEFAULT_GESTURE_RELEASE_DECAY_DURATION,
-  gestureReleaseDecayStrength = DEFAULT_GESTURE_RELEASE_DECAY_STRENGTH,
+  gestureReleaseDuration = DEFAULT_GESTURE_RELEASE_DURATION,
+  gestureReleaseHoldDuration = DEFAULT_GESTURE_RELEASE_HOLD_DURATION,
   maxTimeScale = DEFAULT_MAX_SCROLL_MARQUEE_TIME_SCALE,
   minReleaseTimeScale = DEFAULT_MIN_GESTURE_RELEASE_TIME_SCALE,
   normalTimeScale = MARQUEE_NORMAL_TIME_SCALE,
@@ -138,8 +134,15 @@ export const createMarqueeTimeScaleController = ({
   settleDuration = DEFAULT_SETTLE_DURATION,
   velocityForMaxBoost = DEFAULT_SCROLL_VELOCITY_FOR_MAX_BOOST,
 }: Omit<ScrollResponsiveMarqueeOptions, 'controller'>) => {
+  let isGestureReleaseActive = false;
   let settledTimeScale = normalTimeScale;
   let timeScaleTween: gsap.core.Animation | null = null;
+
+  const setTimeScale = (timeScale: number) => {
+    timeScaleTween?.kill();
+    timeScaleTween = null;
+    animation.timeScale(timeScale);
+  };
 
   const tweenTimeScale = (
     timeScale: number,
@@ -170,15 +173,22 @@ export const createMarqueeTimeScaleController = ({
     });
 
     settledTimeScale = direction * normalTimeScale;
-    tweenTimeScale(direction * scrollTimeScale, responseDuration);
+    const targetTimeScale = direction * scrollTimeScale;
+
+    if (isGestureReleaseActive) {
+      isGestureReleaseActive = false;
+      setTimeScale(targetTimeScale);
+    } else {
+      tweenTimeScale(targetTimeScale, responseDuration);
+    }
+
     settleMarquee.restart(true);
   };
 
   const hold = () => {
+    isGestureReleaseActive = false;
     settleMarquee.pause(0);
-    timeScaleTween?.kill();
-    timeScaleTween = null;
-    animation.timeScale(0);
+    setTimeScale(0);
   };
 
   const seekByPixels = (deltaX: number, pixelsPerSecond: number) => {
@@ -195,10 +205,9 @@ export const createMarqueeTimeScaleController = ({
   };
 
   const releaseWithVelocity = ({
-    coastDuration = gestureReleaseCoastDuration,
-    decayDuration = gestureReleaseDecayDuration,
-    decayStrength = gestureReleaseDecayStrength,
     direction,
+    duration = gestureReleaseDuration,
+    holdDuration = gestureReleaseHoldDuration,
     maxTimeScale: releaseMaxTimeScale = maxTimeScale,
     minTimeScale = minReleaseTimeScale,
     pixelsPerSecond,
@@ -213,42 +222,36 @@ export const createMarqueeTimeScaleController = ({
     });
 
     settledTimeScale = direction * normalTimeScale;
+    isGestureReleaseActive = true;
     settleMarquee.pause(0);
     timeScaleTween?.kill();
 
-    animation.timeScale(direction * releaseTimeScale);
+    const releaseState = {
+      timeScale: direction * releaseTimeScale,
+    };
 
-    const releaseState = { progress: 0 };
+    animation.timeScale(releaseState.timeScale);
     timeScaleTween = gsap
       .timeline({
         onComplete: () => {
+          isGestureReleaseActive = false;
           animation.timeScale(settledTimeScale);
         },
       })
-      .to(
-        {},
-        {
-          duration: coastDuration,
-        },
-      )
+      .to({}, { duration: holdDuration })
       .to(releaseState, {
-        duration: decayDuration,
-        ease: 'none',
+        duration,
+        ease: 'sine.out',
         onUpdate: () => {
-          const decayRatio = getExponentialDecayRatio(
-            releaseState.progress,
-            decayStrength,
-          );
-          const currentTimeScale =
-            normalTimeScale + (releaseTimeScale - normalTimeScale) * decayRatio;
-
-          animation.timeScale(direction * currentTimeScale);
+          animation.timeScale(releaseState.timeScale);
         },
-        progress: 1,
+        overwrite: true,
+        timeScale: settledTimeScale,
       });
   };
 
   const settleToDirection = (direction: MarqueeDirection) => {
+    isGestureReleaseActive = false;
     settledTimeScale = direction * normalTimeScale;
     settleMarquee.pause(0);
     tweenTimeScale(settledTimeScale, settleDuration);
@@ -271,9 +274,8 @@ export const createScrollResponsiveMarquee = ({
   animation,
   controller,
   maxTimeScale,
-  gestureReleaseCoastDuration,
-  gestureReleaseDecayDuration,
-  gestureReleaseDecayStrength,
+  gestureReleaseDuration,
+  gestureReleaseHoldDuration,
   minReleaseTimeScale,
   normalTimeScale,
   responseDuration,
@@ -285,9 +287,8 @@ export const createScrollResponsiveMarquee = ({
     controller ??
     createMarqueeTimeScaleController({
       animation,
-      gestureReleaseCoastDuration,
-      gestureReleaseDecayDuration,
-      gestureReleaseDecayStrength,
+      gestureReleaseDuration,
+      gestureReleaseHoldDuration,
       maxTimeScale,
       minReleaseTimeScale,
       normalTimeScale,
@@ -324,39 +325,66 @@ export const createGestureResponsiveMarquee = ({
   minReleaseTimeScale,
   target,
 }: GestureResponsiveMarqueeOptions) => {
+  let gestureAxis: GestureAxis = null;
   let gestureDirection: MarqueeDirection | null = null;
   let gestureLastSampleAt = 0;
-  let gestureVelocitySamples: { time: number; velocity: number }[] = [];
+  let gesturePositionSamples: GesturePositionSample[] = [];
+  let gestureOffsetX = 0;
   let gestureVelocity = 0;
   let isDragging = false;
 
-  const getRecentGestureVelocity = () => {
-    const now = Date.now();
+  const getReleaseGestureVelocity = () => {
+    const now = performance.now();
 
-    gestureVelocitySamples = gestureVelocitySamples.filter(
+    gesturePositionSamples = gesturePositionSamples.filter(
       (sample) => now - sample.time <= POINTER_RELEASE_SAMPLE_WINDOW,
     );
 
-    if (gestureVelocitySamples.length === 0) {
+    const firstSample = gesturePositionSamples[0];
+    const lastSample =
+      gesturePositionSamples[gesturePositionSamples.length - 1];
+
+    if (!firstSample || !lastSample || firstSample === lastSample) {
       return gestureVelocity;
     }
 
-    return (
-      gestureVelocitySamples.reduce(
-        (totalVelocity, sample) => totalVelocity + sample.velocity,
-        0,
-      ) / gestureVelocitySamples.length
-    );
+    const sampleDuration = (lastSample.time - firstSample.time) / 1000;
+
+    if (sampleDuration <= 0) {
+      return gestureVelocity;
+    }
+
+    return Math.abs(lastSample.x - firstSample.x) / sampleDuration;
   };
 
   const observer = Observer.create({
     allowClicks: true,
     dragMinimum: POINTER_MOVEMENT_MINIMUM,
     lockAxis: true,
+    onChangeY: (self) => {
+      if (
+        gestureAxis === null &&
+        Math.abs(self.deltaY) >= POINTER_MOVEMENT_MINIMUM &&
+        Math.abs(self.deltaY) >
+          Math.abs(self.deltaX) * POINTER_HORIZONTAL_INTENT_RATIO
+      ) {
+        gestureAxis = 'y';
+      }
+    },
     onChangeX: (self) => {
-      if (Math.abs(self.deltaX) < POINTER_MOVEMENT_MINIMUM) {
+      if (gestureAxis === 'y') {
         return;
       }
+
+      if (
+        Math.abs(self.deltaX) < POINTER_MOVEMENT_MINIMUM ||
+        Math.abs(self.deltaX) <=
+          Math.abs(self.deltaY) * POINTER_HORIZONTAL_INTENT_RATIO
+      ) {
+        return;
+      }
+
+      gestureAxis = 'x';
 
       if (!isDragging) {
         isDragging = true;
@@ -364,24 +392,27 @@ export const createGestureResponsiveMarquee = ({
       }
 
       gestureDirection = self.deltaX < 0 ? 1 : -1;
-      const now = Date.now();
+      const now = performance.now();
       const sampleDuration = (now - gestureLastSampleAt) / 1000;
       const sampleVelocity =
         sampleDuration > 0 ? Math.abs(self.deltaX) / sampleDuration : 0;
 
       gestureLastSampleAt = now;
-      gestureVelocity = Math.max(Math.abs(self.velocityX), sampleVelocity);
-      gestureVelocitySamples.push({ time: now, velocity: gestureVelocity });
-      gestureVelocitySamples = gestureVelocitySamples.filter(
+      gestureOffsetX += self.deltaX;
+      gestureVelocity = sampleVelocity || Math.abs(self.velocityX);
+      gesturePositionSamples.push({ time: now, x: gestureOffsetX });
+      gesturePositionSamples = gesturePositionSamples.filter(
         (sample) => now - sample.time <= POINTER_RELEASE_SAMPLE_WINDOW,
       );
       controller.seekByPixels(self.deltaX, getPixelsPerSecond());
     },
     onPress: () => {
+      gestureAxis = null;
       gestureDirection = null;
-      gestureLastSampleAt = Date.now();
+      gestureLastSampleAt = performance.now();
+      gestureOffsetX = 0;
       gestureVelocity = 0;
-      gestureVelocitySamples = [];
+      gesturePositionSamples = [];
       isDragging = false;
     },
     onRelease: () => {
@@ -396,7 +427,7 @@ export const createGestureResponsiveMarquee = ({
         maxTimeScale: maxReleaseTimeScale,
         minTimeScale: minReleaseTimeScale,
         pixelsPerSecond: getPixelsPerSecond(),
-        velocity: getRecentGestureVelocity(),
+        velocity: getReleaseGestureVelocity(),
       });
     },
     target,
