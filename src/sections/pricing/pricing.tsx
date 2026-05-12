@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import LessonPlanCard from './lesson-plan-card';
+import PricingSaleBadge from './pricing-sale-badge';
 import TranslationRateCard from './translation-rate-card';
 import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import pricingImage from '../../assets/img/prices/prices.png';
-import sale from '../../assets/img/prices/sale.png';
 import { clsx } from 'clsx';
 import styles from './pricing.module.css';
 
@@ -60,15 +60,6 @@ const Pricing = () => {
       id="pricing"
       className={clsx('section', styles.pricing)}
     >
-      <div className={styles.sale}>
-        <Image
-          className={styles.saleImage}
-          src={sale}
-          alt="Sale"
-          quality={100}
-          sizes="(max-width: 576px) 170px, 300px"
-        />
-      </div>
       <h2 className={clsx('title', styles.title)}>Выбери свой план</h2>
       <article className={styles.intro}>
         <Image
@@ -89,12 +80,22 @@ const Pricing = () => {
             Индивидуальные занятия на платформе Zoom
           </h3>
           <ScrollCardReveal className={clsx('gridCards', styles.cards)}>
-            {tutorCardData.map((item) => (
-              <LessonPlanCard
-                key={item.heading}
-                {...item}
-              />
-            ))}
+            {tutorCardData.map((item) =>
+              item.discount ? (
+                <div
+                  key={item.heading}
+                  className={styles.discountCardFrame}
+                >
+                  <PricingSaleBadge />
+                  <LessonPlanCard {...item} />
+                </div>
+              ) : (
+                <LessonPlanCard
+                  key={item.heading}
+                  {...item}
+                />
+              ),
+            )}
           </ScrollCardReveal>
         </div>
         <div className={clsx('stack', styles.group)}>
