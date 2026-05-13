@@ -1,37 +1,23 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background-color: transparent;
+}
+
 .mobileMenu {
   position: fixed;
-  z-index: 30;
+  z-index: 31;
   right: var(--s);
   border-radius: 28px;
   background-color: var(--neutral-0-70);
   box-shadow: var(--shadow-primary);
   backdrop-filter: blur(12px);
-}
-
-.content {
-  display: flex;
-  width: fit-content;
-  align-items: center;
-  justify-content: center;
-  padding: var(--xl);
-}
-
-.open {
   opacity: 1;
-  pointer-events: auto;
-  animation: var(--animation-name-dropdown-open) 300ms ease-in both;
-}
-
-.closed {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(110%);
-}
-
-.closing {
-  opacity: 1;
-  pointer-events: none;
-  animation: var(--animation-name-dropdown-close) 300ms ease-out both;
+  transform: translateX(0);
+  transition:
+    opacity 240ms ease-out,
+    transform 300ms ease-out;
 }
 
 .default {
@@ -40,6 +26,20 @@
 
 .fixed {
   top: 90px;
+}
+
+.mobileMenu[data-starting-style],
+.mobileMenu[data-ending-style] {
+  opacity: 0;
+  transform: translateX(110%);
+}
+
+.content {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: var(--xl);
 }
 
 @media (min-width: 577px) {
@@ -54,5 +54,11 @@
 
   .fixed {
     top: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobileMenu {
+    transition: none;
   }
 }

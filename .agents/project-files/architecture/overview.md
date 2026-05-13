@@ -4,7 +4,7 @@
 
 The app is a Next.js App Router single-page frontend. `app/layout.tsx` owns document metadata, local font loading, global CSS, Vercel Analytics, and portal roots. `app/page.tsx` composes the home page sections in order at `/`.
 
-The route is statically prerendered by Next. Browser-dependent behavior is isolated in client components for header/nav state, mobile menu portals, hero CTA annotation, testimonial carousel/dialog behavior, shared CTA buttons, and the back-to-top widget.
+The route is statically prerendered by Next. Browser-dependent behavior is isolated in client components for header/nav state, Base UI mobile menu dialog behavior, hero CTA annotation, testimonial carousel/dialog behavior, shared CTA buttons, and the back-to-top widget.
 
 ## Component Structure
 
@@ -29,6 +29,11 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 - Styles follow a mobile-first approach: base rules target the smallest supported layout, with larger layouts layered through responsive overrides.
 - The global CSS entrypoint is `app/globals.css`; shared global tokens, base styles, and animations live in `src/styles`.
 - Local Inter font files are loaded through `next/font/local` in `app/layout.tsx`.
+
+## Interaction Primitives
+
+- Base UI is the project's headless React primitive library for accessible client-side UI interactions such as dialogs and dismissible overlays.
+- Keep Base UI usage scoped to interaction semantics and lifecycle behavior; visual motion still follows the CSS/GSAP animation boundary below.
 
 ## Animation
 

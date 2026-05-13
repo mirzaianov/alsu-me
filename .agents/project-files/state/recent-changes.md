@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-05-13: Added `@base-ui/react`, moved the mobile menu to a controlled Base UI Dialog, and added a CSS-driven auto-hiding liquid-glass header dock on scroll down/up. [Reason why added: keeps the hero header layout unchanged while improving fixed-header content visibility and delegating menu focus/dismissal behavior to a headless accessibility primitive.]
 - 2026-05-13: Added animation-origin performance notes and aligned CSS/GSAP motion with them by removing `transition: all`, reducing decorative CSS loops for reduced-motion users, and changing the pricing sale badge to a one-shot ScrollTrigger reveal. [Reason why added: keeps simple animation in CSS while reserving scrubbed GSAP work for effects that need continuous scroll progress.]
 - 2026-05-13: Added a seven-day pnpm `minimumReleaseAge` policy and narrowed build-script allowances to `sharp@0.34.5` and `unrs-resolver@1.11.1`. [Reason why added: improves supply-chain guardrails while keeping required native package install scripts available for fresh installs.]
 - 2026-05-09: Made the pnpm preinstall guard accept pnpm lifecycles detected from `npm_execpath` and Vercel's missing-user-agent install environment. [Reason why added: Vercel Corepack installs can reach lifecycle scripts without a package-manager user-agent, causing the guard to fail during `pnpm install`.]
