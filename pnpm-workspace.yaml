@@ -1,7 +1,9 @@
+minimumReleaseAge: 10080
+
 overrides:
   fast-uri: 3.1.2
   postcss: 8.5.14
 
 allowBuilds:
-  sharp: true
-  unrs-resolver: true
+  sharp@0.34.5: true
+  unrs-resolver@1.11.1: true
