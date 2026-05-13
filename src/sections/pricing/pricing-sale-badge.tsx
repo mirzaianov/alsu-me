@@ -48,13 +48,21 @@ const PricingSaleBadge = () => {
               autoAlpha: 0.7,
               duration: 0.9,
               ease: 'power2.out',
+              onComplete: () => {
+                gsap.set(root, {
+                  clearProps: 'willChange',
+                });
+              },
+              onStart: () => {
+                gsap.set(root, {
+                  willChange: 'opacity, transform',
+                });
+              },
               scrollTrigger: {
-                end: 'top 55%',
-                scrub: true,
+                once: true,
                 start: 'top 90%',
                 trigger: root,
               },
-              willChange: 'opacity, transform',
               xPercent: 0,
               yPercent: -50,
             },
@@ -63,6 +71,9 @@ const PricingSaleBadge = () => {
           root.dataset.pricingSaleReveal = SALE_BADGE_REVEAL_READY_STATE;
 
           return () => {
+            gsap.set(root, {
+              clearProps: 'willChange',
+            });
             tween.kill();
           };
         },

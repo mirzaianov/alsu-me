@@ -36,6 +36,7 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 - Use GSAP for continuous loops, responsive or measurement-based motion, sequencing, timeline control, and browser-sensitive transform behavior.
 - CSS transitions and keyframes remain acceptable for simple hover states, small decorative effects, and static animations that do not need runtime measurement or timeline control.
 - GSAP setup belongs in client components and should clean up timelines/inline styles through `gsap.context(...).revert()` or an equivalent teardown.
+- Animation performance rules: animate `transform`/`opacity` where possible, avoid `transition: all`, disable decorative loops for reduced-motion users, and reserve ScrollTrigger scrub for effects that truly need scroll-position progress.
 
 ## Assets
 

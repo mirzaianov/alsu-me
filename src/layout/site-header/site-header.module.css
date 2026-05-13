@@ -14,7 +14,11 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  transition: all var(--transition-slow);
+  transition:
+    background-color var(--transition-slow),
+    border-radius var(--transition-slow),
+    box-shadow var(--transition-slow),
+    backdrop-filter var(--transition-slow);
 }
 
 .default {
