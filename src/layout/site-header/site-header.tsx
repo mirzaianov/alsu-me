@@ -11,6 +11,7 @@ import MobileMenu from '../mobile-menu/mobile-menu';
 import styles from './site-header.module.css';
 
 const headerHideDelta = 8;
+const dockHideTransitionMs = 320;
 
 const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +20,7 @@ const SiteHeader = () => {
   const previousScrollYRef = useRef(0);
   const isScrollTrackingReadyRef = useRef(false);
   const wasFixedRef = useRef(false);
+  const heroExitTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia('(min-width: 1061px)');
@@ -37,23 +39,49 @@ const SiteHeader = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const infiniteLogosSection = document.getElementById('infinite-logos');
+    const clearHeroExitTimeout = () => {
+      if (!heroExitTimeoutRef.current) {
+        return;
+      }
 
-      if (!infiniteLogosSection) {
+      clearTimeout(heroExitTimeoutRef.current);
+      heroExitTimeoutRef.current = null;
+    };
+
+    const releaseDockToHero = () => {
+      if (heroExitTimeoutRef.current) {
+        return;
+      }
+
+      const transitionDelay = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
+        ? 0
+        : dockHideTransitionMs;
+
+      heroExitTimeoutRef.current = setTimeout(() => {
+        setIsFixed(false);
+        setIsDockHidden(false);
+        heroExitTimeoutRef.current = null;
+      }, transitionDelay);
+    };
+
+    const handleScroll = () => {
+      const dockBoundary = document.getElementById('about');
+
+      if (!dockBoundary) {
         return;
       }
 
       const currentScrollY = window.scrollY;
-      const stickyPoint = infiniteLogosSection.offsetTop;
+      const stickyPoint = dockBoundary.offsetTop;
       const shouldFixHeader = currentScrollY >= stickyPoint;
       const scrollDelta = currentScrollY - previousScrollYRef.current;
       const isScrollingDown = scrollDelta > 0;
       const isScrollingUp = scrollDelta < 0;
 
-      setIsFixed(shouldFixHeader);
-
       if (!isScrollTrackingReadyRef.current) {
+        setIsFixed(shouldFixHeader);
         setIsDockHidden(false);
         previousScrollYRef.current = currentScrollY;
         isScrollTrackingReadyRef.current = true;
@@ -61,13 +89,41 @@ const SiteHeader = () => {
         return;
       }
 
-      if (!shouldFixHeader || isMenuOpen) {
+      if (isMenuOpen) {
+        clearHeroExitTimeout();
         setIsFixed(shouldFixHeader);
         setIsDockHidden(false);
         previousScrollYRef.current = currentScrollY;
         wasFixedRef.current = shouldFixHeader;
         return;
       }
+
+      if (!shouldFixHeader) {
+        if (heroExitTimeoutRef.current) {
+          setIsFixed(true);
+          setIsDockHidden(true);
+          previousScrollYRef.current = currentScrollY;
+          return;
+        }
+
+        if (wasFixedRef.current && isScrollingUp) {
+          setIsFixed(true);
+          setIsDockHidden(true);
+          previousScrollYRef.current = currentScrollY;
+          wasFixedRef.current = false;
+          releaseDockToHero();
+          return;
+        }
+
+        clearHeroExitTimeout();
+        setIsFixed(false);
+        setIsDockHidden(false);
+        previousScrollYRef.current = currentScrollY;
+        wasFixedRef.current = false;
+        return;
+      }
+
+      clearHeroExitTimeout();
 
       if (isScrollingUp) {
         setIsFixed(true);
@@ -97,6 +153,7 @@ const SiteHeader = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
+      clearHeroExitTimeout();
       window.removeEventListener('scroll', handleScroll);
     };
   }, [isMenuOpen]);
