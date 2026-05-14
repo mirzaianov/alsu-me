@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export const MARQUEE_NORMAL_TIME_SCALE = 1;
 
 const POINTER_MOVEMENT_MINIMUM = 2;
+const SCROLL_MOVEMENT_MINIMUM = 0.5;
 const DEFAULT_MAX_SCROLL_MARQUEE_TIME_SCALE = 4;
 const DEFAULT_SCROLL_VELOCITY_FOR_MAX_BOOST = 3200;
 const DEFAULT_SCROLL_RESPONSE_DURATION = 0.18;
@@ -298,10 +299,25 @@ export const createScrollResponsiveMarquee = ({
       velocityForMaxBoost,
     });
 
+  let previousScrollPosition = window.scrollY;
+
   const scrollTrigger = ScrollTrigger.create({
     end: 'max',
+    onRefresh: (self) => {
+      previousScrollPosition = self.scroll();
+    },
     onUpdate: (self) => {
-      const scrollDirection = self.direction === -1 ? -1 : 1;
+      const currentScrollPosition = self.scroll();
+      const scrollDelta = currentScrollPosition - previousScrollPosition;
+
+      previousScrollPosition = currentScrollPosition;
+
+      if (Math.abs(scrollDelta) < SCROLL_MOVEMENT_MINIMUM) {
+        return;
+      }
+
+      const scrollDirection = scrollDelta < 0 ? -1 : 1;
+
       timeScaleController.applyVelocity(
         scrollDirection,
         Math.abs(self.getVelocity()),
@@ -332,6 +348,16 @@ export const createGestureResponsiveMarquee = ({
   let gestureOffsetX = 0;
   let gestureVelocity = 0;
   let isDragging = false;
+
+  const resetGestureState = () => {
+    gestureAxis = null;
+    gestureDirection = null;
+    gestureLastSampleAt = performance.now();
+    gestureOffsetX = 0;
+    gestureVelocity = 0;
+    gesturePositionSamples = [];
+    isDragging = false;
+  };
 
   const getReleaseGestureVelocity = () => {
     const now = performance.now();
@@ -407,27 +433,27 @@ export const createGestureResponsiveMarquee = ({
       controller.seekByPixels(self.deltaX, getPixelsPerSecond());
     },
     onPress: () => {
-      gestureAxis = null;
-      gestureDirection = null;
-      gestureLastSampleAt = performance.now();
-      gestureOffsetX = 0;
-      gestureVelocity = 0;
-      gesturePositionSamples = [];
-      isDragging = false;
+      resetGestureState();
     },
     onRelease: () => {
       isDragging = false;
 
       if (!gestureDirection) {
+        resetGestureState();
         return;
       }
 
+      const releaseDirection = gestureDirection;
+      const releaseVelocity = getReleaseGestureVelocity();
+
+      resetGestureState();
+
       controller.releaseWithVelocity({
-        direction: gestureDirection,
+        direction: releaseDirection,
         maxTimeScale: maxReleaseTimeScale,
         minTimeScale: minReleaseTimeScale,
         pixelsPerSecond: getPixelsPerSecond(),
-        velocity: getReleaseGestureVelocity(),
+        velocity: releaseVelocity,
       });
     },
     target,
