@@ -39,11 +39,11 @@
   width: min(91.666667%, 1440px);
   padding: var(--xs) var(--m);
   border-radius: 999px;
-  border-color: rgba(255, 255, 255, 0.52);
-  background-color: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.84);
+  background-color: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-primary);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
 }
 
 .hidden {
