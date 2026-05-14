@@ -9,10 +9,12 @@
   position: fixed;
   z-index: 31;
   right: var(--s);
+  border: 1px solid rgba(255, 255, 255, 0.84);
   border-radius: 28px;
-  background-color: var(--neutral-0-70);
+  background-color: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-primary);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
   opacity: 1;
   transform: translateX(0);
   transition:
