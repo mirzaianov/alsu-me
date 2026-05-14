@@ -10,12 +10,14 @@
 }
 
 .shell {
+  --header-translate-x: 0;
+
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   border: 1px solid transparent;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(var(--header-translate-x), 0, 0);
   transition:
     background-color var(--transition-slow),
     border-radius var(--transition-slow),
@@ -26,14 +28,18 @@
     -webkit-backdrop-filter var(--transition-slow);
 }
 
-.default {
+.heroShell {
   position: absolute;
   padding-inline: var(--s);
 }
 
-.fixed {
+.dockbar {
+  --header-translate-x: -50%;
+
   position: fixed;
+  z-index: 30;
   top: var(--s);
+  left: 50%;
   width: min(91.666667%, 1440px);
   padding: var(--xs) var(--m);
   border-radius: 999px;
@@ -46,7 +52,11 @@
 
 .hidden {
   pointer-events: none;
-  transform: translate3d(0, calc(-100% - var(--xl)), 0);
+  transform: translate3d(
+    var(--header-translate-x),
+    calc(-100% - var(--xl)),
+    0
+  );
 }
 
 .brand {
@@ -84,11 +94,11 @@
     margin-top: var(--xl);
   }
 
-  .default {
+  .heroShell {
     padding-inline: var(--xl);
   }
 
-  .fixed {
+  .dockbar {
     top: var(--m);
     padding-block: var(--s);
   }
@@ -107,7 +117,7 @@
     max-width: var(--container-wide);
   }
 
-  .default {
+  .heroShell {
     padding-inline: var(--3xl);
   }
 

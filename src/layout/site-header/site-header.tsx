@@ -11,14 +11,45 @@ import MobileMenu from '../mobile-menu/mobile-menu';
 import styles from './site-header.module.css';
 
 const headerHideDelta = 8;
+const dockHideTransitionMs = 320;
+
+type HeaderContentProps = {
+  isMenuOpen: boolean;
+};
+
+const HeaderContent = ({ isMenuOpen }: HeaderContentProps) => (
+  <>
+    <div className={styles.brand}>
+      <BrandLogo />
+    </div>
+    <div className={clsx(styles.navSlot, styles.desktopNav)}>
+      <SiteNav type="inline" />
+    </div>
+    <div className={styles.action}>
+      <div className={styles.mobileAction}>
+        <Dialog.Trigger render={<MenuToggle isMenuOpen={isMenuOpen} />} />
+      </div>
+      <div className={styles.desktopAction}>
+        <Button
+          ariaLabel="Записаться"
+          type="secondary"
+          link="https://t.me/sue_onlineenglish"
+        >
+          <span>Записаться</span>
+        </Button>
+      </div>
+    </div>
+  </>
+);
 
 const SiteHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFixed, setIsFixed] = useState(false);
-  const [isDockHidden, setIsDockHidden] = useState(false);
+  const [isDockbarActive, setIsDockbarActive] = useState(false);
+  const [isDockbarHidden, setIsDockbarHidden] = useState(true);
   const previousScrollYRef = useRef(0);
   const isScrollTrackingReadyRef = useRef(false);
-  const wasFixedRef = useRef(false);
+  const wasInDockZoneRef = useRef(false);
+  const heroReleaseTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia('(min-width: 1061px)');
@@ -37,6 +68,35 @@ const SiteHeader = () => {
   }, []);
 
   useEffect(() => {
+    const clearHeroReleaseTimeout = () => {
+      if (heroReleaseTimeoutRef.current === null) {
+        return;
+      }
+
+      window.clearTimeout(heroReleaseTimeoutRef.current);
+      heroReleaseTimeoutRef.current = null;
+    };
+
+    const setDockbarState = (isActive: boolean, isHidden: boolean) => {
+      setIsDockbarActive(isActive);
+      setIsDockbarHidden(isHidden);
+    };
+
+    const releaseDockToHero = () => {
+      clearHeroReleaseTimeout();
+
+      const transitionDelay = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
+        ? 0
+        : dockHideTransitionMs;
+
+      heroReleaseTimeoutRef.current = window.setTimeout(() => {
+        setDockbarState(false, true);
+        heroReleaseTimeoutRef.current = null;
+      }, transitionDelay);
+    };
+
     const handleScroll = () => {
       const dockBoundary = document.getElementById('about');
 
@@ -46,67 +106,86 @@ const SiteHeader = () => {
 
       const currentScrollY = window.scrollY;
       const stickyPoint = dockBoundary.offsetTop;
-      const shouldFixHeader = currentScrollY >= stickyPoint;
+      const isInDockZone = currentScrollY >= stickyPoint;
       const scrollDelta = currentScrollY - previousScrollYRef.current;
       const isScrollingDown = scrollDelta > 0;
       const isScrollingUp = scrollDelta < 0;
 
       if (!isScrollTrackingReadyRef.current) {
-        setIsFixed(shouldFixHeader);
-        setIsDockHidden(false);
+        setDockbarState(isInDockZone, !isInDockZone);
         previousScrollYRef.current = currentScrollY;
         isScrollTrackingReadyRef.current = true;
-        wasFixedRef.current = shouldFixHeader;
+        wasInDockZoneRef.current = isInDockZone;
         return;
       }
 
       if (isMenuOpen) {
-        setIsFixed(shouldFixHeader);
-        setIsDockHidden(false);
+        clearHeroReleaseTimeout();
+        setDockbarState(isInDockZone, !isInDockZone);
         previousScrollYRef.current = currentScrollY;
-        wasFixedRef.current = shouldFixHeader;
+        wasInDockZoneRef.current = isInDockZone;
         return;
       }
 
-      if (!shouldFixHeader) {
-        setIsFixed(false);
-        setIsDockHidden(false);
+      if (!isInDockZone) {
+        if (heroReleaseTimeoutRef.current !== null) {
+          setDockbarState(true, true);
+          previousScrollYRef.current = currentScrollY;
+          wasInDockZoneRef.current = false;
+          return;
+        }
+
+        if (wasInDockZoneRef.current && isScrollingUp) {
+          setDockbarState(true, true);
+          previousScrollYRef.current = currentScrollY;
+          wasInDockZoneRef.current = false;
+          releaseDockToHero();
+          return;
+        }
+
+        setDockbarState(false, true);
         previousScrollYRef.current = currentScrollY;
-        wasFixedRef.current = false;
+        wasInDockZoneRef.current = false;
         return;
       }
+
+      clearHeroReleaseTimeout();
 
       if (isScrollingUp) {
-        setIsFixed(true);
-        setIsDockHidden(false);
+        setDockbarState(true, false);
         previousScrollYRef.current = currentScrollY;
-        wasFixedRef.current = true;
+        wasInDockZoneRef.current = true;
         return;
       }
 
-      if (!wasFixedRef.current && isScrollingDown) {
-        setIsFixed(false);
-        setIsDockHidden(true);
+      if (!wasInDockZoneRef.current && isScrollingDown) {
+        setDockbarState(true, true);
         previousScrollYRef.current = currentScrollY;
+        wasInDockZoneRef.current = true;
         return;
       }
 
       if (Math.abs(scrollDelta) < headerHideDelta) {
+        wasInDockZoneRef.current = true;
         return;
       }
 
-      setIsDockHidden(scrollDelta > 0);
+      setDockbarState(true, scrollDelta > 0);
       previousScrollYRef.current = currentScrollY;
-      wasFixedRef.current = true;
+      wasInDockZoneRef.current = true;
     };
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
+      clearHeroReleaseTimeout();
       window.removeEventListener('scroll', handleScroll);
     };
   }, [isMenuOpen]);
+
+  const isDockbarInteractive = isDockbarActive && !isDockbarHidden;
+  const isHeroHeaderInteractive = !isDockbarActive;
 
   return (
     <Dialog.Root
@@ -116,43 +195,31 @@ const SiteHeader = () => {
       <header
         id="header"
         className={styles.header}
+        aria-hidden={isHeroHeaderInteractive ? undefined : true}
+        inert={isHeroHeaderInteractive ? undefined : true}
       >
-        <div
-          className={clsx(
-            styles.shell,
-            isFixed ? styles.fixed : styles.default,
-            isDockHidden && styles.hidden,
-          )}
-          onFocusCapture={() => setIsDockHidden(false)}
-        >
-          <div className={styles.brand}>
-            <BrandLogo />
-          </div>
-          <div className={clsx(styles.navSlot, styles.desktopNav)}>
-            <SiteNav type="inline" />
-          </div>
-          <div className={styles.action}>
-            <div className={styles.mobileAction}>
-              <Dialog.Trigger render={<MenuToggle isMenuOpen={isMenuOpen} />} />
-            </div>
-            <div className={styles.desktopAction}>
-              <Button
-                ariaLabel="Записаться"
-                type="secondary"
-                link="https://t.me/sue_onlineenglish"
-              >
-                <span>Записаться</span>
-              </Button>
-            </div>
-          </div>
-          <MobileMenu isFixed={isFixed}>
-            <SiteNav
-              type="block-1"
-              onNavigate={() => setIsMenuOpen(false)}
-            />
-          </MobileMenu>
+        <div className={clsx(styles.shell, styles.heroShell)}>
+          <HeaderContent isMenuOpen={isMenuOpen} />
         </div>
       </header>
+      <div
+        className={clsx(
+          styles.shell,
+          styles.dockbar,
+          isDockbarHidden && styles.hidden,
+        )}
+        aria-hidden={isDockbarInteractive ? undefined : true}
+        inert={isDockbarInteractive ? undefined : true}
+        onFocusCapture={() => setIsDockbarHidden(false)}
+      >
+        <HeaderContent isMenuOpen={isMenuOpen} />
+      </div>
+      <MobileMenu isFixed={isDockbarActive}>
+        <SiteNav
+          type="block-1"
+          onNavigate={() => setIsMenuOpen(false)}
+        />
+      </MobileMenu>
     </Dialog.Root>
   );
 };
