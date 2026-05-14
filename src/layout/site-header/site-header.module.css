@@ -15,14 +15,12 @@
   align-items: center;
   justify-content: space-between;
   border: 1px solid transparent;
-  opacity: 1;
   transform: translate3d(0, 0, 0);
   transition:
     background-color var(--transition-slow),
     border-radius var(--transition-slow),
     border-color var(--transition-slow),
     box-shadow var(--transition-slow),
-    opacity 260ms ease-out,
     transform 320ms ease-out,
     backdrop-filter var(--transition-slow),
     -webkit-backdrop-filter var(--transition-slow);
@@ -47,7 +45,6 @@
 }
 
 .hidden {
-  opacity: 0;
   pointer-events: none;
   transform: translate3d(0, calc(-100% - var(--xl)), 0);
 }
