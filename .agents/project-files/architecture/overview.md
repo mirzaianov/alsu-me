@@ -42,7 +42,7 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 - CSS transitions and keyframes remain acceptable for simple hover states, small decorative effects, and static animations that do not need runtime measurement or timeline control.
 - GSAP setup belongs in client components and should clean up timelines/inline styles through `gsap.context(...).revert()` or an equivalent teardown.
 - Infinite marquees and carousel loops should use pixels per second as the source of truth, with timeline duration derived from measured loop width. This keeps content length and responsive layout changes from silently changing the intended motion pace.
-- Text-heavy carousel cards should use responsive speed targets because the same pixel speed covers a larger share of a smaller viewport and feels faster on mobile. Current testimonial targets are 20px/s on mobile, 28px/s on tablet, and 44px/s on desktop.
+- Horizontal marquee surfaces should share responsive speed targets where visual consistency matters. Current hero logo and testimonial carousel targets are 20px/s on mobile, 28px/s on tablet, and 44px/s on desktop.
 - Autoplaying carousel content needs user control and motion restraint: respect reduced motion, pause when a user opens card content, and treat explicit pause/stop or hover/focus pause behavior as required before adding more moving testimonial surfaces.
 - Animation performance rules: animate `transform`/`opacity` where possible, avoid `transition: all`, disable decorative loops for reduced-motion users, and reserve ScrollTrigger scrub for effects that truly need scroll-position progress.
 

@@ -13,20 +13,13 @@ import {
   keepMarqueeLoopingInReverse,
   MARQUEE_NORMAL_TIME_SCALE,
 } from '../../utils/gsap/scroll-responsive-marquee';
+import {
+  getResponsiveMarqueeSpeed,
+  responsiveMarqueeMediaQueries,
+} from '../../utils/gsap/responsive-marquee-speed';
 import styles from './testimonial-carousel.module.css';
 import rowStyles from './testimonial-row.module.css';
 
-const testimonialCarouselSpeeds = {
-  desktop: 44,
-  mobile: 20,
-  tablet: 28,
-} as const;
-const testimonialCarouselQueries = {
-  desktop: '(prefers-reduced-motion: no-preference) and (min-width: 1061px)',
-  mobile: '(prefers-reduced-motion: no-preference) and (max-width: 576px)',
-  tablet:
-    '(prefers-reduced-motion: no-preference) and (min-width: 577px) and (max-width: 1060px)',
-} as const;
 const testimonialGestureMaxReleaseTimeScale = 96;
 
 gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
@@ -55,9 +48,6 @@ const TestimonialCarousel = () => {
 
       const media = gsap.matchMedia();
 
-      media.add('(prefers-reduced-motion: reduce)', () => {
-        gsap.set(rows, { xPercent: 0 });
-      });
       const createResponsiveCarousel = (pixelsPerSecond: number) => {
         const carouselDuration = rows[0].offsetWidth / pixelsPerSecond;
 
@@ -114,15 +104,32 @@ const TestimonialCarousel = () => {
         };
       };
 
-      media.add(testimonialCarouselQueries.mobile, () => {
-        return createResponsiveCarousel(testimonialCarouselSpeeds.mobile);
-      });
-      media.add(testimonialCarouselQueries.tablet, () => {
-        return createResponsiveCarousel(testimonialCarouselSpeeds.tablet);
-      });
-      media.add(testimonialCarouselQueries.desktop, () => {
-        return createResponsiveCarousel(testimonialCarouselSpeeds.desktop);
-      });
+      media.add(
+        {
+          isDesktop: responsiveMarqueeMediaQueries.desktop,
+          isMobile: responsiveMarqueeMediaQueries.mobile,
+          isTablet: responsiveMarqueeMediaQueries.tablet,
+          reduceMotion: '(prefers-reduced-motion: reduce)',
+        },
+        (context) => {
+          const { isDesktop, isTablet, reduceMotion } = context.conditions as {
+            isDesktop: boolean;
+            isTablet: boolean;
+            reduceMotion: boolean;
+          };
+
+          gsap.set(rows, { xPercent: 0 });
+
+          if (reduceMotion) {
+            return;
+          }
+
+          return createResponsiveCarousel(
+            getResponsiveMarqueeSpeed({ isDesktop, isTablet }),
+          );
+        },
+        root,
+      );
 
       return () => {
         media.revert();

@@ -10,6 +10,10 @@ import {
   keepMarqueeLoopingInReverse,
   MARQUEE_NORMAL_TIME_SCALE,
 } from '../../utils/gsap/scroll-responsive-marquee';
+import {
+  getResponsiveMarqueeSpeed,
+  responsiveMarqueeMediaQueries,
+} from '../../utils/gsap/responsive-marquee-speed';
 import kamaz from '../../assets/icons/logos/logo-kamaz.svg';
 import knorr from '../../assets/icons/logos/logo-knorr.svg';
 import bendix from '../../assets/icons/logos/logo-bendix.svg';
@@ -55,8 +59,6 @@ const logos = [
   },
 ];
 
-const mobileAndTabletPixelsPerSecond = 35;
-const desktopPixelsPerSecond = 50;
 const visualLogoSetCount = 3;
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -85,13 +87,15 @@ const LogoMarquee = () => {
 
       media.add(
         {
-          isDesktop: '(min-width: 1061px)',
-          isMobileOrTablet: '(max-width: 1060px)',
+          isDesktop: responsiveMarqueeMediaQueries.desktop,
+          isMobile: responsiveMarqueeMediaQueries.mobile,
+          isTablet: responsiveMarqueeMediaQueries.tablet,
           reduceMotion: '(prefers-reduced-motion: reduce)',
         },
         (context) => {
-          const { isDesktop, reduceMotion } = context.conditions as {
+          const { isDesktop, isTablet, reduceMotion } = context.conditions as {
             isDesktop: boolean;
+            isTablet: boolean;
             reduceMotion: boolean;
           };
 
@@ -101,9 +105,10 @@ const LogoMarquee = () => {
             return;
           }
 
-          const pixelsPerSecond = isDesktop
-            ? desktopPixelsPerSecond
-            : mobileAndTabletPixelsPerSecond;
+          const pixelsPerSecond = getResponsiveMarqueeSpeed({
+            isDesktop,
+            isTablet,
+          });
 
           const widths: number[] = [];
           const xPercents: number[] = [];
