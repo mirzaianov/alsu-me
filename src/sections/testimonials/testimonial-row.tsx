@@ -88,13 +88,18 @@ const testimonialCardData = [
   },
 ];
 
+const testimonialEntranceStagger = 0.08;
+
 type TestimonialRowProps = {
   setIsInfiniteScroll: Dispatch<SetStateAction<boolean>>;
 };
 
 const TestimonialRow = ({ setIsInfiniteScroll }: TestimonialRowProps) => {
   return (
-    <ScrollCardReveal className={styles.testimonialCardsRow}>
+    <ScrollCardReveal
+      className={styles.testimonialCardsRow}
+      stagger={testimonialEntranceStagger}
+    >
       {testimonialCardData.map((item, index) => (
         <div
           key={`${index}-${item.fullName}`}

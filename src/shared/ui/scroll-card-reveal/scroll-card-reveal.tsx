@@ -11,6 +11,7 @@ type ScrollCardRevealProps = {
   as?: 'div' | 'ul';
   children: ReactNode;
   className?: string;
+  stagger?: number;
 };
 
 const CARD_REVEAL_DURATION = 0.75;
@@ -24,6 +25,7 @@ const ScrollCardReveal = ({
   as = 'div',
   children,
   className,
+  stagger = CARD_REVEAL_STAGGER,
 }: ScrollCardRevealProps) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const setRootRef = (node: HTMLElement | null) => {
@@ -71,7 +73,7 @@ const ScrollCardReveal = ({
               overwrite: 'auto',
               scale: 1,
               stagger: {
-                each: CARD_REVEAL_STAGGER,
+                each: stagger,
                 from: 'start',
               },
               scrollTrigger: {
