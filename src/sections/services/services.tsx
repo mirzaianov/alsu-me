@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ServiceCard from './service-card';
 import Badge from '../../shared/ui/badge/badge';
+import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import tutor from '../../assets/img/services/tutor.png';
 import translator from '../../assets/img/services/translator.png';
 import uk from '../../assets/icons/uk.svg';
@@ -80,8 +81,11 @@ const Services = () => {
       <article className={styles.badgeGroups}>
         <div className={clsx('stack', styles.badgeGroup)}>
           <h3 className={styles.subtitle}>Прокачаю все 4 навыка</h3>
-          <ul className={styles.badgeList}>
-            <li className={clsx(styles.badgeItem, styles.badgeItem1)}>
+          <ScrollCardReveal
+            as="ul"
+            className={styles.badgeList}
+          >
+            <li className={styles.badgeItem1}>
               <Badge
                 alt="The flag of the United States of America"
                 text="Speaking"
@@ -89,7 +93,7 @@ const Services = () => {
                 type="secondary-15"
               />
             </li>
-            <li className={clsx(styles.badgeItem, styles.badgeItem2)}>
+            <li className={styles.badgeItem2}>
               <Badge
                 alt="The flag of the United Kingdom"
                 text="Writing"
@@ -97,7 +101,7 @@ const Services = () => {
                 type="secondary-25"
               />
             </li>
-            <li className={clsx(styles.badgeItem, styles.badgeItem3)}>
+            <li className={styles.badgeItem3}>
               <Badge
                 alt="The flag of the United Kingdom"
                 text="Listening"
@@ -105,7 +109,7 @@ const Services = () => {
                 type="secondary-45"
               />
             </li>
-            <li className={clsx(styles.badgeItem, styles.badgeItem4)}>
+            <li className={styles.badgeItem4}>
               <Badge
                 alt="The flag of the United States of America"
                 text="Reading"
@@ -113,12 +117,15 @@ const Services = () => {
                 type="secondary-55"
               />
             </li>
-          </ul>
+          </ScrollCardReveal>
         </div>
         <div className={clsx('stack', styles.badgeGroupAlt)}>
           <h3 className={styles.subtitle}>Подготовлю к любым целям</h3>
-          <ul className={styles.badgeList}>
-            <li className={clsx(styles.badgeItem, styles.badgeItem1)}>
+          <ScrollCardReveal
+            as="ul"
+            className={styles.badgeList}
+          >
+            <li className={styles.badgeItem1}>
               <Badge
                 alt="The flag of the United States of America"
                 text="Travel"
@@ -126,7 +133,7 @@ const Services = () => {
                 type="secondary-15"
               />
             </li>
-            <li className={clsx(styles.badgeItem, styles.badgeItem2)}>
+            <li className={styles.badgeItem2}>
               <Badge
                 alt="The flag of the United Kingdom"
                 text="General"
@@ -134,7 +141,7 @@ const Services = () => {
                 type="secondary-25"
               />
             </li>
-            <li className={clsx(styles.badgeItem, styles.badgeItem3)}>
+            <li className={styles.badgeItem3}>
               <Badge
                 alt="The flag of the United Kingdom"
                 text="Business"
@@ -142,7 +149,7 @@ const Services = () => {
                 type="secondary-45"
               />
             </li>
-            <li className={clsx(styles.badgeItem, styles.badgeItem4)}>
+            <li className={styles.badgeItem4}>
               <Badge
                 alt="The flag of the United States of America"
                 text="Education"
@@ -150,19 +157,19 @@ const Services = () => {
                 type="secondary-55"
               />
             </li>
-          </ul>
+          </ScrollCardReveal>
         </div>
       </article>
       <article className={clsx('stack', styles.servicesGroup)}>
         <h3 className={styles.subtitle}>Базовые услуги</h3>
-        <div className={clsx('gridCards', styles.cards)}>
+        <ScrollCardReveal className={clsx('gridCards', styles.cards)}>
           {serviceCardData.map((item) => (
             <ServiceCard
               key={item.alt}
               {...item}
             />
           ))}
-        </div>
+        </ScrollCardReveal>
       </article>
     </section>
   );

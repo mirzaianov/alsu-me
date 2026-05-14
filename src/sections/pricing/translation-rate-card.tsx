@@ -1,5 +1,5 @@
 import Button from '../../shared/ui/button/button';
-import addSpacesToNumber from '../../utils/add-spaces-to-numbers';
+import addSpacesToNumber from '../../utils/numbers/add-spaces-to-numbers';
 import styles from './translation-rate-card.module.css';
 
 type TranslationRateCardProps = {

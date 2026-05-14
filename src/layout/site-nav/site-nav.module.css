@@ -15,6 +15,8 @@
 }
 
 .block-1 {
+  --mobile-menu-touch-target: 48px;
+
   grid-template-areas:
     'hero'
     'about'
@@ -23,7 +25,7 @@
     'testimonials'
     'contact';
   justify-content: start;
-  gap: var(--l);
+  gap: var(--xs);
 }
 
 .block-2 {
@@ -86,8 +88,20 @@
   transition: color var(--transition-primary);
 }
 
+.block-1 .link {
+  display: flex;
+  width: 100%;
+  min-height: var(--mobile-menu-touch-target);
+  align-items: center;
+}
+
 .link:hover {
   color: var(--text-90-50);
+}
+
+.linkLabel {
+  position: relative;
+  display: inline-block;
 }
 
 .underline {

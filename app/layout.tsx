@@ -83,8 +83,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       className={inter.variable}
     >
       <body>
-        {children}
-        <div id="mobile-menu" />
+        <div className="appRoot">{children}</div>
         <div id="testimonial-dialog" />
         {isProduction ? <Analytics /> : null}
       </body>

@@ -29,13 +29,6 @@
   max-width: var(--mobile-text-wrapper);
 }
 
-.copy p {
-  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
-  animation-timeline: view();
-  animation-range-start: entry 120px;
-  animation-range-end: cover 240px;
-}
-
 .emphasis {
   font-weight: 700;
   text-wrap: pretty;
@@ -72,29 +65,6 @@
   grid-template-columns: 1fr;
   justify-items: center;
   gap: var(--s);
-}
-
-.badgeItem {
-  transform-origin: center;
-  animation-duration: 800ms;
-  animation-timing-function: ease-out;
-  animation-fill-mode: both;
-}
-
-.badgeItem1 {
-  animation-name: var(--animation-name-expand-1);
-}
-
-.badgeItem2 {
-  animation-name: var(--animation-name-expand-2);
-}
-
-.badgeItem3 {
-  animation-name: var(--animation-name-expand-3);
-}
-
-.badgeItem4 {
-  animation-name: var(--animation-name-expand-4);
 }
 
 .servicesGroup {
@@ -154,22 +124,18 @@
 
   .badgeItem1 {
     justify-self: end;
-    animation-name: var(--animation-name-expand-1-tablet);
   }
 
   .badgeItem2 {
     justify-self: start;
-    animation-name: var(--animation-name-expand-2-tablet);
   }
 
   .badgeItem3 {
     justify-self: end;
-    animation-name: var(--animation-name-expand-3-tablet);
   }
 
   .badgeItem4 {
     justify-self: start;
-    animation-name: var(--animation-name-expand-4-tablet);
   }
 
   .cards {
@@ -226,33 +192,7 @@
     justify-self: center;
   }
 
-  .badgeItem1 {
-    animation-name: var(--animation-name-expand-1-desktop);
-  }
-
-  .badgeItem2 {
-    animation-name: var(--animation-name-expand-2-desktop);
-  }
-
-  .badgeItem3 {
-    animation-name: var(--animation-name-expand-3-desktop);
-  }
-
-  .badgeItem4 {
-    animation-name: var(--animation-name-expand-4-desktop);
-  }
-
   .cards {
     --grid-gap: var(--2xl);
-  }
-}
-
-@supports (animation-timeline: view()) {
-  .badgeItem {
-    animation-timeline: view();
-    animation-range-start: 20%;
-    animation-range-end: 50%;
-    animation-duration: auto;
-    animation-timing-function: linear;
   }
 }

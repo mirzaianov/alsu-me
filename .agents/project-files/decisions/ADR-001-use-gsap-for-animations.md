@@ -26,6 +26,15 @@ keyframes. Use GSAP when animation behavior depends on rendered measurements,
 continuous looping, sequencing, timeline control, or browser-sensitive transform
 handling.
 
+Performance-sensitive animation rules:
+
+- Prefer `transform` and `opacity` for both CSS and GSAP motion.
+- Do not use `transition: all`; list the exact properties that should animate.
+- Decorative CSS loops must respect `prefers-reduced-motion`.
+- Use ScrollTrigger scrub only when animation progress must track scroll
+  position. One-shot reveals should play once and then release temporary
+  performance hints such as `will-change`.
+
 ## Alternatives Considered
 
 ### CSS Keyframes
@@ -57,3 +66,6 @@ handling.
   browser or maintenance issues.
 - GSAP timeline setup belongs in client components and must clean up with
   `gsap.context(...).revert()` or equivalent teardown.
+- Finite GSAP reveals should avoid permanent `will-change` and should prefer
+  one-shot ScrollTrigger behavior unless the design needs continuous scroll
+  progress.
