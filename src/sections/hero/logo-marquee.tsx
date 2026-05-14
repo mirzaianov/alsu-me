@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ClientLogo from './client-logo';
 import {
   createScrollResponsiveMarquee,
+  createViewportPausedAnimation,
   keepMarqueeLoopingInReverse,
   MARQUEE_NORMAL_TIME_SCALE,
 } from '../../utils/gsap/scroll-responsive-marquee';
@@ -186,7 +187,20 @@ const LogoMarquee = () => {
             .progress(0, true)
             .timeScale(MARQUEE_NORMAL_TIME_SCALE);
 
-          return createScrollResponsiveMarquee({ animation: timeline });
+          const viewportAnimation = createViewportPausedAnimation({
+            animation: timeline,
+            trigger: track,
+          });
+          const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
+            animation: timeline,
+            isActive: viewportAnimation.isActive,
+          });
+
+          return () => {
+            cleanupScrollResponsiveMarquee();
+            viewportAnimation.kill();
+            timeline.kill();
+          };
         },
         track,
       );

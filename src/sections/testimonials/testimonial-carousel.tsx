@@ -10,6 +10,7 @@ import {
   createGestureResponsiveMarquee,
   createMarqueeTimeScaleController,
   createScrollResponsiveMarquee,
+  createViewportPausedAnimation,
   keepMarqueeLoopingInReverse,
   MARQUEE_NORMAL_TIME_SCALE,
 } from '../../utils/gsap/scroll-responsive-marquee';
@@ -27,7 +28,8 @@ gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
 const TestimonialCarousel = () => {
   const [isInfiniteScroll, setIsInfiniteScroll] = useState<boolean>(true);
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const isInfiniteScrollRef = useRef(isInfiniteScroll);
+  const syncTimelinePausedRef = useRef<(() => void) | null>(null);
 
   useGSAP(
     () => {
@@ -75,14 +77,20 @@ const TestimonialCarousel = () => {
           .progress(0, true)
           .timeScale(MARQUEE_NORMAL_TIME_SCALE);
 
-        timelineRef.current = timeline;
-
         const timeScaleController = createMarqueeTimeScaleController({
           animation: timeline,
         });
+        const viewportAnimation = createViewportPausedAnimation({
+          animation: timeline,
+          isPaused: () => !isInfiniteScrollRef.current,
+          trigger: root,
+        });
+        syncTimelinePausedRef.current = viewportAnimation.sync;
+
         const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
           animation: timeline,
           controller: timeScaleController,
+          isActive: viewportAnimation.isActive,
         });
         const cleanupGestureResponsiveMarquee = createGestureResponsiveMarquee({
           controller: timeScaleController,
@@ -94,13 +102,16 @@ const TestimonialCarousel = () => {
         const cleanupResponsiveControls = () => {
           cleanupScrollResponsiveMarquee();
           cleanupGestureResponsiveMarquee();
+          viewportAnimation.kill();
           timeScaleController.kill();
         };
 
         return () => {
           cleanupResponsiveControls();
           timeline.kill();
-          timelineRef.current = null;
+          if (syncTimelinePausedRef.current === viewportAnimation.sync) {
+            syncTimelinePausedRef.current = null;
+          }
         };
       };
 
@@ -139,7 +150,8 @@ const TestimonialCarousel = () => {
   );
 
   useEffect(() => {
-    timelineRef.current?.paused(!isInfiniteScroll);
+    isInfiniteScrollRef.current = isInfiniteScroll;
+    syncTimelinePausedRef.current?.();
   }, [isInfiniteScroll]);
 
   return (

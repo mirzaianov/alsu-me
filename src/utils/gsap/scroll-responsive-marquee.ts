@@ -23,6 +23,7 @@ type ScrollResponsiveMarqueeOptions = {
   controller?: MarqueeTimeScaleController;
   gestureReleaseDuration?: number;
   gestureReleaseHoldDuration?: number;
+  isActive?: () => boolean;
   maxTimeScale?: number;
   minReleaseTimeScale?: number;
   normalTimeScale?: number;
@@ -38,6 +39,12 @@ type GestureResponsiveMarqueeOptions = {
   maxReleaseTimeScale?: number;
   minReleaseTimeScale?: number;
   target: Element;
+};
+
+type ViewportPausedAnimationOptions = {
+  animation: gsap.core.Animation;
+  isPaused?: () => boolean;
+  trigger: Element;
 };
 
 type MarqueeDirection = -1 | 1;
@@ -121,6 +128,45 @@ export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
       timeline.rawTime() + timeline.duration() * REVERSE_LOOP_OFFSET_MULTIPLIER,
     );
   });
+};
+
+export const createViewportPausedAnimation = ({
+  animation,
+  isPaused,
+  trigger,
+}: ViewportPausedAnimationOptions) => {
+  let isInView = ScrollTrigger.isInViewport(trigger);
+
+  const sync = () => {
+    animation.paused(!isInView || Boolean(isPaused?.()));
+  };
+
+  const setInView = (nextIsInView: boolean) => {
+    isInView = nextIsInView;
+    sync();
+  };
+
+  const viewportTrigger = ScrollTrigger.create({
+    end: 'bottom top',
+    onRefresh: (self) => {
+      setInView(self.isActive);
+    },
+    onToggle: (self) => {
+      setInView(self.isActive);
+    },
+    start: 'top bottom',
+    trigger,
+  });
+
+  setInView(viewportTrigger.isActive || ScrollTrigger.isInViewport(trigger));
+
+  return {
+    isActive: () => isInView && !Boolean(isPaused?.()),
+    kill: () => {
+      viewportTrigger.kill();
+    },
+    sync,
+  };
 };
 
 export const createMarqueeTimeScaleController = ({
@@ -274,6 +320,7 @@ export const createMarqueeTimeScaleController = ({
 export const createScrollResponsiveMarquee = ({
   animation,
   controller,
+  isActive,
   maxTimeScale,
   gestureReleaseDuration,
   gestureReleaseHoldDuration,
@@ -311,6 +358,10 @@ export const createScrollResponsiveMarquee = ({
       const scrollDelta = currentScrollPosition - previousScrollPosition;
 
       previousScrollPosition = currentScrollPosition;
+
+      if (isActive && !isActive()) {
+        return;
+      }
 
       if (Math.abs(scrollDelta) < SCROLL_MOVEMENT_MINIMUM) {
         return;
