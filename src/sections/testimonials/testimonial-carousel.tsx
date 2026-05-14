@@ -16,7 +16,17 @@ import {
 import styles from './testimonial-carousel.module.css';
 import rowStyles from './testimonial-row.module.css';
 
-const testimonialCarouselDuration = 120;
+const testimonialCarouselSpeeds = {
+  desktop: 44,
+  mobile: 20,
+  tablet: 28,
+} as const;
+const testimonialCarouselQueries = {
+  desktop: '(prefers-reduced-motion: no-preference) and (min-width: 1061px)',
+  mobile: '(prefers-reduced-motion: no-preference) and (max-width: 576px)',
+  tablet:
+    '(prefers-reduced-motion: no-preference) and (min-width: 577px) and (max-width: 1060px)',
+} as const;
 const testimonialGestureMaxReleaseTimeScale = 96;
 
 gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
@@ -48,61 +58,71 @@ const TestimonialCarousel = () => {
       media.add('(prefers-reduced-motion: reduce)', () => {
         gsap.set(rows, { xPercent: 0 });
       });
-      media.add(
-        '(prefers-reduced-motion: no-preference)',
-        () => {
-          const timeline = gsap
-            .timeline({
-              repeat: -1,
-              defaults: { ease: 'none' },
-            })
-            .to(
-              rows,
-              {
-                duration: testimonialCarouselDuration,
-                xPercent: -100,
-              },
-              0,
-            );
+      const createResponsiveCarousel = (pixelsPerSecond: number) => {
+        const carouselDuration = rows[0].offsetWidth / pixelsPerSecond;
 
-          keepMarqueeLoopingInReverse(timeline);
-          timeline
-            .progress(1, true)
-            .progress(0, true)
-            .timeScale(MARQUEE_NORMAL_TIME_SCALE);
+        if (!Number.isFinite(carouselDuration) || carouselDuration <= 0) {
+          return;
+        }
 
-          timelineRef.current = timeline;
+        const timeline = gsap
+          .timeline({
+            repeat: -1,
+            defaults: { ease: 'none' },
+          })
+          .to(
+            rows,
+            {
+              duration: carouselDuration,
+              xPercent: -100,
+            },
+            0,
+          );
 
-          const timeScaleController = createMarqueeTimeScaleController({
-            animation: timeline,
-          });
-          const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
-            animation: timeline,
-            controller: timeScaleController,
-          });
-          const cleanupGestureResponsiveMarquee =
-            createGestureResponsiveMarquee({
-              controller: timeScaleController,
-              getPixelsPerSecond: () =>
-                rows[0].offsetWidth / testimonialCarouselDuration,
-              maxReleaseTimeScale: testimonialGestureMaxReleaseTimeScale,
-              target: root,
-            });
+        keepMarqueeLoopingInReverse(timeline);
+        timeline
+          .progress(1, true)
+          .progress(0, true)
+          .timeScale(MARQUEE_NORMAL_TIME_SCALE);
 
-          const cleanupResponsiveControls = () => {
-            cleanupScrollResponsiveMarquee();
-            cleanupGestureResponsiveMarquee();
-            timeScaleController.kill();
-          };
+        timelineRef.current = timeline;
 
-          return () => {
-            cleanupResponsiveControls();
-            timeline.kill();
-            timelineRef.current = null;
-          };
-        },
-        root,
-      );
+        const timeScaleController = createMarqueeTimeScaleController({
+          animation: timeline,
+        });
+        const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
+          animation: timeline,
+          controller: timeScaleController,
+        });
+        const cleanupGestureResponsiveMarquee = createGestureResponsiveMarquee({
+          controller: timeScaleController,
+          getPixelsPerSecond: () => pixelsPerSecond,
+          maxReleaseTimeScale: testimonialGestureMaxReleaseTimeScale,
+          target: root,
+        });
+
+        const cleanupResponsiveControls = () => {
+          cleanupScrollResponsiveMarquee();
+          cleanupGestureResponsiveMarquee();
+          timeScaleController.kill();
+        };
+
+        return () => {
+          cleanupResponsiveControls();
+          timeline.kill();
+          timelineRef.current = null;
+        };
+      };
+
+      media.add(testimonialCarouselQueries.mobile, () => {
+        return createResponsiveCarousel(testimonialCarouselSpeeds.mobile);
+      });
+      media.add(testimonialCarouselQueries.tablet, () => {
+        return createResponsiveCarousel(testimonialCarouselSpeeds.tablet);
+      });
+      media.add(testimonialCarouselQueries.desktop, () => {
+        return createResponsiveCarousel(testimonialCarouselSpeeds.desktop);
+      });
 
       return () => {
         media.revert();

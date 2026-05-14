@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-05-14: Changed the testimonials carousel from a fixed 120-second loop to responsive pixel-per-second GSAP speeds: 20px/s mobile, 28px/s tablet, and 44px/s desktop. [Reason why added: the same raw pixel speed feels different across viewport sizes, so text-heavy testimonial cards need calmer mobile motion and more active desktop motion.]
 - 2026-05-13: Added `@base-ui/react`, moved the mobile menu to a controlled Base UI Dialog, and added a CSS-driven auto-hiding liquid-glass header dock on scroll down/up. [Reason why added: keeps the hero header layout unchanged while improving fixed-header content visibility and delegating menu focus/dismissal behavior to a headless accessibility primitive.]
 - 2026-05-13: Added animation-origin performance notes and aligned CSS/GSAP motion with them by removing `transition: all`, reducing decorative CSS loops for reduced-motion users, and changing the pricing sale badge to a one-shot ScrollTrigger reveal. [Reason why added: keeps simple animation in CSS while reserving scrubbed GSAP work for effects that need continuous scroll progress.]
 - 2026-05-13: Added a seven-day pnpm `minimumReleaseAge` policy and narrowed build-script allowances to `sharp@0.34.5` and `unrs-resolver@1.11.1`. [Reason why added: improves supply-chain guardrails while keeping required native package install scripts available for fresh installs.]
