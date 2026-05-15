@@ -55,13 +55,6 @@
   align-items: flex-start;
 }
 
-.text p {
-  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
-  animation-timeline: view();
-  animation-range-start: entry 120px;
-  animation-range-end: cover 240px;
-}
-
 @media (min-width: 577px) {
   .title {
     font-size: var(--font-heading-m);

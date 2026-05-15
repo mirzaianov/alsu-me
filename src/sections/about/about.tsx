@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import Button from '../../shared/ui/button/button';
 import PhotoCard from './photo-card';
 import Badge from '../../shared/ui/badge/badge';
+import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import ielts from '../../assets/img/about/ielts.png';
 import tesol from '../../assets/img/about/tesol.png';
 import styles from './about.module.css';
@@ -17,20 +18,24 @@ const About = () => {
         <article className={styles.figure}>
           <PhotoCard />
           <div className={styles.badgeLeft}>
-            <Badge
-              alt="IELTS"
-              icon={ielts}
-              type="secondary-25"
-              size="large"
-            />
+            <ScrollCardReveal>
+              <Badge
+                alt="IELTS"
+                icon={ielts}
+                type="secondary-25"
+                size="large"
+              />
+            </ScrollCardReveal>
           </div>
           <div className={styles.badgeRight}>
-            <Badge
-              alt="TESOL"
-              icon={tesol}
-              type="secondary-15"
-              size="large"
-            />
+            <ScrollCardReveal>
+              <Badge
+                alt="TESOL"
+                icon={tesol}
+                type="secondary-15"
+                size="large"
+              />
+            </ScrollCardReveal>
           </div>
         </article>
         <article className={styles.copy}>

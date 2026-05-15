@@ -1,8 +1,20 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import MarqueeLogo from './marquee-logo';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ClientLogo from './client-logo';
+import {
+  createScrollResponsiveMarquee,
+  createViewportPausedAnimation,
+  keepMarqueeLoopingInReverse,
+  MARQUEE_NORMAL_TIME_SCALE,
+} from '../../utils/gsap/scroll-responsive-marquee';
+import {
+  getResponsiveMarqueeSpeed,
+  responsiveMarqueeMediaQueries,
+} from '../../utils/gsap/responsive-marquee-speed';
 import kamaz from '../../assets/icons/logos/logo-kamaz.svg';
 import knorr from '../../assets/icons/logos/logo-knorr.svg';
 import bendix from '../../assets/icons/logos/logo-bendix.svg';
@@ -48,112 +60,163 @@ const logos = [
   },
 ];
 
-const mobileAndTabletPixelsPerSecond = 35;
-const desktopPixelsPerSecond = 50;
+const visualLogoSetCount = 3;
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const LogoMarquee = () => {
+  const rootRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
-    const track = trackRef.current;
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      const track = trackRef.current;
 
-    if (!track) {
-      return;
-    }
+      if (!root || !track) {
+        return;
+      }
 
-    const items = gsap.utils.toArray<HTMLElement>(
-      `[data-logo-marquee-item]`,
-      track,
-    );
+      const items = gsap.utils.toArray<HTMLElement>(
+        `[data-logo-marquee-item]`,
+        track,
+      );
 
-    if (items.length === 0) {
-      return;
-    }
+      if (items.length === 0) {
+        return;
+      }
 
-    const context = gsap.context(() => {
-      const desktopQuery = window.matchMedia('(min-width: 1061px)');
-      const pixelsPerSecond = desktopQuery.matches
-        ? desktopPixelsPerSecond
-        : mobileAndTabletPixelsPerSecond;
-      const widths: number[] = [];
-      const xPercents: number[] = [];
-      const startX = items[0].offsetLeft;
-      const snap = gsap.utils.snap(1);
+      const media = gsap.matchMedia();
 
-      gsap.set(items, {
-        xPercent: (index, item) => {
-          const width = (widths[index] = parseFloat(
-            gsap.getProperty(item, 'width', 'px') as string,
-          ));
-          const x = parseFloat(gsap.getProperty(item, 'x', 'px') as string);
-          const xPercent = gsap.getProperty(item, 'xPercent') as number;
-
-          xPercents[index] = snap((x / width) * 100 + xPercent);
-
-          return xPercents[index];
+      media.add(
+        {
+          isDesktop: responsiveMarqueeMediaQueries.desktop,
+          isMobile: responsiveMarqueeMediaQueries.mobile,
+          isTablet: responsiveMarqueeMediaQueries.tablet,
+          reduceMotion: '(prefers-reduced-motion: reduce)',
         },
-      });
-      gsap.set(items, { x: 0 });
+        (context) => {
+          const { isDesktop, isTablet, reduceMotion } = context.conditions as {
+            isDesktop: boolean;
+            isTablet: boolean;
+            reduceMotion: boolean;
+          };
 
-      const lastItem = items[items.length - 1];
-      const totalWidth =
-        lastItem.offsetLeft +
-        (xPercents[items.length - 1] / 100) * widths[items.length - 1] -
-        startX +
-        lastItem.offsetWidth * (gsap.getProperty(lastItem, 'scaleX') as number);
+          gsap.set(items, { x: 0, xPercent: 0 });
 
-      const timeline = gsap.timeline({
-        repeat: -1,
-        defaults: { ease: 'none' },
-      });
+          if (reduceMotion) {
+            return;
+          }
 
-      items.forEach((item, index) => {
-        const currentX = (xPercents[index] / 100) * widths[index];
-        const distanceToStart = item.offsetLeft + currentX - startX;
-        const distanceToLoop =
-          distanceToStart +
-          widths[index] * (gsap.getProperty(item, 'scaleX') as number);
+          const pixelsPerSecond = getResponsiveMarqueeSpeed({
+            isDesktop,
+            isTablet,
+          });
 
-        timeline
-          .to(
-            item,
-            {
-              duration: distanceToLoop / pixelsPerSecond,
-              xPercent: snap(
-                ((currentX - distanceToLoop) / widths[index]) * 100,
-              ),
+          const widths: number[] = [];
+          const xPercents: number[] = [];
+          const startX = items[0].offsetLeft;
+          const snap = gsap.utils.snap(1);
+
+          gsap.set(items, {
+            xPercent: (index, item) => {
+              const width = (widths[index] = parseFloat(
+                gsap.getProperty(item, 'width', 'px') as string,
+              ));
+              const x = parseFloat(gsap.getProperty(item, 'x', 'px') as string);
+              const xPercent = gsap.getProperty(item, 'xPercent') as number;
+
+              xPercents[index] = snap((x / width) * 100 + xPercent);
+
+              return xPercents[index];
             },
-            0,
-          )
-          .fromTo(
-            item,
-            {
-              xPercent: snap(
-                ((currentX - distanceToLoop + totalWidth) / widths[index]) *
-                  100,
-              ),
-            },
-            {
-              duration:
-                (currentX - distanceToLoop + totalWidth - currentX) /
-                pixelsPerSecond,
-              immediateRender: false,
-              xPercent: xPercents[index],
-            },
-            distanceToLoop / pixelsPerSecond,
-          );
-      });
+          });
+          gsap.set(items, { x: 0 });
 
-      timeline.progress(1, true).progress(0, true);
-    }, track);
+          const lastItem = items[items.length - 1];
+          const totalWidth =
+            lastItem.offsetLeft +
+            (xPercents[items.length - 1] / 100) * widths[items.length - 1] -
+            startX +
+            lastItem.offsetWidth *
+              (gsap.getProperty(lastItem, 'scaleX') as number);
 
-    return () => {
-      context.revert();
-    };
-  }, []);
+          const timeline = gsap.timeline({
+            repeat: -1,
+            defaults: { ease: 'none' },
+          });
+          keepMarqueeLoopingInReverse(timeline);
+
+          items.forEach((item, index) => {
+            const currentX = (xPercents[index] / 100) * widths[index];
+            const distanceToStart = item.offsetLeft + currentX - startX;
+            const distanceToLoop =
+              distanceToStart +
+              widths[index] * (gsap.getProperty(item, 'scaleX') as number);
+
+            timeline
+              .to(
+                item,
+                {
+                  duration: distanceToLoop / pixelsPerSecond,
+                  xPercent: snap(
+                    ((currentX - distanceToLoop) / widths[index]) * 100,
+                  ),
+                },
+                0,
+              )
+              .fromTo(
+                item,
+                {
+                  xPercent: snap(
+                    ((currentX - distanceToLoop + totalWidth) / widths[index]) *
+                      100,
+                  ),
+                },
+                {
+                  duration:
+                    (currentX - distanceToLoop + totalWidth - currentX) /
+                    pixelsPerSecond,
+                  immediateRender: false,
+                  xPercent: xPercents[index],
+                },
+                distanceToLoop / pixelsPerSecond,
+              );
+          });
+
+          timeline
+            .progress(1, true)
+            .progress(0, true)
+            .timeScale(MARQUEE_NORMAL_TIME_SCALE);
+
+          const viewportAnimation = createViewportPausedAnimation({
+            animation: timeline,
+            trigger: root,
+          });
+          const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
+            animation: timeline,
+            isActive: viewportAnimation.isActive,
+          });
+
+          return () => {
+            cleanupScrollResponsiveMarquee();
+            viewportAnimation.kill();
+            timeline.kill();
+          };
+        },
+        track,
+      );
+
+      return () => {
+        media.revert();
+      };
+    },
+    { scope: rootRef },
+  );
 
   return (
     <section
+      ref={rootRef}
       id="infinite-logos"
       className={styles.heroInfiniteLogos}
     >
@@ -161,18 +224,25 @@ const LogoMarquee = () => {
         ref={trackRef}
         className={styles.track}
       >
-        {logos.map((logo) => (
-          <div
-            key={logo.alt}
-            className={styles.item}
-            data-logo-marquee-item
-          >
-            <MarqueeLogo
-              alt={logo.alt}
-              src={logo.src}
-            />
-          </div>
-        ))}
+        {Array.from({ length: visualLogoSetCount }, (_, setIndex) =>
+          logos.map((logo) => {
+            const isDuplicateSet = setIndex > 0;
+
+            return (
+              <div
+                key={`${setIndex}-${logo.alt}`}
+                className={styles.item}
+                aria-hidden={isDuplicateSet ? true : undefined}
+                data-logo-marquee-item
+              >
+                <ClientLogo
+                  alt={isDuplicateSet ? '' : logo.alt}
+                  src={logo.src}
+                />
+              </div>
+            );
+          }),
+        )}
       </div>
     </section>
   );

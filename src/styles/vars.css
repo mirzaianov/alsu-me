@@ -51,6 +51,11 @@
   --desktop-y-margin: 96px;
 
   --shadow-primary: 5px 5px 25px 0 rgba(0, 0, 0, 0.25);
+  --floating-surface-background: hsla(0, 0%, 100%, 0.94);
+  --floating-surface-border-color: hsla(0, 0%, 100%, 0.84);
+  --floating-surface-filter: blur(20px) saturate(130%);
+  --floating-surface-shadow: var(--shadow-primary);
+
   --transition-primary: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
   --font-body: 16px;

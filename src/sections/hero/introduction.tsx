@@ -7,9 +7,14 @@ const Introduction = () => {
       <h1 className={styles.heading}>
         <span>В поисках идеального</span>
         <div className={styles.words}>
-          <div className={styles.wordCurrent}>преподавателя</div>
-          <div className={styles.word}>переводчика</div>
-          <div className={styles.word}>преподавателя</div>
+          <div
+            className={styles.wordsTrack}
+            data-hero-word-track
+          >
+            <div className={styles.word}>преподавателя</div>
+            <div className={styles.word}>переводчика</div>
+            <div className={styles.word}>преподавателя</div>
+          </div>
         </div>
         <span>английского?</span>
       </h1>
@@ -19,13 +24,19 @@ const Introduction = () => {
           <span className={styles.greetingLine}>Меня зовут Алсу</span>
         </div>
         <div className={styles.notes}>
-          <div className={styles.firstNote}>
+          <div
+            className={styles.firstNote}
+            data-hero-note="teacher"
+          >
             <Note type="translator">
               Научу тебя понимать и говорить на английском языке, подобрав
               индивидуальную программу
             </Note>
           </div>
-          <div className={styles.secondNote}>
+          <div
+            className={styles.secondNote}
+            data-hero-note="translator"
+          >
             <Note>
               Помогу твоему бизнесу с устным и письменным переводом, тренингом
               сотрудников

@@ -12,6 +12,16 @@
   display: none;
 }
 
+.saleImage {
+  width: 100%;
+  height: auto;
+}
+
+.discountCardFrame {
+  position: relative;
+  width: var(--card-width);
+}
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -33,10 +43,6 @@
 
 .copy p {
   text-wrap: pretty;
-  animation: var(--animation-name-paragraph-fade-in) 800ms ease-out both;
-  animation-timeline: view();
-  animation-range-start: entry 120px;
-  animation-range-end: cover 240px;
 }
 
 .groups {
@@ -70,6 +76,23 @@
 @media (min-width: 577px) {
   .title {
     font-size: var(--font-heading-m);
+  }
+
+  .sale {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 8px);
+    z-index: 10;
+    display: block;
+    width: 128px;
+    transform: translate(35%, -50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .sale[data-pricing-sale-reveal='ready'] {
+    transform: translate(0, -50%);
+    opacity: 0.7;
   }
 
   .intro {
@@ -108,23 +131,6 @@
     line-height: var(--line-heading);
   }
 
-  .sale {
-    position: absolute;
-    top: 66.666667%;
-    right: -25%;
-    z-index: 10;
-    display: block;
-    animation: var(--animation-name-image-fade-in-right) 900ms ease-out both;
-    animation-timeline: view();
-    animation-range-start: 10%;
-    animation-range-end: 50%;
-  }
-
-  .saleImage {
-    width: auto;
-    height: 100%;
-  }
-
   .intro {
     width: 100%;
     flex-direction: row;
@@ -156,5 +162,18 @@
 
   .cards {
     --grid-gap: var(--2xl);
+  }
+
+  .sale {
+    left: calc(100% + 12px);
+    width: 160px;
+  }
+}
+
+@media (min-width: 577px) and (prefers-reduced-motion: reduce), (min-width: 577px) and (scripting: none) {
+  .sale {
+    transform: translate(0, -50%);
+    opacity: 0.7;
+    will-change: auto;
   }
 }

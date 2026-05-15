@@ -1,73 +1,61 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Dialog } from '@base-ui/react/dialog';
 import { clsx } from 'clsx';
-import type { AnimationEvent } from 'react';
 import BrandLogo from '../../shared/ui/brand-logo/brand-logo';
 import SiteNav from '../site-nav/site-nav';
 import MenuToggle from '../menu-toggle/menu-toggle';
 import Button from '../../shared/ui/button/button';
-import type { MenuState } from '../mobile-menu/mobile-menu';
 import MobileMenu from '../mobile-menu/mobile-menu';
-import useOnClickOutside from '../../hooks/use-on-click-outside';
 import styles from './site-header.module.css';
 
+const headerHideDelta = 8;
+const dockHideTransitionMs = 320;
+
+type HeaderContentProps = {
+  isMenuOpen: boolean;
+};
+
+const HeaderContent = ({ isMenuOpen }: HeaderContentProps) => (
+  <>
+    <div className={styles.brand}>
+      <BrandLogo />
+    </div>
+    <div className={clsx(styles.navSlot, styles.desktopNav)}>
+      <SiteNav type="inline" />
+    </div>
+    <div className={styles.action}>
+      <div className={styles.mobileAction}>
+        <Dialog.Trigger render={<MenuToggle isMenuOpen={isMenuOpen} />} />
+      </div>
+      <div className={styles.desktopAction}>
+        <Button
+          ariaLabel="Записаться"
+          type="secondary"
+          link="https://t.me/sue_onlineenglish"
+        >
+          <span>Записаться</span>
+        </Button>
+      </div>
+    </div>
+  </>
+);
+
 const SiteHeader = () => {
-  const [menuState, setMenuState] = useState<MenuState>('closed');
-  const [isFixed, setIsFixed] = useState(false);
-  const isMenuOpen = menuState === 'open';
-  const shouldRenderMobileMenu = menuState !== 'closed';
-
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLDivElement | null>(null);
-
-  const closeMenu = () => {
-    setMenuState((state) => (state === 'open' ? 'closing' : state));
-  };
-
-  const toggleMenu = () => {
-    setMenuState((state) => (state === 'open' ? 'closing' : 'open'));
-  };
-
-  const handleMobileMenuAnimationEnd = (
-    event: AnimationEvent<HTMLDivElement>,
-  ) => {
-    if (event.currentTarget !== event.target) {
-      return;
-    }
-
-    setMenuState((state) => (state === 'closing' ? 'closed' : state));
-  };
-
-  useOnClickOutside(menuRef, () => {
-    closeMenu();
-  }, [buttonRef]);
-
-  useEffect(() => {
-    const closeOnEscape = (e: KeyboardEvent) => {
-      if (e.code === 'Escape') {
-        setMenuState((state) => (state === 'open' ? 'closing' : state));
-      }
-    };
-
-    if (isMenuOpen) {
-      document.body.addEventListener('keydown', closeOnEscape);
-      document.body.classList.add('noScroll');
-    } else {
-      document.body.classList.remove('noScroll');
-    }
-
-    return () => {
-      document.body.removeEventListener('keydown', closeOnEscape);
-      document.body.classList.remove('noScroll');
-    };
-  }, [isMenuOpen]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDockbarActive, setIsDockbarActive] = useState(false);
+  const [isDockbarHidden, setIsDockbarHidden] = useState(true);
+  const previousScrollYRef = useRef(0);
+  const isScrollTrackingReadyRef = useRef(false);
+  const wasInDockZoneRef = useRef(false);
+  const heroReleaseTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia('(min-width: 1061px)');
     const closeOnDesktop = () => {
       if (desktopQuery.matches) {
-        setMenuState('closed');
+        setIsMenuOpen(false);
       }
     };
 
@@ -80,74 +68,159 @@ const SiteHeader = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const infiniteLogosSection = document.getElementById('infinite-logos');
-
-      if (infiniteLogosSection) {
-        const stickyPoint = infiniteLogosSection.offsetTop;
-
-        setIsFixed(window.scrollY >= stickyPoint);
+    const clearHeroReleaseTimeout = () => {
+      if (heroReleaseTimeoutRef.current === null) {
+        return;
       }
+
+      window.clearTimeout(heroReleaseTimeoutRef.current);
+      heroReleaseTimeoutRef.current = null;
+    };
+
+    const setDockbarState = (isActive: boolean, isHidden: boolean) => {
+      setIsDockbarActive(isActive);
+      setIsDockbarHidden(isHidden);
+    };
+
+    const releaseDockToHero = () => {
+      clearHeroReleaseTimeout();
+
+      const transitionDelay = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
+        ? 0
+        : dockHideTransitionMs;
+
+      heroReleaseTimeoutRef.current = window.setTimeout(() => {
+        setDockbarState(false, true);
+        heroReleaseTimeoutRef.current = null;
+      }, transitionDelay);
+    };
+
+    const handleScroll = () => {
+      const dockBoundary = document.getElementById('about');
+
+      if (!dockBoundary) {
+        return;
+      }
+
+      const currentScrollY = window.scrollY;
+      const stickyPoint = dockBoundary.offsetTop;
+      const isInDockZone = currentScrollY >= stickyPoint;
+      const scrollDelta = currentScrollY - previousScrollYRef.current;
+      const isScrollingDown = scrollDelta > 0;
+      const isScrollingUp = scrollDelta < 0;
+
+      if (!isScrollTrackingReadyRef.current) {
+        setDockbarState(isInDockZone, !isInDockZone);
+        previousScrollYRef.current = currentScrollY;
+        isScrollTrackingReadyRef.current = true;
+        wasInDockZoneRef.current = isInDockZone;
+        return;
+      }
+
+      if (isMenuOpen) {
+        clearHeroReleaseTimeout();
+        setDockbarState(isInDockZone, !isInDockZone);
+        previousScrollYRef.current = currentScrollY;
+        wasInDockZoneRef.current = isInDockZone;
+        return;
+      }
+
+      if (!isInDockZone) {
+        if (heroReleaseTimeoutRef.current !== null) {
+          setDockbarState(true, true);
+          previousScrollYRef.current = currentScrollY;
+          wasInDockZoneRef.current = false;
+          return;
+        }
+
+        if (wasInDockZoneRef.current && isScrollingUp) {
+          setDockbarState(true, true);
+          previousScrollYRef.current = currentScrollY;
+          wasInDockZoneRef.current = false;
+          releaseDockToHero();
+          return;
+        }
+
+        setDockbarState(false, true);
+        previousScrollYRef.current = currentScrollY;
+        wasInDockZoneRef.current = false;
+        return;
+      }
+
+      clearHeroReleaseTimeout();
+
+      if (isScrollingUp) {
+        setDockbarState(true, false);
+        previousScrollYRef.current = currentScrollY;
+        wasInDockZoneRef.current = true;
+        return;
+      }
+
+      if (!wasInDockZoneRef.current && isScrollingDown) {
+        setDockbarState(true, true);
+        previousScrollYRef.current = currentScrollY;
+        wasInDockZoneRef.current = true;
+        return;
+      }
+
+      if (Math.abs(scrollDelta) < headerHideDelta) {
+        wasInDockZoneRef.current = true;
+        return;
+      }
+
+      setDockbarState(true, scrollDelta > 0);
+      previousScrollYRef.current = currentScrollY;
+      wasInDockZoneRef.current = true;
     };
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
+      clearHeroReleaseTimeout();
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isMenuOpen]);
+
+  const isDockbarInteractive = isDockbarActive && !isDockbarHidden;
+  const isHeroHeaderInteractive = !isDockbarActive;
 
   return (
-    <header
-      id="header"
-      className={styles.header}
+    <Dialog.Root
+      open={isMenuOpen}
+      onOpenChange={(open) => setIsMenuOpen(open)}
     >
-      <div
-        className={clsx(styles.shell, isFixed ? styles.fixed : styles.default)}
+      <header
+        id="header"
+        className={styles.header}
+        aria-hidden={isHeroHeaderInteractive ? undefined : true}
+        inert={isHeroHeaderInteractive ? undefined : true}
       >
-        <div className={styles.brand}>
-          <BrandLogo />
+        <div className={clsx(styles.shell, styles.heroShell)}>
+          <HeaderContent isMenuOpen={isMenuOpen} />
         </div>
-        <div className={clsx(styles.navSlot, styles.desktopNav)}>
-          <SiteNav type="inline" />
-        </div>
-        <div
-          className={styles.action}
-          ref={buttonRef}
-        >
-          <div className={styles.mobileAction}>
-            <MenuToggle
-              onClick={toggleMenu}
-              isMenuOpen={isMenuOpen}
-            />
-          </div>
-          <div className={styles.desktopAction}>
-            <Button
-              ariaLabel="Записаться"
-              type="secondary"
-              link="https://t.me/sue_onlineenglish"
-            >
-              <span>Записаться</span>
-            </Button>
-          </div>
-        </div>
-        {shouldRenderMobileMenu && (
-          <MobileMenu
-            isFixed={isFixed}
-            menuState={menuState}
-            onAnimationEnd={handleMobileMenuAnimationEnd}
-          >
-            <div ref={menuRef}>
-              <SiteNav
-                type="block-1"
-                onNavigate={() => closeMenu()}
-              />
-            </div>
-          </MobileMenu>
+      </header>
+      <div
+        className={clsx(
+          styles.shell,
+          styles.dockbar,
+          isDockbarHidden && styles.hidden,
         )}
+        aria-hidden={isDockbarInteractive ? undefined : true}
+        inert={isDockbarInteractive ? undefined : true}
+        onFocusCapture={() => setIsDockbarHidden(false)}
+      >
+        <HeaderContent isMenuOpen={isMenuOpen} />
       </div>
-    </header>
+      <MobileMenu isFixed={isDockbarActive}>
+        <SiteNav
+          type="block-1"
+          onNavigate={() => setIsMenuOpen(false)}
+        />
+      </MobileMenu>
+    </Dialog.Root>
   );
 };
 

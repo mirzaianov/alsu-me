@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import Button from '../../shared/ui/button/button';
-import addSpacesToNumber from '../../utils/add-spaces-to-numbers';
+import addSpacesToNumber from '../../utils/numbers/add-spaces-to-numbers';
 import styles from './lesson-plan-card.module.css';
 
 type LessonPlanCardProps = {

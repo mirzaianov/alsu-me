@@ -103,14 +103,17 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
             )}
             href={`#${item[0]}`}
             onClick={() => handleClick(item[0])}
+            aria-current={activeLink === item[0] ? 'location' : undefined}
           >
-            {item[1]}
-            <span
-              className={clsx(
-                styles.underline,
-                activeLink === item[0] && styles.underlineActive,
-              )}
-            />
+            <span className={styles.linkLabel}>
+              {item[1]}
+              <span
+                className={clsx(
+                  styles.underline,
+                  activeLink === item[0] && styles.underlineActive,
+                )}
+              />
+            </span>
           </a>
         </li>
       ))}

@@ -1,36 +1,70 @@
+.header,
+.dockbar {
+  --site-header-padding-inline: var(--s);
+}
+
 .header {
   position: relative;
   z-index: 30;
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-inline: var(--s);
+  padding-inline: var(--site-header-padding-inline);
   margin-top: var(--s);
   animation: var(--animation-name-header-fade-in) 500ms 200ms ease-in backwards;
 }
 
 .shell {
+  --header-translate-x: 0;
+
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  transition: all var(--transition-slow);
+  border: 1px solid transparent;
+  transform: translate3d(var(--header-translate-x), 0, 0);
+  transition:
+    background-color var(--transition-slow),
+    border-radius var(--transition-slow),
+    border-color var(--transition-slow),
+    box-shadow var(--transition-slow),
+    transform 320ms ease-out,
+    backdrop-filter var(--transition-slow),
+    -webkit-backdrop-filter var(--transition-slow);
 }
 
-.default {
+.heroShell {
   position: absolute;
-  padding-inline: var(--s);
+  padding-inline: var(--site-header-padding-inline);
 }
 
-.fixed {
+.dockbar {
+  --header-translate-x: -50%;
+
   position: fixed;
+  z-index: 30;
   top: var(--s);
-  width: min(91.666667%, 1440px);
+  left: 50%;
+  width: calc(
+    min(100%, var(--container-wide)) - var(--site-header-padding-inline) -
+      var(--site-header-padding-inline)
+  );
   padding: var(--xs) var(--m);
   border-radius: 999px;
-  background-color: var(--neutral-0-70);
-  box-shadow: var(--shadow-primary);
-  backdrop-filter: blur(12px);
+  border-color: var(--floating-surface-border-color);
+  background-color: var(--floating-surface-background);
+  box-shadow: var(--floating-surface-shadow);
+  backdrop-filter: var(--floating-surface-filter);
+  -webkit-backdrop-filter: var(--floating-surface-filter);
+}
+
+.hidden {
+  pointer-events: none;
+  transform: translate3d(
+    var(--header-translate-x),
+    calc(-100% - var(--xl)),
+    0
+  );
 }
 
 .brand {
@@ -64,15 +98,16 @@
 }
 
 @media (min-width: 577px) {
+  .header,
+  .dockbar {
+    --site-header-padding-inline: var(--xl);
+  }
+
   .header {
     margin-top: var(--xl);
   }
 
-  .default {
-    padding-inline: var(--xl);
-  }
-
-  .fixed {
+  .dockbar {
     top: var(--m);
     padding-block: var(--s);
   }
@@ -87,12 +122,13 @@
 }
 
 @media (min-width: 1061px) {
-  .header {
-    max-width: var(--container-wide);
+  .header,
+  .dockbar {
+    --site-header-padding-inline: var(--3xl);
   }
 
-  .default {
-    padding-inline: var(--3xl);
+  .header {
+    max-width: var(--container-wide);
   }
 
   .desktopNav,
@@ -102,5 +138,11 @@
 
   .mobileAction {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell {
+    transition: none;
   }
 }

@@ -53,3 +53,7 @@ lerna-debug.log*
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# AI
+.codex-tmp
+.codex_tmp_fonttools
