@@ -6,9 +6,11 @@
 }
 
 .mobileMenu {
+  --site-header-padding-inline: var(--s);
+
   position: fixed;
   z-index: 31;
-  right: var(--s);
+  right: var(--site-header-padding-inline);
   border: 1px solid var(--floating-surface-border-color);
   border-radius: 28px;
   background-color: var(--floating-surface-background);
@@ -46,7 +48,8 @@
 
 @media (min-width: 577px) {
   .mobileMenu {
-    right: var(--xl);
+    --site-header-padding-inline: var(--xl);
+
     border-radius: 36px;
   }
 
@@ -56,6 +59,12 @@
 
   .fixed {
     top: 120px;
+  }
+}
+
+@media (min-width: 1061px) {
+  .mobileMenu {
+    --site-header-padding-inline: var(--3xl);
   }
 }
 
