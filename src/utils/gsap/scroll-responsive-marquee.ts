@@ -18,6 +18,24 @@ const POINTER_RELEASE_SAMPLE_WINDOW = 240;
 const POINTER_HORIZONTAL_INTENT_RATIO = 1.2;
 const REVERSE_LOOP_OFFSET_MULTIPLIER = 100;
 
+const isElementVisibleInViewport = (element: Element) => {
+  const { bottom, height, left, right, top, width } =
+    element.getBoundingClientRect();
+  const viewportHeight =
+    window.innerHeight || document.documentElement.clientHeight;
+  const viewportWidth =
+    window.innerWidth || document.documentElement.clientWidth;
+
+  return (
+    width > 0 &&
+    height > 0 &&
+    bottom > 0 &&
+    top < viewportHeight &&
+    right > 0 &&
+    left < viewportWidth
+  );
+};
+
 type ScrollResponsiveMarqueeOptions = {
   animation: gsap.core.Animation;
   controller?: MarqueeTimeScaleController;
@@ -135,7 +153,7 @@ export const createViewportPausedAnimation = ({
   isPaused,
   trigger,
 }: ViewportPausedAnimationOptions) => {
-  let isInView = ScrollTrigger.isInViewport(trigger);
+  let isInView = isElementVisibleInViewport(trigger);
 
   const sync = () => {
     animation.paused(!isInView || Boolean(isPaused?.()));
@@ -146,24 +164,41 @@ export const createViewportPausedAnimation = ({
     sync();
   };
 
-  const viewportTrigger = ScrollTrigger.create({
-    end: 'bottom top',
-    onRefresh: (self) => {
-      setInView(self.isActive);
-    },
-    onToggle: (self) => {
-      setInView(self.isActive);
-    },
-    start: 'top bottom',
-    trigger,
-  });
+  let viewportObserver: IntersectionObserver | null = null;
+  let viewportTrigger: ScrollTrigger | null = null;
 
-  setInView(viewportTrigger.isActive || ScrollTrigger.isInViewport(trigger));
+  if ('IntersectionObserver' in window) {
+    viewportObserver = new IntersectionObserver((entries) => {
+      const entry = entries[entries.length - 1];
+
+      if (!entry) {
+        return;
+      }
+
+      setInView(entry.isIntersecting || isElementVisibleInViewport(trigger));
+    });
+    viewportObserver.observe(trigger);
+  } else {
+    viewportTrigger = ScrollTrigger.create({
+      end: 'bottom top',
+      onRefresh: () => {
+        setInView(isElementVisibleInViewport(trigger));
+      },
+      onToggle: () => {
+        setInView(isElementVisibleInViewport(trigger));
+      },
+      start: 'top bottom',
+      trigger,
+    });
+  }
+
+  sync();
 
   return {
     isActive: () => isInView && !Boolean(isPaused?.()),
     kill: () => {
-      viewportTrigger.kill();
+      viewportObserver?.disconnect();
+      viewportTrigger?.kill();
     },
     sync,
   };

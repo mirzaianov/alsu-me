@@ -65,13 +65,15 @@ const visualLogoSetCount = 3;
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const LogoMarquee = () => {
+  const rootRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
     () => {
+      const root = rootRef.current;
       const track = trackRef.current;
 
-      if (!track) {
+      if (!root || !track) {
         return;
       }
 
@@ -189,7 +191,7 @@ const LogoMarquee = () => {
 
           const viewportAnimation = createViewportPausedAnimation({
             animation: timeline,
-            trigger: track,
+            trigger: root,
           });
           const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
             animation: timeline,
@@ -209,11 +211,12 @@ const LogoMarquee = () => {
         media.revert();
       };
     },
-    { scope: trackRef },
+    { scope: rootRef },
   );
 
   return (
     <section
+      ref={rootRef}
       id="infinite-logos"
       className={styles.heroInfiniteLogos}
     >
