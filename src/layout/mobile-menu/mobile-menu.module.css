@@ -50,10 +50,6 @@
     border-radius: 36px;
   }
 
-  .content {
-    padding: var(--xl);
-  }
-
   .default {
     top: 104px;
   }

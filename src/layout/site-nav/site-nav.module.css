@@ -55,7 +55,7 @@
 }
 
 .block-1 .item {
-  width: 40vw;
+  width: min(40vw, calc(var(--container-mobile) * 0.4));
 }
 
 .hero {
