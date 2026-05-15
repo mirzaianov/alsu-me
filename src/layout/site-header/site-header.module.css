@@ -1,10 +1,15 @@
+.header,
+.dockbar {
+  --site-header-padding-inline: var(--s);
+}
+
 .header {
   position: relative;
   z-index: 30;
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-inline: var(--s);
+  padding-inline: var(--site-header-padding-inline);
   margin-top: var(--s);
   animation: var(--animation-name-header-fade-in) 500ms 200ms ease-in backwards;
 }
@@ -30,7 +35,7 @@
 
 .heroShell {
   position: absolute;
-  padding-inline: var(--s);
+  padding-inline: var(--site-header-padding-inline);
 }
 
 .dockbar {
@@ -40,7 +45,10 @@
   z-index: 30;
   top: var(--s);
   left: 50%;
-  width: min(91.666667%, 1440px);
+  width: calc(
+    min(100%, var(--container-wide)) - var(--site-header-padding-inline) -
+      var(--site-header-padding-inline)
+  );
   padding: var(--xs) var(--m);
   border-radius: 999px;
   border-color: var(--floating-surface-border-color);
@@ -90,12 +98,13 @@
 }
 
 @media (min-width: 577px) {
-  .header {
-    margin-top: var(--xl);
+  .header,
+  .dockbar {
+    --site-header-padding-inline: var(--xl);
   }
 
-  .heroShell {
-    padding-inline: var(--xl);
+  .header {
+    margin-top: var(--xl);
   }
 
   .dockbar {
@@ -113,12 +122,13 @@
 }
 
 @media (min-width: 1061px) {
-  .header {
-    max-width: var(--container-wide);
+  .header,
+  .dockbar {
+    --site-header-padding-inline: var(--3xl);
   }
 
-  .heroShell {
-    padding-inline: var(--3xl);
+  .header {
+    max-width: var(--container-wide);
   }
 
   .desktopNav,
