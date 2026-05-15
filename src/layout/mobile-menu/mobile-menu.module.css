@@ -41,13 +41,17 @@
   width: fit-content;
   align-items: center;
   justify-content: center;
-  padding: var(--xl);
+  padding: 26px 43px;
 }
 
 @media (min-width: 577px) {
   .mobileMenu {
     right: var(--xl);
     border-radius: 36px;
+  }
+
+  .content {
+    padding: var(--xl);
   }
 
   .default {
