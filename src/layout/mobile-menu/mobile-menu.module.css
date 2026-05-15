@@ -3,6 +3,7 @@
   inset: 0;
   z-index: 30;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .mobileMenu {
@@ -17,6 +18,7 @@
   box-shadow: var(--floating-surface-shadow);
   backdrop-filter: var(--floating-surface-filter);
   -webkit-backdrop-filter: var(--floating-surface-filter);
+  cursor: default;
   opacity: 1;
   transform: translateX(0);
   transition:
