@@ -4,13 +4,12 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Review and merge `chore/KAN-131-hero-height`, then redeploy the site.
-- After deployment, visually verify the hero at desktop widths from `1061px` upward, especially tall desktop viewports, while spot-checking that mobile/tablet still keep the intended viewport-filling hero presentation.
+- Visually review the hero at mobile, tablet, desktop, and `1920px+` widths, then commit the hero-height and extra-wide breakpoint adjustment if the spacing feels right.
 
 ## Immediate Goal
 
-- Confirm the desktop hero no longer stretches vertically and that the change did not disturb the existing mobile/tablet hero rhythm.
+- Keep the KAN-131 scope limited to hero vertical rhythm and `1920px+` shell composition; avoid unrelated ordinary-desktop layout, animation, dependency, or content changes.
 
 ## Open Questions
 
-- None for the current KAN-131 review scope.
+- Whether the desktop CTA should later be moved into the intro column for an even tighter headline-to-action flow.

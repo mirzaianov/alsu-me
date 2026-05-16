@@ -100,3 +100,14 @@
     text-align: left;
   }
 }
+
+@media (min-width: 1920px) {
+  .hero {
+    max-width: var(--container-wide);
+    gap: var(--2xl);
+  }
+
+  .content {
+    gap: var(--3xl);
+  }
+}
