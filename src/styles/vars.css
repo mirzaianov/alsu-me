@@ -74,7 +74,7 @@
   --icon-size: 24px;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   :root {
     --s: 20px;
     --m: 28px;

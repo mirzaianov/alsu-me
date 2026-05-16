@@ -101,7 +101,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .hero {
     height: auto;
     max-width: var(--container-wide);
