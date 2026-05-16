@@ -1,6 +1,6 @@
 .priceTranslatorCard {
   position: relative;
-  width: var(--card-width);
+  width: var(--pricing-card-width, var(--card-width));
   height: 436px;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,8 @@
 
 @media (min-width: 1921px) {
   .priceTranslatorCard {
-    height: 492px;
+    height: 500px;
+    padding: var(--l) var(--s) var(--s);
   }
 
   .heading {

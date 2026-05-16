@@ -1,6 +1,6 @@
 .priceTutorCard {
   position: relative;
-  width: var(--card-width);
+  width: var(--pricing-card-width, var(--card-width));
   height: 380px;
   display: flex;
   flex-direction: column;
@@ -104,11 +104,8 @@
 
 @media (min-width: 1921px) {
   .priceTutorCard {
-    height: 460px;
-  }
-
-  .discount {
-    padding-bottom: var(--l);
+    height: 440px;
+    padding: var(--l) var(--s) var(--s);
   }
 
   .pricing {
@@ -122,6 +119,10 @@
   }
 
   .action {
+    margin-top: 0;
+  }
+
+  .list {
     margin-top: 0;
   }
 

@@ -19,7 +19,7 @@
 
 .discountCardFrame {
   position: relative;
-  width: var(--card-width);
+  width: var(--pricing-card-width, var(--card-width));
 }
 
 .intro {
@@ -170,5 +170,20 @@
     transform: translate(0, -50%);
     opacity: 0.7;
     will-change: auto;
+  }
+}
+
+@media (min-width: 1921px) {
+  .pricing {
+    --pricing-card-width: 360px;
+    --section-gap-desktop: var(--3xl);
+  }
+
+  .groups {
+    gap: var(--3xl);
+  }
+
+  .group {
+    --stack-gap: var(--2xl);
   }
 }
