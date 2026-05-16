@@ -105,6 +105,14 @@
 }
 
 @media (min-width: 1921px) {
+  .contact {
+    --section-gap-desktop: var(--3xl);
+  }
+
+  .copy {
+    gap: var(--2xl);
+  }
+
   .actions {
     --contact-action-width: 260px;
   }

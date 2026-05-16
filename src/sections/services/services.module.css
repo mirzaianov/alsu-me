@@ -190,3 +190,11 @@
     --grid-gap: var(--2xl);
   }
 }
+
+@media (min-width: 1921px) {
+  .badgeGroup,
+  .badgeGroupAlt,
+  .servicesGroup {
+    --stack-gap: var(--2xl);
+  }
+}

@@ -46,5 +46,10 @@
 @media (min-width: 1921px) {
   .serviceCard {
     height: 396px;
+    gap: var(--m);
+  }
+
+  .content {
+    gap: var(--l);
   }
 }

@@ -104,3 +104,9 @@
     gap: var(--2xl);
   }
 }
+
+@media (min-width: 1921px) {
+  .about {
+    --section-gap-desktop: var(--3xl);
+  }
+}
