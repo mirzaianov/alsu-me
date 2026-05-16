@@ -124,4 +124,8 @@
   .footer {
     --section-max-desktop: var(--container-extra-wide);
   }
+
+  .description {
+    max-width: 632px;
+  }
 }

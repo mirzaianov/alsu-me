@@ -103,11 +103,10 @@
 
 @media (min-width: 1920px) {
   .hero {
+    height: auto;
     max-width: var(--container-wide);
-    gap: var(--2xl);
-  }
-
-  .content {
-    gap: var(--3xl);
+    min-height: min(900px, calc(100svh - 136px));
+    padding-block-start: clamp(var(--xl), 6svh, 108px);
+    padding-block-end: var(--xl);
   }
 }

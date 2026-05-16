@@ -6,7 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
-- 2026-05-16: Made the hero section content-sized at the desktop breakpoint, introduced a dedicated extra-wide container token, and aligned hero/header/footer shell widths only at `1920px+`. [Reason why added: large screens were stretching the hero vertically, and extra-wide page framing should not affect ordinary desktop widths.]
+- 2026-05-16: Made the hero section content-sized at the desktop breakpoint, introduced a consistent `1920px+` token scale for fonts/gaps, and adjusted hero-specific slider, note, and portrait dimensions to match. [Reason why added: large screens were stretching the hero vertically, and extra-large screens need systematic visual weight without changing ordinary desktop widths.]
 - 2026-05-16: Stopped the desktop hero from stretching by resetting the desktop hero min-height, removing flex growth from its content blocks, and bounding the desktop padding/gap rhythm. [Reason why added: tall desktop viewports should not force the hero CTA and content apart while mobile/tablet can keep their viewport-filling presentation.]
 - 2026-05-14: Rebuilt the mobile menu navigation rows around larger touch targets while keeping the active underline scoped to the visible link label. [Reason why added: the previous mobile menu links only exposed the text as the tap target, making section navigation easy to miss on touch devices.]
 - 2026-05-14: Added viewport-aware pause gating for the GSAP hero logo and testimonials marquees, and preserved testimonials carousel pause state across responsive timeline rebuilds. [Reason why added: infinite marquee timelines should not keep RAF/compositor work active offscreen or resume behind open testimonial content.]

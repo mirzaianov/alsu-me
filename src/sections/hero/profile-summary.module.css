@@ -134,3 +134,14 @@
     min-width: fit-content;
   }
 }
+
+@media (min-width: 1920px) {
+  .slider {
+    --hero-stat-slider-slot: 112px;
+    --hero-stat-slider-edge-fade: 20px;
+  }
+
+  .slideItem {
+    margin-bottom: 56px;
+  }
+}
