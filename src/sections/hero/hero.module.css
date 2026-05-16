@@ -74,10 +74,16 @@
 @media (min-width: 1061px) {
   .hero {
     max-width: var(--container-desktop);
+    min-height: auto;
+    justify-content: flex-start;
+    gap: clamp(var(--l), 4vh, var(--3xl));
+    padding-block-start: clamp(var(--xl), 7vh, 96px);
+    padding-block-end: var(--xl);
     padding-inline: var(--3xl);
   }
 
   .content {
+    flex-grow: 0;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
@@ -85,6 +91,7 @@
   }
 
   .ctaBlock {
+    flex-grow: 0;
     align-items: flex-start;
     align-self: flex-start;
   }
