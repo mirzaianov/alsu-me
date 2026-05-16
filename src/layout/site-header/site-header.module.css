@@ -135,13 +135,13 @@
 
 @media (min-width: 1921px) {
   .header {
-    max-width: var(--container-wide);
+    max-width: var(--container-extra-wide);
   }
 
   .dockbar {
     width: calc(
-      min(100%, var(--container-wide)) - var(--site-header-padding-inline) -
-        var(--site-header-padding-inline)
+      min(100%, var(--container-extra-wide)) -
+        var(--site-header-padding-inline) - var(--site-header-padding-inline)
     );
   }
 }

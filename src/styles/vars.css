@@ -36,6 +36,7 @@
   --container-tablet: 720px;
   --container-desktop: 1300px;
   --container-wide: 1600px;
+  --container-extra-wide: 1920px;
 
   --mobile-text-wrapper: 400px;
   --tablet-text-wrapper: 560px;
