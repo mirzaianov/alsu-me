@@ -52,7 +52,6 @@
 }
 
 .subtitle {
-  max-width: var(--mobile-text-wrapper);
   text-align: center;
   font-size: var(--font-body);
   font-weight: 700;
@@ -112,7 +111,6 @@
   }
 
   .subtitle {
-    max-width: var(--tablet-text-wrapper);
     font-size: var(--font-heading-s);
     line-height: var(--line-heading-relaxed);
   }
@@ -174,10 +172,6 @@
   .badgeGroupAlt,
   .servicesGroup {
     --stack-gap: var(--xl);
-  }
-
-  .subtitle {
-    max-width: var(--desktop-text-wrapper);
   }
 
   .badgeList {

@@ -122,7 +122,7 @@
 
 @media (min-width: 1921px) {
   .footer {
-    --section-max-desktop: var(--container-extra-wide);
+    --section-max-extra-wide: var(--container-extra-wide);
   }
 
   .description {

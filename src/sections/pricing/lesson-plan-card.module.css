@@ -101,3 +101,31 @@
     margin-top: 0;
   }
 }
+
+@media (min-width: 1921px) {
+  .priceTutorCard {
+    height: 460px;
+  }
+
+  .discount {
+    padding-bottom: var(--l);
+  }
+
+  .pricing {
+    height: auto;
+    min-height: 74px;
+  }
+
+  .hidden {
+    display: block;
+    visibility: hidden;
+  }
+
+  .action {
+    margin-top: 0;
+  }
+
+  .promoWrap {
+    top: -22px;
+  }
+}

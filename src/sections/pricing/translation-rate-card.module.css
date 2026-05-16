@@ -42,3 +42,18 @@
   text-align: center;
   font-weight: 700;
 }
+
+@media (min-width: 1921px) {
+  .priceTranslatorCard {
+    height: 492px;
+  }
+
+  .heading {
+    min-height: 64px;
+  }
+
+  .note {
+    min-height: 96px;
+    max-width: 208px;
+  }
+}

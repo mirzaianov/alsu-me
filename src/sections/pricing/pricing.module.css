@@ -58,7 +58,6 @@
 }
 
 .subtitle {
-  max-width: var(--mobile-text-wrapper);
   text-align: center;
   font-size: var(--font-body);
   font-weight: 700;
@@ -114,7 +113,6 @@
   }
 
   .subtitle {
-    max-width: var(--tablet-text-wrapper);
     font-size: var(--font-heading-s);
     line-height: var(--line-heading-relaxed);
   }
@@ -156,10 +154,6 @@
     --stack-gap: var(--xl);
   }
 
-  .subtitle {
-    max-width: var(--desktop-text-wrapper);
-  }
-
   .cards {
     --grid-gap: var(--2xl);
   }
@@ -170,7 +164,8 @@
   }
 }
 
-@media (min-width: 577px) and (prefers-reduced-motion: reduce), (min-width: 577px) and (scripting: none) {
+@media (min-width: 577px) and (prefers-reduced-motion: reduce),
+  (min-width: 577px) and (scripting: none) {
   .sale {
     transform: translate(0, -50%);
     opacity: 0.7;
