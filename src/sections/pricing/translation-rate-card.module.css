@@ -1,10 +1,14 @@
 .priceTranslatorCard {
   position: relative;
   width: var(--pricing-card-width, var(--card-width));
-  height: 436px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: auto;
+  display: grid;
+  grid-template-rows:
+    minmax(56px, auto) auto auto auto auto
+    minmax(84px, auto);
+  align-content: start;
+  align-items: start;
+  justify-items: center;
   gap: var(--s);
   padding: var(--l) var(--xs) var(--m);
   border-radius: var(--s);
@@ -45,8 +49,7 @@
 
 @media (min-width: 1921px) {
   .priceTranslatorCard {
-    height: 500px;
-    padding: var(--l) var(--s) var(--s);
+    padding: var(--l) var(--s);
   }
 
   .heading {
