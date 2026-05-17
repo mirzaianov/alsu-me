@@ -136,6 +136,7 @@
 @media (min-width: 1921px) {
   .header {
     max-width: var(--container-extra-wide);
+    margin-top: 56px;
   }
 
   .dockbar {

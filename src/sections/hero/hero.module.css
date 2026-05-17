@@ -74,16 +74,16 @@
 @media (min-width: 1061px) {
   .hero {
     max-width: var(--container-desktop);
-    min-height: auto;
+    min-height: max(760px, calc(100svh - 104px));
     justify-content: flex-start;
-    gap: clamp(var(--l), 4vh, var(--3xl));
-    padding-block-start: clamp(var(--xl), 7vh, 96px);
+    gap: clamp(var(--l), 4svh, var(--3xl));
+    padding-block-start: clamp(var(--xl), 7svh, 96px);
     padding-block-end: var(--xl);
     padding-inline: var(--3xl);
   }
 
   .content {
-    flex-grow: 0;
+    flex: 1 1 auto;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
@@ -91,9 +91,13 @@
   }
 
   .ctaBlock {
-    flex-grow: 0;
+    flex: 0 0 auto;
     align-items: flex-start;
     align-self: flex-start;
+  }
+
+  .logos {
+    flex: 0 0 auto;
   }
 
   .ctaTextDesktop {
@@ -105,8 +109,8 @@
   .hero {
     height: auto;
     max-width: var(--container-wide);
-    min-height: min(900px, calc(100svh - 136px));
+    min-height: max(900px, calc(100svh - 120px));
     padding-block-start: clamp(var(--xl), 6svh, 108px);
-    padding-block-end: var(--xl);
+    padding-block-end: 56px;
   }
 }
