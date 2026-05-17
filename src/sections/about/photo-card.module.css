@@ -1,12 +1,17 @@
 .aboutPhotoCard {
+  --about-photo-size: var(--img-size-mobile);
+  --about-photo-height: 210px;
+  --about-photo-image-bottom: -4px;
+  --about-photo-image-left: 10px;
+
   position: relative;
-  width: 170px;
+  width: var(--about-photo-size);
 }
 
 .inner {
   position: relative;
   display: flex;
-  height: 210px;
+  height: var(--about-photo-height);
   align-items: flex-end;
   overflow: hidden;
   border-radius: var(--s);
@@ -21,18 +26,18 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: var(--img-size-mobile);
-  height: var(--img-size-mobile);
+  width: var(--about-photo-size);
+  height: var(--about-photo-size);
   border-radius: var(--s);
   background-color: var(--primary-40);
 }
 
 .image {
   position: absolute;
-  bottom: -4px;
-  left: 10px;
+  bottom: var(--about-photo-image-bottom);
+  left: var(--about-photo-image-left);
   z-index: 1;
-  width: var(--img-size-mobile);
+  width: var(--about-photo-size);
   height: auto;
   transform: scale(1.5);
   transition: transform var(--transition-primary);
@@ -45,21 +50,27 @@
 
 @media (min-width: 577px) {
   .aboutPhotoCard {
-    width: 300px;
+    --about-photo-size: var(--img-size-tablet);
+    --about-photo-height: 365px;
+    --about-photo-image-bottom: -8px;
+    --about-photo-image-left: 18px;
   }
+}
 
-  .inner {
-    height: 365px;
+@media (min-width: 1061px) {
+  .aboutPhotoCard {
+    --about-photo-size: 320px;
+    --about-photo-height: 390px;
+    --about-photo-image-bottom: -10px;
+    --about-photo-image-left: 20px;
   }
+}
 
-  .color {
-    width: var(--img-size-tablet);
-    height: var(--img-size-tablet);
-  }
-
-  .image {
-    bottom: -8px;
-    left: 18px;
-    width: var(--img-size-tablet);
+@media (min-width: 1921px) {
+  .aboutPhotoCard {
+    --about-photo-size: 360px;
+    --about-photo-height: 438px;
+    --about-photo-image-bottom: -12px;
+    --about-photo-image-left: 22px;
   }
 }
