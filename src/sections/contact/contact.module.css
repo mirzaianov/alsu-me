@@ -109,6 +109,15 @@
     --section-gap-desktop: var(--3xl);
   }
 
+  .content {
+    max-width: 900px;
+  }
+
+  .image {
+    height: 340px;
+    margin-left: var(--l);
+  }
+
   .copy {
     gap: var(--2xl);
   }

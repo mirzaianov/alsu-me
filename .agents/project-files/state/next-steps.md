@@ -4,7 +4,7 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Visually review the hero, Services/Pricing subtitles, fixed cards, Contact buttons, and shared page chrome at mobile, tablet, ordinary desktop, and `1921px+` widths, then commit the KAN-131 layout adjustments if the spacing feels right.
+- Visually review the hero, Services/Pricing subtitles, fixed cards, Contact artwork/buttons, and shared page chrome at mobile, tablet, ordinary desktop, and `1921px+` widths, then commit the KAN-131 layout adjustments if the spacing feels right.
 
 ## Immediate Goal
 
