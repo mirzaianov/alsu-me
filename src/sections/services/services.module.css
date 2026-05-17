@@ -73,8 +73,11 @@
 
 .cards {
   --grid-gap: var(--l);
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: var(--card-width);
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  justify-content: center;
   font-size: var(--font-body);
 }
 
@@ -138,7 +141,7 @@
 
   .cards {
     --grid-gap: var(--xl);
-    flex-direction: row;
+    grid-template-columns: repeat(2, var(--card-width));
   }
 }
 
