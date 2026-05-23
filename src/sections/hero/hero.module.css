@@ -1,5 +1,6 @@
 .hero {
   position: relative;
+  isolation: isolate;
   display: flex;
   width: 100%;
   max-width: 360px;
@@ -11,6 +12,13 @@
   margin-top: 64px;
   padding-inline: var(--s);
   scroll-margin-top: var(--3xl);
+}
+
+.content,
+.ctaBlock,
+.logos {
+  position: relative;
+  z-index: 1;
 }
 
 .content {
