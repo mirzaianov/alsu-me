@@ -10,20 +10,23 @@ const BackToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const infiniteLogosSection = document.getElementById('infinite-logos');
+      const dockBoundarySection = document.getElementById('about');
       const footerSection = document.getElementById('footer');
 
-      if (!infiniteLogosSection || !footerSection) {
+      if (!dockBoundarySection || !footerSection) {
         setIsVisible(false);
         return;
       }
 
-      const infiniteLogosOffset = infiniteLogosSection.offsetTop;
-      const footerOffset = footerSection.offsetTop - 1000;
+      const currentScrollY = window.scrollY;
+      const dockBoundaryOffset =
+        dockBoundarySection.getBoundingClientRect().top + currentScrollY;
+      const footerOffset =
+        footerSection.getBoundingClientRect().top + currentScrollY - 1000;
 
       if (
-        window.scrollY >= infiniteLogosOffset &&
-        window.scrollY <= footerOffset
+        currentScrollY >= dockBoundaryOffset &&
+        currentScrollY <= footerOffset
       ) {
         setIsVisible(true);
       } else {
