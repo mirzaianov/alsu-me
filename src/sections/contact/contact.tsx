@@ -19,7 +19,7 @@ const Contact = () => {
           src={contactImage}
           alt="Contact"
           quality={100}
-          sizes="(max-width: 576px) 170px, 300px"
+          sizes="(min-width: 1921px) 360px, (max-width: 576px) 170px, 300px"
         />
         <div className={styles.copy}>
           <p className={styles.subtitle}>Свяжись со мной</p>

@@ -11,7 +11,7 @@ const ProfilePhoto = () => {
     src: alsuHeroTablet,
     alt,
     quality: 100,
-    sizes: '450px',
+    sizes: '(min-width: 1921px) 720px, 450px',
   });
 
   return (
@@ -23,7 +23,7 @@ const ProfilePhoto = () => {
           <picture>
             <source
               media="(min-width: 577px)"
-              sizes="450px"
+              sizes="(min-width: 1921px) 720px, 450px"
               srcSet={tabletSrcSet}
             />
             <Image

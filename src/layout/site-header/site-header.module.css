@@ -60,11 +60,7 @@
 
 .hidden {
   pointer-events: none;
-  transform: translate3d(
-    var(--header-translate-x),
-    calc(-100% - var(--xl)),
-    0
-  );
+  transform: translate3d(var(--header-translate-x), calc(-100% - var(--xl)), 0);
 }
 
 .brand {
@@ -127,10 +123,6 @@
     --site-header-padding-inline: var(--3xl);
   }
 
-  .header {
-    max-width: var(--container-wide);
-  }
-
   .desktopNav,
   .desktopAction {
     display: flex;
@@ -138,6 +130,20 @@
 
   .mobileAction {
     display: none;
+  }
+}
+
+@media (min-width: 1921px) {
+  .header {
+    max-width: var(--container-extra-wide);
+    margin-top: 56px;
+  }
+
+  .dockbar {
+    width: calc(
+      min(100%, var(--container-extra-wide)) -
+        var(--site-header-padding-inline) - var(--site-header-padding-inline)
+    );
   }
 }
 

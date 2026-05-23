@@ -69,3 +69,14 @@
   white-space: normal;
   text-wrap: pretty;
 }
+
+@media (min-width: 1921px) {
+  .testimonialCard {
+    height: 450px;
+    gap: var(--l);
+  }
+
+  .header {
+    min-height: 72px;
+  }
+}

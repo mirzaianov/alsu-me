@@ -93,3 +93,33 @@
     width: var(--img-size-tablet);
   }
 }
+
+@media (min-width: 1921px) {
+  .heroPhotoCard {
+    width: var(--hero-photo-card-width, 372px);
+  }
+
+  .inner {
+    height: var(--hero-photo-inner-height, 428px);
+  }
+
+  .border {
+    bottom: var(--hero-photo-border-bottom, 24px);
+    left: var(--hero-photo-border-left, 12px);
+    width: var(--hero-photo-frame-size, 340px);
+  }
+
+  .mask {
+    width: var(--hero-photo-frame-size, 340px);
+    height: var(--hero-photo-inner-height, 428px);
+  }
+
+  .color {
+    width: var(--hero-photo-frame-size, 340px);
+  }
+
+  .image {
+    left: var(--hero-photo-image-left, 10px);
+    width: var(--hero-photo-frame-size, 340px);
+  }
+}

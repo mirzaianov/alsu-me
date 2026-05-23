@@ -200,3 +200,24 @@
     flex-shrink: 0;
   }
 }
+
+@media (min-width: 1921px) {
+  .heroTextBlock {
+    gap: var(--3xl);
+  }
+
+  .words {
+    --hero-text-slider-slot: 80px;
+    --hero-text-slider-edge-fade: 28px;
+  }
+
+  .word {
+    margin-bottom: 80px;
+    padding-inline: 1.75rem;
+  }
+
+  .notes {
+    width: 412px;
+    height: 154px;
+  }
+}

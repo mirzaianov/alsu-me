@@ -1,10 +1,12 @@
 .priceTutorCard {
   position: relative;
-  width: var(--card-width);
-  height: 380px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: var(--pricing-card-width, var(--card-width));
+  height: auto;
+  display: grid;
+  grid-template-rows: auto auto minmax(64px, auto) auto auto;
+  align-content: start;
+  align-items: start;
+  justify-items: center;
   gap: var(--s);
   padding: var(--l) var(--xs) var(--m);
   border-radius: var(--s);
@@ -42,7 +44,7 @@
 
 .pricing {
   display: flex;
-  height: 100%;
+  min-height: 64px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -58,12 +60,12 @@
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .action,
 .list {
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .list {
@@ -99,5 +101,19 @@
 @media (min-width: 1061px) {
   .priceTutorCard:last-child {
     margin-top: 0;
+  }
+}
+
+@media (min-width: 1921px) {
+  .priceTutorCard {
+    padding: var(--l) var(--s);
+  }
+
+  .pricing {
+    min-height: 74px;
+  }
+
+  .promoWrap {
+    top: -22px;
   }
 }

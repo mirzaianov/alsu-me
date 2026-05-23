@@ -1,10 +1,14 @@
 .priceTranslatorCard {
   position: relative;
-  width: var(--card-width);
-  height: 436px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: var(--pricing-card-width, var(--card-width));
+  height: auto;
+  display: grid;
+  grid-template-rows:
+    minmax(56px, auto) auto auto auto auto
+    minmax(84px, auto);
+  align-content: start;
+  align-items: start;
+  justify-items: center;
   gap: var(--s);
   padding: var(--l) var(--xs) var(--m);
   border-radius: var(--s);
@@ -41,4 +45,19 @@
   max-width: 185px;
   text-align: center;
   font-weight: 700;
+}
+
+@media (min-width: 1921px) {
+  .priceTranslatorCard {
+    padding: var(--l) var(--s);
+  }
+
+  .heading {
+    min-height: 64px;
+  }
+
+  .note {
+    min-height: 96px;
+    max-width: 208px;
+  }
 }

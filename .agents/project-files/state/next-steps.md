@@ -4,14 +4,12 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Commit and redeploy on Vercel with the package-manager guard change; if install still fails, inspect the first error lines above Vercel's `[ELIFECYCLE]` summary.
-- Review and commit the tablet and GSAP animation fixes if verification remains clean. Real-device or BrowserStack-style tablet Safari and Android Chrome visual QA remains a useful follow-up because local checks cannot fully emulate their animation/compositor behavior.
+- Visually review the viewport-filled Hero edge spacing, `1600px` extra-wide Hero footprint cap including header/Hero margins, extra-wide-only fluid Hero portrait scale, Services/Pricing subtitles, fixed cards, Contact artwork/buttons, and shared page chrome at mobile, tablet, ordinary desktop, and `1921px+` widths, then commit the KAN-131 layout adjustments if the spacing feels right.
 
 ## Immediate Goal
 
-- Verify Vercel dependency installation with the existing pnpm-only policy and pnpm workspace guard intact.
-- Keep remaining work limited to review, commit preparation, and targeted mobile/tablet browser visual QA for the back-to-top control and GSAP marquees; avoid extra routes, state libraries, test frameworks, or UI-system changes.
+- Keep the KAN-131 scope limited to hero vertical rhythm, extra-wide Hero portrait scaling, and systematic `1921px+` font/gap scaling; avoid unrelated ordinary-desktop layout, animation, dependency, or content changes.
 
 ## Open Questions
 
-- None for the current review scope.
+- Whether the desktop CTA should later be moved into the intro column for an even tighter headline-to-action flow.
