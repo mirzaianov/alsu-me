@@ -57,3 +57,4 @@ lerna-debug.log*
 # AI
 .codex-tmp
 .codex_tmp_fonttools
+.tmp-*
