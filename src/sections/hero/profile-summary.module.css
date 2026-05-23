@@ -136,6 +136,25 @@
 }
 
 @media (min-width: 1921px) {
+  .heroPhotoCardBlock {
+    flex: 1 1 580px;
+    gap: var(--xl);
+    min-width: 580px;
+  }
+
+  .photoWrap {
+    --hero-photo-card-width: 64cqi;
+    --hero-photo-inner-height: 74cqi;
+    --hero-photo-frame-size: 58.5cqi;
+    --hero-photo-border-bottom: 4.2cqi;
+    --hero-photo-border-left: 1.7cqi;
+    --hero-photo-image-left: 1.4cqi;
+
+    inline-size: 100%;
+    min-width: 0;
+    container-type: inline-size;
+  }
+
   .slider {
     --hero-stat-slider-slot: 112px;
     --hero-stat-slider-edge-fade: 20px;

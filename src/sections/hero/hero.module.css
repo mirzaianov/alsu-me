@@ -107,9 +107,25 @@
 
 @media (min-width: 1921px) {
   .hero {
+    --hero-extra-wide-max-footprint: 1600px;
+    --hero-extra-wide-header-margin: 56px;
+    --hero-extra-wide-margin: 64px;
+    --hero-extra-wide-outer-offset: calc(
+      var(--hero-extra-wide-header-margin) + var(--hero-extra-wide-margin)
+    );
+
     height: auto;
     max-width: var(--container-wide);
-    min-height: max(900px, calc(100svh - 120px));
+    max-height: calc(
+      var(--hero-extra-wide-max-footprint) - var(--hero-extra-wide-outer-offset)
+    );
+    min-height: min(
+      calc(
+        var(--hero-extra-wide-max-footprint) -
+          var(--hero-extra-wide-outer-offset)
+      ),
+      max(900px, calc(100svh - 120px))
+    );
     padding-block-start: clamp(var(--xl), 6svh, 108px);
     padding-block-end: 56px;
   }
