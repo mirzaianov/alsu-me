@@ -18,12 +18,15 @@ const BackToTop = () => {
         return;
       }
 
-      const infiniteLogosOffset = infiniteLogosSection.offsetTop;
-      const footerOffset = footerSection.offsetTop - 1000;
+      const currentScrollY = window.scrollY;
+      const infiniteLogosOffset =
+        infiniteLogosSection.getBoundingClientRect().top + currentScrollY;
+      const footerOffset =
+        footerSection.getBoundingClientRect().top + currentScrollY - 1000;
 
       if (
-        window.scrollY >= infiniteLogosOffset &&
-        window.scrollY <= footerOffset
+        currentScrollY >= infiniteLogosOffset &&
+        currentScrollY <= footerOffset
       ) {
         setIsVisible(true);
       } else {

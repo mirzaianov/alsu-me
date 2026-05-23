@@ -16,12 +16,16 @@
   background-color: var(--floating-surface-background);
   box-shadow: var(--floating-surface-shadow);
   backdrop-filter: var(--floating-surface-filter);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
   -webkit-backdrop-filter: var(--floating-surface-filter);
   transition:
     background-color var(--transition-slow),
     border-color var(--transition-slow),
     opacity var(--transition-slow),
     transform var(--transition-slow),
+    visibility var(--transition-slow),
     backdrop-filter var(--transition-slow),
     -webkit-backdrop-filter var(--transition-slow);
 }
@@ -32,7 +36,10 @@
 }
 
 .visible {
+  opacity: 1;
+  pointer-events: auto;
   transform: translateY(-124px);
+  visibility: visible;
 }
 
 .icon {
