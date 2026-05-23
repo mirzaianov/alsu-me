@@ -74,10 +74,16 @@
 @media (min-width: 1061px) {
   .hero {
     max-width: var(--container-desktop);
+    min-height: max(760px, calc(100svh - 104px));
+    justify-content: flex-start;
+    gap: clamp(var(--l), 4svh, var(--3xl));
+    padding-block-start: clamp(var(--xl), 7svh, 96px);
+    padding-block-end: var(--xl);
     padding-inline: var(--3xl);
   }
 
   .content {
+    flex: 1 1 auto;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
@@ -85,11 +91,42 @@
   }
 
   .ctaBlock {
+    flex: 0 0 auto;
     align-items: flex-start;
     align-self: flex-start;
   }
 
+  .logos {
+    flex: 0 0 auto;
+  }
+
   .ctaTextDesktop {
     text-align: left;
+  }
+}
+
+@media (min-width: 1921px) {
+  .hero {
+    --hero-extra-wide-max-footprint: 1600px;
+    --hero-extra-wide-header-margin: 56px;
+    --hero-extra-wide-margin: 64px;
+    --hero-extra-wide-outer-offset: calc(
+      var(--hero-extra-wide-header-margin) + var(--hero-extra-wide-margin)
+    );
+
+    height: auto;
+    max-width: var(--container-wide);
+    max-height: calc(
+      var(--hero-extra-wide-max-footprint) - var(--hero-extra-wide-outer-offset)
+    );
+    min-height: min(
+      calc(
+        var(--hero-extra-wide-max-footprint) -
+          var(--hero-extra-wide-outer-offset)
+      ),
+      max(900px, calc(100svh - 120px))
+    );
+    padding-block-start: clamp(var(--xl), 6svh, 108px);
+    padding-block-end: 56px;
   }
 }

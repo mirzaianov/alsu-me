@@ -52,7 +52,6 @@
 }
 
 .subtitle {
-  max-width: var(--mobile-text-wrapper);
   text-align: center;
   font-size: var(--font-body);
   font-weight: 700;
@@ -74,8 +73,11 @@
 
 .cards {
   --grid-gap: var(--l);
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: var(--card-width);
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  justify-content: center;
   font-size: var(--font-body);
 }
 
@@ -112,7 +114,6 @@
   }
 
   .subtitle {
-    max-width: var(--tablet-text-wrapper);
     font-size: var(--font-heading-s);
     line-height: var(--line-heading-relaxed);
   }
@@ -140,7 +141,7 @@
 
   .cards {
     --grid-gap: var(--xl);
-    flex-direction: row;
+    grid-template-columns: repeat(2, var(--card-width));
   }
 }
 
@@ -176,10 +177,6 @@
     --stack-gap: var(--xl);
   }
 
-  .subtitle {
-    max-width: var(--desktop-text-wrapper);
-  }
-
   .badgeList {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--xl);
@@ -194,5 +191,13 @@
 
   .cards {
     --grid-gap: var(--2xl);
+  }
+}
+
+@media (min-width: 1921px) {
+  .badgeGroup,
+  .badgeGroupAlt,
+  .servicesGroup {
+    --stack-gap: var(--2xl);
   }
 }

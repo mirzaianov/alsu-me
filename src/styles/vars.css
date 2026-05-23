@@ -36,6 +36,7 @@
   --container-tablet: 720px;
   --container-desktop: 1300px;
   --container-wide: 1600px;
+  --container-extra-wide: 1920px;
 
   --mobile-text-wrapper: 400px;
   --tablet-text-wrapper: 560px;
@@ -71,4 +72,27 @@
   --line-heading: 1.25;
   --line-heading-relaxed: 1.5;
   --icon-size: 24px;
+}
+
+@media (min-width: 1921px) {
+  :root {
+    --s: 20px;
+    --m: 28px;
+    --l: 36px;
+    --xl: 44px;
+    --2xl: 64px;
+    --3xl: 88px;
+
+    --card-width: 324px;
+    --desktop-y-margin: 108px;
+
+    --font-body: 18px;
+    --font-body-large: 22px;
+    --font-heading-s: 28px;
+    --font-heading-m: 36px;
+    --font-heading-l: 44px;
+    --font-heading-xl: 64px;
+    --font-button: 18px;
+    --font-button-large: 28px;
+  }
 }

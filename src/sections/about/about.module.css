@@ -11,6 +11,7 @@
 
 .content {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   gap: var(--l);
@@ -89,18 +90,37 @@
   }
 
   .figure {
-    width: 33.333%;
+    width: 40%;
+    padding-left: clamp(var(--l), 5vw, var(--2xl));
+  }
+
+  .badgeLeft {
+    left: 0;
   }
 
   .badgeRight {
     right: auto;
-    left: 270px;
+    left: clamp(320px, 33vw, 360px);
   }
 
   .copy {
-    width: 58.333%;
+    width: 56%;
     max-width: var(--desktop-text-wrapper);
     align-items: flex-start;
     gap: var(--2xl);
+  }
+}
+
+@media (min-width: 1921px) {
+  .about {
+    --section-gap-desktop: var(--3xl);
+  }
+
+  .figure {
+    padding-left: var(--2xl);
+  }
+
+  .badgeRight {
+    left: 404px;
   }
 }

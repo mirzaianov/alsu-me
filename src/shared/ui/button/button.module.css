@@ -52,8 +52,6 @@
   min-width: 160px;
 }
 
-.primary {}
-
 .secondary {
   --button-bg: transparent;
   --button-bg-hover: transparent;
@@ -111,5 +109,31 @@
   .large svg {
     width: 32px;
     height: 32px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .button {
+    border-radius: 0.625rem;
+  }
+
+  .button svg {
+    width: var(--m);
+    height: var(--m);
+  }
+
+  .icon {
+    min-width: 260px;
+  }
+
+  .large {
+    min-height: var(--2xl);
+    padding-inline: var(--l);
+    border-radius: 0.875rem;
+  }
+
+  .large svg {
+    width: var(--l);
+    height: var(--l);
   }
 }

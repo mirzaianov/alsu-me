@@ -13,3 +13,9 @@
 .testimonialInfiniteCards:active {
   cursor: grabbing;
 }
+
+@media (min-width: 1921px) {
+  .testimonialInfiniteCards {
+    height: 450px;
+  }
+}

@@ -112,3 +112,20 @@
     height: var(--l);
   }
 }
+
+@media (min-width: 1921px) {
+  .surface {
+    border-radius: 0.625rem;
+  }
+
+  .large {
+    min-height: var(--2xl);
+    padding-inline: var(--l);
+    border-radius: 0.875rem;
+  }
+
+  .icon {
+    width: var(--l);
+    height: var(--l);
+  }
+}

@@ -1,4 +1,5 @@
-.testimonials {}
+.testimonials {
+}
 
 .title {
   font-size: var(--font-heading-s);
@@ -73,5 +74,11 @@
   .copy {
     width: 58.333%;
     max-width: var(--desktop-text-wrapper);
+  }
+}
+
+@media (min-width: 1921px) {
+  .testimonials {
+    --section-gap-desktop: var(--3xl);
   }
 }

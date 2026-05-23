@@ -119,3 +119,13 @@
     display: none;
   }
 }
+
+@media (min-width: 1921px) {
+  .footer {
+    --section-max-extra-wide: var(--container-extra-wide);
+  }
+
+  .description {
+    max-width: 632px;
+  }
+}

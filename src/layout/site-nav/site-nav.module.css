@@ -121,3 +121,9 @@
 .underlineActive {
   transform: scaleX(1);
 }
+
+@media (min-width: 1921px) {
+  .inline {
+    max-width: 720px;
+  }
+}
