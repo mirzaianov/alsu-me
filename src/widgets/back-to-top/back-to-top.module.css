@@ -32,11 +32,6 @@
     -webkit-backdrop-filter var(--transition-slow);
 }
 
-.backToTopButton:hover {
-  background-color: var(--primary-10);
-  border-color: var(--primary-10);
-}
-
 .visible {
   opacity: 1;
   pointer-events: auto;
@@ -48,17 +43,10 @@
   flex: none;
   width: var(--xl);
   height: var(--xl);
-  color: var(--text-10);
-  opacity: 0.6;
+  color: var(--primary-10);
   transition:
     color var(--transition-slow),
     opacity var(--transition-slow);
-}
-
-.backToTopButton:hover .icon {
-  color: var(--text-0);
-  opacity: 1;
-  animation: var(--animation-name-arrow-bounce) 1500ms linear infinite;
 }
 
 @media (min-width: 577px) {
@@ -69,6 +57,24 @@
 
   .visible {
     transform: translateY(-196px);
+  }
+}
+
+@media (min-width: 1061px) {
+  .icon {
+    color: var(--text-10);
+    opacity: 0.6;
+  }
+
+  .backToTopButton:hover {
+    background-color: var(--primary-10);
+    border-color: var(--primary-10);
+  }
+
+  .backToTopButton:hover .icon {
+    color: var(--text-0);
+    opacity: 1;
+    animation: var(--animation-name-arrow-bounce) 1500ms linear infinite;
   }
 }
 
