@@ -1,4 +1,6 @@
 .backToTopButton {
+  --back-to-top-motion-transition: 320ms ease-out;
+
   position: fixed;
   right: var(--s);
   bottom: -108px;
@@ -23,9 +25,9 @@
   transition:
     background-color var(--transition-slow),
     border-color var(--transition-slow),
-    opacity var(--transition-slow),
-    transform var(--transition-slow),
-    visibility var(--transition-slow),
+    opacity var(--back-to-top-motion-transition),
+    transform var(--back-to-top-motion-transition),
+    visibility var(--back-to-top-motion-transition),
     backdrop-filter var(--transition-slow),
     -webkit-backdrop-filter var(--transition-slow);
 }
