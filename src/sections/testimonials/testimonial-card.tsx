@@ -1,11 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { Dialog } from '@base-ui/react/dialog';
 import Image, { type StaticImageData } from 'next/image';
 import TestimonialDialog from './testimonial-dialog';
 import styles from './testimonial-card.module.css';
-
-const maxLines = 10;
 
 type TestimonialCardProps = {
   src: StaticImageData;
@@ -30,111 +29,112 @@ const TestimonialCard = ({
   const paragraphRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
-    const isOverflowing = () => {
-      const { current } = paragraphRef;
+    const paragraph = paragraphRef.current;
 
-      if (!current) {
-        return false;
-      }
-
-      const maxHeight =
-        parseFloat(getComputedStyle(current).lineHeight) * maxLines;
-
-      return current.scrollHeight >= maxHeight;
-    };
-
-    if (isOverflowing()) {
-      setIsClamped(true);
-    }
-  }, []);
-
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-    pauseCarousel();
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    resumeCarousel();
-  };
-
-  useEffect(() => {
-    if (!isModalOpen) {
+    if (!paragraph) {
       return;
     }
 
-    document.body.style.overflow = 'hidden';
-
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.code !== 'Escape') {
+    let isActive = true;
+    const updateClampState = () => {
+      if (!isActive) {
         return;
       }
 
-      event.preventDefault();
-      setIsModalOpen(false);
-      resumeCarousel();
+      setIsClamped(paragraph.scrollHeight > paragraph.clientHeight + 1);
     };
 
-    document.body.addEventListener('keydown', closeOnEscape);
+    updateClampState();
+
+    const resizeObserver = new ResizeObserver(updateClampState);
+    resizeObserver.observe(paragraph);
+    void document.fonts?.ready.then(updateClampState);
 
     return () => {
-      document.body.removeEventListener('keydown', closeOnEscape);
-      document.body.style.overflow = '';
+      isActive = false;
+      resizeObserver.disconnect();
     };
-  }, [isModalOpen, resumeCarousel]);
+  }, []);
+
+  const handleModalOpenChange = (open: boolean) => {
+    if (open === isModalOpen) {
+      return;
+    }
+
+    setIsModalOpen(open);
+    if (open) {
+      pauseCarousel();
+    } else {
+      resumeCarousel();
+    }
+  };
+
+  const shouldRenderDialog = isClamped || isModalOpen;
 
   return (
-    <div className={styles.testimonialCard}>
-      <div className={styles.header}>
-        <div className={styles.person}>
-          <Image
-            className={styles.avatar}
-            src={src}
-            alt={fullName}
-            quality={100}
-            sizes="56px"
-          />
-          <div className={styles.meta}>
-            <p className={styles.name}>{fullName}</p>
-            <p className={styles.occupation}>{occupation}</p>
-          </div>
-        </div>
-      </div>
-      <p
-        ref={paragraphRef}
-        className={styles.comment}
-      >
-        {comment}
-      </p>
-      {isClamped && (
-        <button
-          aria-label="Читать далее"
-          className={styles.more}
-          onClick={handleModalOpen}
-          type="button"
-        >
-          Читать далее
-        </button>
-      )}
-      {isModalOpen && (
-        <TestimonialDialog onClose={handleModalClose}>
+    <Dialog.Root
+      open={isModalOpen}
+      onOpenChange={handleModalOpenChange}
+    >
+      <figure className={styles.testimonialCard}>
+        <figcaption className={styles.header}>
           <div className={styles.person}>
             <Image
               className={styles.avatar}
               src={src}
-              alt={fullName}
-              quality={100}
+              alt=""
               sizes="56px"
             />
             <div className={styles.meta}>
               <p className={styles.name}>{fullName}</p>
-              <p>{occupation}</p>
+              <p className={styles.occupation}>{occupation}</p>
             </div>
           </div>
-          <p className={styles.modalComment}>{comment}</p>
+        </figcaption>
+        <blockquote className={styles.quote}>
+          <p
+            ref={paragraphRef}
+            className={styles.comment}
+          >
+            {comment}
+          </p>
+        </blockquote>
+        {isClamped && (
+          <Dialog.Trigger
+            render={
+              <button
+                aria-label={`Читать отзыв полностью: ${fullName}`}
+                className={styles.more}
+                type="button"
+              >
+                Читать далее
+              </button>
+            }
+          />
+        )}
+      </figure>
+      {shouldRenderDialog && (
+        <TestimonialDialog title={`Полный отзыв: ${fullName}`}>
+          <figure className={styles.modalFigure}>
+            <figcaption className={styles.person}>
+              <Image
+                className={styles.avatar}
+                src={src}
+                alt=""
+                sizes="56px"
+              />
+              <div className={styles.meta}>
+                <p className={styles.name}>{fullName}</p>
+                <p>{occupation}</p>
+              </div>
+            </figcaption>
+            <blockquote className={styles.modalQuote}>
+              <p className={styles.modalComment}>{comment}</p>
+            </blockquote>
+          </figure>
         </TestimonialDialog>
       )}
-    </div>
+    </Dialog.Root>
   );
 };
 

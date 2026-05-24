@@ -1,68 +1,26 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { useClickAway } from '@uidotdev/usehooks';
+import { Dialog } from '@base-ui/react/dialog';
 import type { ReactNode } from 'react';
-import Button from '../../shared/ui/button/button';
 import styles from './testimonial-dialog.module.css';
 
 type TestimonialDialogProps = {
-  onClose: () => void;
   children: ReactNode;
+  title: string;
 };
 
-const TestimonialDialog = ({ onClose, children }: TestimonialDialogProps) => {
-  const [portalElement] = useState<HTMLDivElement | null>(() => {
-    if (typeof document === 'undefined') {
-      return null;
-    }
-
-    return document.createElement('div');
-  });
-  const closeRef = useClickAway<HTMLDivElement>(() => onClose());
-
-  useEffect(() => {
-    if (!portalElement) {
-      return;
-    }
-
-    const modalRoot = document.getElementById('testimonial-dialog');
-
-    if (!modalRoot) {
-      return;
-    }
-
-    modalRoot.appendChild(portalElement);
-
-    return () => {
-      modalRoot.removeChild(portalElement);
-    };
-  }, [portalElement]);
-
-  if (!portalElement) {
-    return null;
-  }
-
-  return ReactDOM.createPortal(
-    <div className={styles.overlay}>
-      <div
-        ref={closeRef}
-        className={styles.panel}
-      >
-        {children}
+const TestimonialDialog = ({ children, title }: TestimonialDialogProps) => {
+  return (
+    <Dialog.Portal>
+      <Dialog.Backdrop className={styles.backdrop} />
+      <Dialog.Popup className={styles.panel}>
+        <Dialog.Title className="srOnly">{title}</Dialog.Title>
+        <div className={styles.content}>{children}</div>
         <div className={styles.action}>
-          <Button
-            ariaLabel="Закрыть"
-            type="accent"
-            onClick={onClose}
-          >
-            <span>Закрыть</span>
-          </Button>
+          <Dialog.Close className={styles.close}>Закрыть</Dialog.Close>
         </div>
-      </div>
-    </div>,
-    portalElement,
+      </Dialog.Popup>
+    </Dialog.Portal>
   );
 };
 

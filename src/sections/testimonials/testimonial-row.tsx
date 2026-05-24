@@ -91,13 +91,19 @@ const testimonialCardData = [
 const testimonialEntranceStagger = 0.08;
 
 type TestimonialRowProps = {
+  isDuplicate?: boolean;
   setIsInfiniteScroll: Dispatch<SetStateAction<boolean>>;
 };
 
-const TestimonialRow = ({ setIsInfiniteScroll }: TestimonialRowProps) => {
+const TestimonialRow = ({
+  isDuplicate = false,
+  setIsInfiniteScroll,
+}: TestimonialRowProps) => {
   return (
     <ScrollCardReveal
+      aria-hidden={isDuplicate ? true : undefined}
       className={styles.testimonialCardsRow}
+      inert={isDuplicate ? true : undefined}
       stagger={testimonialEntranceStagger}
     >
       {testimonialCardData.map((item, index) => (

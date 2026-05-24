@@ -1,18 +1,26 @@
-.overlay {
+.backdrop {
   position: fixed;
   inset: 0;
   z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: hsla(219, 40%, 11%, 0.5);
-  animation: var(--animation-name-modal-bg-open) 300ms ease-in;
+  opacity: 1;
+  transition: opacity 180ms ease-in;
+}
+
+.backdrop[data-starting-style],
+.backdrop[data-ending-style] {
+  opacity: 0;
 }
 
 .panel {
+  position: fixed;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  z-index: 51;
   display: flex;
-  max-width: calc(100vw - 2 * var(--m));
-  max-height: calc(100svh - 2 * var(--s));
+  inline-size: calc(100% - 2 * var(--m));
+  max-inline-size: calc(100dvi - 2 * var(--m));
+  max-block-size: calc(100svb - 2 * var(--s));
   flex-direction: column;
   gap: var(--m);
   overflow-y: auto;
@@ -22,15 +30,69 @@
   box-shadow: var(--shadow-primary);
   font-size: var(--font-body);
   line-height: var(--line-tight);
-  animation: var(--animation-name-modal-open) 300ms ease-in;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    opacity 180ms ease-in,
+    transform 220ms ease-in;
+}
+
+.panel[data-starting-style],
+.panel[data-ending-style] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--m);
 }
 
 .action {
   align-self: flex-end;
 }
 
+.close {
+  inline-size: fit-content;
+  min-block-size: var(--xl);
+  padding-inline: var(--s);
+  padding-block: var(--xs);
+  border-radius: 0.5rem;
+  background-color: var(--primary-30);
+  color: var(--text-0);
+  font-size: var(--font-button);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  transition:
+    background-color var(--transition-primary),
+    transform var(--transition-primary);
+}
+
+.close:hover {
+  background-color: var(--primary-30-70);
+}
+
+.close:active {
+  transform: translateY(-4px);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
+}
+
 @media (min-width: 577px) {
   .panel {
-    max-width: 51ch;
+    max-inline-size: 51ch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .panel,
+  .close {
+    transition: none;
   }
 }

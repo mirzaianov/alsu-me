@@ -1,10 +1,11 @@
 .testimonialCard {
   display: flex;
-  width: var(--card-width);
-  min-width: var(--card-width);
-  height: 400px;
+  inline-size: var(--card-width);
+  min-inline-size: var(--card-width);
+  block-size: 400px;
   flex-direction: column;
   gap: var(--m);
+  margin: 0;
   padding: var(--m);
   border-radius: var(--s);
   background-color: var(--neutral-0);
@@ -14,7 +15,7 @@
 }
 
 .header {
-  min-height: 64px;
+  min-block-size: 64px;
 }
 
 .person {
@@ -23,8 +24,9 @@
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
+  inline-size: 56px;
+  block-size: 56px;
+  flex: 0 0 auto;
   border-radius: 999px;
   object-fit: cover;
 }
@@ -44,18 +46,25 @@
   text-wrap: balance;
 }
 
+.quote,
+.modalFigure,
+.modalQuote {
+  margin: 0;
+}
+
 .comment {
   display: -webkit-box;
-  overflow: hidden;
+  overflow: clip;
   white-space: normal;
   text-wrap: pretty;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 10;
+  line-clamp: 10;
 }
 
 .more {
-  width: fit-content;
-  margin-top: auto;
+  inline-size: fit-content;
+  margin-block-start: auto;
   text-align: left;
   font-weight: 700;
   transition: opacity var(--transition-primary);
@@ -65,6 +74,17 @@
   opacity: 0.7;
 }
 
+.more:focus-visible {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
+}
+
+.modalFigure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--m);
+}
+
 .modalComment {
   white-space: normal;
   text-wrap: pretty;
@@ -72,11 +92,11 @@
 
 @media (min-width: 1921px) {
   .testimonialCard {
-    height: 450px;
+    block-size: 450px;
     gap: var(--l);
   }
 
   .header {
-    min-height: 72px;
+    min-block-size: 72px;
   }
 }
