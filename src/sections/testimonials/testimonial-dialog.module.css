@@ -2,8 +2,11 @@
   position: fixed;
   inset: 0;
   z-index: 50;
+  overflow: hidden;
   background-color: hsla(219, 40%, 11%, 0.5);
   opacity: 1;
+  overscroll-behavior: contain;
+  touch-action: none;
   transition: opacity 180ms ease-in;
 }
 
@@ -12,18 +15,28 @@
   opacity: 0;
 }
 
-.panel {
+.viewport {
   position: fixed;
-  inset-block-start: 50%;
-  inset-inline-start: 50%;
+  inset: 0;
   z-index: 51;
   display: flex;
-  inline-size: calc(100% - 2 * var(--m));
-  max-inline-size: calc(100dvi - 2 * var(--m));
-  max-block-size: calc(100svb - 2 * var(--s));
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-inline: var(--m);
+  padding-block: var(--s);
+  overscroll-behavior: contain;
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  inline-size: 100%;
+  max-block-size: 100%;
   flex-direction: column;
   gap: var(--m);
   overflow-y: auto;
+  overscroll-behavior: contain;
   border-radius: var(--s);
   background-color: var(--neutral-0);
   padding: var(--m);
@@ -31,7 +44,7 @@
   font-size: var(--font-body);
   line-height: var(--line-tight);
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: scale(1);
   transition:
     opacity 180ms ease-in,
     transform 220ms ease-in;
@@ -40,7 +53,7 @@
 .panel[data-starting-style],
 .panel[data-ending-style] {
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.96);
+  transform: scale(0.96);
 }
 
 .content {

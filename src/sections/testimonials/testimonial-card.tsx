@@ -73,6 +73,7 @@ const TestimonialCard = ({
 
   return (
     <Dialog.Root
+      modal="trap-focus"
       open={isModalOpen}
       onOpenChange={handleModalOpenChange}
     >

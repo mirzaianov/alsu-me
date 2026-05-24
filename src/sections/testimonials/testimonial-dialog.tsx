@@ -13,13 +13,15 @@ const TestimonialDialog = ({ children, title }: TestimonialDialogProps) => {
   return (
     <Dialog.Portal>
       <Dialog.Backdrop className={styles.backdrop} />
-      <Dialog.Popup className={styles.panel}>
-        <Dialog.Title className="srOnly">{title}</Dialog.Title>
-        <div className={styles.content}>{children}</div>
-        <div className={styles.action}>
-          <Dialog.Close className={styles.close}>Закрыть</Dialog.Close>
-        </div>
-      </Dialog.Popup>
+      <Dialog.Viewport className={styles.viewport}>
+        <Dialog.Popup className={styles.panel}>
+          <Dialog.Title className="srOnly">{title}</Dialog.Title>
+          <div className={styles.content}>{children}</div>
+          <div className={styles.action}>
+            <Dialog.Close className={styles.close}>Закрыть</Dialog.Close>
+          </div>
+        </Dialog.Popup>
+      </Dialog.Viewport>
     </Dialog.Portal>
   );
 };
