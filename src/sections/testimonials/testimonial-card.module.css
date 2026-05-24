@@ -63,20 +63,45 @@
 }
 
 .more {
+  display: inline-flex;
   inline-size: fit-content;
+  block-size: var(--button-layout-height);
+  align-items: center;
   margin-block-start: auto;
+  margin-inline: calc(
+    0px - var(--button-layout-padding-inline) -
+      var(--button-layout-border-width)
+  );
+  gap: var(--button-layout-gap);
+  padding: var(--button-layout-padding-block)
+    var(--button-layout-padding-inline);
+  border: var(--button-layout-border-width) solid transparent;
+  border-radius: var(--button-layout-radius);
+  background-color: transparent;
+  background-clip: padding-box;
   text-align: left;
   font-weight: 700;
-  transition: opacity var(--transition-primary);
+  line-height: var(--button-layout-line-height);
+  white-space: nowrap;
+  text-wrap: nowrap;
+  transition:
+    background-color var(--transition-primary),
+    border-color var(--transition-primary),
+    color var(--transition-primary);
 }
 
-.more:hover {
-  opacity: 0.7;
+@media (hover: hover) and (pointer: fine) {
+  .more:hover {
+    background-color: var(--interactive-soft-background);
+    border-color: var(--interactive-soft-background);
+  }
 }
 
 .more:focus-visible {
+  background-color: var(--interactive-soft-background);
+  border-color: var(--interactive-soft-background);
   outline: 2px solid var(--primary-10);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .modalFigure {
