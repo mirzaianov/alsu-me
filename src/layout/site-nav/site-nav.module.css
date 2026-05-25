@@ -84,36 +84,38 @@
 
 .link {
   position: relative;
-  display: inline-flex;
-  width: fit-content;
-  height: var(--button-layout-height);
+  z-index: 0;
+  display: inline-block;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  transition: color var(--transition-primary);
+}
+
+.block-1 .link {
+  display: flex;
+  width: 100%;
+  min-height: var(--mobile-menu-touch-target);
   align-items: center;
-  justify-content: center;
-  gap: var(--button-layout-gap);
-  padding: var(--button-layout-padding-block)
-    var(--button-layout-padding-inline);
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: calc(0px - var(--button-layout-padding-block))
+    calc(0px - var(--button-layout-padding-inline));
   border: var(--button-layout-border-width) solid transparent;
   border-radius: var(--button-layout-radius);
   background-color: transparent;
   background-clip: padding-box;
-  line-height: var(--button-layout-line-height);
-  white-space: nowrap;
-  text-wrap: nowrap;
+  pointer-events: none;
   transition:
     background-color var(--transition-primary),
-    border-color var(--transition-primary),
-    color var(--transition-primary);
-}
-
-.block-1 .link {
-  width: 100%;
-  height: var(--mobile-menu-touch-target);
-  justify-content: flex-start;
-  padding-inline: var(--button-layout-padding-inline);
+    border-color var(--transition-primary);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .link:not([aria-current='location']):hover {
+  .link:not([aria-current='location']):hover::before {
     background-color: var(--interactive-soft-background);
     border-color: var(--interactive-soft-background);
   }
@@ -124,7 +126,7 @@
   outline-offset: 2px;
 }
 
-.link:not([aria-current='location']):focus-visible {
+.link:not([aria-current='location']):focus-visible::before {
   background-color: var(--interactive-soft-background);
   border-color: var(--interactive-soft-background);
 }
