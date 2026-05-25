@@ -5,12 +5,70 @@
 }
 
 html {
+  --scrollbar-thumb: hsla(219, 40%, 11%, 0.48);
+  --scrollbar-thumb-hover: hsla(234, 86%, 57%, 0.72);
+  --scrollbar-track: var(--secondary-15);
+
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+@media (prefers-contrast: more) {
+  html {
+    --scrollbar-thumb: var(--neutral-90);
+    --scrollbar-thumb-hover: var(--neutral-90);
+    --scrollbar-track: var(--neutral-0);
+  }
+}
+
+@media (forced-colors: active) {
+  html {
+    scrollbar-color: auto;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  @media not (forced-colors: active) {
+    @supports not selector(::-webkit-scrollbar) {
+      html:hover {
+        scrollbar-color: var(--scrollbar-thumb-hover) var(--scrollbar-track);
+      }
+    }
+  }
+}
+
+@media not (forced-colors: active) {
+  @supports selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-color: auto;
+    }
+
+    body::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background: var(--scrollbar-track);
+    }
+
+    body::-webkit-scrollbar-thumb {
+      border: 3px solid var(--scrollbar-track);
+      border-radius: 999px;
+      background: var(--scrollbar-thumb);
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background: var(--scrollbar-thumb-hover);
+    }
   }
 }
 

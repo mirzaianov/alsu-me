@@ -20,6 +20,11 @@
   backdrop-filter: var(--floating-surface-filter);
   opacity: 0;
   pointer-events: none;
+  scale: 1;
+  translate: 0 0;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   visibility: hidden;
   -webkit-backdrop-filter: var(--floating-surface-filter);
   transition:
@@ -27,6 +32,8 @@
     border-color var(--transition-slow),
     opacity var(--back-to-top-motion-transition),
     transform var(--back-to-top-motion-transition),
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition),
     visibility var(--back-to-top-motion-transition),
     backdrop-filter var(--transition-slow),
     -webkit-backdrop-filter var(--transition-slow);
@@ -37,6 +44,16 @@
   pointer-events: auto;
   transform: translateY(-124px);
   visibility: visible;
+}
+
+.backToTopButton:active {
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.backToTopButton:focus-visible {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
 }
 
 .icon {

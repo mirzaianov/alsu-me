@@ -160,7 +160,10 @@ const TestimonialCarousel = () => {
       className={styles.testimonialInfiniteCards}
     >
       <TestimonialRow setIsInfiniteScroll={setIsInfiniteScroll} />
-      <TestimonialRow setIsInfiniteScroll={setIsInfiniteScroll} />
+      <TestimonialRow
+        isDuplicate
+        setIsInfiniteScroll={setIsInfiniteScroll}
+      />
     </div>
   );
 };
