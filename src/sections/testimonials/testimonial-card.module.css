@@ -99,14 +99,11 @@
 
 @media (hover: hover) and (pointer: fine) {
   .more:hover {
-    background-color: var(--interactive-soft-background);
-    border-color: var(--interactive-soft-background);
+    color: var(--text-90-50);
   }
 }
 
 .more:active {
-  background-color: var(--interactive-soft-background);
-  border-color: var(--interactive-soft-background);
   scale: var(--interactive-press-scale);
   translate: 0 var(--interactive-press-translate-y);
 }
