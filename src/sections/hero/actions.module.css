@@ -1,5 +1,6 @@
 .heroCTA {
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .surface {

@@ -23,6 +23,7 @@
   letter-spacing: 0.05em;
   scale: 1;
   translate: 0 0;
+  -webkit-tap-highlight-color: transparent;
   transition:
     background-color var(--transition-primary),
     color var(--transition-primary),

@@ -86,6 +86,7 @@
   text-wrap: nowrap;
   scale: 1;
   translate: 0 0;
+  -webkit-tap-highlight-color: transparent;
   transition:
     background-color var(--transition-primary),
     border-color var(--transition-primary),
