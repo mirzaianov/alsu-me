@@ -7,6 +7,10 @@
   gap: var(--m);
   margin: 0;
   padding: var(--m);
+  padding-block-end: calc(
+    var(--m) - var(--button-layout-padding-block) -
+      var(--button-layout-border-width)
+  );
   border-radius: var(--s);
   background-color: var(--neutral-0);
   box-shadow: var(--shadow-primary);
