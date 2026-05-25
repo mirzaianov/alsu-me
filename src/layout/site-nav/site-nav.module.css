@@ -88,7 +88,12 @@
   display: inline-block;
   white-space: nowrap;
   text-wrap: nowrap;
-  transition: color var(--transition-primary);
+  scale: 1;
+  translate: 0 0;
+  transition:
+    color var(--transition-primary),
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
 .block-1 .link {
@@ -119,6 +124,16 @@
     background-color: var(--interactive-soft-background);
     border-color: var(--interactive-soft-background);
   }
+}
+
+.link:not([aria-current='location']):active {
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.link:not([aria-current='location']):active::before {
+  background-color: var(--interactive-soft-background);
+  border-color: var(--interactive-soft-background);
 }
 
 .link:focus-visible {

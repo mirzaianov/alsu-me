@@ -84,10 +84,14 @@
   line-height: var(--button-layout-line-height);
   white-space: nowrap;
   text-wrap: nowrap;
+  scale: 1;
+  translate: 0 0;
   transition:
     background-color var(--transition-primary),
     border-color var(--transition-primary),
-    color var(--transition-primary);
+    color var(--transition-primary),
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -95,6 +99,13 @@
     background-color: var(--interactive-soft-background);
     border-color: var(--interactive-soft-background);
   }
+}
+
+.more:active {
+  background-color: var(--interactive-soft-background);
+  border-color: var(--interactive-soft-background);
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
 }
 
 .more:focus-visible {

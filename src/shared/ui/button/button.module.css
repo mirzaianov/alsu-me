@@ -21,12 +21,15 @@
   font-weight: 700;
   line-height: var(--button-layout-line-height);
   letter-spacing: 0.05em;
+  scale: 1;
+  translate: 0 0;
   transition:
     background-color var(--transition-primary),
     color var(--transition-primary),
     border-color var(--transition-primary),
     opacity var(--transition-primary),
-    transform var(--transition-primary);
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
 .button:hover {
@@ -34,7 +37,13 @@
 }
 
 .button:active {
-  transform: translateY(-4px);
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
 }
 
 .button svg {

@@ -1,7 +1,23 @@
 .menuToggle {
   display: grid;
   place-items: center;
+  border-radius: var(--button-layout-radius);
+  scale: 1;
+  translate: 0 0;
+  transition:
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
   -webkit-tap-highlight-color: transparent;
+}
+
+.menuToggle:active {
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.menuToggle:focus-visible {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
 }
 
 .icon {

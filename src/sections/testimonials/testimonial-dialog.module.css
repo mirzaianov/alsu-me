@@ -84,9 +84,12 @@
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.05em;
+  scale: 1;
+  translate: 0 0;
   transition:
     background-color var(--transition-primary),
-    transform var(--transition-primary);
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
 .close:hover {
@@ -94,7 +97,8 @@
 }
 
 .close:active {
-  transform: translateY(-4px);
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
 }
 
 .close:focus-visible {

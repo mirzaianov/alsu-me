@@ -20,7 +20,12 @@
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.05em;
-  transition: transform var(--transition-primary);
+  scale: 1;
+  translate: 0 0;
+  transition:
+    transform var(--transition-primary),
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
 .heroCTA:hover .surface {
@@ -28,7 +33,17 @@
 }
 
 .heroCTA:active .surface {
-  transform: translateY(-4px);
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.heroCTA:focus-visible {
+  outline: none;
+}
+
+.heroCTA:focus-visible .surface {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
 }
 
 .large {
