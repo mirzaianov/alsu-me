@@ -56,6 +56,21 @@
   --floating-surface-border-color: hsla(0, 0%, 100%, 0.84);
   --floating-surface-filter: blur(20px) saturate(130%);
   --floating-surface-shadow: var(--shadow-primary);
+  --button-layout-height: var(--xl);
+  --button-layout-gap: var(--xs);
+  --button-layout-padding-inline: var(--s);
+  --button-layout-padding-block: var(--xs);
+  --button-layout-border-width: 3px;
+  --button-layout-radius: 0.5rem;
+  --button-layout-line-height: 1.5;
+  --interactive-press-scale: 0.96;
+  --interactive-press-translate-y: 1px;
+  --interactive-press-transition: 120ms ease-out;
+  --interactive-soft-background: color-mix(
+    in srgb,
+    var(--neutral-70) 10%,
+    transparent
+  );
 
   --transition-primary: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
@@ -94,5 +109,13 @@
     --font-heading-xl: 64px;
     --font-button: 18px;
     --font-button-large: 28px;
+    --button-layout-radius: 0.625rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --interactive-press-scale: 1;
+    --interactive-press-translate-y: 0px;
   }
 }

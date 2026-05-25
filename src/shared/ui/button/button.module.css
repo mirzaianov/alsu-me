@@ -1,5 +1,5 @@
 .button {
-  --button-radius: 0.5rem;
+  --button-radius: var(--button-layout-radius);
   --button-bg: var(--primary-10);
   --button-border: transparent;
   --button-border-width: 0;
@@ -7,26 +7,32 @@
   --button-bg-hover: var(--primary-10-70);
   display: inline-flex;
   width: fit-content;
-  height: var(--xl);
+  height: var(--button-layout-height);
   align-items: center;
   justify-content: center;
-  gap: var(--xs);
-  padding-inline: var(--s);
-  padding-block: var(--xs);
+  gap: var(--button-layout-gap);
+  padding-inline: var(--button-layout-padding-inline);
+  padding-block: var(--button-layout-padding-block);
   border: var(--button-border-width) solid var(--button-border);
   border-radius: var(--button-radius);
   background-color: var(--button-bg);
   color: var(--button-color);
   font-size: var(--font-button);
   font-weight: 700;
-  line-height: 1.5;
+  line-height: var(--button-layout-line-height);
   letter-spacing: 0.05em;
+  scale: 1;
+  translate: 0 0;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   transition:
     background-color var(--transition-primary),
     color var(--transition-primary),
     border-color var(--transition-primary),
     opacity var(--transition-primary),
-    transform var(--transition-primary);
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
 .button:hover {
@@ -34,7 +40,13 @@
 }
 
 .button:active {
-  transform: translateY(-4px);
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--primary-10);
+  outline-offset: 3px;
 }
 
 .button svg {
@@ -56,7 +68,7 @@
   --button-bg: transparent;
   --button-bg-hover: transparent;
   --button-border: var(--primary-10);
-  --button-border-width: 3px;
+  --button-border-width: var(--button-layout-border-width);
   --button-color: var(--text-10);
 }
 
@@ -84,7 +96,7 @@
   --button-bg: transparent;
   --button-bg-hover: transparent;
   --button-border: var(--neutral-90);
-  --button-border-width: 3px;
+  --button-border-width: var(--button-layout-border-width);
   --button-color: var(--text-90);
 }
 
@@ -113,10 +125,6 @@
 }
 
 @media (min-width: 1921px) {
-  .button {
-    border-radius: 0.625rem;
-  }
-
   .button svg {
     width: var(--m);
     height: var(--m);

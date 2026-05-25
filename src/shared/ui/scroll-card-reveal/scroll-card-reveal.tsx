@@ -1,13 +1,16 @@
 'use client';
 
-import { type ReactNode, useRef } from 'react';
+import { type HTMLAttributes, type ReactNode, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { clsx } from 'clsx';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './scroll-card-reveal.module.css';
 
-type ScrollCardRevealProps = {
+type ScrollCardRevealProps = Omit<
+  HTMLAttributes<HTMLElement>,
+  'children' | 'className'
+> & {
   as?: 'div' | 'ul';
   children: ReactNode;
   className?: string;
@@ -26,6 +29,7 @@ const ScrollCardReveal = ({
   children,
   className,
   stagger = CARD_REVEAL_STAGGER,
+  ...rootProps
 }: ScrollCardRevealProps) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const setRootRef = (node: HTMLElement | null) => {
@@ -103,6 +107,7 @@ const ScrollCardReveal = ({
   );
 
   const revealProps = {
+    ...rootProps,
     className: clsx(styles.reveal, className),
     'data-scroll-card-reveal': 'pending',
   } as const;

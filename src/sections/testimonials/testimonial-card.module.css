@@ -1,11 +1,16 @@
 .testimonialCard {
   display: flex;
-  width: var(--card-width);
-  min-width: var(--card-width);
-  height: 400px;
+  inline-size: var(--card-width);
+  min-inline-size: var(--card-width);
+  block-size: 400px;
   flex-direction: column;
   gap: var(--m);
+  margin: 0;
   padding: var(--m);
+  padding-block-end: calc(
+    var(--m) - var(--button-layout-padding-block) -
+      var(--button-layout-border-width)
+  );
   border-radius: var(--s);
   background-color: var(--neutral-0);
   box-shadow: var(--shadow-primary);
@@ -14,7 +19,7 @@
 }
 
 .header {
-  min-height: 64px;
+  min-block-size: 64px;
 }
 
 .person {
@@ -23,8 +28,9 @@
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
+  inline-size: 56px;
+  block-size: 56px;
+  flex: 0 0 auto;
   border-radius: 999px;
   object-fit: cover;
 }
@@ -44,25 +50,79 @@
   text-wrap: balance;
 }
 
+.quote,
+.modalFigure,
+.modalQuote {
+  margin: 0;
+}
+
 .comment {
   display: -webkit-box;
-  overflow: hidden;
+  overflow: clip;
   white-space: normal;
   text-wrap: pretty;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 10;
+  line-clamp: 10;
 }
 
 .more {
-  width: fit-content;
-  margin-top: auto;
+  display: inline-flex;
+  inline-size: fit-content;
+  block-size: var(--button-layout-height);
+  align-items: center;
+  margin-block-start: auto;
+  margin-inline: calc(
+    0px - var(--button-layout-padding-inline) -
+      var(--button-layout-border-width)
+  );
+  gap: var(--button-layout-gap);
+  padding: var(--button-layout-padding-block)
+    var(--button-layout-padding-inline);
+  border: var(--button-layout-border-width) solid transparent;
+  border-radius: var(--button-layout-radius);
+  background-color: transparent;
+  background-clip: padding-box;
   text-align: left;
   font-weight: 700;
-  transition: opacity var(--transition-primary);
+  line-height: var(--button-layout-line-height);
+  white-space: nowrap;
+  text-wrap: nowrap;
+  scale: 1;
+  translate: 0 0;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--transition-primary),
+    border-color var(--transition-primary),
+    color var(--transition-primary),
+    scale var(--interactive-press-transition),
+    translate var(--interactive-press-transition);
 }
 
-.more:hover {
-  opacity: 0.7;
+@media (hover: hover) and (pointer: fine) {
+  .more:hover {
+    color: var(--text-90-50);
+  }
+}
+
+.more:active {
+  scale: var(--interactive-press-scale);
+  translate: 0 var(--interactive-press-translate-y);
+}
+
+.more:focus-visible {
+  background-color: var(--interactive-soft-background);
+  border-color: var(--interactive-soft-background);
+  outline: 2px solid var(--primary-10);
+  outline-offset: 2px;
+}
+
+.modalFigure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--m);
 }
 
 .modalComment {
@@ -72,11 +132,11 @@
 
 @media (min-width: 1921px) {
   .testimonialCard {
-    height: 450px;
+    block-size: 450px;
     gap: var(--l);
   }
 
   .header {
-    min-height: 72px;
+    min-block-size: 72px;
   }
 }

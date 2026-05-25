@@ -84,7 +84,6 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     >
       <body>
         <div className="appRoot">{children}</div>
-        <div id="testimonial-dialog" />
         {isProduction ? <Analytics /> : null}
       </body>
     </html>
