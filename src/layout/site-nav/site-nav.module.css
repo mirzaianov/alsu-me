@@ -90,6 +90,8 @@
   text-wrap: nowrap;
   scale: 1;
   translate: 0 0;
+  -webkit-user-select: none;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition:
     color var(--transition-primary),

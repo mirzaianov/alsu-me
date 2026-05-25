@@ -1,5 +1,7 @@
 .heroCTA {
   position: relative;
+  -webkit-user-select: none;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 

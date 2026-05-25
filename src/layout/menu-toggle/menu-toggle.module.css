@@ -4,6 +4,8 @@
   border-radius: var(--button-layout-radius);
   scale: 1;
   translate: 0 0;
+  -webkit-user-select: none;
+  user-select: none;
   transition:
     scale var(--interactive-press-transition),
     translate var(--interactive-press-transition);
