@@ -53,7 +53,7 @@ const Services = () => {
           src={services}
           alt="Services"
           quality={100}
-          sizes="(max-width: 576px) 170px, 300px"
+          sizes="(min-width: 1921px) 368px, (max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>
           <p>

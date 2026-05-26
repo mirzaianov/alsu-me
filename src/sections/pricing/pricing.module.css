@@ -179,6 +179,10 @@
     --section-gap-desktop: var(--3xl);
   }
 
+  .image {
+    width: min(33.333%, 368px);
+  }
+
   .groups {
     gap: var(--3xl);
   }
