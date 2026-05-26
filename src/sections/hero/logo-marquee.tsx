@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState, type FocusEvent } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -65,8 +65,38 @@ const visualLogoSetCount = 3;
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const LogoMarquee = () => {
+  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
   const rootRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const isInteractionPausedRef = useRef(isInteractionPaused);
+  const syncTimelinePausedRef = useRef<(() => void) | null>(null);
+
+  const pauseForInteraction = () => {
+    setIsInteractionPaused(true);
+  };
+
+  const resumeAfterInteraction = () => {
+    const root = rootRef.current;
+
+    if (root?.contains(document.activeElement)) {
+      return;
+    }
+
+    setIsInteractionPaused(false);
+  };
+
+  const handleBlurCapture = (event: FocusEvent<HTMLElement>) => {
+    const nextFocusedElement = event.relatedTarget;
+
+    if (
+      nextFocusedElement instanceof Node &&
+      event.currentTarget.contains(nextFocusedElement)
+    ) {
+      return;
+    }
+
+    setIsInteractionPaused(false);
+  };
 
   useGSAP(
     () => {
@@ -191,8 +221,10 @@ const LogoMarquee = () => {
 
           const viewportAnimation = createViewportPausedAnimation({
             animation: timeline,
+            isPaused: () => isInteractionPausedRef.current,
             trigger: root,
           });
+          syncTimelinePausedRef.current = viewportAnimation.sync;
           const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
             animation: timeline,
             isActive: viewportAnimation.isActive,
@@ -202,6 +234,9 @@ const LogoMarquee = () => {
             cleanupScrollResponsiveMarquee();
             viewportAnimation.kill();
             timeline.kill();
+            if (syncTimelinePausedRef.current === viewportAnimation.sync) {
+              syncTimelinePausedRef.current = null;
+            }
           };
         },
         track,
@@ -214,11 +249,23 @@ const LogoMarquee = () => {
     { scope: rootRef },
   );
 
+  useEffect(() => {
+    isInteractionPausedRef.current = isInteractionPaused;
+    syncTimelinePausedRef.current?.();
+  }, [isInteractionPaused]);
+
   return (
     <section
       ref={rootRef}
       id="infinite-logos"
       className={styles.heroInfiniteLogos}
+      onBlurCapture={handleBlurCapture}
+      onFocusCapture={pauseForInteraction}
+      onPointerCancel={resumeAfterInteraction}
+      onPointerDown={pauseForInteraction}
+      onPointerEnter={pauseForInteraction}
+      onPointerLeave={resumeAfterInteraction}
+      onPointerUp={resumeAfterInteraction}
     >
       <div
         ref={trackRef}

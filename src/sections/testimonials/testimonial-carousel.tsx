@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type FocusEvent } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Observer } from 'gsap/Observer';
@@ -26,10 +26,38 @@ const testimonialGestureMaxReleaseTimeScale = 96;
 gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
 
 const TestimonialCarousel = () => {
-  const [isInfiniteScroll, setIsInfiniteScroll] = useState<boolean>(true);
+  const [isModalPaused, setIsModalPaused] = useState(false);
+  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const isInfiniteScrollRef = useRef(isInfiniteScroll);
+  const isCarouselPausedRef = useRef(isModalPaused || isInteractionPaused);
   const syncTimelinePausedRef = useRef<(() => void) | null>(null);
+
+  const pauseForInteraction = () => {
+    setIsInteractionPaused(true);
+  };
+
+  const resumeAfterInteraction = () => {
+    const root = rootRef.current;
+
+    if (root?.contains(document.activeElement)) {
+      return;
+    }
+
+    setIsInteractionPaused(false);
+  };
+
+  const handleBlurCapture = (event: FocusEvent<HTMLDivElement>) => {
+    const nextFocusedElement = event.relatedTarget;
+
+    if (
+      nextFocusedElement instanceof Node &&
+      event.currentTarget.contains(nextFocusedElement)
+    ) {
+      return;
+    }
+
+    setIsInteractionPaused(false);
+  };
 
   useGSAP(
     () => {
@@ -82,7 +110,7 @@ const TestimonialCarousel = () => {
         });
         const viewportAnimation = createViewportPausedAnimation({
           animation: timeline,
-          isPaused: () => !isInfiniteScrollRef.current,
+          isPaused: () => isCarouselPausedRef.current,
           trigger: root,
         });
         syncTimelinePausedRef.current = viewportAnimation.sync;
@@ -150,20 +178,24 @@ const TestimonialCarousel = () => {
   );
 
   useEffect(() => {
-    isInfiniteScrollRef.current = isInfiniteScroll;
+    isCarouselPausedRef.current = isModalPaused || isInteractionPaused;
     syncTimelinePausedRef.current?.();
-  }, [isInfiniteScroll]);
+  }, [isModalPaused, isInteractionPaused]);
 
   return (
     <div
       ref={rootRef}
       className={styles.testimonialInfiniteCards}
+      onBlurCapture={handleBlurCapture}
+      onFocusCapture={pauseForInteraction}
+      onPointerCancel={resumeAfterInteraction}
+      onPointerDown={pauseForInteraction}
+      onPointerEnter={pauseForInteraction}
+      onPointerLeave={resumeAfterInteraction}
+      onPointerUp={resumeAfterInteraction}
     >
-      <TestimonialRow setIsInfiniteScroll={setIsInfiniteScroll} />
-      <TestimonialRow
-        isDuplicate
-        setIsInfiniteScroll={setIsInfiniteScroll}
-      />
+      <TestimonialRow setIsModalPaused={setIsModalPaused} />
+      <TestimonialRow setIsModalPaused={setIsModalPaused} />
     </div>
   );
 };
