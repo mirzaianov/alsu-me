@@ -32,8 +32,8 @@ const noteFlipHandoffAt = highlightSwap.duration * noteFlipHandoffProgress;
 
 export const heroHighlightMediaQueries = {
   isMobile: '(max-width: 576px)',
-  isTablet: '(min-width: 577px) and (max-width: 1060px)',
-  isDesktop: '(min-width: 1061px)',
+  isTablet: '(min-width: 577px) and (max-width: 1160px)',
+  isDesktop: '(min-width: 1161px)',
   reduceMotion: '(prefers-reduced-motion: reduce)',
 } as const;
 

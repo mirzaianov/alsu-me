@@ -9,7 +9,7 @@
   font-size: var(--font-body);
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .app {
     font-size: var(--font-body-large);
   }

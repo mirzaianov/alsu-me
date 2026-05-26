@@ -203,7 +203,7 @@ h6 {
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .section {
     max-width: var(--section-max-desktop, var(--container-desktop));
     margin-block: var(--section-margin-y-desktop, var(--desktop-y-margin));

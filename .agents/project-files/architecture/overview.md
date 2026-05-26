@@ -27,9 +27,9 @@ Section anchor ids follow section concepts. The pricing and contact sections use
 
 - CSS Modules are used for component and route-local styles.
 - Styles follow a mobile-first approach: base rules target the smallest supported layout, with larger layouts layered through responsive overrides.
-- The canonical viewport tiers are mobile at `max-width: 576px`, tablet from `577px` through `1060px`, desktop from `1061px`, and extra-wide from `1921px`.
+- The canonical viewport tiers are mobile at `max-width: 576px`, tablet from `577px` through `1160px`, desktop from `1161px`, and extra-wide from `1921px`.
 - The matching container tokens live in `src/styles/vars.css`: `--container-mobile: 432px`, `--container-tablet: 720px`, `--container-desktop: 1300px`, `--container-wide: 1600px`, and `--container-extra-wide: 1920px`.
-- Most responsive CSS should use the project ladder as mobile-first `min-width` queries at `577px`, `1061px`, and `1921px`; `max-width: 576px` is used where source selection or GSAP matchMedia needs an explicit mobile range. The back-to-top widget has an additional local `1761px` threshold for its own placement behavior.
+- Most responsive CSS should use the project ladder as mobile-first `min-width` queries at `577px`, `1161px`, and `1921px`; `max-width: 576px` is used where source selection or GSAP matchMedia needs an explicit mobile range. The back-to-top widget has an additional local `1761px` threshold for its own placement behavior.
 - The global CSS entrypoint is `app/globals.css`; shared global tokens, base styles, and animations live in `src/styles`.
 - Local Inter font files are loaded through `next/font/local` in `app/layout.tsx`.
 

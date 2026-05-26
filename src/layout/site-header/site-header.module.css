@@ -117,7 +117,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .header,
   .dockbar {
     --site-header-padding-inline: var(--3xl);

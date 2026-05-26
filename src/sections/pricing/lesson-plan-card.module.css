@@ -98,7 +98,7 @@
   cursor: default;
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .priceTutorCard:last-child {
     margin-top: 0;
   }
