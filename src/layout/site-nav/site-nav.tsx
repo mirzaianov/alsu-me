@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent } from 'react';
 import { clsx } from 'clsx';
 import styles from './site-nav.module.css';
 
@@ -14,12 +14,33 @@ const items = [
 ] as const;
 
 const activeSectionRootMargin = '-45% 0px -45% 0px';
+const heroHash = '#hero';
 
 type SectionId = (typeof items)[number][0];
 type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
 const sectionIds = new Set<string>(items.map(([id]) => id));
 
 const isSectionId = (id: string): id is SectionId => sectionIds.has(id);
+
+const getPageTopScrollBehavior = (): ScrollBehavior =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ? 'auto'
+    : 'smooth';
+
+const scrollToPageTop = (behavior: ScrollBehavior = 'auto') => {
+  window.scrollTo({ top: 0, left: 0, behavior });
+};
+
+const correctHeroHashToPageTop = () => {
+  if (window.location.hash !== heroHash) {
+    return;
+  }
+
+  scrollToPageTop();
+  window.requestAnimationFrame(() => {
+    scrollToPageTop();
+  });
+};
 
 type SiteNavProps = {
   type: SiteNavLayout;
@@ -30,6 +51,11 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
   const [activeLink, setActiveLink] = useState<SectionId | ''>('');
 
   useEffect(() => {
+    correctHeroHashToPageTop();
+
+    const handleHashChange = () => correctHeroHashToPageTop();
+    window.addEventListener('hashchange', handleHashChange);
+
     const observedIds = new Set<SectionId>();
     const observer = new IntersectionObserver(
       (entries) => {
@@ -78,14 +104,27 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
     }
 
     return () => {
+      window.removeEventListener('hashchange', handleHashChange);
       mutationObserver.disconnect();
       observer.disconnect();
     };
   }, []);
 
-  const handleClick = (id: SectionId) => {
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>, id: SectionId) => {
     onNavigate?.(id);
     setActiveLink(id);
+
+    if (id !== 'hero') {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (window.location.hash !== heroHash) {
+      window.history.pushState(null, '', heroHash);
+    }
+
+    scrollToPageTop(getPageTopScrollBehavior());
   };
 
   return (
@@ -102,7 +141,7 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
               activeLink === item[0] && styles.active,
             )}
             href={`#${item[0]}`}
-            onClick={() => handleClick(item[0])}
+            onClick={(event) => handleClick(event, item[0])}
             aria-current={activeLink === item[0] ? 'location' : undefined}
           >
             <span className={styles.linkLabel}>
