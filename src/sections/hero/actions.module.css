@@ -108,7 +108,7 @@
     var(--animation-name-cta-bounce) 1500ms 500ms linear infinite;
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .surface {
     border-radius: 0.75rem;
   }

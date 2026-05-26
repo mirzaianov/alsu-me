@@ -4,12 +4,14 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Visually review the viewport-filled Hero edge spacing, `1600px` extra-wide Hero footprint cap including header/Hero margins, extra-wide-only fluid Hero portrait scale, Services/Pricing subtitles, fixed cards, Contact artwork/buttons, and shared page chrome at mobile, tablet, ordinary desktop, and `1921px+` widths, then commit the KAN-131 layout adjustments if the spacing feels right.
+- Manually visually review the extra-wide Services, Pricing, and Testimonials intro illustrations at `1921px+` to confirm the width cap removes visible upscaling without making the section rows feel underweighted.
+- Manually visually review section navigation at mobile, tablet, ordinary desktop, and `1921px+`: direct `/#hero` and other hash loads, hero nav click to page top, downward section navigation, upward navigation with the dockbar visible, and the below-dockbar title gap.
 
 ## Immediate Goal
 
-- Keep the KAN-131 scope limited to hero vertical rhythm, extra-wide Hero portrait scaling, and systematic `1921px+` font/gap scaling; avoid unrelated ordinary-desktop layout, animation, dependency, or content changes.
+- Keep the current scope limited to KAN-152 extra-wide image clarity plus the existing responsive breakpoint, section anchor, and dockbar-aware scroll behavior QA; avoid unrelated content, dependency, or carousel changes.
 
 ## Open Questions
 
-- Whether the desktop CTA should later be moved into the intro column for an even tighter headline-to-action flow.
+- Whether higher-resolution `2x` source illustrations should be sourced or generated for Services, Pricing, and Testimonials if retina sharpness is required beyond avoiding layout upscaling.
+- Whether the controlled site-nav scroll behavior should later be extracted into a small reusable scroll utility if more non-nav hash handling is added.

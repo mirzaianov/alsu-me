@@ -9,7 +9,17 @@
   font-size: var(--font-body);
 }
 
-@media (min-width: 1061px) {
+.heroAnchor {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (min-width: 1161px) {
   .app {
     font-size: var(--font-body-large);
   }

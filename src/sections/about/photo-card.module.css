@@ -57,7 +57,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .aboutPhotoCard {
     --about-photo-size: 320px;
     --about-photo-height: 390px;

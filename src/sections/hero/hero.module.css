@@ -11,7 +11,7 @@
   gap: var(--m);
   margin-top: 64px;
   padding-inline: var(--s);
-  scroll-margin-top: var(--3xl);
+  scroll-margin-top: 0;
 }
 
 .content,
@@ -59,7 +59,7 @@
     min-height: calc(100svh - 104px);
     gap: var(--xl);
     padding-inline: 0;
-    scroll-margin-top: 200px;
+    scroll-margin-top: 0;
   }
 
   .content {
@@ -79,7 +79,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .hero {
     max-width: var(--container-desktop);
     min-height: max(760px, calc(100svh - 104px));

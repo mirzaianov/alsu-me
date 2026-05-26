@@ -64,7 +64,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .mobileMenu {
     --site-header-padding-inline: var(--3xl);
   }

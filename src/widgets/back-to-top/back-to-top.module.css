@@ -77,7 +77,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .icon {
     color: var(--text-10);
     opacity: 0.6;
