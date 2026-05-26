@@ -78,6 +78,10 @@
 }
 
 @media (min-width: 1921px) {
+  .image {
+    width: min(33.333%, 368px);
+  }
+
   .testimonials {
     --section-gap-desktop: var(--3xl);
   }
