@@ -208,6 +208,7 @@ const SiteHeader = () => {
           styles.dockbar,
           isDockbarHidden && styles.hidden,
         )}
+        data-site-dockbar
         aria-hidden={isDockbarInteractive ? undefined : true}
         inert={isDockbarInteractive ? undefined : true}
         onFocusCapture={() => setIsDockbarHidden(false)}

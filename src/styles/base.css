@@ -139,7 +139,10 @@ h6 {
   align-items: var(--section-align, center);
   justify-content: flex-start;
   gap: var(--section-gap, var(--l));
-  scroll-margin-top: var(--section-scroll-margin, 9rem);
+  scroll-margin-top: var(
+    --section-scroll-margin,
+    var(--section-margin-y, var(--mobile-y-margin))
+  );
 }
 
 .title {
@@ -198,7 +201,7 @@ h6 {
     gap: var(--section-gap-tablet, var(--xl));
     scroll-margin-top: var(
       --section-scroll-margin-tablet,
-      var(--section-scroll-margin, 9rem)
+      var(--section-margin-y-tablet, var(--tablet-y-margin))
     );
   }
 }
@@ -211,7 +214,7 @@ h6 {
     gap: var(--section-gap-desktop, var(--section-gap-tablet, var(--2xl)));
     scroll-margin-top: var(
       --section-scroll-margin-desktop,
-      var(--section-scroll-margin-tablet, var(--section-scroll-margin, 9rem))
+      var(--section-margin-y-desktop, var(--desktop-y-margin))
     );
   }
 }
