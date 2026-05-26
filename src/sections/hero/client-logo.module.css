@@ -14,7 +14,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .heroInfiniteLogo {
     height: var(--2xl);
     padding-inline: var(--2xl);

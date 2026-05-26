@@ -77,7 +77,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .title {
     font-size: var(--font-heading-l);
     line-height: var(--line-heading);

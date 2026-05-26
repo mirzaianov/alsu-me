@@ -79,7 +79,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .hero {
     max-width: var(--container-desktop);
     min-height: max(760px, calc(100svh - 104px));

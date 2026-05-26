@@ -12,7 +12,7 @@
   background-color: var(--primary-20);
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .note {
     padding: var(--s);
     font-size: var(--font-body-large);

@@ -61,7 +61,7 @@
   }
 }
 
-@media (min-width: 1061px) {
+@media (min-width: 1161px) {
   .first {
     right: -60px;
     animation: var(--animation-name-blob) 18s 3s ease-in-out infinite both;

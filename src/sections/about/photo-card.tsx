@@ -11,7 +11,7 @@ const PhotoCard = () => {
     src: alsuAboutTablet,
     alt,
     quality: 100,
-    sizes: '(min-width: 1921px) 540px, (min-width: 1061px) 480px, 450px',
+    sizes: '(min-width: 1921px) 540px, (min-width: 1161px) 480px, 450px',
   });
 
   return (
@@ -21,12 +21,12 @@ const PhotoCard = () => {
         <picture>
           <source
             media="(min-width: 577px)"
-            sizes="(min-width: 1921px) 540px, (min-width: 1061px) 480px, 450px"
+            sizes="(min-width: 1921px) 540px, (min-width: 1161px) 480px, 450px"
             srcSet={tabletSrcSet}
           />
           <Image
             quality={100}
-            sizes="(max-width: 576px) 255px, (min-width: 1921px) 540px, (min-width: 1061px) 480px, 450px"
+            sizes="(max-width: 576px) 255px, (min-width: 1921px) 540px, (min-width: 1161px) 480px, 450px"
             src={alsuAbout}
             alt={alt}
             className={styles.image}
