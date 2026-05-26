@@ -4,12 +4,12 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Manually visually review the button-like link hover/pressed states, testimonial `Read more` behavior, duplicate testimonial-row clickability, testimonial dialog open/close pause behavior, testimonial drag/hover pause behavior, and hero logo marquee pause behavior at mobile, tablet, ordinary desktop, and `1921px+` widths; then commit the interaction changes if the behavior feels right.
+- Manually visually review section navigation at mobile, tablet, ordinary desktop, and `1921px+`: direct `/#hero` and other hash loads, hero nav click to page top, downward section navigation, upward navigation with the dockbar visible, and the below-dockbar title gap.
 
 ## Immediate Goal
 
-- Keep the current scope limited to button-like control states and GSAP marquee interaction stability; avoid unrelated layout, dependency, or content changes.
+- Keep the current scope limited to responsive breakpoint, section anchor, and dockbar-aware scroll behavior; avoid unrelated content, dependency, or carousel changes.
 
 ## Open Questions
 
-- Whether the duplicated testimonial rows should remain fully interactive long term, or later be replaced by a larger carousel architecture with one semantic content set and separate non-interactive visual clones.
+- Whether the controlled site-nav scroll behavior should later be extracted into a small reusable scroll utility if more non-nav hash handling is added.
