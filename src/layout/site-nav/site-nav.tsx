@@ -16,6 +16,7 @@ const items = [
 const activeSectionRootMargin = '-45% 0px -45% 0px';
 const heroHash = '#hero';
 const dockbarSelector = '[data-site-dockbar]';
+const observedItems = items.filter(([id]) => id !== 'hero');
 
 type SectionId = (typeof items)[number][0];
 type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
@@ -78,6 +79,12 @@ const scrollToSection = (
   });
 };
 
+const isBeforeAboutSection = () => {
+  const aboutSection = document.getElementById('about');
+
+  return !aboutSection || window.scrollY < aboutSection.offsetTop;
+};
+
 const correctHashScrollPosition = () => {
   const hash = window.location.hash;
 
@@ -119,6 +126,15 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
     const handleHashChange = () => correctHashScrollPosition();
     window.addEventListener('hashchange', handleHashChange);
 
+    const updateHeroActiveState = () => {
+      if (isBeforeAboutSection()) {
+        setActiveLink('hero');
+      }
+    };
+
+    updateHeroActiveState();
+    window.addEventListener('scroll', updateHeroActiveState, { passive: true });
+
     const observedIds = new Set<SectionId>();
     const observer = new IntersectionObserver(
       (entries) => {
@@ -137,7 +153,7 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
     );
 
     const observeAvailableSections = () => {
-      items.forEach(([id]) => {
+      observedItems.forEach(([id]) => {
         if (observedIds.has(id)) {
           return;
         }
@@ -150,7 +166,7 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
         }
       });
 
-      return observedIds.size === items.length;
+      return observedIds.size === observedItems.length;
     };
 
     const mutationObserver = new MutationObserver(() => {
@@ -168,6 +184,7 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('scroll', updateHeroActiveState);
       mutationObserver.disconnect();
       observer.disconnect();
     };

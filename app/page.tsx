@@ -18,6 +18,11 @@ const HomePage = () => {
       id="app"
       className={styles.app}
     >
+      <span
+        id="hero"
+        className={styles.heroAnchor}
+        aria-hidden="true"
+      />
       <SiteHeader />
       <Hero />
       <About />

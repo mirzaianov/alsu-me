@@ -8,10 +8,7 @@ import styles from './hero.module.css';
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className={styles.hero}
-    >
+    <section className={styles.hero}>
       <Background />
       <HeroDynamicHighlights>
         <ProfileSummary />
