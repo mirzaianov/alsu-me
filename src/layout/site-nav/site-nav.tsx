@@ -23,6 +23,7 @@ const items = [
 
 const activeSectionRootMargin = '-12% 0px -82% 0px';
 const heroHash = '#hero';
+const rootPath = '/';
 const dockbarSelector = '[data-site-dockbar]';
 const observedItems = items.filter(([id]) => id !== 'hero');
 const dotFallbackSize = 4;
@@ -108,8 +109,10 @@ const correctHashScrollPosition = () => {
 
   if (hash === heroHash) {
     scrollToPageTop();
+    window.history.replaceState(null, '', rootPath);
     window.requestAnimationFrame(() => {
       scrollToPageTop();
+      window.history.replaceState(null, '', rootPath);
     });
     return;
   }
@@ -458,17 +461,21 @@ const SiteNav = ({
 
     event.preventDefault();
 
+    const behavior = getPageTopScrollBehavior();
+
+    if (id === 'hero') {
+      if (window.location.pathname !== rootPath || window.location.hash) {
+        window.history.pushState(null, '', rootPath);
+      }
+
+      scrollToPageTop(behavior);
+      return;
+    }
+
     const hash = `#${id}`;
 
     if (window.location.hash !== hash) {
       window.history.pushState(null, '', hash);
-    }
-
-    const behavior = getPageTopScrollBehavior();
-
-    if (id === 'hero') {
-      scrollToPageTop(behavior);
-      return;
     }
 
     const target = document.getElementById(id);
@@ -491,7 +498,7 @@ const SiteNav = ({
           <a
             aria-label={`Go to the ${item[0]} section`}
             className={styles.link}
-            href={`#${item[0]}`}
+            href={item[0] === 'hero' ? rootPath : `#${item[0]}`}
             onClick={(event) => handleClick(event, item[0])}
             aria-current={activeLink === item[0] ? 'location' : undefined}
           >
