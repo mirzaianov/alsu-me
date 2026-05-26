@@ -1,6 +1,12 @@
 'use client';
 
-import { useRef } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FocusEvent,
+  type PointerEvent,
+} from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -65,8 +71,55 @@ const visualLogoSetCount = 3;
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const LogoMarquee = () => {
+  const [isFocusPaused, setIsFocusPaused] = useState(false);
+  const [isHoverPaused, setIsHoverPaused] = useState(false);
   const rootRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const isMarqueePausedRef = useRef(isFocusPaused || isHoverPaused);
+  const syncTimelinePausedRef = useRef<(() => void) | null>(null);
+
+  const pauseForHover = (event: PointerEvent<HTMLElement>) => {
+    if (event.pointerType === 'touch') {
+      return;
+    }
+
+    setIsHoverPaused(true);
+  };
+
+  const syncHoverPause = (event: PointerEvent<HTMLElement>) => {
+    if (event.pointerType === 'touch') {
+      setIsHoverPaused(false);
+      return;
+    }
+
+    const root = rootRef.current;
+    setIsHoverPaused(Boolean(root?.matches(':hover')));
+  };
+
+  const handleFocusCapture = (event: FocusEvent<HTMLElement>) => {
+    const focusedElement = event.target;
+
+    if (!(focusedElement instanceof HTMLElement)) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      setIsFocusPaused(focusedElement.matches(':focus-visible'));
+    });
+  };
+
+  const handleBlurCapture = (event: FocusEvent<HTMLElement>) => {
+    const nextFocusedElement = event.relatedTarget;
+
+    if (
+      nextFocusedElement instanceof Node &&
+      event.currentTarget.contains(nextFocusedElement)
+    ) {
+      return;
+    }
+
+    setIsFocusPaused(false);
+  };
 
   useGSAP(
     () => {
@@ -191,8 +244,10 @@ const LogoMarquee = () => {
 
           const viewportAnimation = createViewportPausedAnimation({
             animation: timeline,
+            isPaused: () => isMarqueePausedRef.current,
             trigger: root,
           });
+          syncTimelinePausedRef.current = viewportAnimation.sync;
           const cleanupScrollResponsiveMarquee = createScrollResponsiveMarquee({
             animation: timeline,
             isActive: viewportAnimation.isActive,
@@ -202,6 +257,9 @@ const LogoMarquee = () => {
             cleanupScrollResponsiveMarquee();
             viewportAnimation.kill();
             timeline.kill();
+            if (syncTimelinePausedRef.current === viewportAnimation.sync) {
+              syncTimelinePausedRef.current = null;
+            }
           };
         },
         track,
@@ -214,11 +272,23 @@ const LogoMarquee = () => {
     { scope: rootRef },
   );
 
+  useEffect(() => {
+    isMarqueePausedRef.current = isFocusPaused || isHoverPaused;
+    syncTimelinePausedRef.current?.();
+  }, [isFocusPaused, isHoverPaused]);
+
   return (
     <section
       ref={rootRef}
       id="infinite-logos"
       className={styles.heroInfiniteLogos}
+      onBlurCapture={handleBlurCapture}
+      onFocusCapture={handleFocusCapture}
+      onPointerCancel={syncHoverPause}
+      onPointerDown={pauseForHover}
+      onPointerEnter={pauseForHover}
+      onPointerLeave={syncHoverPause}
+      onPointerUp={syncHoverPause}
     >
       <div
         ref={trackRef}
