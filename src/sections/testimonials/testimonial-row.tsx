@@ -1,6 +1,5 @@
 'use client';
 
-import type { Dispatch, SetStateAction } from 'react';
 import TestimonialCard from './testimonial-card';
 import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import almaz from '../../assets/img/testimonials/almaz.jpeg';
@@ -91,7 +90,7 @@ const testimonialCardData = [
 const testimonialEntranceStagger = 0.08;
 
 type TestimonialRowProps = {
-  setIsModalPaused: Dispatch<SetStateAction<boolean>>;
+  setIsModalPaused: (paused: boolean) => void;
 };
 
 const TestimonialRow = ({ setIsModalPaused }: TestimonialRowProps) => {

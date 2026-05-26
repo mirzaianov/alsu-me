@@ -1,6 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState, type FocusEvent } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FocusEvent,
+  type PointerEvent as ReactPointerEvent,
+} from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Observer } from 'gsap/Observer';
@@ -22,28 +28,117 @@ import styles from './testimonial-carousel.module.css';
 import rowStyles from './testimonial-row.module.css';
 
 const testimonialGestureMaxReleaseTimeScale = 96;
+const testimonialDialogCloseHoverSyncDelayMs = 180;
+
+type PointerPosition = {
+  pointerType: string;
+  x: number;
+  y: number;
+};
+type PointerPositionEvent = Pick<
+  PointerEvent,
+  'clientX' | 'clientY' | 'pointerType'
+>;
 
 gsap.registerPlugin(useGSAP, Observer, ScrollTrigger);
 
 const TestimonialCarousel = () => {
   const [isModalPaused, setIsModalPaused] = useState(false);
-  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
+  const [isFocusPaused, setIsFocusPaused] = useState(false);
+  const [isHoverPaused, setIsHoverPaused] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const isCarouselPausedRef = useRef(isModalPaused || isInteractionPaused);
+  const isCarouselPausedRef = useRef(
+    isModalPaused || isFocusPaused || isHoverPaused,
+  );
+  const closeHoverSyncTimeoutRef = useRef<number | null>(null);
+  const lastPointerPositionRef = useRef<PointerPosition | null>(null);
   const syncTimelinePausedRef = useRef<(() => void) | null>(null);
 
-  const pauseForInteraction = () => {
-    setIsInteractionPaused(true);
-  };
-
-  const resumeAfterInteraction = () => {
-    const root = rootRef.current;
-
-    if (root?.contains(document.activeElement)) {
+  const clearCloseHoverSyncTimeout = () => {
+    if (closeHoverSyncTimeoutRef.current === null) {
       return;
     }
 
-    setIsInteractionPaused(false);
+    window.clearTimeout(closeHoverSyncTimeoutRef.current);
+    closeHoverSyncTimeoutRef.current = null;
+  };
+
+  const updatePointerPosition = (event: PointerPositionEvent) => {
+    lastPointerPositionRef.current = {
+      pointerType: event.pointerType,
+      x: event.clientX,
+      y: event.clientY,
+    };
+  };
+
+  const isPointerOverCarousel = () => {
+    const pointerPosition = lastPointerPositionRef.current;
+    const root = rootRef.current;
+
+    if (!pointerPosition || !root || pointerPosition.pointerType === 'touch') {
+      return false;
+    }
+
+    const rect = root.getBoundingClientRect();
+
+    return (
+      pointerPosition.x >= rect.left &&
+      pointerPosition.x <= rect.right &&
+      pointerPosition.y >= rect.top &&
+      pointerPosition.y <= rect.bottom
+    );
+  };
+
+  const pauseForHover = (event: ReactPointerEvent<HTMLDivElement>) => {
+    updatePointerPosition(event);
+
+    if (event.pointerType === 'touch') {
+      return;
+    }
+
+    setIsHoverPaused(true);
+  };
+
+  const syncHoverPauseFromPointer = () => {
+    setIsHoverPaused(isPointerOverCarousel());
+  };
+
+  const syncHoverPause = (event: ReactPointerEvent<HTMLDivElement>) => {
+    updatePointerPosition(event);
+
+    if (event.pointerType === 'touch') {
+      setIsHoverPaused(false);
+      return;
+    }
+
+    syncHoverPauseFromPointer();
+  };
+
+  const handleModalPausedChange = (paused: boolean) => {
+    clearCloseHoverSyncTimeout();
+    setIsModalPaused(paused);
+
+    if (paused) {
+      return;
+    }
+
+    setIsHoverPaused(isPointerOverCarousel());
+    closeHoverSyncTimeoutRef.current = window.setTimeout(() => {
+      syncHoverPauseFromPointer();
+      closeHoverSyncTimeoutRef.current = null;
+    }, testimonialDialogCloseHoverSyncDelayMs);
+  };
+
+  const handleFocusCapture = (event: FocusEvent<HTMLDivElement>) => {
+    const focusedElement = event.target;
+
+    if (!(focusedElement instanceof HTMLElement)) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      setIsFocusPaused(focusedElement.matches(':focus-visible'));
+    });
   };
 
   const handleBlurCapture = (event: FocusEvent<HTMLDivElement>) => {
@@ -56,7 +151,7 @@ const TestimonialCarousel = () => {
       return;
     }
 
-    setIsInteractionPaused(false);
+    setIsFocusPaused(false);
   };
 
   useGSAP(
@@ -178,24 +273,46 @@ const TestimonialCarousel = () => {
   );
 
   useEffect(() => {
-    isCarouselPausedRef.current = isModalPaused || isInteractionPaused;
+    isCarouselPausedRef.current =
+      isModalPaused || isFocusPaused || isHoverPaused;
     syncTimelinePausedRef.current?.();
-  }, [isModalPaused, isInteractionPaused]);
+  }, [isFocusPaused, isHoverPaused, isModalPaused]);
+
+  useEffect(
+    () => {
+      const handlePointerMove = (event: PointerEvent) => {
+        updatePointerPosition(event);
+      };
+
+      document.addEventListener('pointermove', handlePointerMove, {
+        passive: true,
+      });
+
+      return () => {
+        document.removeEventListener('pointermove', handlePointerMove);
+
+        if (closeHoverSyncTimeoutRef.current !== null) {
+          window.clearTimeout(closeHoverSyncTimeoutRef.current);
+        }
+      };
+    },
+    [],
+  );
 
   return (
     <div
       ref={rootRef}
       className={styles.testimonialInfiniteCards}
       onBlurCapture={handleBlurCapture}
-      onFocusCapture={pauseForInteraction}
-      onPointerCancel={resumeAfterInteraction}
-      onPointerDown={pauseForInteraction}
-      onPointerEnter={pauseForInteraction}
-      onPointerLeave={resumeAfterInteraction}
-      onPointerUp={resumeAfterInteraction}
+      onFocusCapture={handleFocusCapture}
+      onPointerCancel={syncHoverPause}
+      onPointerDown={pauseForHover}
+      onPointerEnter={pauseForHover}
+      onPointerLeave={syncHoverPause}
+      onPointerUp={syncHoverPause}
     >
-      <TestimonialRow setIsModalPaused={setIsModalPaused} />
-      <TestimonialRow setIsModalPaused={setIsModalPaused} />
+      <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+      <TestimonialRow setIsModalPaused={handleModalPausedChange} />
     </div>
   );
 };
