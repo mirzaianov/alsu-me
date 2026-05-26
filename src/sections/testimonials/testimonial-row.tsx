@@ -1,6 +1,5 @@
 'use client';
 
-import type { Dispatch, SetStateAction } from 'react';
 import TestimonialCard from './testimonial-card';
 import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
 import almaz from '../../assets/img/testimonials/almaz.jpeg';
@@ -91,19 +90,13 @@ const testimonialCardData = [
 const testimonialEntranceStagger = 0.08;
 
 type TestimonialRowProps = {
-  isDuplicate?: boolean;
-  setIsInfiniteScroll: Dispatch<SetStateAction<boolean>>;
+  setIsModalPaused: (paused: boolean) => void;
 };
 
-const TestimonialRow = ({
-  isDuplicate = false,
-  setIsInfiniteScroll,
-}: TestimonialRowProps) => {
+const TestimonialRow = ({ setIsModalPaused }: TestimonialRowProps) => {
   return (
     <ScrollCardReveal
-      aria-hidden={isDuplicate ? true : undefined}
       className={styles.testimonialCardsRow}
-      inert={isDuplicate ? true : undefined}
       stagger={testimonialEntranceStagger}
     >
       {testimonialCardData.map((item, index) => (
@@ -113,8 +106,8 @@ const TestimonialRow = ({
         >
           <TestimonialCard
             {...item}
-            pauseCarousel={() => setIsInfiniteScroll(false)}
-            resumeCarousel={() => setIsInfiniteScroll(true)}
+            pauseCarousel={() => setIsModalPaused(true)}
+            resumeCarousel={() => setIsModalPaused(false)}
           />
         </div>
       ))}
