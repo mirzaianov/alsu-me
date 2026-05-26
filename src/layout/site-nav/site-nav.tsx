@@ -30,6 +30,7 @@ const dotFallbackSize = 4;
 const indicatorFadeDuration = 0.14;
 const indicatorTravelDuration = 0.78;
 const indicatorSwapDelay = indicatorTravelDuration - indicatorFadeDuration * 2;
+const pendingNavigationReleaseMs = 1800;
 
 type SectionId = (typeof items)[number][0];
 type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
@@ -154,7 +155,30 @@ const SiteNav = ({
   const labelRefs = useRef<Partial<Record<SectionId, HTMLSpanElement | null>>>(
     {},
   );
+  const pendingNavigationTargetRef = useRef<SectionId | null>(null);
+  const pendingNavigationReleaseTimeoutRef = useRef<number | null>(null);
   const previousIndicatorPositionRef = useRef<IndicatorPosition | null>(null);
+
+  const clearPendingNavigationTarget = useCallback(() => {
+    pendingNavigationTargetRef.current = null;
+
+    if (pendingNavigationReleaseTimeoutRef.current !== null) {
+      window.clearTimeout(pendingNavigationReleaseTimeoutRef.current);
+      pendingNavigationReleaseTimeoutRef.current = null;
+    }
+  }, []);
+
+  const holdActiveLinkUntilTarget = useCallback(
+    (id: SectionId) => {
+      clearPendingNavigationTarget();
+      pendingNavigationTargetRef.current = id;
+      pendingNavigationReleaseTimeoutRef.current = window.setTimeout(
+        clearPendingNavigationTarget,
+        pendingNavigationReleaseMs,
+      );
+    },
+    [clearPendingNavigationTarget],
+  );
 
   const getIndicatorPosition = useCallback(
     (id: SectionId): IndicatorPosition | null => {
@@ -393,7 +417,14 @@ const SiteNav = ({
 
     const updateHeroActiveState = () => {
       if (isBeforeAboutSection()) {
+        const pendingNavigationTarget = pendingNavigationTargetRef.current;
+
+        if (pendingNavigationTarget && pendingNavigationTarget !== 'hero') {
+          return;
+        }
+
         setActiveLink('hero');
+        clearPendingNavigationTarget();
       }
     };
 
@@ -407,7 +438,14 @@ const SiteNav = ({
           const id = entry.target.id;
 
           if (entry.isIntersecting && isSectionId(id)) {
+            const pendingNavigationTarget = pendingNavigationTargetRef.current;
+
+            if (pendingNavigationTarget && pendingNavigationTarget !== id) {
+              return;
+            }
+
             setActiveLink(id);
+            clearPendingNavigationTarget();
           }
         });
       },
@@ -450,14 +488,16 @@ const SiteNav = ({
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
       window.removeEventListener('scroll', updateHeroActiveState);
+      clearPendingNavigationTarget();
       mutationObserver.disconnect();
       observer.disconnect();
     };
-  }, [shouldCorrectHashOnMount]);
+  }, [clearPendingNavigationTarget, shouldCorrectHashOnMount]);
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>, id: SectionId) => {
     onNavigate?.(id);
     setActiveLink(id);
+    holdActiveLinkUntilTarget(id);
 
     event.preventDefault();
 
