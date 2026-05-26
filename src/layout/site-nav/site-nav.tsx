@@ -15,6 +15,7 @@ const items = [
 
 const activeSectionRootMargin = '-45% 0px -45% 0px';
 const heroHash = '#hero';
+const dockbarSelector = '[data-site-dockbar]';
 
 type SectionId = (typeof items)[number][0];
 type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
@@ -31,14 +32,76 @@ const scrollToPageTop = (behavior: ScrollBehavior = 'auto') => {
   window.scrollTo({ top: 0, left: 0, behavior });
 };
 
-const correctHeroHashToPageTop = () => {
-  if (window.location.hash !== heroHash) {
+const parsePixelValue = (value: string) => {
+  const parsedValue = Number.parseFloat(value);
+
+  return Number.isFinite(parsedValue) ? parsedValue : 0;
+};
+
+const getDockbarReservedOffset = () => {
+  const dockbar = document.querySelector<HTMLElement>(dockbarSelector);
+
+  if (!dockbar) {
+    return 0;
+  }
+
+  const { height } = dockbar.getBoundingClientRect();
+  const top = parsePixelValue(getComputedStyle(dockbar).top);
+
+  return top + height + top;
+};
+
+const getSectionScrollOffset = (
+  target: HTMLElement,
+  options: { reserveDockbar: boolean },
+) => {
+  const targetTop = target.getBoundingClientRect().top + window.scrollY;
+  const sectionOffset = parsePixelValue(getComputedStyle(target).scrollMarginTop);
+  const isScrollingUp = window.scrollY > targetTop;
+
+  return isScrollingUp || options.reserveDockbar
+    ? Math.max(sectionOffset, getDockbarReservedOffset())
+    : sectionOffset;
+};
+
+const scrollToSection = (
+  target: HTMLElement,
+  behavior: ScrollBehavior,
+  options = { reserveDockbar: false },
+) => {
+  const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop - getSectionScrollOffset(target, options)),
+    left: 0,
+    behavior,
+  });
+};
+
+const correctHashScrollPosition = () => {
+  const hash = window.location.hash;
+
+  if (!hash) {
     return;
   }
 
-  scrollToPageTop();
-  window.requestAnimationFrame(() => {
+  if (hash === heroHash) {
     scrollToPageTop();
+    window.requestAnimationFrame(() => {
+      scrollToPageTop();
+    });
+    return;
+  }
+
+  const target = document.getElementById(hash.slice(1));
+
+  if (!target) {
+    return;
+  }
+
+  scrollToSection(target, 'auto', { reserveDockbar: true });
+  window.requestAnimationFrame(() => {
+    scrollToSection(target, 'auto', { reserveDockbar: true });
   });
 };
 
@@ -51,9 +114,9 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
   const [activeLink, setActiveLink] = useState<SectionId | ''>('');
 
   useEffect(() => {
-    correctHeroHashToPageTop();
+    correctHashScrollPosition();
 
-    const handleHashChange = () => correctHeroHashToPageTop();
+    const handleHashChange = () => correctHashScrollPosition();
     window.addEventListener('hashchange', handleHashChange);
 
     const observedIds = new Set<SectionId>();
@@ -114,17 +177,26 @@ const SiteNav = ({ type, onNavigate }: SiteNavProps) => {
     onNavigate?.(id);
     setActiveLink(id);
 
-    if (id !== 'hero') {
+    event.preventDefault();
+
+    const hash = `#${id}`;
+
+    if (window.location.hash !== hash) {
+      window.history.pushState(null, '', hash);
+    }
+
+    const behavior = getPageTopScrollBehavior();
+
+    if (id === 'hero') {
+      scrollToPageTop(behavior);
       return;
     }
 
-    event.preventDefault();
+    const target = document.getElementById(id);
 
-    if (window.location.hash !== heroHash) {
-      window.history.pushState(null, '', heroHash);
+    if (target) {
+      scrollToSection(target, behavior);
     }
-
-    scrollToPageTop(getPageTopScrollBehavior());
   };
 
   return (
