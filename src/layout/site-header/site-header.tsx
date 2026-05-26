@@ -14,16 +14,23 @@ const headerHideDelta = 8;
 const dockHideTransitionMs = 320;
 
 type HeaderContentProps = {
+  hasAnimatedNavIndicator?: boolean;
   isMenuOpen: boolean;
 };
 
-const HeaderContent = ({ isMenuOpen }: HeaderContentProps) => (
+const HeaderContent = ({
+  hasAnimatedNavIndicator = false,
+  isMenuOpen,
+}: HeaderContentProps) => (
   <>
     <div className={styles.brand}>
       <BrandLogo />
     </div>
     <div className={clsx(styles.navSlot, styles.desktopNav)}>
-      <SiteNav type="inline" />
+      <SiteNav
+        type="inline"
+        hasAnimatedIndicator={hasAnimatedNavIndicator}
+      />
     </div>
     <div className={styles.action}>
       <div className={styles.mobileAction}>
@@ -213,11 +220,15 @@ const SiteHeader = () => {
         inert={isDockbarInteractive ? undefined : true}
         onFocusCapture={() => setIsDockbarHidden(false)}
       >
-        <HeaderContent isMenuOpen={isMenuOpen} />
+        <HeaderContent
+          hasAnimatedNavIndicator
+          isMenuOpen={isMenuOpen}
+        />
       </div>
       <MobileMenu isFixed={isDockbarActive}>
         <SiteNav
           type="block-1"
+          shouldCorrectHashOnMount={false}
           onNavigate={() => setIsMenuOpen(false)}
         />
       </MobileMenu>

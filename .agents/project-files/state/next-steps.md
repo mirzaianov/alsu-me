@@ -5,7 +5,7 @@ Status: project-state immediate recommendation
 ## Recommended Next Steps
 
 - Manually visually review the extra-wide Services, Pricing, and Testimonials intro illustrations at `1921px+` to confirm the width cap removes visible upscaling without making the section rows feel underweighted.
-- Manually visually review section navigation at mobile, tablet, ordinary desktop, and `1921px+`: direct `/#hero` and other hash loads, hero nav click to page top, downward section navigation, upward navigation with the dockbar visible, and the below-dockbar title gap.
+- Manually visually review section navigation at mobile, tablet, ordinary desktop, and `1921px+`: direct `/` and legacy `/#hero` loads, direct section hash loads, hero nav click to page top with the URL normalized to `/`, downward section navigation, upward navigation with the dockbar visible, and the below-dockbar title gap.
 
 ## Immediate Goal
 
