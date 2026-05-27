@@ -13,9 +13,8 @@
   --animation-name-arrow-bounce: arrowBounce;
   --animation-name-dropdown-open: dropdownOpen;
   --animation-name-dropdown-close: dropdownClose;
-  --animation-name-shape-1: shape1;
-  --animation-name-shape-2: shape2;
-  --animation-name-shape-3: shape3;
+  --animation-name-cta-mesh-red: ctaMeshRed;
+  --animation-name-cta-mesh-yellow: ctaMeshYellow;
   --animation-name-cta-rotate: ctaRotate;
   --animation-name-cta-bounce: ctaBounce;
   --animation-name-modal-open: modalOpen;
@@ -31,9 +30,8 @@
     --animation-name-waving-badge: none;
     --animation-name-tada: none;
     --animation-name-arrow-bounce: none;
-    --animation-name-shape-1: none;
-    --animation-name-shape-2: none;
-    --animation-name-shape-3: none;
+    --animation-name-cta-mesh-red: none;
+    --animation-name-cta-mesh-yellow: none;
     --animation-name-cta-rotate: none;
     --animation-name-cta-bounce: none;
   }
@@ -278,36 +276,37 @@
   }
 }
 
-@keyframes shape1 {
+@keyframes ctaMeshRed {
   0%,
   100% {
-    transform: translate(-80%, -50%) scale(1);
+    background-position: 88% -16%;
   }
 
-  50% {
-    transform: translate(-70%, -30%) scale(1.1);
+  33% {
+    background-position: 124% 22%;
+  }
+
+  66% {
+    background-position: 74% 66%;
   }
 }
 
-@keyframes shape2 {
+@keyframes ctaMeshYellow {
   0%,
   100% {
-    transform: translate(5%, 5%) scale(1.1);
+    background-position: 76% 90%;
+  }
+
+  25% {
+    background-position: 104% 106%;
   }
 
   50% {
-    transform: translate(5%, -5%) scale(1.2);
-  }
-}
-
-@keyframes shape3 {
-  0%,
-  100% {
-    transform: translate(100%, 50%) scale(1);
+    background-position: 80% 128%;
   }
 
-  50% {
-    transform: translate(80%, 40%) scale(1.1);
+  75% {
+    background-position: 54% 108%;
   }
 }
 

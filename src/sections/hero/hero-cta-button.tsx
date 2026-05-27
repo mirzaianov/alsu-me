@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { PiArrowRightBold } from 'react-icons/pi';
 import Button from '../../shared/ui/button/button';
 import styles from './hero-cta-button.module.css';
@@ -24,15 +23,7 @@ const HeroCtaButton = ({
       size={size}
     >
       <span
-        className={clsx(styles.shape, styles.shapeTwo)}
-        aria-hidden="true"
-      />
-      <span
-        className={clsx(styles.shape, styles.shapeOne)}
-        aria-hidden="true"
-      />
-      <span
-        className={clsx(styles.shape, styles.shapeThree)}
+        className={styles.mesh}
         aria-hidden="true"
       />
       <span className={styles.label}>{text}</span>
