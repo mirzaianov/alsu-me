@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import { PiArrowRightBold } from 'react-icons/pi';
+import Button from '../../shared/ui/button/button';
 import styles from './actions.module.css';
 
 type ActionsProps = {
@@ -11,21 +12,30 @@ type ActionsProps = {
 
 const Actions = ({ size = '', link = '', ariaLabel, text }: ActionsProps) => {
   return (
-    <a
+    <Button
+      ariaLabel={ariaLabel}
       className={styles.heroCTA}
-      aria-label={ariaLabel}
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
+      link={link}
+      size={size}
     >
-      <div className={clsx(styles.surface, size === 'large' && styles.large)}>
-        <div className={clsx(styles.shape, styles.shapeTwo)}></div>
-        <div className={clsx(styles.shape, styles.shapeOne)}></div>
-        <div className={clsx(styles.shape, styles.shapeThree)}></div>
-        <span className={styles.label}>{text}</span>
-        <PiArrowRightBold className={styles.icon} />
-      </div>
-    </a>
+      <span
+        className={clsx(styles.shape, styles.shapeTwo)}
+        aria-hidden="true"
+      />
+      <span
+        className={clsx(styles.shape, styles.shapeOne)}
+        aria-hidden="true"
+      />
+      <span
+        className={clsx(styles.shape, styles.shapeThree)}
+        aria-hidden="true"
+      />
+      <span className={styles.label}>{text}</span>
+      <PiArrowRightBold
+        className={styles.icon}
+        aria-hidden="true"
+      />
+    </Button>
   );
 };
 

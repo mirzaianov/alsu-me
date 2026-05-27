@@ -7,6 +7,7 @@ import styles from './button.module.css';
 type ButtonProps = {
   children: ReactNode;
   ariaLabel: string;
+  className?: string;
   text?: string;
   icon?: string;
   size?: string;
@@ -18,6 +19,7 @@ type ButtonProps = {
 const Button = ({
   children,
   ariaLabel,
+  className,
   text = '',
   icon = '',
   size = '',
@@ -25,11 +27,12 @@ const Button = ({
   onClick,
   link = '',
 }: ButtonProps) => {
-  const className = clsx(
+  const buttonClassName = clsx(
     styles.button,
     styles[type || 'primary'],
     size === 'large' && styles.large,
     icon === 'true' && styles.icon,
+    className,
   );
 
   if (link) {
@@ -39,7 +42,7 @@ const Button = ({
     return (
       <a
         aria-label={ariaLabel}
-        className={className}
+        className={buttonClassName}
         href={href}
         rel={isExternal ? 'noopener noreferrer' : undefined}
         target={isExternal ? '_blank' : undefined}
@@ -52,7 +55,7 @@ const Button = ({
   return (
     <button
       aria-label={ariaLabel}
-      className={className}
+      className={buttonClassName}
       type="button"
       onClick={onClick}
     >

@@ -1,56 +1,19 @@
 .heroCTA {
   position: relative;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.surface {
-  position: relative;
-  display: inline-flex;
-  width: fit-content;
-  min-height: var(--xl);
-  align-items: center;
-  justify-content: center;
-  gap: var(--xs);
   overflow: hidden;
-  padding-inline: var(--s);
-  padding-block: var(--xs);
-  border-radius: 0.5rem;
-  background-color: var(--primary-10);
-  color: var(--text-0);
-  font-size: var(--font-button);
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  scale: 1;
-  translate: 0 0;
+  --button-bg-hover: var(--primary-10);
   transition:
     transform var(--transition-primary),
+    background-color var(--transition-primary),
+    color var(--transition-primary),
+    border-color var(--transition-primary),
+    opacity var(--transition-primary),
     scale var(--interactive-press-transition),
     translate var(--interactive-press-transition);
 }
 
-.heroCTA:hover .surface {
+.heroCTA:hover {
   transform: scale(1.05);
-}
-
-.heroCTA:active .surface {
-  scale: var(--interactive-press-scale);
-  translate: 0 var(--interactive-press-translate-y);
-}
-
-.heroCTA:focus-visible {
-  outline: none;
-}
-
-.heroCTA:focus-visible .surface {
-  outline: 2px solid var(--primary-10);
-  outline-offset: 3px;
-}
-
-.large {
-  gap: var(--s);
 }
 
 .shape {
@@ -109,16 +72,6 @@
 }
 
 @media (min-width: 1161px) {
-  .surface {
-    border-radius: 0.75rem;
-  }
-
-  .large {
-    min-height: 52px;
-    padding-inline: var(--m);
-    font-size: var(--font-button-large);
-  }
-
   .shape {
     width: 5rem;
     height: 5rem;
@@ -132,16 +85,6 @@
 }
 
 @media (min-width: 1921px) {
-  .surface {
-    border-radius: 0.625rem;
-  }
-
-  .large {
-    min-height: var(--2xl);
-    padding-inline: var(--l);
-    border-radius: 0.875rem;
-  }
-
   .icon {
     width: var(--l);
     height: var(--l);
