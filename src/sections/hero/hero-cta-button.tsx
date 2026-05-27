@@ -1,16 +1,21 @@
 import { clsx } from 'clsx';
 import { PiArrowRightBold } from 'react-icons/pi';
 import Button from '../../shared/ui/button/button';
-import styles from './actions.module.css';
+import styles from './hero-cta-button.module.css';
 
-type ActionsProps = {
+type HeroCtaButtonProps = {
   size?: string;
   link?: string;
   ariaLabel: string;
   text: string;
 };
 
-const Actions = ({ size = '', link = '', ariaLabel, text }: ActionsProps) => {
+const HeroCtaButton = ({
+  size = '',
+  link = '',
+  ariaLabel,
+  text,
+}: HeroCtaButtonProps) => {
   return (
     <Button
       ariaLabel={ariaLabel}
@@ -39,4 +44,4 @@ const Actions = ({ size = '', link = '', ariaLabel, text }: ActionsProps) => {
   );
 };
 
-export default Actions;
+export default HeroCtaButton;
