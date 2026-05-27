@@ -4,14 +4,15 @@ Status: project-state immediate recommendation
 
 ## Recommended Next Steps
 
-- Manually visually review the extra-wide Services, Pricing, and Testimonials intro illustrations at `1921px+` to confirm the width cap removes visible upscaling without making the section rows feel underweighted.
-- Manually visually review section navigation at mobile, tablet, ordinary desktop, and `1921px+`: direct `/` and legacy `/#hero` loads, direct section hash loads, hero nav click to page top with the URL normalized to `/`, downward section navigation, upward navigation with the dockbar visible, and the below-dockbar title gap.
+- Manually visually compare the OKLCH color-token migration against the previous palette on mobile, tablet, ordinary desktop, and `1921px+`, with extra attention to the Hero blobs, RoughNotation underline, floating header/menu surfaces, testimonial dialog backdrop, scrollbar colors, masks, and shared button states.
+- After color parity is confirmed, continue the existing responsive QA for extra-wide Services, Pricing, and Testimonials intro illustrations plus section navigation/hash behavior.
 
 ## Immediate Goal
 
-- Keep the current scope limited to KAN-152 extra-wide image clarity plus the existing responsive breakpoint, section anchor, and dockbar-aware scroll behavior QA; avoid unrelated content, dependency, or carousel changes.
+- Keep the current scope limited to KAN-146 OKLCH color representation parity and the already pending responsive/navigation QA; avoid unrelated content, dependency, or carousel changes.
 
 ## Open Questions
 
+- Whether any downstream browser-support policy requires fallback colors for OKLCH despite current Next/Turbopack build support.
 - Whether higher-resolution `2x` source illustrations should be sourced or generated for Services, Pricing, and Testimonials if retina sharpness is required beyond avoiding layout upscaling.
 - Whether the controlled site-nav scroll behavior should later be extracted into a small reusable scroll utility if more non-nav hash handling is added.
