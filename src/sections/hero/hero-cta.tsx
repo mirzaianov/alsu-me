@@ -1,7 +1,7 @@
 'use client';
 
 import { RoughNotation } from 'react-rough-notation';
-import Actions from './actions';
+import HeroCtaButton from './hero-cta-button';
 import styles from './hero.module.css';
 
 const HeroCta = () => {
@@ -35,7 +35,7 @@ const HeroCta = () => {
         </RoughNotation>{' '}
         пробное занятие
       </p>
-      <Actions
+      <HeroCtaButton
         text="Записаться"
         ariaLabel="Записаться"
         size="large"
