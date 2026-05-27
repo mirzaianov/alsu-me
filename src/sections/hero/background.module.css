@@ -108,9 +108,9 @@
   .first {
     background: radial-gradient(
       circle,
-      hsla(40, 100%, 55%, 0.6) 0%,
-      hsla(40, 100%, 55%, 0.34) 44%,
-      hsla(40, 100%, 55%, 0) 82%
+      oklch(from var(--primary-20) l c h / 0.6) 0%,
+      oklch(from var(--primary-20) l c h / 0.34) 44%,
+      oklch(from var(--primary-20) l c h / 0) 82%
     );
     opacity: 1;
   }
@@ -118,9 +118,9 @@
   .second {
     background: radial-gradient(
       circle,
-      hsla(234, 86%, 57%, 0.48) 0%,
-      hsla(234, 86%, 57%, 0.25) 44%,
-      hsla(234, 86%, 57%, 0) 82%
+      oklch(from var(--primary-10) l c h / 0.48) 0%,
+      oklch(from var(--primary-10) l c h / 0.25) 44%,
+      oklch(from var(--primary-10) l c h / 0) 82%
     );
     opacity: 1;
   }
@@ -128,9 +128,9 @@
   .third {
     background: radial-gradient(
       circle,
-      hsla(353, 100%, 65%, 0.48) 0%,
-      hsla(353, 100%, 65%, 0.25) 44%,
-      hsla(353, 100%, 65%, 0) 82%
+      oklch(from var(--primary-30) l c h / 0.48) 0%,
+      oklch(from var(--primary-30) l c h / 0.25) 44%,
+      oklch(from var(--primary-30) l c h / 0) 82%
     );
     opacity: 1;
   }

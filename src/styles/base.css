@@ -5,8 +5,8 @@
 }
 
 html {
-  --scrollbar-thumb: hsla(219, 40%, 11%, 0.48);
-  --scrollbar-thumb-hover: hsla(234, 86%, 57%, 0.72);
+  --scrollbar-thumb: oklch(from var(--neutral-90) l c h / 0.48);
+  --scrollbar-thumb-hover: oklch(from var(--primary-10) l c h / 0.72);
   --scrollbar-track: var(--secondary-15);
 
   scroll-behavior: smooth;

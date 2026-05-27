@@ -39,8 +39,8 @@
   mask-image: linear-gradient(
     to bottom,
     transparent,
-    #000 var(--hero-text-slider-edge-fade),
-    #000 calc(100% - var(--hero-text-slider-edge-fade)),
+    var(--mask-solid) var(--hero-text-slider-edge-fade),
+    var(--mask-solid) calc(100% - var(--hero-text-slider-edge-fade)),
     transparent
   );
   mask-repeat: no-repeat;
@@ -48,8 +48,8 @@
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent,
-    #000 var(--hero-text-slider-edge-fade),
-    #000 calc(100% - var(--hero-text-slider-edge-fade)),
+    var(--mask-solid) var(--hero-text-slider-edge-fade),
+    var(--mask-solid) calc(100% - var(--hero-text-slider-edge-fade)),
     transparent
   );
   -webkit-mask-repeat: no-repeat;

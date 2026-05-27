@@ -3,7 +3,7 @@
   inset: 0;
   z-index: 50;
   overflow: hidden;
-  background-color: hsla(219, 40%, 11%, 0.5);
+  background-color: var(--neutral-90-50);
   opacity: 1;
   overscroll-behavior: contain;
   touch-action: none;

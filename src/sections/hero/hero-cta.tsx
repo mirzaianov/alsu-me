@@ -12,7 +12,7 @@ const HeroCta = () => {
         <RoughNotation
           type="underline"
           show={true}
-          color="hsla(353, 100%, 65%, 1)"
+          color="var(--primary-30)"
           animationDelay={2000}
           strokeWidth={3}
           animationDuration={2000}
@@ -26,7 +26,7 @@ const HeroCta = () => {
         <RoughNotation
           type="underline"
           show={true}
-          color="hsla(353, 100%, 65%, 1)"
+          color="var(--primary-30)"
           animationDelay={2000}
           strokeWidth={4}
           animationDuration={2000}
