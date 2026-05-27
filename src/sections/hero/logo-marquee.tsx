@@ -86,14 +86,25 @@ const LogoMarquee = () => {
     setIsHoverPaused(true);
   };
 
-  const syncHoverPause = (event: PointerEvent<HTMLElement>) => {
-    if (event.pointerType === 'touch') {
-      setIsHoverPaused(false);
-      return;
+  const isPointerOverMarquee = (event: PointerEvent<HTMLElement>) => {
+    const root = rootRef.current;
+
+    if (!root || event.pointerType === 'touch') {
+      return false;
     }
 
-    const root = rootRef.current;
-    setIsHoverPaused(Boolean(root?.matches(':hover')));
+    const rect = root.getBoundingClientRect();
+
+    return (
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom
+    );
+  };
+
+  const syncHoverPause = (event: PointerEvent<HTMLElement>) => {
+    setIsHoverPaused(isPointerOverMarquee(event));
   };
 
   const handleFocusCapture = (event: FocusEvent<HTMLElement>) => {
