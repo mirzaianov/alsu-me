@@ -22,6 +22,7 @@ Before changing code, read:
   - `pnpm typecheck`
   - `pnpm lint`
   - `pnpm build`
+- Do not run Playwright or browser E2E automation unless the user directly asks for it.
 
 ## Working Rules
 
