@@ -25,17 +25,14 @@ const PricingSaleBadge = () => {
 
       const media = gsap.matchMedia();
 
+      media.add('(width >= 577px) and (prefers-reduced-motion: reduce)', () => {
+        root.dataset.pricingSaleReveal = SALE_BADGE_REVEAL_READY_STATE;
+        gsap.set(root, {
+          clearProps: 'opacity,visibility,transform,willChange',
+        });
+      });
       media.add(
-        '(min-width: 577px) and (prefers-reduced-motion: reduce)',
-        () => {
-          root.dataset.pricingSaleReveal = SALE_BADGE_REVEAL_READY_STATE;
-          gsap.set(root, {
-            clearProps: 'opacity,visibility,transform,willChange',
-          });
-        },
-      );
-      media.add(
-        '(min-width: 577px) and (prefers-reduced-motion: no-preference)',
+        '(width >= 577px) and (prefers-reduced-motion: no-preference)',
         () => {
           const tween = gsap.fromTo(
             root,

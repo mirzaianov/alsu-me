@@ -49,7 +49,7 @@
   width: 100%;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .title {
     font-size: var(--font-heading-m);
   }
@@ -76,7 +76,7 @@
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .title {
     font-size: var(--font-heading-l);
     line-height: var(--line-heading);
@@ -104,7 +104,7 @@
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .contact {
     --section-gap-desktop: var(--3xl);
   }

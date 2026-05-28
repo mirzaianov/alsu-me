@@ -193,7 +193,7 @@ h6 {
   overflow: hidden;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .section {
     max-width: var(--section-max-tablet, var(--container-tablet));
     margin-block: var(--section-margin-y-tablet, var(--tablet-y-margin));
@@ -206,7 +206,7 @@ h6 {
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .section {
     max-width: var(--section-max-desktop, var(--container-desktop));
     margin-block: var(--section-margin-y-desktop, var(--desktop-y-margin));
@@ -219,7 +219,7 @@ h6 {
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .section {
     max-width: var(--section-max-extra-wide, var(--container-wide));
   }

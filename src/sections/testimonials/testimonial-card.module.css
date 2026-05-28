@@ -130,7 +130,7 @@
   text-wrap: pretty;
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .testimonialCard {
     block-size: 450px;
     gap: var(--l);

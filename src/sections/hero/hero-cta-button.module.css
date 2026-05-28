@@ -108,7 +108,7 @@
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .mesh {
     inset: -52%;
     filter: blur(13px) saturate(158%);
@@ -120,7 +120,7 @@
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .icon {
     width: var(--l);
     height: var(--l);

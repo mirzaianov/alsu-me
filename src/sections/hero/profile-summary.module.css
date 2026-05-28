@@ -87,7 +87,7 @@
   animation: var(--animation-name-waving-badge) 3s linear infinite;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .statsWrap {
     min-width: 160px;
   }
@@ -105,7 +105,7 @@
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .heroPhotoCardBlock {
     flex-direction: column-reverse;
     gap: var(--m);
@@ -135,7 +135,7 @@
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .heroPhotoCardBlock {
     flex: 1 1 580px;
     gap: var(--xl);

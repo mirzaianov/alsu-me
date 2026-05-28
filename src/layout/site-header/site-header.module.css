@@ -93,7 +93,7 @@
   display: block;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .header,
   .dockbar {
     --site-header-padding-inline: var(--xl);
@@ -117,7 +117,7 @@
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .header,
   .dockbar {
     --site-header-padding-inline: var(--3xl);
@@ -133,7 +133,7 @@
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .header {
     max-width: var(--container-extra-wide);
     margin-top: 56px;
