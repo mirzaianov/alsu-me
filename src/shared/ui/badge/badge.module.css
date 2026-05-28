@@ -62,7 +62,7 @@
   color: var(--text-90);
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .large {
     height: 52px;
     gap: var(--s);

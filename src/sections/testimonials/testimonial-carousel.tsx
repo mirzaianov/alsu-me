@@ -278,26 +278,23 @@ const TestimonialCarousel = () => {
     syncTimelinePausedRef.current?.();
   }, [isFocusPaused, isHoverPaused, isModalPaused]);
 
-  useEffect(
-    () => {
-      const handlePointerMove = (event: PointerEvent) => {
-        updatePointerPosition(event);
-      };
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      updatePointerPosition(event);
+    };
 
-      document.addEventListener('pointermove', handlePointerMove, {
-        passive: true,
-      });
+    document.addEventListener('pointermove', handlePointerMove, {
+      passive: true,
+    });
 
-      return () => {
-        document.removeEventListener('pointermove', handlePointerMove);
+    return () => {
+      document.removeEventListener('pointermove', handlePointerMove);
 
-        if (closeHoverSyncTimeoutRef.current !== null) {
-          window.clearTimeout(closeHoverSyncTimeoutRef.current);
-        }
-      };
-    },
-    [],
-  );
+      if (closeHoverSyncTimeoutRef.current !== null) {
+        window.clearTimeout(closeHoverSyncTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div

@@ -5,9 +5,9 @@ export const responsiveMarqueeSpeeds = {
 } as const;
 
 export const responsiveMarqueeMediaQueries = {
-  desktop: '(min-width: 1161px)',
-  mobile: '(max-width: 576px)',
-  tablet: '(min-width: 577px) and (max-width: 1160px)',
+  desktop: '(width >= 1161px)',
+  mobile: '(width <= 576px)',
+  tablet: '(577px <= width <= 1160px)',
 } as const;
 
 type ResponsiveMarqueeSpeedConditions = {

@@ -20,7 +20,7 @@ const PhotoCard = () => {
         <div className={styles.color} />
         <picture>
           <source
-            media="(min-width: 577px)"
+            media="(width >= 577px)"
             sizes="(min-width: 1921px) 540px, (min-width: 1161px) 480px, 450px"
             srcSet={tabletSrcSet}
           />

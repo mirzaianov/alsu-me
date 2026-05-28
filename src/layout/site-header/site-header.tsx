@@ -59,7 +59,7 @@ const SiteHeader = () => {
   const heroReleaseTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia('(min-width: 1161px)');
+    const desktopQuery = window.matchMedia('(width >= 1161px)');
     const closeOnDesktop = () => {
       if (desktopQuery.matches) {
         setIsMenuOpen(false);

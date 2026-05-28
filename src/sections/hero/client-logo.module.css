@@ -7,14 +7,14 @@
   padding-inline: 20px;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .heroInfiniteLogo {
     height: var(--xl);
     padding-inline: var(--xl);
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .heroInfiniteLogo {
     height: var(--2xl);
     padding-inline: var(--2xl);
