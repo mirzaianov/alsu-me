@@ -98,7 +98,15 @@ const scrollToSection = (
 const isBeforeAboutSection = () => {
   const aboutSection = document.getElementById('about');
 
-  return !aboutSection || window.scrollY < aboutSection.offsetTop;
+  if (!aboutSection) {
+    return true;
+  }
+
+  // Match the IntersectionObserver's active zone bottom edge (18vh).
+  // activeSectionRootMargin = '-12% 0px -82% 0px' -> 100% - 82% = 18%
+  const threshold = window.innerHeight * 0.18;
+
+  return window.scrollY < aboutSection.offsetTop - threshold;
 };
 
 const correctHashScrollPosition = () => {
@@ -402,6 +410,28 @@ const SiteNav = ({
       window.removeEventListener('resize', handleResize);
     };
   }, [activeLink, getIndicatorPosition, type]);
+
+  useEffect(() => {
+    if (!activeLink) {
+      return;
+    }
+
+    const pendingNavigationTarget = pendingNavigationTargetRef.current;
+
+    if (pendingNavigationTarget && pendingNavigationTarget !== activeLink) {
+      return;
+    }
+
+    const newHash = activeLink === 'hero' ? '' : `#${activeLink}`;
+
+    if (window.location.hash !== newHash) {
+      window.history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${newHash}`,
+      );
+    }
+  }, [activeLink]);
 
   useEffect(() => {
     if (shouldCorrectHashOnMount) {

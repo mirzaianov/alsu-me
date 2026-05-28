@@ -6,6 +6,8 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-05-28: Refined Hero activation threshold to match the IntersectionObserver's active zone (18vh). [Reason why added: To prevent the "Hero" link from becoming active too early when scrolling up, ensuring visual consistency with other section transitions.]
+- 2026-05-28: Refactored dynamic URL hash synchronization to use a reactive side-effect on `activeLink`. [Reason why added: To ensure the address bar accurately reflects all sections, including short ones like About and Contacts, by syncing with the already-verified navbar indicator state.]
 - 2026-05-28: Migrated all media queries to modern range syntax (`width >=`, `width <=`, and range syntax) across CSS modules and TypeScript files. [Reason why added: To align with modern CSS standards and improve code readability as per modern-web-guidance.]
 - 2026-05-28: Fixed Prettier linting regressions in `testimonial-carousel.tsx` discovered during the final validation of the OKLCH color migration. [Reason why added: the codebase must remain compliant with the project's formatting standards after any manual or automatic changes.]
 - 2026-05-27: Migrated the shared color system from HSLA/RGBA literals to OKLCH CSS custom properties, added alpha variants for existing overlay/gradient uses, and routed remaining direct color consumers through palette variables. [Reason why added: the code color representation should use OKLCH consistently while preserving the existing visual palette.]
