@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-05-28: Fixed Prettier linting regressions in `testimonial-carousel.tsx` discovered during the final validation of the OKLCH color migration. [Reason why added: the codebase must remain compliant with the project's formatting standards after any manual or automatic changes.]
 - 2026-05-27: Migrated the shared color system from HSLA/RGBA literals to OKLCH CSS custom properties, added alpha variants for existing overlay/gradient uses, and routed remaining direct color consumers through palette variables. [Reason why added: the code color representation should use OKLCH consistently while preserving the existing visual palette.]
 - 2026-05-26: Changed the Hero nav target from `/#hero` to `/`, removed the synthetic page-top hero anchor, and kept backward compatibility by normalizing legacy `/#hero` visits back to `/` after scrolling to top. [Reason why added: the Hero nav item represents page home/top, while real hashes should be reserved for shareable in-page section deep links.]
 - 2026-05-26: Capped Services, Pricing, and Testimonials intro illustrations to their `368px` source width on `1921px+` screens and updated their Next image `sizes` hints to request the matching intrinsic candidate. [Reason why added: the section images looked soft on extra-large screens because the layout could render them wider than the available PNG source width.]
