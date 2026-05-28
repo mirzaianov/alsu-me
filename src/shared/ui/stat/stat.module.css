@@ -14,7 +14,7 @@
   line-height: var(--line-tight);
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .stat {
     width: min-content;
     min-width: 125px;

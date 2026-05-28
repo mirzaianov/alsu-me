@@ -92,13 +92,13 @@
   transform: scaleX(1);
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .top {
     flex-direction: row;
   }
 }
 
-@media (min-width: 1161px) {
+@media (width >= 1161px) {
   .top {
     width: 100%;
     justify-content: space-between;
@@ -120,7 +120,7 @@
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .footer {
     --section-max-extra-wide: var(--container-extra-wide);
   }

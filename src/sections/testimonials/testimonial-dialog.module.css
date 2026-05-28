@@ -109,7 +109,7 @@
   outline-offset: 3px;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .panel {
     max-inline-size: 51ch;
   }

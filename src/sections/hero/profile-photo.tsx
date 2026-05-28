@@ -22,7 +22,7 @@ const ProfilePhoto = () => {
           <div className={styles.color} />
           <picture>
             <source
-              media="(min-width: 577px)"
+              media="(width >= 577px)"
               sizes="(min-width: 1921px) 720px, 450px"
               srcSet={tabletSrcSet}
             />

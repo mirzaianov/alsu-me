@@ -63,7 +63,7 @@
   transform: translateY(-10px) rotate(-2.5deg) scale(1.5);
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .heroPhotoCard {
     width: 330px;
   }
@@ -94,7 +94,7 @@
   }
 }
 
-@media (min-width: 1921px) {
+@media (width >= 1921px) {
   .heroPhotoCard {
     width: var(--hero-photo-card-width, 372px);
   }
