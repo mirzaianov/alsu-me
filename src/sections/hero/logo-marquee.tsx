@@ -75,7 +75,8 @@ const LogoMarquee = () => {
   const [isHoverPaused, setIsHoverPaused] = useState(false);
   const rootRef = useRef<HTMLElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const isMarqueePausedRef = useRef(isFocusPaused || isHoverPaused);
+  const isFocusPausedRef = useRef(isFocusPaused);
+  const isHoverPausedRef = useRef(isHoverPaused);
   const syncTimelinePausedRef = useRef<(() => void) | null>(null);
 
   const pauseForHover = (event: PointerEvent<HTMLElement>) => {
@@ -255,7 +256,8 @@ const LogoMarquee = () => {
 
           const viewportAnimation = createViewportPausedAnimation({
             animation: timeline,
-            isPaused: () => isMarqueePausedRef.current,
+            delayedPaused: () => isHoverPausedRef.current,
+            isPaused: () => isFocusPausedRef.current,
             trigger: root,
           });
           syncTimelinePausedRef.current = viewportAnimation.sync;
@@ -284,7 +286,8 @@ const LogoMarquee = () => {
   );
 
   useEffect(() => {
-    isMarqueePausedRef.current = isFocusPaused || isHoverPaused;
+    isFocusPausedRef.current = isFocusPaused;
+    isHoverPausedRef.current = isHoverPaused;
     syncTimelinePausedRef.current?.();
   }, [isFocusPaused, isHoverPaused]);
 
