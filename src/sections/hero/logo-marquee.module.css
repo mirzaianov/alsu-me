@@ -1,5 +1,6 @@
 .heroInfiniteLogos {
-  --marquee-edge-fade: 40px;
+  --marquee-edge-hidden: 28px;
+  --marquee-edge-fade: 72px;
 
   position: relative;
   width: 100%;
@@ -10,25 +11,29 @@
   white-space: nowrap;
   line-height: 0;
   animation: var(--animation-name-logos-fade-in) 500ms 200ms ease-in both;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    transparent var(--marquee-edge-hidden),
+    black calc(var(--marquee-edge-hidden) + var(--marquee-edge-fade)),
+    black calc(100% - var(--marquee-edge-hidden) - var(--marquee-edge-fade)),
+    transparent calc(100% - var(--marquee-edge-hidden)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    transparent var(--marquee-edge-hidden),
+    black calc(var(--marquee-edge-hidden) + var(--marquee-edge-fade)),
+    black calc(100% - var(--marquee-edge-hidden) - var(--marquee-edge-fade)),
+    transparent calc(100% - var(--marquee-edge-hidden)),
+    transparent 100%
+  );
 }
 
 .marqueeViewport {
   width: 100%;
   overflow: clip;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black var(--marquee-edge-fade),
-    black calc(100% - var(--marquee-edge-fade)),
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black var(--marquee-edge-fade),
-    black calc(100% - var(--marquee-edge-fade)),
-    transparent
-  );
 }
 
 .track {
@@ -44,7 +49,8 @@
 
 @media (width >= 577px) {
   .heroInfiniteLogos {
-    --marquee-edge-fade: 64px;
+    --marquee-edge-hidden: 40px;
+    --marquee-edge-fade: 104px;
 
     margin-bottom: var(--xl);
     padding-block: var(--m);
@@ -53,7 +59,8 @@
 
 @media (width >= 1161px) {
   .heroInfiniteLogos {
-    --marquee-edge-fade: 88px;
+    --marquee-edge-hidden: 56px;
+    --marquee-edge-fade: 144px;
 
     margin-bottom: 0;
     padding-block: var(--xl);
@@ -62,6 +69,7 @@
 
 @media (width >= 1921px) {
   .heroInfiniteLogos {
-    --marquee-edge-fade: 112px;
+    --marquee-edge-hidden: 72px;
+    --marquee-edge-fade: 184px;
   }
 }
