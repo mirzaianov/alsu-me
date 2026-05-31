@@ -308,8 +308,10 @@ const TestimonialCarousel = () => {
       onPointerLeave={syncHoverPause}
       onPointerUp={syncHoverPause}
     >
-      <TestimonialRow setIsModalPaused={handleModalPausedChange} />
-      <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+      <div className={styles.marqueeViewport}>
+        <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+        <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+      </div>
     </div>
   );
 };

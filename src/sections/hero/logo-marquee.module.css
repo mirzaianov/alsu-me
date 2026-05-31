@@ -1,4 +1,6 @@
 .heroInfiniteLogos {
+  --marquee-edge-fade: 40px;
+
   position: relative;
   width: 100%;
   margin-bottom: var(--s);
@@ -8,6 +10,25 @@
   white-space: nowrap;
   line-height: 0;
   animation: var(--animation-name-logos-fade-in) 500ms 200ms ease-in both;
+}
+
+.marqueeViewport {
+  width: 100%;
+  overflow: clip;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--marquee-edge-fade),
+    black calc(100% - var(--marquee-edge-fade)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--marquee-edge-fade),
+    black calc(100% - var(--marquee-edge-fade)),
+    transparent
+  );
 }
 
 .track {
@@ -23,6 +44,8 @@
 
 @media (width >= 577px) {
   .heroInfiniteLogos {
+    --marquee-edge-fade: 64px;
+
     margin-bottom: var(--xl);
     padding-block: var(--m);
   }
@@ -30,7 +53,15 @@
 
 @media (width >= 1161px) {
   .heroInfiniteLogos {
+    --marquee-edge-fade: 88px;
+
     margin-bottom: 0;
     padding-block: var(--xl);
+  }
+}
+
+@media (width >= 1921px) {
+  .heroInfiniteLogos {
+    --marquee-edge-fade: 112px;
   }
 }

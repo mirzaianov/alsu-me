@@ -1,4 +1,7 @@
 .testimonialInfiniteCards {
+  --marquee-edge-fade: 48px;
+  --marquee-shadow-bleed: 24px;
+
   position: relative;
   width: 100%;
   height: 400px;
@@ -10,12 +13,52 @@
   line-height: 0;
 }
 
+.marqueeViewport {
+  width: 100%;
+  height: calc(100% + var(--marquee-shadow-bleed) * 2);
+  box-sizing: border-box;
+  margin-block: calc(var(--marquee-shadow-bleed) * -1);
+  overflow: visible;
+  padding-block: var(--marquee-shadow-bleed);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--marquee-edge-fade),
+    black calc(100% - var(--marquee-edge-fade)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black var(--marquee-edge-fade),
+    black calc(100% - var(--marquee-edge-fade)),
+    transparent
+  );
+}
+
 .testimonialInfiniteCards:active {
   cursor: grabbing;
 }
 
+@media (width >= 577px) {
+  .testimonialInfiniteCards {
+    --marquee-edge-fade: 72px;
+    --marquee-shadow-bleed: 28px;
+  }
+}
+
+@media (width >= 1161px) {
+  .testimonialInfiniteCards {
+    --marquee-edge-fade: 104px;
+    --marquee-shadow-bleed: 32px;
+  }
+}
+
 @media (width >= 1921px) {
   .testimonialInfiniteCards {
+    --marquee-edge-fade: 128px;
+    --marquee-shadow-bleed: 36px;
+
     height: 450px;
   }
 }

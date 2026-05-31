@@ -304,29 +304,31 @@ const LogoMarquee = () => {
       onPointerLeave={syncHoverPause}
       onPointerUp={syncHoverPause}
     >
-      <div
-        ref={trackRef}
-        className={styles.track}
-      >
-        {Array.from({ length: visualLogoSetCount }, (_, setIndex) =>
-          logos.map((logo) => {
-            const isDuplicateSet = setIndex > 0;
+      <div className={styles.marqueeViewport}>
+        <div
+          ref={trackRef}
+          className={styles.track}
+        >
+          {Array.from({ length: visualLogoSetCount }, (_, setIndex) =>
+            logos.map((logo) => {
+              const isDuplicateSet = setIndex > 0;
 
-            return (
-              <div
-                key={`${setIndex}-${logo.alt}`}
-                className={styles.item}
-                aria-hidden={isDuplicateSet ? true : undefined}
-                data-logo-marquee-item
-              >
-                <ClientLogo
-                  alt={isDuplicateSet ? '' : logo.alt}
-                  src={logo.src}
-                />
-              </div>
-            );
-          }),
-        )}
+              return (
+                <div
+                  key={`${setIndex}-${logo.alt}`}
+                  className={styles.item}
+                  aria-hidden={isDuplicateSet ? true : undefined}
+                  data-logo-marquee-item
+                >
+                  <ClientLogo
+                    alt={isDuplicateSet ? '' : logo.alt}
+                    src={logo.src}
+                  />
+                </div>
+              );
+            }),
+          )}
+        </div>
       </div>
     </section>
   );
