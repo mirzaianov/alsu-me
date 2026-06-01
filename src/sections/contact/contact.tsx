@@ -52,7 +52,7 @@ const Contact = () => {
             <DottedMap<ContactMapMarker>
               aria-label="Карта городов онлайн-занятий и переводческих проектов"
               className={styles.map}
-              dotColor="var(--neutral-70)"
+              dotColor="var(--text-90)"
               dotRadius={0.16}
               markerColor="var(--primary-30)"
               markers={contactMapMarkers}

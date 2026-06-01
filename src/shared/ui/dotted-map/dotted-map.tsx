@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { clsx } from 'clsx';
 import { createMap } from 'svg-dotted-map';
 
 const markerPulseDurationSeconds = 2.8;
@@ -57,7 +56,7 @@ export function DottedMap<M extends Marker = Marker>({
   mapSamples = 5000,
   markers = [],
   dotColor = 'currentColor',
-  markerColor = '#FF6900',
+  markerColor = 'currentColor',
   dotRadius = 0.2,
   stagger = true,
   pulse = false,
@@ -103,7 +102,7 @@ export function DottedMap<M extends Marker = Marker>({
   return (
     <svg
       viewBox={`0 0 ${width} ${height}`}
-      className={clsx('text-gray-500 dark:text-gray-500', className)}
+      className={className}
       style={{ width: '100%', height: '100%', ...style }}
       {...svgProps}
     >
