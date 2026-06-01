@@ -20,6 +20,7 @@ export interface Marker {
   lng: number;
   size?: number;
   pulse?: boolean;
+  color?: string;
 }
 
 /** addMarkers returns markers with lat/lng removed; only x, y and other props (e.g. size) remain */
@@ -128,6 +129,7 @@ export function DottedMap<M extends Marker = Marker>({
         const x = marker.x + offsetX;
         const y = marker.y;
         const r = marker.size ?? dotRadius;
+        const currentMarkerColor = marker.color ?? markerColor;
         const shouldPulse = pulse
           ? marker.pulse !== false
           : marker.pulse === true;
@@ -144,7 +146,7 @@ export function DottedMap<M extends Marker = Marker>({
               cx={x}
               cy={y}
               r={r}
-              fill={markerColor}
+              fill={currentMarkerColor}
             />
 
             {shouldPulse ? (
@@ -154,7 +156,7 @@ export function DottedMap<M extends Marker = Marker>({
                   cy={y}
                   r={r}
                   fill="none"
-                  stroke={markerColor}
+                  stroke={currentMarkerColor}
                   strokeOpacity={1}
                   strokeWidth={0.35}
                 >
@@ -178,7 +180,7 @@ export function DottedMap<M extends Marker = Marker>({
                   cy={y}
                   r={r}
                   fill="none"
-                  stroke={markerColor}
+                  stroke={currentMarkerColor}
                   strokeOpacity={0.9}
                   strokeWidth={0.3}
                 >

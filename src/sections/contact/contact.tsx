@@ -7,6 +7,14 @@ type ContactMapMarker = Marker & {
   label: string;
 };
 
+const contactMapMarkerColors = [
+  'var(--primary-30)',
+  'var(--primary-10)',
+  'var(--primary-50)',
+  'var(--primary-20)',
+  'var(--primary-40)',
+] as const;
+
 const contactMapMarkers: ContactMapMarker[] = [
   { lat: 55.7961, lng: 49.1064, label: 'Казань, Россия', size: 0.8 },
   { lat: 55.7558, lng: 37.6173, label: 'Москва, Россия', size: 0.8 },
@@ -19,7 +27,10 @@ const contactMapMarkers: ContactMapMarker[] = [
   { lat: 7.8804, lng: 98.3923, label: 'Пхукет, Таиланд', size: 0.8 },
   { lat: 25.2048, lng: 55.2708, label: 'Дубай, ОАЭ', size: 0.8 },
   { lat: 25.2854, lng: 51.531, label: 'Доха, Катар', size: 0.8 },
-];
+].map((marker, index) => ({
+  ...marker,
+  color: contactMapMarkerColors[index % contactMapMarkerColors.length],
+}));
 
 const Contact = () => {
   return (
