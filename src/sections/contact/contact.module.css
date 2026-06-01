@@ -32,6 +32,7 @@
 .mapFrame {
   position: relative;
   width: 100%;
+  aspect-ratio: 2 / 1;
   height: clamp(190px, 48vw, 260px);
   overflow: hidden;
   color: oklch(from var(--neutral-70) l c h / 0.34);
@@ -132,6 +133,10 @@
     gap: var(--2xl);
   }
 
+  .mapFrame {
+    height: auto;
+  }
+
   .mapText {
     max-width: var(--desktop-text-wrapper);
   }
@@ -161,10 +166,6 @@
 
   .mapBlock {
     gap: var(--3xl);
-  }
-
-  .mapFrame {
-    height: clamp(360px, 28vw, 480px);
   }
 
   .copy {
