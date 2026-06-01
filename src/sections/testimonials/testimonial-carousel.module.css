@@ -1,4 +1,5 @@
 .testimonialInfiniteCards {
+  --marquee-edge-hidden: 0px;
   --marquee-edge-fade: 48px;
   --marquee-shadow-bleed: 24px;
 
@@ -22,17 +23,21 @@
   padding-block: var(--marquee-shadow-bleed);
   -webkit-mask-image: linear-gradient(
     to right,
-    transparent,
-    black var(--marquee-edge-fade),
-    black calc(100% - var(--marquee-edge-fade)),
-    transparent
+    transparent 0,
+    transparent var(--marquee-edge-hidden),
+    black calc(var(--marquee-edge-hidden) + var(--marquee-edge-fade)),
+    black calc(100% - var(--marquee-edge-hidden) - var(--marquee-edge-fade)),
+    transparent calc(100% - var(--marquee-edge-hidden)),
+    transparent 100%
   );
   mask-image: linear-gradient(
     to right,
-    transparent,
-    black var(--marquee-edge-fade),
-    black calc(100% - var(--marquee-edge-fade)),
-    transparent
+    transparent 0,
+    transparent var(--marquee-edge-hidden),
+    black calc(var(--marquee-edge-hidden) + var(--marquee-edge-fade)),
+    black calc(100% - var(--marquee-edge-hidden) - var(--marquee-edge-fade)),
+    transparent calc(100% - var(--marquee-edge-hidden)),
+    transparent 100%
   );
 }
 
@@ -42,21 +47,24 @@
 
 @media (width >= 577px) {
   .testimonialInfiniteCards {
-    --marquee-edge-fade: 72px;
+    --marquee-edge-hidden: 40px;
+    --marquee-edge-fade: 104px;
     --marquee-shadow-bleed: 28px;
   }
 }
 
 @media (width >= 1161px) {
   .testimonialInfiniteCards {
-    --marquee-edge-fade: 104px;
+    --marquee-edge-hidden: 56px;
+    --marquee-edge-fade: 144px;
     --marquee-shadow-bleed: 32px;
   }
 }
 
 @media (width >= 1921px) {
   .testimonialInfiniteCards {
-    --marquee-edge-fade: 128px;
+    --marquee-edge-hidden: 72px;
+    --marquee-edge-fade: 184px;
     --marquee-shadow-bleed: 36px;
 
     height: 450px;
