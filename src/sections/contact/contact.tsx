@@ -32,9 +32,9 @@ const Contact = () => {
       </h2>
       <article className={styles.content}>
         <div className={styles.mapBlock}>
-          <p>
+          <p className={styles.mapText}>
             Клиенты по всему миру обращаются ко мне, когда важны
-            ответственность, профессионализм и индивидуальный подход учетом их
+            ответственность, профессионализм и индивидуальный подход с учетом их
             целей.
           </p>
           <div className={styles.mapFrame}>

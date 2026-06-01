@@ -23,6 +23,12 @@
   gap: var(--l);
 }
 
+.mapText {
+  max-width: var(--mobile-text-wrapper);
+  margin: 0;
+  text-wrap: pretty;
+}
+
 .mapFrame {
   position: relative;
   width: 100%;
@@ -78,6 +84,10 @@
     gap: var(--xl);
   }
 
+  .mapText {
+    max-width: var(--tablet-text-wrapper);
+  }
+
   .mapFrame {
     height: clamp(280px, 42vw, 360px);
   }
@@ -120,6 +130,10 @@
 
   .mapBlock {
     gap: var(--2xl);
+  }
+
+  .mapText {
+    max-width: var(--desktop-text-wrapper);
   }
 
   .copy {
