@@ -92,7 +92,17 @@
   }
 
   .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--m);
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .actions > a,
+  .actions > button {
+    width: var(--contact-action-width);
   }
 }
 
