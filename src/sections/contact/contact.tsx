@@ -31,17 +31,26 @@ const Contact = () => {
         Готов начать сотрудничество?
       </h2>
       <article className={styles.content}>
-        <div className={styles.mapFrame}>
-          <DottedMap<ContactMapMarker>
-            aria-label="Карта городов онлайн-занятий и переводческих проектов"
-            className={styles.map}
-            dotColor="var(--neutral-70)"
-            dotRadius={0.16}
-            markerColor="var(--primary-30)"
-            markers={contactMapMarkers}
-            pulse
-            renderMarkerOverlay={({ marker }) => <title>{marker.label}</title>}
-          />
+        <div className={styles.mapBlock}>
+          <p>
+            Клиенты по всему миру обращаются ко мне, когда важны
+            ответственность, профессионализм и индивидуальный подход учетом их
+            целей.
+          </p>
+          <div className={styles.mapFrame}>
+            <DottedMap<ContactMapMarker>
+              aria-label="Карта городов онлайн-занятий и переводческих проектов"
+              className={styles.map}
+              dotColor="var(--neutral-70)"
+              dotRadius={0.16}
+              markerColor="var(--primary-30)"
+              markers={contactMapMarkers}
+              pulse
+              renderMarkerOverlay={({ marker }) => (
+                <title>{marker.label}</title>
+              )}
+            />
+          </div>
         </div>
         <div className={styles.copy}>
           <p className={styles.subtitle}>Свяжись со мной</p>

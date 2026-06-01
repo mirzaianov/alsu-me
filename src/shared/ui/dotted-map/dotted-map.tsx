@@ -2,6 +2,19 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { createMap } from 'svg-dotted-map';
 
+const markerPulseDurationSeconds = 2.8;
+const markerPulseDuration = `${markerPulseDurationSeconds}s`;
+const markerPulseDelaySeconds = 1.4;
+const markerPulseStaggerStepSeconds = 0.23;
+
+function getMarkerPulseBegin(markerIndex: number, delaySeconds = 0) {
+  const offsetSeconds =
+    (markerIndex * markerPulseStaggerStepSeconds + delaySeconds) %
+    markerPulseDurationSeconds;
+
+  return offsetSeconds === 0 ? '0s' : `-${offsetSeconds.toFixed(2)}s`;
+}
+
 export interface Marker {
   lat: number;
   lng: number;
@@ -119,6 +132,11 @@ export function DottedMap<M extends Marker = Marker>({
           ? marker.pulse !== false
           : marker.pulse === true;
         const pulseTo = r * 2.8;
+        const firstPulseBegin = getMarkerPulseBegin(index);
+        const secondPulseBegin = getMarkerPulseBegin(
+          index,
+          markerPulseDelaySeconds,
+        );
 
         return (
           <g key={`${marker.x}-${marker.y}-${index}`}>
@@ -143,13 +161,15 @@ export function DottedMap<M extends Marker = Marker>({
                   <animate
                     attributeName="r"
                     values={`${r};${pulseTo}`}
-                    dur="1.4s"
+                    dur={markerPulseDuration}
+                    begin={firstPulseBegin}
                     repeatCount="indefinite"
                   />
                   <animate
                     attributeName="opacity"
                     values="1;0"
-                    dur="1.4s"
+                    dur={markerPulseDuration}
+                    begin={firstPulseBegin}
                     repeatCount="indefinite"
                   />
                 </circle>
@@ -165,15 +185,15 @@ export function DottedMap<M extends Marker = Marker>({
                   <animate
                     attributeName="r"
                     values={`${r};${pulseTo}`}
-                    dur="1.4s"
-                    begin="0.7s"
+                    dur={markerPulseDuration}
+                    begin={secondPulseBegin}
                     repeatCount="indefinite"
                   />
                   <animate
                     attributeName="opacity"
                     values="0.9;0"
-                    dur="1.4s"
-                    begin="0.7s"
+                    dur={markerPulseDuration}
+                    begin={secondPulseBegin}
                     repeatCount="indefinite"
                   />
                 </circle>

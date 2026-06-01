@@ -11,14 +11,22 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  gap: var(--l);
+}
+
+.mapBlock {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
   gap: var(--l);
 }
 
 .mapFrame {
   position: relative;
-  width: min(100%, 340px);
-  height: 190px;
-  align-self: center;
+  width: 100%;
+  height: clamp(190px, 48vw, 260px);
   overflow: hidden;
   color: oklch(from var(--neutral-70) l c h / 0.34);
 }
@@ -66,9 +74,12 @@
     gap: var(--xl);
   }
 
+  .mapBlock {
+    gap: var(--xl);
+  }
+
   .mapFrame {
-    width: min(100%, 560px);
-    height: 300px;
+    height: clamp(280px, 42vw, 360px);
   }
 
   .copy {
@@ -92,17 +103,13 @@
   }
 
   .content {
-    width: 100%;
-    max-width: 800px;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--m);
+    gap: var(--2xl);
   }
 
-  .mapFrame {
-    width: min(52%, 430px);
-    height: 260px;
+  .mapBlock {
+    gap: var(--2xl);
   }
 
   .copy {
@@ -125,12 +132,15 @@
   }
 
   .content {
-    max-width: 900px;
+    gap: var(--3xl);
+  }
+
+  .mapBlock {
+    gap: var(--3xl);
   }
 
   .mapFrame {
-    width: min(54%, 520px);
-    height: 320px;
+    height: clamp(360px, 28vw, 480px);
   }
 
   .copy {
