@@ -13,6 +13,8 @@ const DEFAULT_SETTLE_DELAY = 0.12;
 const DEFAULT_SETTLE_DURATION = 0.65;
 const DEFAULT_GESTURE_RELEASE_HOLD_DURATION = 0.25;
 const DEFAULT_GESTURE_RELEASE_DURATION = 0.5;
+const DEFAULT_INTERACTION_PAUSE_DELAY = 0.12;
+const DEFAULT_INTERACTION_PAUSE_DURATION = 0.24;
 const DEFAULT_MIN_GESTURE_RELEASE_TIME_SCALE = MARQUEE_NORMAL_TIME_SCALE;
 const POINTER_RELEASE_SAMPLE_WINDOW = 240;
 const POINTER_HORIZONTAL_INTENT_RATIO = 1.2;
@@ -61,7 +63,13 @@ type GestureResponsiveMarqueeOptions = {
 
 type ViewportPausedAnimationOptions = {
   animation: gsap.core.Animation;
+  delayedPaused?: () => boolean;
+  interactionPauseDelay?: number;
+  interactionPauseDuration?: number;
+  interactionPauseEnterEase?: string;
+  interactionPauseExitEase?: string;
   isPaused?: () => boolean;
+  normalTimeScale?: number;
   trigger: Element;
 };
 
@@ -150,13 +158,135 @@ export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
 
 export const createViewportPausedAnimation = ({
   animation,
+  delayedPaused,
+  interactionPauseDelay = DEFAULT_INTERACTION_PAUSE_DELAY,
+  interactionPauseDuration = DEFAULT_INTERACTION_PAUSE_DURATION,
+  interactionPauseEnterEase = 'power2.in',
+  interactionPauseExitEase = 'power2.out',
   isPaused,
+  normalTimeScale = MARQUEE_NORMAL_TIME_SCALE,
   trigger,
 }: ViewportPausedAnimationOptions) => {
   let isInView = isElementVisibleInViewport(trigger);
+  let isInteractionPauseActive = false;
+  let interactionPauseTarget: 'paused' | 'playing' | null = null;
+  let interactionResumeTimeScale = normalTimeScale;
+  let interactionPauseCall: gsap.core.Tween | null = null;
+  let interactionPauseTween: gsap.core.Tween | null = null;
+
+  const clearInteractionPauseCall = () => {
+    interactionPauseCall?.kill();
+    interactionPauseCall = null;
+  };
+
+  const clearInteractionPauseTween = () => {
+    interactionPauseTween?.kill();
+    interactionPauseTween = null;
+  };
+
+  const clearInteractionPauseControls = () => {
+    clearInteractionPauseCall();
+    clearInteractionPauseTween();
+  };
+
+  const startDelayedInteractionPause = () => {
+    if (interactionPauseTarget === 'paused') {
+      return;
+    }
+
+    interactionPauseTarget = 'paused';
+    clearInteractionPauseCall();
+    clearInteractionPauseTween();
+
+    if (animation.paused() && !isInteractionPauseActive) {
+      isInteractionPauseActive = true;
+      interactionResumeTimeScale = normalTimeScale;
+      return;
+    }
+
+    if (!isInteractionPauseActive) {
+      const currentTimeScale = animation.timeScale();
+      interactionResumeTimeScale =
+        currentTimeScale === 0 ? normalTimeScale : currentTimeScale;
+    }
+
+    interactionPauseCall = gsap.delayedCall(interactionPauseDelay, () => {
+      interactionPauseCall = null;
+      isInteractionPauseActive = true;
+      animation.paused(false);
+
+      interactionPauseTween = gsap.to(animation, {
+        duration: interactionPauseDuration,
+        ease: interactionPauseEnterEase,
+        onComplete: () => {
+          interactionPauseTween = null;
+
+          if (
+            isInView &&
+            !Boolean(isPaused?.()) &&
+            Boolean(delayedPaused?.())
+          ) {
+            animation.paused(true);
+          }
+        },
+        overwrite: true,
+        timeScale: 0,
+      });
+    });
+  };
+
+  const resumeFromInteractionPause = () => {
+    if (interactionPauseTarget === 'playing') {
+      return;
+    }
+
+    interactionPauseTarget = 'playing';
+    clearInteractionPauseCall();
+    clearInteractionPauseTween();
+
+    if (!isInteractionPauseActive) {
+      animation.paused(false);
+      interactionPauseTarget = null;
+      return;
+    }
+
+    interactionPauseCall = gsap.delayedCall(interactionPauseDelay, () => {
+      interactionPauseCall = null;
+      animation.paused(false);
+
+      interactionPauseTween = gsap.to(animation, {
+        duration: interactionPauseDuration,
+        ease: interactionPauseExitEase,
+        onComplete: () => {
+          interactionPauseTween = null;
+          isInteractionPauseActive = false;
+          interactionPauseTarget = null;
+        },
+        overwrite: true,
+        timeScale: interactionResumeTimeScale,
+      });
+    });
+  };
 
   const sync = () => {
-    animation.paused(!isInView || Boolean(isPaused?.()));
+    const isImmediatelyPaused = !isInView || Boolean(isPaused?.());
+
+    if (isImmediatelyPaused) {
+      clearInteractionPauseControls();
+      if (!Boolean(delayedPaused?.())) {
+        isInteractionPauseActive = false;
+        interactionPauseTarget = null;
+      }
+      animation.paused(true);
+      return;
+    }
+
+    if (Boolean(delayedPaused?.())) {
+      startDelayedInteractionPause();
+      return;
+    }
+
+    resumeFromInteractionPause();
   };
 
   const setInView = (nextIsInView: boolean) => {
@@ -195,8 +325,14 @@ export const createViewportPausedAnimation = ({
   sync();
 
   return {
-    isActive: () => isInView && !Boolean(isPaused?.()),
+    isActive: () =>
+      isInView &&
+      !Boolean(isPaused?.()) &&
+      !Boolean(delayedPaused?.()) &&
+      !isInteractionPauseActive &&
+      interactionPauseTarget === null,
     kill: () => {
+      clearInteractionPauseControls();
       viewportObserver?.disconnect();
       viewportTrigger?.kill();
     },

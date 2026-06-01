@@ -3,7 +3,7 @@ const execPath = process.env.npm_execpath ?? '';
 
 const isPnpm =
   userAgent.startsWith('pnpm/') ||
-  /[\\/]pnpm(?:\.c?js)?$/i.test(execPath) ||
+  /[\\/]pnpm(?:\.[cm]?js)?$/i.test(execPath) ||
   (process.env.VERCEL === '1' && userAgent === '');
 
 if (!isPnpm) {
