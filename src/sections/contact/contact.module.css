@@ -14,10 +14,18 @@
   gap: var(--l);
 }
 
-.image {
-  margin-left: 2rem;
-  width: auto;
-  height: var(--img-size-mobile);
+.mapFrame {
+  position: relative;
+  width: min(100%, 340px);
+  height: 190px;
+  align-self: center;
+  overflow: hidden;
+  color: oklch(from var(--neutral-70) l c h / 0.34);
+}
+
+.map {
+  display: block;
+  opacity: 0.95;
 }
 
 .copy {
@@ -58,8 +66,9 @@
     gap: var(--xl);
   }
 
-  .image {
-    height: var(--img-size-tablet);
+  .mapFrame {
+    width: min(100%, 560px);
+    height: 300px;
   }
 
   .copy {
@@ -86,8 +95,14 @@
     width: 100%;
     max-width: 800px;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     gap: var(--m);
+  }
+
+  .mapFrame {
+    width: min(52%, 430px);
+    height: 260px;
   }
 
   .copy {
@@ -113,9 +128,9 @@
     max-width: 900px;
   }
 
-  .image {
-    height: 340px;
-    margin-left: var(--l);
+  .mapFrame {
+    width: min(54%, 520px);
+    height: 320px;
   }
 
   .copy {

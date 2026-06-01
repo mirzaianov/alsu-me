@@ -29,7 +29,8 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-icons": "^5.2.1",
-    "react-rough-notation": "^1.0.5"
+    "react-rough-notation": "^1.0.5",
+    "svg-dotted-map": "^2.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.0",
