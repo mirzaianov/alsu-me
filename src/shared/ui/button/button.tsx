@@ -8,7 +8,6 @@ type ButtonProps = {
   children: ReactNode;
   ariaLabel: string;
   className?: string;
-  text?: string;
   icon?: string;
   size?: string;
   type?: string;
@@ -20,7 +19,6 @@ const Button = ({
   children,
   ariaLabel,
   className,
-  text = '',
   icon = '',
   size = '',
   type = '',
@@ -36,14 +34,13 @@ const Button = ({
   );
 
   if (link) {
-    const href = text === 'Email' ? `mailto:${link}` : link;
-    const isExternal = /^https?:\/\//.test(href);
+    const isExternal = /^https?:\/\//.test(link);
 
     return (
       <a
         aria-label={ariaLabel}
         className={buttonClassName}
-        href={href}
+        href={link}
         rel={isExternal ? 'noopener noreferrer' : undefined}
         target={isExternal ? '_blank' : undefined}
       >
