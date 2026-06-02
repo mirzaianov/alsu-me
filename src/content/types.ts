@@ -29,3 +29,9 @@ export type BadgeContent = {
   isAnimated?: boolean;
 };
 
+export type SiteNavigationItem = {
+  id: SectionId;
+  label: string;
+  ariaLabel: string;
+};
+
