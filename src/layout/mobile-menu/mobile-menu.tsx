@@ -3,6 +3,7 @@
 import { Dialog } from '@base-ui/react/dialog';
 import { clsx } from 'clsx';
 import type { ReactNode } from 'react';
+import { commonUiContent } from '../../content/ru/common';
 import styles from './mobile-menu.module.css';
 
 type MobileMenuProps = {
@@ -20,9 +21,13 @@ const MobileMenu = ({ children, isFixed }: MobileMenuProps) => {
           isFixed ? styles.fixed : styles.default,
         )}
       >
-        <Dialog.Title className="srOnly">Site navigation</Dialog.Title>
+        <Dialog.Title className="srOnly">
+          {commonUiContent.mobileMenu.title}
+        </Dialog.Title>
         <div className={styles.content}>{children}</div>
-        <Dialog.Close className="srOnly">Close mobile menu</Dialog.Close>
+        <Dialog.Close className="srOnly">
+          {commonUiContent.mobileMenu.close}
+        </Dialog.Close>
       </Dialog.Popup>
     </Dialog.Portal>
   );
