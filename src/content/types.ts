@@ -35,6 +35,11 @@ export type SiteNavigationItem = {
   ariaLabel: string;
 };
 
+export type ServiceCardContent = ImageContent & {
+  subheading: string;
+  description: string[];
+};
+
 export type LessonPlanContent = {
   quantity: number;
   discount: number;
