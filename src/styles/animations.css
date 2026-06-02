@@ -29,11 +29,20 @@
     --animation-name-waving-hand: none;
     --animation-name-waving-badge: none;
     --animation-name-pulse: none;
+    --animation-name-header-fade-in: none;
+    --animation-name-logos-fade-in: none;
+    --animation-name-hero-photo-fade-in: none;
+    --animation-name-hero-text-fade-in: none;
+    --animation-name-hero-bg-fade-in: none;
     --animation-name-arrow-bounce: none;
+    --animation-name-dropdown-open: none;
+    --animation-name-dropdown-close: none;
     --animation-name-cta-mesh-red: none;
     --animation-name-cta-mesh-yellow: none;
     --animation-name-cta-rotate: none;
     --animation-name-cta-bounce: none;
+    --animation-name-modal-open: none;
+    --animation-name-modal-bg-open: none;
   }
 }
 
