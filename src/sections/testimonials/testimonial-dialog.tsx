@@ -6,10 +6,15 @@ import styles from './testimonial-dialog.module.css';
 
 type TestimonialDialogProps = {
   children: ReactNode;
+  closeLabel: string;
   title: string;
 };
 
-const TestimonialDialog = ({ children, title }: TestimonialDialogProps) => {
+const TestimonialDialog = ({
+  children,
+  closeLabel,
+  title,
+}: TestimonialDialogProps) => {
   return (
     <Dialog.Portal>
       <Dialog.Backdrop className={styles.backdrop} />
@@ -18,7 +23,7 @@ const TestimonialDialog = ({ children, title }: TestimonialDialogProps) => {
           <Dialog.Title className="srOnly">{title}</Dialog.Title>
           <div className={styles.content}>{children}</div>
           <div className={styles.action}>
-            <Dialog.Close className={styles.close}>Закрыть</Dialog.Close>
+            <Dialog.Close className={styles.close}>{closeLabel}</Dialog.Close>
           </div>
         </Dialog.Popup>
       </Dialog.Viewport>
