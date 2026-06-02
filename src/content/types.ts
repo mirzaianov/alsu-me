@@ -58,3 +58,8 @@ export type TranslationRateContent = {
   note: string;
 };
 
+export type TestimonialContent = ImageContent & {
+  fullName: string;
+  occupation: string;
+  comment: string;
+};
