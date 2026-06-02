@@ -4,7 +4,7 @@
   --animation-name-blob-3: blob3;
   --animation-name-waving-hand: wavingHand;
   --animation-name-waving-badge: wavingBadge;
-  --animation-name-tada: tada;
+  --animation-name-pulse: pulse;
   --animation-name-header-fade-in: headerFadeIn;
   --animation-name-logos-fade-in: logosFadeIn;
   --animation-name-hero-photo-fade-in: heroPhotoFadeIn;
@@ -28,7 +28,7 @@
     --animation-name-blob-3: none;
     --animation-name-waving-hand: none;
     --animation-name-waving-badge: none;
-    --animation-name-tada: none;
+    --animation-name-pulse: none;
     --animation-name-arrow-bounce: none;
     --animation-name-cta-mesh-red: none;
     --animation-name-cta-mesh-yellow: none;
@@ -134,52 +134,14 @@
   }
 }
 
-@keyframes tada {
+@keyframes pulse {
   0%,
-  40%,
-  60%,
   100% {
-    transform: scale(1) rotate(0deg);
-  }
-
-  45% {
-    transform: scale(1.1) rotate(-8deg);
-  }
-
-  47% {
-    transform: scale(1.1) rotate(8deg);
-  }
-
-  48% {
-    transform: scale(1.1) rotate(-5deg);
-  }
-
-  49% {
-    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 0 0 var(--pulse-color);
   }
 
   50% {
-    transform: scale(1.1) rotate(-3deg);
-  }
-
-  51% {
-    transform: scale(1.1) rotate(3deg);
-  }
-
-  52% {
-    transform: scale(1.1) rotate(-2deg);
-  }
-
-  53% {
-    transform: scale(1.1) rotate(2deg);
-  }
-
-  54% {
-    transform: scale(1.1) rotate(-1deg);
-  }
-
-  55% {
-    transform: scale(1.1) rotate(1deg);
+    box-shadow: 0 0 0 var(--distance) var(--pulse-color);
   }
 }
 
