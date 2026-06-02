@@ -106,6 +106,14 @@ export function DottedMap<M extends Marker = Marker>({
       style={{ width: '100%', height: '100%', ...style }}
       {...svgProps}
     >
+      {pulse ? (
+        <style>
+          {
+            '@media (prefers-reduced-motion: reduce) {.dotted-map-pulse{display:none}}'
+          }
+        </style>
+      ) : null}
+
       {points.map((point, index) => {
         const rowIndex = yToRowIndex.get(point.y) ?? 0;
         const offsetX = stagger && rowIndex % 2 === 1 ? xStep / 2 : 0;
@@ -149,7 +157,10 @@ export function DottedMap<M extends Marker = Marker>({
             />
 
             {shouldPulse ? (
-              <g pointerEvents="none">
+              <g
+                className="dotted-map-pulse"
+                pointerEvents="none"
+              >
                 <circle
                   cx={x}
                   cy={y}

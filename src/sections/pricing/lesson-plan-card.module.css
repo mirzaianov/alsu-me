@@ -86,6 +86,9 @@
 }
 
 .promo {
+  --duration: 1.5s;
+  --distance: 8px;
+  --pulse-color: oklch(from var(--primary-30) l c h / 0.5);
   display: flex;
   justify-content: center;
   border-radius: 0.5rem;
@@ -94,7 +97,7 @@
   color: var(--text-0);
   font-weight: 700;
   letter-spacing: 0.05em;
-  animation: var(--animation-name-tada) 8s ease-in-out infinite;
+  animation: var(--animation-name-pulse) var(--duration) ease-out infinite;
   cursor: default;
 }
 
