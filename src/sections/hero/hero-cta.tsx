@@ -2,13 +2,14 @@
 
 import { RoughNotation } from 'react-rough-notation';
 import HeroCtaButton from './hero-cta-button';
+import { heroCtaContent } from '../../content/ru/hero';
 import styles from './hero.module.css';
 
 const HeroCta = () => {
   return (
     <article className={styles.ctaBlock}>
       <p className={styles.ctaTextMobile}>
-        Запишись на{' '}
+        {heroCtaContent.mobile.prefix}{' '}
         <RoughNotation
           type="underline"
           show={true}
@@ -17,12 +18,12 @@ const HeroCta = () => {
           strokeWidth={3}
           animationDuration={2000}
         >
-          бесплатное
+          {heroCtaContent.mobile.highlight}
         </RoughNotation>{' '}
-        занятие
+        {heroCtaContent.mobile.suffix}
       </p>
       <p className={styles.ctaTextDesktop}>
-        Запишись на{' '}
+        {heroCtaContent.desktop.prefix}{' '}
         <RoughNotation
           type="underline"
           show={true}
@@ -31,15 +32,15 @@ const HeroCta = () => {
           strokeWidth={4}
           animationDuration={2000}
         >
-          бесплатное
+          {heroCtaContent.desktop.highlight}
         </RoughNotation>{' '}
-        пробное занятие
+        {heroCtaContent.desktop.suffix}
       </p>
       <HeroCtaButton
-        text="Записаться"
-        ariaLabel="Записаться"
+        text={heroCtaContent.action.text}
+        ariaLabel={heroCtaContent.action.ariaLabel}
         size="large"
-        link="https://t.me/sue_onlineenglish"
+        link={heroCtaContent.action.link}
       />
     </article>
   );

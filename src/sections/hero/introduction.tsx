@@ -1,47 +1,46 @@
 import Note from '../../shared/ui/note/note';
+import { heroIntroContent } from '../../content/ru/hero';
 import styles from './introduction.module.css';
 
 const Introduction = () => {
   return (
     <div className={styles.heroTextBlock}>
       <h1 className={styles.heading}>
-        <span>В поисках идеального</span>
+        <span>{heroIntroContent.headingStart}</span>
         <div className={styles.words}>
           <div
             className={styles.wordsTrack}
             data-hero-word-track
           >
-            <div className={styles.word}>преподавателя</div>
-            <div className={styles.word}>переводчика</div>
-            <div className={styles.word}>преподавателя</div>
+            {heroIntroContent.rotatingWords.map((word, index) => (
+              <div
+                className={styles.word}
+                key={`${index}-${word}`}
+              >
+                {word}
+              </div>
+            ))}
           </div>
         </div>
-        <span>английского?</span>
+        <span>{heroIntroContent.headingEnd}</span>
       </h1>
       <div className={styles.bottom}>
         <div className={styles.greeting}>
-          <span>Привет!&nbsp;</span>
-          <span className={styles.greetingLine}>Меня зовут Алсу</span>
+          <span>{heroIntroContent.greetingPrefix}</span>
+          <span className={styles.greetingLine}>
+            {heroIntroContent.greetingLine}
+          </span>
         </div>
         <div className={styles.notes}>
-          <div
-            className={styles.firstNote}
-            data-hero-note="teacher"
-          >
-            <Note type="translator">
-              Научу тебя понимать и говорить на английском языке, подобрав
-              индивидуальную программу
-            </Note>
-          </div>
-          <div
-            className={styles.secondNote}
-            data-hero-note="translator"
-          >
-            <Note>
-              Помогу твоему бизнесу с устным и письменным переводом, тренингом
-              сотрудников
-            </Note>
-          </div>
+          {heroIntroContent.notes.map((note, index) => (
+            <div
+              className={index === 0 ? styles.firstNote : styles.secondNote}
+              data-hero-note={note.id}
+              key={note.id}
+            >
+              <Note type={note.type}>{note.text}</Note>
+            </div>
+          ))}
         </div>
       </div>
     </div>
