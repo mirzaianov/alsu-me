@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import Divider from '../../shared/ui/divider/divider';
 import BrandLogo from '../../shared/ui/brand-logo/brand-logo';
 import SiteNav from '../site-nav/site-nav';
+import { footerContent } from '../../content/ru/footer';
 import styles from './site-footer.module.css';
 
 const SiteFooter = () => {
@@ -14,12 +15,8 @@ const SiteFooter = () => {
         <BrandLogo />
         <div className={styles.about}>
           <div className={styles.summary}>
-            <p className={styles.name}>Алсу Каримова</p>
-            <p className={styles.description}>
-              Дипломированный преподаватель и переводчик английского с
-              многолетним опытом профессиональной деятельности в международных
-              компаниях
-            </p>
+            <p className={styles.name}>{footerContent.name}</p>
+            <p className={styles.description}>{footerContent.description}</p>
           </div>
           <div className={styles.nav}>
             <div className={styles.navDesktop}>
@@ -35,21 +32,21 @@ const SiteFooter = () => {
         <Divider />
         <div className={styles.meta}>
           <div className={clsx('cluster', styles.copy)}>
-            <p>© 2026 Алсу Каримова</p>
+            <p>{footerContent.copyright}</p>
             <p>|</p>
-            <p>Все права защищены</p>
+            <p>{footerContent.rights}</p>
           </div>
           <div className={clsx('cluster', styles.credit)}>
-            <p>Дизайн и разработка</p>
+            <p>{footerContent.creditLabel}</p>
             <p>|</p>
             <a
-              aria-label="Visit the CV site of Riaz Mirzaianov"
-              href="https://www.mirzaianov.com/"
+              aria-label={footerContent.credit.ariaLabel}
+              href={footerContent.credit.href}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
             >
-              mirzaianov
+              {footerContent.credit.text}
               <span className={styles.linkUnderline} />
             </a>
           </div>
