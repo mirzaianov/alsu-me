@@ -35,3 +35,21 @@ export type SiteNavigationItem = {
   ariaLabel: string;
 };
 
+export type LessonPlanContent = {
+  quantity: number;
+  discount: number;
+  heading: string;
+  subheading: string;
+  duration: string;
+  price: number;
+  description: string[];
+};
+
+export type TranslationRateContent = {
+  heading: string;
+  subheading: string;
+  price: number;
+  description: string[];
+  note: string;
+};
+
