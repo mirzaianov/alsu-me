@@ -23,10 +23,10 @@ const contactMapMarkers: ContactMapMarker[] = [
   { lat: 19.4326, lng: -99.1332, label: 'Мехико, Мексика', size: 0.8 },
   { lat: 47.6062, lng: -122.3321, label: 'Сиэтл, США', size: 0.8 },
   { lat: 27.6648, lng: -81.5158, label: 'Флорида, США', size: 0.8 },
-  { lat: -8.65, lng: 115.2167, label: 'Бали, Индонезия', size: 0.8 },
   { lat: 7.8804, lng: 98.3923, label: 'Пхукет, Таиланд', size: 0.8 },
   { lat: 25.2048, lng: 55.2708, label: 'Дубай, ОАЭ', size: 0.8 },
-  { lat: 25.2854, lng: 51.531, label: 'Доха, Катар', size: 0.8 },
+  { lat: 41.6168, lng: 41.6367, label: 'Батуми, Грузия', size: 0.8 },
+  { lat: 44.7866, lng: 20.4489, label: 'Белград, Сербия', size: 0.8 },
 ].map((marker, index) => ({
   ...marker,
   color: contactMapMarkerColors[index % contactMapMarkerColors.length],
