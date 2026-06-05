@@ -1,8 +1,42 @@
 import { clsx } from 'clsx';
-import Image from 'next/image';
 import Button from '../../shared/ui/button/button';
-import contactImage from '../../assets/img/contacts/contacts.png';
+import { DottedMap, type Marker } from '../../shared/ui/dotted-map/dotted-map';
 import styles from './contact.module.css';
+
+type ContactMapMarker = Marker & {
+  label: string;
+};
+
+const contactMapMarkerColors = [
+  'var(--primary-30)',
+  'var(--primary-10)',
+  'var(--primary-50)',
+  'var(--primary-20)',
+  'var(--primary-40)',
+] as const;
+
+const contactMapMarkers: ContactMapMarker[] = [
+  { lat: 54.7388, lng: 55.9721, label: 'Уфа, Россия', size: 0.8 },
+  { lat: 56.8527, lng: 53.2115, label: 'Ижевск, Россия', size: 0.8 },
+  { lat: 55.7961, lng: 49.1064, label: 'Казань, Россия', size: 0.8 },
+  { lat: 55.7436, lng: 52.3958, label: 'Набережные Челны, Россия', size: 0.8 },
+  { lat: 55.7558, lng: 37.6173, label: 'Москва, Россия', size: 0.8 },
+  { lat: 59.9311, lng: 30.3609, label: 'Санкт-Петербург, Россия', size: 0.8 },
+  { lat: 47.6062, lng: -122.3321, label: 'Сиэтл, США', size: 0.8 },
+  { lat: 25.7617, lng: -80.1918, label: 'Майами, США', size: 0.8 },
+  { lat: 19.4326, lng: -99.1332, label: 'Мехико, Мексика', size: 0.8 },
+  { lat: 41.0082, lng: 28.9784, label: 'Стамбул, Турция', size: 0.8 },
+  { lat: 40.1885, lng: 29.061, label: 'Бурса, Турция', size: 0.8 },
+  { lat: 41.7151, lng: 44.8271, label: 'Тбилиси, Грузия', size: 0.8 },
+  { lat: 41.6168, lng: 41.6367, label: 'Батуми, Грузия', size: 0.8 },
+  { lat: 44.7866, lng: 20.4489, label: 'Белград, Сербия', size: 0.8 },
+  { lat: 45.0355, lng: 38.9753, label: 'Краснодар, Россия', size: 0.8 },
+  { lat: 25.2048, lng: 55.2708, label: 'Дубай, ОАЭ', size: 0.8 },
+  { lat: 32.8872, lng: 13.1913, label: 'Триполи, Ливия', size: 0.8 },
+].map((marker, index) => ({
+  ...marker,
+  color: contactMapMarkerColors[index % contactMapMarkerColors.length],
+}));
 
 const Contact = () => {
   return (
@@ -14,13 +48,27 @@ const Contact = () => {
         Готов начать сотрудничество?
       </h2>
       <article className={styles.content}>
-        <Image
-          className={styles.image}
-          src={contactImage}
-          alt="Contact"
-          quality={100}
-          sizes="(min-width: 1921px) 360px, (max-width: 576px) 170px, 300px"
-        />
+        <div className={styles.mapBlock}>
+          <p className={styles.mapText}>
+            Клиенты по всему миру обращаются ко мне, когда важны
+            ответственность, профессионализм и индивидуальный подход с учетом их
+            целей.
+          </p>
+          <div className={styles.mapFrame}>
+            <DottedMap<ContactMapMarker>
+              aria-label="Карта городов онлайн-занятий и переводческих проектов"
+              className={styles.map}
+              dotColor="var(--text-90)"
+              dotRadius={0.16}
+              markerColor="var(--primary-30)"
+              markers={contactMapMarkers}
+              pulse
+              renderMarkerOverlay={({ marker }) => (
+                <title>{marker.label}</title>
+              )}
+            />
+          </div>
+        </div>
         <div className={styles.copy}>
           <p className={styles.subtitle}>Свяжись со мной</p>
           <div className={styles.actions}>

@@ -11,13 +11,53 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: var(--l);
 }
 
-.image {
-  margin-left: 2rem;
-  width: auto;
-  height: var(--img-size-mobile);
+.mapBlock {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--l);
+}
+
+.mapText {
+  max-width: var(--mobile-text-wrapper);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.mapFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  height: clamp(190px, 48vw, 260px);
+  overflow: hidden;
+  color: oklch(from var(--neutral-70) l c h / 0.34);
+}
+
+.map {
+  --contact-map-dot-scale: 1.7;
+  --contact-map-marker-scale: 1.35;
+
+  display: block;
+  opacity: 0.95;
+}
+
+.map [data-dotted-map-dot],
+.map [data-dotted-map-marker] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.map [data-dotted-map-dot] {
+  transform: scale(var(--contact-map-dot-scale));
+}
+
+.map [data-dotted-map-marker] {
+  transform: scale(var(--contact-map-marker-scale));
 }
 
 .copy {
@@ -58,8 +98,21 @@
     gap: var(--xl);
   }
 
-  .image {
-    height: var(--img-size-tablet);
+  .mapBlock {
+    gap: var(--xl);
+  }
+
+  .mapText {
+    max-width: var(--tablet-text-wrapper);
+  }
+
+  .mapFrame {
+    height: clamp(280px, 42vw, 360px);
+  }
+
+  .map {
+    --contact-map-dot-scale: 1.35;
+    --contact-map-marker-scale: 1.15;
   }
 
   .copy {
@@ -72,7 +125,17 @@
   }
 
   .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--m);
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .actions > a,
+  .actions > button {
+    width: var(--contact-action-width);
   }
 }
 
@@ -83,11 +146,26 @@
   }
 
   .content {
-    width: 100%;
-    max-width: 800px;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: var(--m);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--2xl);
+  }
+
+  .mapBlock {
+    gap: var(--2xl);
+  }
+
+  .mapFrame {
+    height: auto;
+  }
+
+  .map {
+    --contact-map-dot-scale: 1;
+    --contact-map-marker-scale: 1;
+  }
+
+  .mapText {
+    max-width: var(--desktop-text-wrapper);
   }
 
   .copy {
@@ -110,12 +188,11 @@
   }
 
   .content {
-    max-width: 900px;
+    gap: var(--3xl);
   }
 
-  .image {
-    height: 340px;
-    margin-left: var(--l);
+  .mapBlock {
+    gap: var(--3xl);
   }
 
   .copy {

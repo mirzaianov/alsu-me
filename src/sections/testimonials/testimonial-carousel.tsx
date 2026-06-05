@@ -47,9 +47,9 @@ const TestimonialCarousel = () => {
   const [isFocusPaused, setIsFocusPaused] = useState(false);
   const [isHoverPaused, setIsHoverPaused] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const isCarouselPausedRef = useRef(
-    isModalPaused || isFocusPaused || isHoverPaused,
-  );
+  const isImmediateCarouselPausedRef = useRef(isModalPaused || isFocusPaused);
+  const isGestureControlActiveRef = useRef(false);
+  const isHoverPausedRef = useRef(isHoverPaused);
   const closeHoverSyncTimeoutRef = useRef<number | null>(null);
   const lastPointerPositionRef = useRef<PointerPosition | null>(null);
   const syncTimelinePausedRef = useRef<(() => void) | null>(null);
@@ -205,7 +205,9 @@ const TestimonialCarousel = () => {
         });
         const viewportAnimation = createViewportPausedAnimation({
           animation: timeline,
-          isPaused: () => isCarouselPausedRef.current,
+          delayedPaused: () => isHoverPausedRef.current,
+          isDelayedPauseSuppressed: () => isGestureControlActiveRef.current,
+          isPaused: () => isImmediateCarouselPausedRef.current,
           trigger: root,
         });
         syncTimelinePausedRef.current = viewportAnimation.sync;
@@ -219,6 +221,10 @@ const TestimonialCarousel = () => {
           controller: timeScaleController,
           getPixelsPerSecond: () => pixelsPerSecond,
           maxReleaseTimeScale: testimonialGestureMaxReleaseTimeScale,
+          onGestureControlChange: (isActive) => {
+            isGestureControlActiveRef.current = isActive;
+            viewportAnimation.sync();
+          },
           target: root,
         });
 
@@ -273,8 +279,8 @@ const TestimonialCarousel = () => {
   );
 
   useEffect(() => {
-    isCarouselPausedRef.current =
-      isModalPaused || isFocusPaused || isHoverPaused;
+    isImmediateCarouselPausedRef.current = isModalPaused || isFocusPaused;
+    isHoverPausedRef.current = isHoverPaused;
     syncTimelinePausedRef.current?.();
   }, [isFocusPaused, isHoverPaused, isModalPaused]);
 
@@ -308,8 +314,10 @@ const TestimonialCarousel = () => {
       onPointerLeave={syncHoverPause}
       onPointerUp={syncHoverPause}
     >
-      <TestimonialRow setIsModalPaused={handleModalPausedChange} />
-      <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+      <div className={styles.marqueeViewport}>
+        <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+        <TestimonialRow setIsModalPaused={handleModalPausedChange} />
+      </div>
     </div>
   );
 };

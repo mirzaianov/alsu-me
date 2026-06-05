@@ -13,6 +13,8 @@ const DEFAULT_SETTLE_DELAY = 0.12;
 const DEFAULT_SETTLE_DURATION = 0.65;
 const DEFAULT_GESTURE_RELEASE_HOLD_DURATION = 0.25;
 const DEFAULT_GESTURE_RELEASE_DURATION = 0.5;
+const DEFAULT_INTERACTION_PAUSE_DELAY = 0.12;
+const DEFAULT_INTERACTION_PAUSE_DURATION = 0.24;
 const DEFAULT_MIN_GESTURE_RELEASE_TIME_SCALE = MARQUEE_NORMAL_TIME_SCALE;
 const POINTER_RELEASE_SAMPLE_WINDOW = 240;
 const POINTER_HORIZONTAL_INTENT_RATIO = 1.2;
@@ -56,12 +58,20 @@ type GestureResponsiveMarqueeOptions = {
   getPixelsPerSecond: () => number;
   maxReleaseTimeScale?: number;
   minReleaseTimeScale?: number;
+  onGestureControlChange?: (isActive: boolean) => void;
   target: Element;
 };
 
 type ViewportPausedAnimationOptions = {
   animation: gsap.core.Animation;
+  delayedPaused?: () => boolean;
+  interactionPauseDelay?: number;
+  interactionPauseDuration?: number;
+  interactionPauseEnterEase?: string;
+  interactionPauseExitEase?: string;
+  isDelayedPauseSuppressed?: () => boolean;
   isPaused?: () => boolean;
+  normalTimeScale?: number;
   trigger: Element;
 };
 
@@ -74,6 +84,7 @@ type ReleaseVelocityOptions = {
   holdDuration?: number;
   maxTimeScale?: number;
   minTimeScale?: number;
+  onComplete?: () => void;
   pixelsPerSecond: number;
   velocity: number;
 };
@@ -150,13 +161,146 @@ export const keepMarqueeLoopingInReverse = (timeline: gsap.core.Timeline) => {
 
 export const createViewportPausedAnimation = ({
   animation,
+  delayedPaused,
+  interactionPauseDelay = DEFAULT_INTERACTION_PAUSE_DELAY,
+  interactionPauseDuration = DEFAULT_INTERACTION_PAUSE_DURATION,
+  interactionPauseEnterEase = 'power2.in',
+  interactionPauseExitEase = 'power2.out',
+  isDelayedPauseSuppressed,
   isPaused,
+  normalTimeScale = MARQUEE_NORMAL_TIME_SCALE,
   trigger,
 }: ViewportPausedAnimationOptions) => {
   let isInView = isElementVisibleInViewport(trigger);
+  let isInteractionPauseActive = false;
+  let interactionPauseTarget: 'paused' | 'playing' | null = null;
+  let interactionResumeTimeScale = normalTimeScale;
+  let interactionPauseCall: gsap.core.Tween | null = null;
+  let interactionPauseTween: gsap.core.Tween | null = null;
+
+  const clearInteractionPauseCall = () => {
+    interactionPauseCall?.kill();
+    interactionPauseCall = null;
+  };
+
+  const clearInteractionPauseTween = () => {
+    interactionPauseTween?.kill();
+    interactionPauseTween = null;
+  };
+
+  const clearInteractionPauseControls = () => {
+    clearInteractionPauseCall();
+    clearInteractionPauseTween();
+  };
+
+  const startDelayedInteractionPause = () => {
+    if (interactionPauseTarget === 'paused') {
+      return;
+    }
+
+    interactionPauseTarget = 'paused';
+    clearInteractionPauseCall();
+    clearInteractionPauseTween();
+
+    if (animation.paused() && !isInteractionPauseActive) {
+      isInteractionPauseActive = true;
+      interactionResumeTimeScale = normalTimeScale;
+      return;
+    }
+
+    if (!isInteractionPauseActive) {
+      const currentTimeScale = animation.timeScale();
+      interactionResumeTimeScale =
+        currentTimeScale === 0 ? normalTimeScale : currentTimeScale;
+    }
+
+    interactionPauseCall = gsap.delayedCall(interactionPauseDelay, () => {
+      interactionPauseCall = null;
+      isInteractionPauseActive = true;
+      animation.paused(false);
+
+      interactionPauseTween = gsap.to(animation, {
+        duration: interactionPauseDuration,
+        ease: interactionPauseEnterEase,
+        onComplete: () => {
+          interactionPauseTween = null;
+
+          if (
+            isInView &&
+            !Boolean(isPaused?.()) &&
+            Boolean(delayedPaused?.())
+          ) {
+            animation.paused(true);
+          }
+        },
+        overwrite: true,
+        timeScale: 0,
+      });
+    });
+  };
+
+  const resumeFromInteractionPause = () => {
+    if (interactionPauseTarget === 'playing') {
+      return;
+    }
+
+    interactionPauseTarget = 'playing';
+    clearInteractionPauseCall();
+    clearInteractionPauseTween();
+
+    if (!isInteractionPauseActive) {
+      animation.paused(false);
+      interactionPauseTarget = null;
+      return;
+    }
+
+    interactionPauseCall = gsap.delayedCall(interactionPauseDelay, () => {
+      interactionPauseCall = null;
+      animation.paused(false);
+
+      interactionPauseTween = gsap.to(animation, {
+        duration: interactionPauseDuration,
+        ease: interactionPauseExitEase,
+        onComplete: () => {
+          interactionPauseTween = null;
+          isInteractionPauseActive = false;
+          interactionPauseTarget = null;
+        },
+        overwrite: true,
+        timeScale: interactionResumeTimeScale,
+      });
+    });
+  };
 
   const sync = () => {
-    animation.paused(!isInView || Boolean(isPaused?.()));
+    const isImmediatelyPaused = !isInView || Boolean(isPaused?.());
+    const isDelayedInteractionPaused =
+      Boolean(delayedPaused?.()) && !Boolean(isDelayedPauseSuppressed?.());
+
+    if (isImmediatelyPaused) {
+      clearInteractionPauseControls();
+      if (!isDelayedInteractionPaused) {
+        isInteractionPauseActive = false;
+        interactionPauseTarget = null;
+      }
+      animation.paused(true);
+      return;
+    }
+
+    if (Boolean(isDelayedPauseSuppressed?.())) {
+      clearInteractionPauseControls();
+      isInteractionPauseActive = false;
+      interactionPauseTarget = null;
+      animation.paused(false);
+      return;
+    }
+
+    if (isDelayedInteractionPaused) {
+      startDelayedInteractionPause();
+      return;
+    }
+
+    resumeFromInteractionPause();
   };
 
   const setInView = (nextIsInView: boolean) => {
@@ -195,8 +339,14 @@ export const createViewportPausedAnimation = ({
   sync();
 
   return {
-    isActive: () => isInView && !Boolean(isPaused?.()),
+    isActive: () =>
+      isInView &&
+      !Boolean(isPaused?.()) &&
+      (!Boolean(delayedPaused?.()) || Boolean(isDelayedPauseSuppressed?.())) &&
+      !isInteractionPauseActive &&
+      interactionPauseTarget === null,
     kill: () => {
+      clearInteractionPauseControls();
       viewportObserver?.disconnect();
       viewportTrigger?.kill();
     },
@@ -270,6 +420,7 @@ export const createMarqueeTimeScaleController = ({
   const hold = () => {
     isGestureReleaseActive = false;
     settleMarquee.pause(0);
+    animation.paused(false);
     setTimeScale(0);
   };
 
@@ -292,6 +443,7 @@ export const createMarqueeTimeScaleController = ({
     holdDuration = gestureReleaseHoldDuration,
     maxTimeScale: releaseMaxTimeScale = maxTimeScale,
     minTimeScale = minReleaseTimeScale,
+    onComplete,
     pixelsPerSecond,
     velocity,
   }: ReleaseVelocityOptions) => {
@@ -312,12 +464,14 @@ export const createMarqueeTimeScaleController = ({
       timeScale: direction * releaseTimeScale,
     };
 
+    animation.paused(false);
     animation.timeScale(releaseState.timeScale);
     timeScaleTween = gsap
       .timeline({
         onComplete: () => {
           isGestureReleaseActive = false;
           animation.timeScale(settledTimeScale);
+          onComplete?.();
         },
       })
       .to({}, { duration: holdDuration })
@@ -425,6 +579,7 @@ export const createGestureResponsiveMarquee = ({
   getPixelsPerSecond,
   maxReleaseTimeScale,
   minReleaseTimeScale,
+  onGestureControlChange,
   target,
 }: GestureResponsiveMarqueeOptions) => {
   let gestureAxis: GestureAxis = null;
@@ -433,7 +588,17 @@ export const createGestureResponsiveMarquee = ({
   let gesturePositionSamples: GesturePositionSample[] = [];
   let gestureOffsetX = 0;
   let gestureVelocity = 0;
+  let isGestureControlActive = false;
   let isDragging = false;
+
+  const setGestureControlActive = (isActive: boolean) => {
+    if (isGestureControlActive === isActive) {
+      return;
+    }
+
+    isGestureControlActive = isActive;
+    onGestureControlChange?.(isActive);
+  };
 
   const resetGestureState = () => {
     gestureAxis = null;
@@ -500,6 +665,7 @@ export const createGestureResponsiveMarquee = ({
 
       if (!isDragging) {
         isDragging = true;
+        setGestureControlActive(true);
         controller.hold();
       }
 
@@ -526,6 +692,7 @@ export const createGestureResponsiveMarquee = ({
 
       if (!gestureDirection) {
         resetGestureState();
+        setGestureControlActive(false);
         return;
       }
 
@@ -538,6 +705,9 @@ export const createGestureResponsiveMarquee = ({
         direction: releaseDirection,
         maxTimeScale: maxReleaseTimeScale,
         minTimeScale: minReleaseTimeScale,
+        onComplete: () => {
+          setGestureControlActive(false);
+        },
         pixelsPerSecond: getPixelsPerSecond(),
         velocity: releaseVelocity,
       });
@@ -548,6 +718,7 @@ export const createGestureResponsiveMarquee = ({
   });
 
   return () => {
+    setGestureControlActive(false);
     observer.kill();
   };
 };
