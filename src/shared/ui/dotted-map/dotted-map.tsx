@@ -116,6 +116,7 @@ export function DottedMap<M extends Marker = Marker>({
             cy={point.y}
             r={dotRadius}
             fill={dotColor}
+            data-dotted-map-dot
             key={`${point.x}-${point.y}-${index}`}
           />
         );
@@ -140,7 +141,10 @@ export function DottedMap<M extends Marker = Marker>({
         );
 
         return (
-          <g key={`${marker.x}-${marker.y}-${index}`}>
+          <g
+            data-dotted-map-marker
+            key={`${marker.x}-${marker.y}-${index}`}
+          >
             <circle
               cx={x}
               cy={y}
