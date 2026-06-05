@@ -5,14 +5,18 @@ import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import sale from '../../assets/img/prices/sale.png';
+import type { ImageContent } from '../../content/types';
 import styles from './pricing.module.css';
 
 const SALE_BADGE_REVEAL_READY_STATE = 'ready';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const PricingSaleBadge = () => {
+type PricingSaleBadgeProps = {
+  image: ImageContent;
+};
+
+const PricingSaleBadge = ({ image }: PricingSaleBadgeProps) => {
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
@@ -92,8 +96,8 @@ const PricingSaleBadge = () => {
     >
       <Image
         className={styles.saleImage}
-        src={sale}
-        alt="Sale"
+        src={image.src}
+        alt={image.alt}
         quality={100}
         sizes="(max-width: 576px) 170px, 300px"
       />

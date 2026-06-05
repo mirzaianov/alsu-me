@@ -1,6 +1,11 @@
 import Button from '../../shared/ui/button/button';
 import addSpacesToNumber from '../../utils/numbers/add-spaces-to-numbers';
+import type { ActionContent } from '../../content/types';
 import styles from './translation-rate-card.module.css';
+
+type TranslationRateCardLabels = {
+  cta: ActionContent;
+};
 
 type TranslationRateCardProps = {
   heading: string;
@@ -8,6 +13,7 @@ type TranslationRateCardProps = {
   price: number;
   description: string[];
   note: string;
+  labels: TranslationRateCardLabels;
 };
 
 const TranslationRateCard = ({
@@ -16,6 +22,7 @@ const TranslationRateCard = ({
   price,
   description,
   note,
+  labels,
 }: TranslationRateCardProps) => {
   return (
     <div className={styles.priceTranslatorCard}>
@@ -26,10 +33,10 @@ const TranslationRateCard = ({
         {` ₽`}
       </h5>
       <Button
-        ariaLabel="Записаться"
-        link="https://t.me/sue_onlineenglish"
+        ariaLabel={labels.cta.ariaLabel}
+        link={labels.cta.link}
       >
-        <span>Заказать</span>
+        <span>{labels.cta.text}</span>
       </Button>
       <ul className={styles.list}>
         {description.map((item) => (

@@ -1,7 +1,14 @@
 import { clsx } from 'clsx';
 import Button from '../../shared/ui/button/button';
 import addSpacesToNumber from '../../utils/numbers/add-spaces-to-numbers';
+import type { ActionContent } from '../../content/types';
 import styles from './lesson-plan-card.module.css';
+
+type LessonPlanCardLabels = {
+  freePrice: string;
+  cta: ActionContent;
+  popular: string;
+};
 
 type LessonPlanCardProps = {
   quantity: number;
@@ -11,6 +18,7 @@ type LessonPlanCardProps = {
   duration: string;
   price: number;
   description: string[];
+  labels: LessonPlanCardLabels;
 };
 
 const LessonPlanCard = ({
@@ -21,6 +29,7 @@ const LessonPlanCard = ({
   duration,
   price,
   description,
+  labels,
 }: LessonPlanCardProps) => {
   return (
     <div className={clsx(styles.priceTutorCard, discount && styles.discount)}>
@@ -36,7 +45,7 @@ const LessonPlanCard = ({
             {quantity ? ` ₽` : ''}
           </h5>
         ) : (
-          <h5 className={styles.price}>Бесплатно</h5>
+          <h5 className={styles.price}>{labels.freePrice}</h5>
         )}
         {discount ? (
           <p className={styles.crossedOut}>
@@ -48,22 +57,13 @@ const LessonPlanCard = ({
         )}
       </div>
       <div className={styles.action}>
-        {discount ? (
-          <Button
-            ariaLabel="Записаться"
-            type="inverse"
-            link="https://t.me/sue_onlineenglish"
-          >
-            <span>Записаться</span>
-          </Button>
-        ) : (
-          <Button
-            ariaLabel="Записаться"
-            link="https://t.me/sue_onlineenglish"
-          >
-            <span>Записаться</span>
-          </Button>
-        )}
+        <Button
+          ariaLabel={labels.cta.ariaLabel}
+          type={discount ? 'inverse' : undefined}
+          link={labels.cta.link}
+        >
+          <span>{labels.cta.text}</span>
+        </Button>
       </div>
       <ul className={styles.list}>
         {description.map((item) => (
@@ -77,7 +77,7 @@ const LessonPlanCard = ({
       </ul>
       {discount ? (
         <div className={styles.promoWrap}>
-          <div className={styles.promo}>Популярно</div>
+          <div className={styles.promo}>{labels.popular}</div>
         </div>
       ) : null}
     </div>

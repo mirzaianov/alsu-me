@@ -3,6 +3,7 @@
 import { clsx } from 'clsx';
 import { useState, useEffect } from 'react';
 import { PiArrowFatUpFill } from 'react-icons/pi';
+import { commonUiContent } from '../../content/ru/common';
 import styles from './back-to-top.module.css';
 
 const BackToTop = () => {
@@ -44,7 +45,7 @@ const BackToTop = () => {
 
   return (
     <a
-      aria-label="Go to the top of the page"
+      aria-label={commonUiContent.backToTop.ariaLabel}
       className={clsx(styles.backToTopButton, isVisible && styles.visible)}
       href="#app"
     >
