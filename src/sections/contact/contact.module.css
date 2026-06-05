@@ -39,8 +39,25 @@
 }
 
 .map {
+  --contact-map-dot-scale: 1.7;
+  --contact-map-marker-scale: 1.35;
+
   display: block;
   opacity: 0.95;
+}
+
+.map [data-dotted-map-dot],
+.map [data-dotted-map-marker] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.map [data-dotted-map-dot] {
+  transform: scale(var(--contact-map-dot-scale));
+}
+
+.map [data-dotted-map-marker] {
+  transform: scale(var(--contact-map-marker-scale));
 }
 
 .copy {
@@ -93,6 +110,11 @@
     height: clamp(280px, 42vw, 360px);
   }
 
+  .map {
+    --contact-map-dot-scale: 1.35;
+    --contact-map-marker-scale: 1.15;
+  }
+
   .copy {
     gap: var(--l);
   }
@@ -135,6 +157,11 @@
 
   .mapFrame {
     height: auto;
+  }
+
+  .map {
+    --contact-map-dot-scale: 1;
+    --contact-map-marker-scale: 1;
   }
 
   .mapText {

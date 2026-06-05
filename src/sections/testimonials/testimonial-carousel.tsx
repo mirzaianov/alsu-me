@@ -48,6 +48,7 @@ const TestimonialCarousel = () => {
   const [isHoverPaused, setIsHoverPaused] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const isImmediateCarouselPausedRef = useRef(isModalPaused || isFocusPaused);
+  const isGestureControlActiveRef = useRef(false);
   const isHoverPausedRef = useRef(isHoverPaused);
   const closeHoverSyncTimeoutRef = useRef<number | null>(null);
   const lastPointerPositionRef = useRef<PointerPosition | null>(null);
@@ -205,6 +206,7 @@ const TestimonialCarousel = () => {
         const viewportAnimation = createViewportPausedAnimation({
           animation: timeline,
           delayedPaused: () => isHoverPausedRef.current,
+          isDelayedPauseSuppressed: () => isGestureControlActiveRef.current,
           isPaused: () => isImmediateCarouselPausedRef.current,
           trigger: root,
         });
@@ -219,6 +221,10 @@ const TestimonialCarousel = () => {
           controller: timeScaleController,
           getPixelsPerSecond: () => pixelsPerSecond,
           maxReleaseTimeScale: testimonialGestureMaxReleaseTimeScale,
+          onGestureControlChange: (isActive) => {
+            isGestureControlActiveRef.current = isActive;
+            viewportAnimation.sync();
+          },
           target: root,
         });
 
