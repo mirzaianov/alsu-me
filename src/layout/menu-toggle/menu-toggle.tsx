@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { clsx } from 'clsx';
 import type { ButtonHTMLAttributes } from 'react';
+import { commonUiContent } from '../../content/ru/common';
 import styles from './menu-toggle.module.css';
 
 type MenuToggleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -13,7 +14,11 @@ const MenuToggle = forwardRef<HTMLButtonElement, MenuToggleProps>(
       <button
         {...buttonProps}
         ref={ref}
-        aria-label={`${isMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}`}
+        aria-label={
+          isMenuOpen
+            ? commonUiContent.mobileMenu.closeToggle
+            : commonUiContent.mobileMenu.openToggle
+        }
         className={clsx(styles.menuToggle, className)}
         type={type}
       >

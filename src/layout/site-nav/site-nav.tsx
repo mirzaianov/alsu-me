@@ -10,31 +10,25 @@ import {
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { clsx } from 'clsx';
+import {
+  siteNavigationItems,
+  type SectionId,
+} from '../../content/ru/navigation';
 import styles from './site-nav.module.css';
-
-const items = [
-  ['hero', 'Главная'],
-  ['about', 'Обо мне'],
-  ['services', 'Услуги'],
-  ['pricing', 'Цены'],
-  ['testimonials', 'Отзывы'],
-  ['contact', 'Контакты'],
-] as const;
 
 const activeSectionRootMargin = '-12% 0px -82% 0px';
 const heroHash = '#hero';
 const rootPath = '/';
 const dockbarSelector = '[data-site-dockbar]';
-const observedItems = items.filter(([id]) => id !== 'hero');
+const observedItems = siteNavigationItems.filter(({ id }) => id !== 'hero');
 const dotFallbackSize = 4;
 const indicatorFadeDuration = 0.14;
 const indicatorTravelDuration = 0.78;
 const indicatorSwapDelay = indicatorTravelDuration - indicatorFadeDuration * 2;
 const pendingNavigationReleaseMs = 1800;
 
-type SectionId = (typeof items)[number][0];
 type SiteNavLayout = 'inline' | 'block-1' | 'block-2' | 'block-3';
-const sectionIds = new Set<string>(items.map(([id]) => id));
+const sectionIds = new Set<string>(siteNavigationItems.map(({ id }) => id));
 
 const isSectionId = (id: string): id is SectionId => sectionIds.has(id);
 
@@ -486,7 +480,7 @@ const SiteNav = ({
     );
 
     const observeAvailableSections = () => {
-      observedItems.forEach(([id]) => {
+      observedItems.forEach(({ id }) => {
         if (observedIds.has(id)) {
           return;
         }
@@ -560,25 +554,25 @@ const SiteNav = ({
       ref={navBarRef}
       className={clsx(styles.navBar, styles[type])}
     >
-      {items.map((item) => (
+      {siteNavigationItems.map((item) => (
         <li
-          className={clsx(styles.item, styles[item[0]])}
-          key={item[0]}
+          className={clsx(styles.item, styles[item.id])}
+          key={item.id}
         >
           <a
-            aria-label={`Go to the ${item[0]} section`}
+            aria-label={item.ariaLabel}
             className={styles.link}
-            href={item[0] === 'hero' ? rootPath : `#${item[0]}`}
-            onClick={(event) => handleClick(event, item[0])}
-            aria-current={activeLink === item[0] ? 'location' : undefined}
+            href={item.id === 'hero' ? rootPath : `#${item.id}`}
+            onClick={(event) => handleClick(event, item.id)}
+            aria-current={activeLink === item.id ? 'location' : undefined}
           >
             <span
               ref={(node) => {
-                labelRefs.current[item[0]] = node;
+                labelRefs.current[item.id] = node;
               }}
               className={styles.linkLabel}
             >
-              {item[1]}
+              {item.label}
             </span>
           </a>
         </li>

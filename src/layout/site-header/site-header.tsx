@@ -8,6 +8,7 @@ import SiteNav from '../site-nav/site-nav';
 import MenuToggle from '../menu-toggle/menu-toggle';
 import Button from '../../shared/ui/button/button';
 import MobileMenu from '../mobile-menu/mobile-menu';
+import { primaryBookingAction } from '../../content/ru/common';
 import styles from './site-header.module.css';
 
 const headerHideDelta = 8;
@@ -38,11 +39,11 @@ const HeaderContent = ({
       </div>
       <div className={styles.desktopAction}>
         <Button
-          ariaLabel="Записаться"
+          ariaLabel={primaryBookingAction.ariaLabel}
           type="secondary"
-          link="https://t.me/sue_onlineenglish"
+          link={primaryBookingAction.link}
         >
-          <span>Записаться</span>
+          <span>{primaryBookingAction.text}</span>
         </Button>
       </div>
     </div>

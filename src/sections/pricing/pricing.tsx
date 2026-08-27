@@ -3,56 +3,9 @@ import LessonPlanCard from './lesson-plan-card';
 import PricingSaleBadge from './pricing-sale-badge';
 import TranslationRateCard from './translation-rate-card';
 import ScrollCardReveal from '../../shared/ui/scroll-card-reveal/scroll-card-reveal';
-import pricingImage from '../../assets/img/prices/prices.png';
+import { pricingContent } from '../../content/ru/pricing';
 import { clsx } from 'clsx';
 import styles from './pricing.module.css';
-
-const tutorCardData = [
-  {
-    quantity: 0,
-    discount: 0,
-    heading: 'Пробное',
-    subheading: 'Индивидуальное занятие',
-    duration: `Продолжительность: 20 мин`,
-    price: 0,
-    description: ['Знакомимся', 'Определяем уровень'],
-  },
-  {
-    quantity: 1,
-    discount: 0,
-    heading: '1',
-    subheading: 'Индивидуальное занятие',
-    duration: `Продолжительность: 60 мин`,
-    price: 2500,
-    description: ['80% занятия - практика', 'Современные материалы'],
-  },
-  {
-    quantity: 5,
-    discount: 1250,
-    heading: '5',
-    subheading: 'Индивидуальных занятий',
-    duration: `Продолжительность: 60 мин`,
-    price: 2500,
-    description: ['80% занятия - практика', 'Современные материалы'],
-  },
-];
-
-const translatorCardData = [
-  {
-    heading: 'Устный последовательный перевод',
-    subheading: `Продолжительность: 60 мин`,
-    price: 2500,
-    description: ['Английский - Русский', 'Русский - Английский'],
-    note: 'Минимальная оплата - 2 часа',
-  },
-  {
-    heading: 'Письменный перевод',
-    subheading: '1000 знаков без пробелов',
-    price: 1500,
-    description: ['Английский - Русский', 'Русский - Английский'],
-    note: 'Стоимость и сроки - после ознакомления с материалом',
-  },
-];
 
 const Pricing = () => {
   return (
@@ -60,51 +13,57 @@ const Pricing = () => {
       id="pricing"
       className={clsx('section', styles.pricing)}
     >
-      <h2 className={clsx('title', styles.title)}>Выбери свой план</h2>
+      <h2 className={clsx('title', styles.title)}>{pricingContent.title}</h2>
       <article className={styles.intro}>
         <Image
           className={styles.image}
-          src={pricingImage}
-          alt="Pricing"
+          src={pricingContent.introImage.src}
+          alt={pricingContent.introImage.alt}
           quality={100}
           sizes="(min-width: 1921px) 368px, (max-width: 576px) 170px, 300px"
         />
         <div className={clsx('stack', styles.copy)}>
-          <p>Подбери план и стоимость, которые наиболее подходят тебе.</p>
-          <p>Или свяжись со мной, и мы вместе определимся с программой.</p>
+          {pricingContent.introParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </article>
       <article className={styles.groups}>
         <div className={clsx('stack', styles.group)}>
-          <h3 className={styles.subtitle}>
-            Индивидуальные занятия на платформе Zoom
-          </h3>
+          <h3 className={styles.subtitle}>{pricingContent.tutorSubtitle}</h3>
           <ScrollCardReveal className={clsx('gridCards', styles.cards)}>
-            {tutorCardData.map((item) =>
+            {pricingContent.lessonPlans.map((item) =>
               item.discount ? (
                 <div
                   key={item.heading}
                   className={styles.discountCardFrame}
                 >
-                  <PricingSaleBadge />
-                  <LessonPlanCard {...item} />
+                  <PricingSaleBadge image={pricingContent.saleBadgeImage} />
+                  <LessonPlanCard
+                    {...item}
+                    labels={pricingContent.lessonPlanLabels}
+                  />
                 </div>
               ) : (
                 <LessonPlanCard
                   key={item.heading}
                   {...item}
+                  labels={pricingContent.lessonPlanLabels}
                 />
               ),
             )}
           </ScrollCardReveal>
         </div>
         <div className={clsx('stack', styles.group)}>
-          <h3 className={styles.subtitle}>Переводы</h3>
+          <h3 className={styles.subtitle}>
+            {pricingContent.translatorSubtitle}
+          </h3>
           <ScrollCardReveal className={clsx('gridCards', styles.cards)}>
-            {translatorCardData.map((item) => (
+            {pricingContent.translationRates.map((item) => (
               <TranslationRateCard
                 key={item.heading}
                 {...item}
+                labels={pricingContent.translationRateLabels}
               />
             ))}
           </ScrollCardReveal>

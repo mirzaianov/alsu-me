@@ -1,12 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/next';
+import { siteMetadataContent } from '../src/content/ru/site-metadata';
 import './globals.css';
-
-const siteTitle =
-  'Алсу Каримова • Преподаватель и переводчик английского языка';
-const siteDescription =
-  'Дипломированный преподаватель и переводчик английского с опытом профессиональной деятельности более 16 лет';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -28,10 +24,10 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.alsu.me'),
-  title: siteTitle,
-  description: siteDescription,
-  manifest: '/site.webmanifest',
+  metadataBase: new URL(siteMetadataContent.baseUrl),
+  title: siteMetadataContent.title,
+  description: siteMetadataContent.description,
+  manifest: siteMetadataContent.manifest,
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -52,17 +48,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: 'https://www.alsu.me',
-    siteName: 'ALSU.ME',
+    title: siteMetadataContent.title,
+    description: siteMetadataContent.description,
+    url: siteMetadataContent.baseUrl,
+    siteName: siteMetadataContent.siteName,
     images: [
       {
-        url: '/og-image.jpg',
-        alt: siteTitle,
+        url: siteMetadataContent.ogImage.url,
+        alt: siteMetadataContent.title,
       },
     ],
-    locale: 'ru_RU',
+    locale: siteMetadataContent.locale,
     type: 'website',
   },
 };
@@ -79,7 +75,7 @@ type RootLayoutProps = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html
-      lang="ru"
+      lang={siteMetadataContent.language}
       className={inter.variable}
     >
       <body>

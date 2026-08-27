@@ -6,20 +6,31 @@ import Image, { type StaticImageData } from 'next/image';
 import TestimonialDialog from './testimonial-dialog';
 import styles from './testimonial-card.module.css';
 
+type TestimonialCardLabels = {
+  readMore: string;
+  readFullAriaPrefix: string;
+  fullReviewTitlePrefix: string;
+  closeDialog: string;
+};
+
 type TestimonialCardProps = {
   src: StaticImageData;
+  alt: string;
   fullName: string;
   occupation: string;
   comment: string;
+  labels: TestimonialCardLabels;
   pauseCarousel: () => void;
   resumeCarousel: () => void;
 };
 
 const TestimonialCard = ({
   src,
+  alt,
   fullName,
   occupation,
   comment,
+  labels,
   pauseCarousel,
   resumeCarousel,
 }: TestimonialCardProps) => {
@@ -83,7 +94,7 @@ const TestimonialCard = ({
             <Image
               className={styles.avatar}
               src={src}
-              alt=""
+              alt={alt}
               sizes="56px"
             />
             <div className={styles.meta}>
@@ -104,24 +115,27 @@ const TestimonialCard = ({
           <Dialog.Trigger
             render={
               <button
-                aria-label={`Читать отзыв полностью: ${fullName}`}
+                aria-label={`${labels.readFullAriaPrefix} ${fullName}`}
                 className={styles.more}
                 type="button"
               >
-                Читать далее
+                {labels.readMore}
               </button>
             }
           />
         )}
       </figure>
       {shouldRenderDialog && (
-        <TestimonialDialog title={`Полный отзыв: ${fullName}`}>
+        <TestimonialDialog
+          closeLabel={labels.closeDialog}
+          title={`${labels.fullReviewTitlePrefix} ${fullName}`}
+        >
           <figure className={styles.modalFigure}>
             <figcaption className={styles.person}>
               <Image
                 className={styles.avatar}
                 src={src}
-                alt=""
+                alt={alt}
                 sizes="56px"
               />
               <div className={styles.meta}>
