@@ -13,8 +13,8 @@ Before changing code, read:
 
 ## Tech Baseline
 
-- Runtime: Node.js `24.15.0` from `.nvmrc`
-- Package manager: pnpm `11.0.0`, locked by `pnpm-lock.yaml`
+- Runtime: Node.js `24.21.0` from `.nvmrc`
+- Package manager: pnpm `12.8.1`, locked by `pnpm-lock.yaml`
 - Framework: Next.js App Router + React
 - Language: TypeScript for app source and Next config
 - Styling: CSS Modules plus global CSS in `app/globals.css` and shared global style files in `src/styles`

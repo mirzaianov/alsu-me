@@ -32,11 +32,11 @@
 
     git clone https://github.com/mirzaianov/alsu-me.git
     cd alsu-me
-    nvm use 24.15.0
+    nvm use 24.21.0
     corepack enable
     pnpm install
 
-Supported toolchain: Node.js `24.15.0` LTS and pnpm `10.33.2`.
+Supported toolchain: Node.js `24.21.0` LTS and pnpm `12.8.1` stable.
 
 Vercel Analytics is configured in `app/layout.tsx`.
 
