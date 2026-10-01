@@ -10,8 +10,8 @@ Status: project-state current repository state
 
 ## Current Tooling Baseline
 
-- Node.js `24.15.0` is pinned in `.nvmrc`; `package.json` allows Node `>=24.15.0`.
-- pnpm is the package manager; `packageManager` pins `pnpm@11.0.0`, `package.json` requires pnpm `>=11.0.0`, and `pnpm-lock.yaml` is present. [Reason why added: package installs are now lockfile-owned by pnpm instead of npm.]
+- Node.js `24.21.0` LTS is pinned in `.nvmrc`; `package.json` allows Node `>=24.21.0`.
+- pnpm is the package manager; `packageManager` pins stable `pnpm@12.8.1` and `package.json` requires pnpm `>=12.8.1`. [Reason why added: the toolchain follows the latest Node.js LTS and stable pnpm releases; pnpm has no separate LTS channel.]
 - A local `preinstall` guard in `scripts/ensure-pnpm.js` rejects non-pnpm installs and accepts pnpm lifecycles detected from the package-manager user agent, executable path including Corepack's pnpm `.mjs` entrypoint, or Vercel's missing-user-agent install environment.
 - `pnpm-workspace.yaml` enforces `minimumReleaseAge: 10080` and version-scoped `allowBuilds` for `sharp@0.34.5` and `unrs-resolver@1.12.2`. [Reason why added: fresh installs should wait seven days before resolving newly published package versions while still allowing required native package install scripts.]
 - Next.js is the frontend framework and production build tool, with `next.config.ts` typed by TypeScript. [Reason why added: KAN-110 migrated the app from Vite to Next.js while preserving the one-page route surface.]
