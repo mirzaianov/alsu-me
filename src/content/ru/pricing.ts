@@ -53,15 +53,6 @@ export const pricingContent = {
       price: 2500,
       description: ['80% занятия - практика', 'Современные материалы'],
     },
-    {
-      quantity: 5,
-      discount: 1250,
-      heading: '5',
-      subheading: 'Индивидуальных занятий',
-      duration: 'Продолжительность: 60 мин',
-      price: 2500,
-      description: ['80% занятия - практика', 'Современные материалы'],
-    },
   ] satisfies LessonPlanContent[],
   translationRates: [
     {
