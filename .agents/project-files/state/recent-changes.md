@@ -6,6 +6,7 @@ Keep only the 10 most recent entries.
 
 ## Entries
 
+- 2026-10-01: Updated Node.js to `24.21.0` LTS and pnpm to `12.8.1` stable in the toolchain configuration and documentation. [Reason why added: refresh the pinned toolchain to the latest Node.js LTS and stable pnpm releases.]
 - 2026-06-02: Added a typed local content layer under `src/content/ru` and wired app metadata, navigation, site chrome, section copy, structured cards, testimonials, contact actions, map markers, and static asset references through it. [Reason why added: the project needs a stable content boundary before adding i18n routing or deciding which records should move to a database/CMS.]
 - 2026-06-01: Replaced the Contact raster artwork with the Magic UI Dotted Map component and markers for Kazan, Moscow, Bursa, Antalya, Mexico City, Seattle, Florida, Bali, Phuket, Dubai, and Doha. [Reason why added: the Contact section should show the requested global location map using the named component, with styling adapted to the project's CSS Modules setup.]
 - 2026-05-31: Added responsive left/right CSS mask fades to the hero logo marquee and testimonials marquee. [Reason why added: the moving items should disappear softly at viewport edges across mobile, tablet, desktop, and extra-wide layouts without overlaying pointer-blocking elements.]
@@ -15,4 +16,3 @@ Keep only the 10 most recent entries.
 - 2026-05-28: Refined Hero activation threshold to match the IntersectionObserver's active zone (18vh). [Reason why added: To prevent the "Hero" link from becoming active too early when scrolling up, ensuring visual consistency with other section transitions.]
 - 2026-05-28: Refactored dynamic URL hash synchronization to use a reactive side-effect on `activeLink`. [Reason why added: To ensure the address bar accurately reflects all sections, including short ones like About and Contacts, by syncing with the already-verified navbar indicator state.]
 - 2026-05-28: Migrated all media queries to modern range syntax (`width >=`, `width <=`, and range syntax) across CSS modules and TypeScript files. [Reason why added: To align with modern CSS standards and improve code readability as per modern-web-guidance.]
-- 2026-05-28: Fixed Prettier linting regressions in `testimonial-carousel.tsx` discovered during the final validation of the OKLCH color migration. [Reason why added: the codebase must remain compliant with the project's formatting standards after any manual or automatic changes.]
