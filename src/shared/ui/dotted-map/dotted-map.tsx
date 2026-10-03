@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createMap } from 'svg-dotted-map';
+import { createMap } from 'piri';
 
 const markerPulseDurationSeconds = 2.8;
 const markerPulseDuration = `${markerPulseDurationSeconds}s`;
@@ -14,13 +14,13 @@ function getMarkerPulseBegin(markerIndex: number, delaySeconds = 0) {
   return offsetSeconds === 0 ? '0s' : `-${offsetSeconds.toFixed(2)}s`;
 }
 
-export interface Marker {
+export type Marker = {
   lat: number;
   lng: number;
   size?: number;
   pulse?: boolean;
   color?: string;
-}
+};
 
 /** addMarkers returns markers with lat/lng removed; only x, y and other props (e.g. size) remain */
 type MapMarker<M extends Marker> = Omit<M, 'lat' | 'lng'> & {
