@@ -1,8 +1,8 @@
 minimumReleaseAge: 10080
 
 overrides:
-  fast-uri: 3.1.5
-  postcss: 8.5.23
+  fast-uri: 4.2.1
+  postcss: 8.5.28
 
 allowBuilds:
   sharp@0.34.5: true

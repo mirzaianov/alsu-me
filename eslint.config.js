@@ -1,4 +1,5 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
+import { fixupConfigRules } from '@eslint/compat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import nextVitals from 'eslint-config-next/core-web-vitals';
@@ -17,8 +18,8 @@ export default defineConfig([
     '.pnpm-store/**',
     'next-env.d.ts',
   ]),
-  ...nextVitals,
-  ...nextTypescript,
+  // Next's React plugins still use rule APIs removed in ESLint 10.
+  ...fixupConfigRules([...nextVitals, ...nextTypescript]),
   eslintPluginPrettierRecommended,
   {
     linterOptions: {
